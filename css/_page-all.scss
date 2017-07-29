@@ -1,0 +1,72 @@
+body {
+    background: white; // opacity: 0;
+    transition: opacity 1s 0s;
+    position: relative;
+}
+
+h1 {}
+
+a {
+    transition: all .5s 0s;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.admin-bar #wpadminbar {
+    top: -46px;
+    @media (min-width: 601px) {
+         
+        top: 0;
+    }
+}
+
+.content {}
+
+.post-edit-link {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+    padding: 0px 5px;
+    background: white;
+    box-shadow: 1px 1px 8px grey;
+    opacity: .8;
+}
+
+.post-edit-link:hover {
+    opacity: 1;
+}
+
+.breadcrumbs {
+    @include mn768 {
+        // margin: 20px 0;
+    }
+}
+
+img {
+    &.alignleft {
+        float: left;
+        margin-right: 1em;
+        margin-bottom: .5em;
+    }
+    &.aligncenter {
+        margin: 1em auto;
+    }
+    &.alignright {
+        float: right;
+        margin-left: 1em;
+        margin-bottom: .5em;
+    }
+}
+
+blockquote {
+    margin: 0 0 0 21%;
+    padding: 25px 0 10px 10px;
+    background: url(../img/blockquote.png) left top no-repeat;
+    font-size: 14px;
+    p {
+        margin: 0;
+    }
+}

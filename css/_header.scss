@@ -1,0 +1,83 @@
+.header-mobile {
+    text-align: center;
+    padding: 20px 0;
+    &_inner {}
+    &__item {
+        margin: 3px 0;
+    }
+    .navbar {
+        position: static;
+    }
+    .navbar-collapse {
+        position: absolute;
+        top: 40px;
+        right: 5px;
+        background: white;
+        box-shadow: 0px 0px 1px grey;
+        margin: 0;
+        text-align: left;
+        text-transform: uppercase;
+        font-weight: 700;
+        max-width: 300px;
+    }
+    .navbar-nav>li>a {
+        line-height: 1;
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+    .dropdown-menu > li > a {
+    	overflow: hidden;
+    text-overflow: ellipsis;
+    }
+    .dropdown-menu li { 
+    	text-transform: none;
+    }
+    .navbar-nav .open .dropdown-menu > li > a {
+    	left: 1px;
+    }
+}
+
+.b-tel {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.b-email {
+    display: block;
+    color: #999;
+    font-size: 14px;
+}
+
+.b-get-offer {
+    display: block;
+    color: $red;
+    font-family: "Roboto Condensed";
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-transform: uppercase;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.menu-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    padding: 7px;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin: 0;
+    span {
+        display: block;
+        height: 3px;
+        background-color: #000;
+    }
+    span+span {
+        margin-top: 3px;
+    }
+}

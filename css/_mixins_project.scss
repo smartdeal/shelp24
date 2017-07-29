@@ -1,0 +1,12 @@
+// Usage: @include mixin_name {}
+@mixin title {
+    color: #ffffff;
+    font-family: "Neo Sans Pro";
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.33;
+    padding: 20px 0;
+    @include mn768 {
+        font-size: 36px;
+    }
+}

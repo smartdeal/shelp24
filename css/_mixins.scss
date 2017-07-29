@@ -1,0 +1,106 @@
+// Usage: @include mn550 {}
+$m550-width: 550px;
+$m600-width: 600px;
+$m768-width: 768px;
+$m992-width: 992px;
+$m1024-width: 1024px;
+$m1200-width: 1200px;
+$m1400-width: 1400px;
+@mixin mn550 {
+    @media (min-width: #{$m550-width}) {
+        @content;
+    }
+}
+
+@mixin mn600 {
+    @media (min-width: #{$m600-width}) {
+        @content;
+    }
+}
+
+@mixin mn768 {
+    @media (min-width: #{$m768-width}) {
+        @content;
+    }
+}
+
+@mixin mn992 {
+    @media (min-width: #{$m992-width}) {
+        @content;
+    }
+}
+
+@mixin mn1024 {
+    @media (min-width: #{$m1024-width}) {
+        @content;
+    }
+}
+
+@mixin mn1200 {
+    @media (min-width: #{$m1200-width}) {
+        @content;
+    }
+}
+
+@mixin mn1400 {
+    @media (min-width: #{$m1400-width}) {
+        @content;
+    }
+}
+
+@mixin text-fade {
+    position: relative;
+    // height: 3.6em; /* exactly three lines */
+    &:after {
+        content: "";
+        text-align: right;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 70%;
+        height: 1.2em;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+    }
+}
+
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {List}            - text-shadow list
+@function stroke($stroke, $color) {
+  $shadow: ();
+  $from: $stroke*-1;
+  @for $i from $from through $stroke {
+   @for $j from $from through $stroke {
+      $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+    }
+  }
+  @return $shadow;
+}
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {Style}           - text-shadow
+@mixin stroke($stroke, $color) {
+  text-shadow: stroke($stroke, $color);
+}
+
+@mixin placeholder {
+    input                       {@content}
+    ::-webkit-input-placeholder {@content}
+    :-moz-placeholder           {@content}
+    ::-moz-placeholder          {@content}
+    :-ms-input-placeholder      {@content}  
+}
+
+@mixin cf {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }    
+}

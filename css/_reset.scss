@@ -1,0 +1,173 @@
+@import 'mixins';
+@import 'variables';
+
+body {
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 400;
+    color: #333
+}
+
+a {
+    color: inherit;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+        outline: none;
+        color: inherit;
+    }
+    &:focus {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+button {
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+}
+
+a:focus,
+a:active,
+button,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+select::-moz-focus-inner,
+input[type="file"]>input[type="button"]::-moz-focus-inner {
+    outline: none !important;
+}
+
+@include placeholder {
+    color: #fff;
+    font-weight: 400;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+button:active,
+button:focus {
+    outline: none !important;
+}
+
+button::-moz-focus-inner {
+    border: 0 !important;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+input {
+    line-height: normal;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+    box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style-position: inside;
+    list-style: none;
+}
+
+.input {
+    font-size: 16px;
+    font-weight: 400;
+    border: 1px solid;
+    border-radius: 3px;
+    background: transparent;
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.btn-submit {
+    @extend .input;
+    color: $red;
+    border-color: $red;
+    display: inline-block;
+    font-weight: 500;
+    transition: background .5s 0s, color .5s 0s;
+    max-width: 260px;
+    &:hover {
+        background: $red;
+        color: #000;
+    }
+}
+
+input[type=text],
+input[type=email] {
+    @extend .input;
+}
+
+input[type=submit] {
+    @extend .btn-submit;
+}
+
+.cf {
+    @include cf;
+}
