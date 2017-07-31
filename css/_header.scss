@@ -1,12 +1,18 @@
 .header-mobile {
     text-align: center;
     padding: 20px 0;
+    @include mn992 {
+        display: none;
+    }
     &_inner {}
     &__item {
         margin: 3px 0;
     }
     .navbar {
         position: static;
+        min-height: 0;
+        margin: 0;
+        border: 0;
     }
     .navbar-collapse {
         position: absolute;
@@ -25,15 +31,15 @@
         padding-top: 7px;
         padding-bottom: 7px;
     }
-    .dropdown-menu > li > a {
-    	overflow: hidden;
-    text-overflow: ellipsis;
+    .dropdown-menu>li>a {
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
-    .dropdown-menu li { 
-    	text-transform: none;
+    .dropdown-menu li {
+        text-transform: none;
     }
-    .navbar-nav .open .dropdown-menu > li > a {
-    	left: 1px;
+    .navbar-nav .open .dropdown-menu>li>a {
+        left: 1px;
     }
 }
 
@@ -79,5 +85,11 @@
     }
     span+span {
         margin-top: 3px;
+    }
+    @include mn768 {
+        display: block;
+    }
+    @include mn992 {
+        display: none;
     }
 }

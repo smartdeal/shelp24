@@ -1,0 +1,154 @@
+.sidebar {
+    display: none;
+    position: fixed;
+    width: 300px;
+    min-height: 900px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding: 70px 30px 30px;
+    @include mn992 {
+        display: block;
+    }
+    &__top {
+        text-align: center;
+    }
+    &__logo {
+        margin-bottom: 60px;
+    }
+    &__tel {
+        margin-bottom: 5px;
+    }
+    &__email {
+        margin-bottom: 50px;
+    }
+}
+
+.less900 .sidebar {
+    position: absolute;
+}
+
+.admin-bar {
+    .sidebar {
+        top: 32px;
+    }
+    &.less900 {
+        .sidebar {
+            top: 0;
+        }
+    }
+}
+
+.navbar_sidebar {
+    position: static;
+    .sub-menu {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        transition: all .5s .2s;
+        left: 300px;
+        background: white;
+        top: auto;
+        margin-top: -40px;
+        padding: 20px 30px;
+        max-width: 400px;
+        box-shadow: 2px 2px 7px lightgrey;
+        &:hover {
+            opacity: 1;
+            visibility: visible;
+        }
+        >.menu-item>a {
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 7px 0px;
+        }
+    }
+    .navbar-nav {
+        .menu-item {
+            float: none;
+            display: block;
+        }
+        >li {
+            position: static;
+        }
+        >li>a:hover,
+        >li>a:focus {
+            background-color: transparent;
+        }
+        a {
+            color: #333;
+        }
+        a:hover,
+        a:focus {
+            color: $red;
+        }
+        >.menu-item>a {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 10px 0;
+        }
+        .menu-item-has-children a:hover+.sub-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.navbar_privary {
+    margin-bottom: 50px;
+}
+
+.navbar_secondary {
+    .navbar-nav a {
+        color: #999;
+    }
+}
+
+.sidebar__bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 20px 30px;
+}
+
+.sidebar {
+    &__get-offer {
+        margin-bottom: 50px;
+    }
+    &__adr {
+    	font-size: 12px;
+        margin-bottom: 20px;
+    }
+    &__bottom-links{
+        margin: 20px 0;
+    }
+    &__entry,
+    &__warranty {
+        display: inline-block;
+        padding: 0 20px;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    &__warranty {
+        color: $red;
+    }
+    &__social {
+        margin: 20px 0 0;
+    }
+}
+
+.less900 .sidebar__bottom {
+    position: static;
+    padding-left: 0;
+    padding-right: 0;
+}

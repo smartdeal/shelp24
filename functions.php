@@ -38,7 +38,7 @@ function new_setup() {
     if ( function_exists( 'add_image_size' ) ) { 
     //     add_image_size( 'middle', 300, 300, false ); 
         add_image_size( 'thumb1024', 1024 );
-        add_image_size( 'thumb1920', 1920 );
+        // add_image_size( 'thumb1920', 1920 );
 
     }
 
@@ -49,66 +49,66 @@ add_action( 'after_setup_theme', 'new_setup' );
 function custom_post_type() {
 
     $labels = array(
-        'name'                => _x( 'Позиции', 'Post Type General Name', 'seohelp' ),
-        'singular_name'       => _x( 'Позиция', 'Post Type Singular Name', 'seohelp' ),
-        'menu_name'           => __( 'Команда seohelp', 'seohelp' ),
-        'parent_item_colon'   => __( 'Родит. Позиция', 'seohelp' ),
-        'all_items'           => __( 'Все Позиции', 'seohelp' ),
-        'view_item'           => __( 'Смотреть Позиции', 'seohelp' ),
-        'add_new_item'        => __( 'Добавить новую Позицию', 'seohelp' ),
+        'name'                => _x( 'Полезное', 'Post Type General Name', 'seohelp' ),
+        'singular_name'       => _x( 'Полезное', 'Post Type Singular Name', 'seohelp' ),
+        'menu_name'           => __( 'Полезное', 'seohelp' ),
+        'parent_item_colon'   => __( 'Родит. Статья', 'seohelp' ),
+        'all_items'           => __( 'Все Статьи', 'seohelp' ),
+        'view_item'           => __( 'Смотреть Статьи', 'seohelp' ),
+        'add_new_item'        => __( 'Добавить новую Статью', 'seohelp' ),
         'add_new'             => __( 'Добавить новую', 'seohelp' ),
-        'edit_item'           => __( 'Редактировать Позицию', 'seohelp' ),
-        'update_item'         => __( 'Обновить Позицию', 'seohelp' ),
-        'search_items'        => __( 'Искать Позицию', 'seohelp' ),
+        'edit_item'           => __( 'Редактировать Статью', 'seohelp' ),
+        'update_item'         => __( 'Обновить Статью', 'seohelp' ),
+        'search_items'        => __( 'Искать Статью', 'seohelp' ),
         'not_found'           => __( 'Не найдено', 'seohelp' ),
         'not_found_in_trash'  => __( 'Не найдено в корзине', 'seohelp' ),
     );
 
     $args = array(
-        'label'               => __( 'Команда seohelp', 'seohelp' ),
+        'label'               => __( 'Полезное', 'seohelp' ),
         'description'         => __( '', 'seohelp' ),
         'labels'              => $labels,
         'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', ),
-        'taxonomies'          => array('race-type'),
+        'taxonomies'          => array('post_tag'),
         'hierarchical'        => false,
         'public'              => true,
         'show_ui'             => true,
         'show_in_menu'        => true,
         'show_in_nav_menus'   => true,
         'show_in_admin_bar'   => true,
-        'menu_position'       => 24,
+        'menu_position'       => 4,
         'can_export'          => true,
-        'has_archive'         => false,
+        'has_archive'         => true,
         'exclude_from_search' => false,
         'publicly_queryable'  => true,
         'capability_type'     => 'post',
     );
-    register_post_type( 'team-seohelp', $args );
+    register_post_type( 'stati', $args );
 
-    register_taxonomy('race-type', array('team-seohelp'), array(
-        'labels'                => array(
-            'name'              => 'Тип гонок',
-            'singular_name'     => 'Тип гонок',
-            'search_items'      => 'Искать Тип гонок',
-            'all_items'         => 'Все Типы гонок',
-            'parent_item'       => 'Родит. Тип гонок',
-            'parent_item_colon' => 'Родит. Тип гонок:',
-            'edit_item'         => 'Ред. Тип гонок',
-            'update_item'       => 'Обновить Тип гонок',
-            'add_new_item'      => 'Добавить Тип гонок',
-            'new_item_name'     => 'Новый Тип гонок',
-            'menu_name'         => 'Тип гонок',
-        ),
-        'description'           => 'Типы гонок',
-        'public'                => true,
-        'show_tagcloud'         => true,
-        'hierarchical'          => true,
-        'show_admin_column'     => true,
-    ) );    
+    // register_taxonomy('race-type', array('team-seohelp'), array(
+    //     'labels'                => array(
+    //         'name'              => 'Тип гонок',
+    //         'singular_name'     => 'Тип гонок',
+    //         'search_items'      => 'Искать Тип гонок',
+    //         'all_items'         => 'Все Типы гонок',
+    //         'parent_item'       => 'Родит. Тип гонок',
+    //         'parent_item_colon' => 'Родит. Тип гонок:',
+    //         'edit_item'         => 'Ред. Тип гонок',
+    //         'update_item'       => 'Обновить Тип гонок',
+    //         'add_new_item'      => 'Добавить Тип гонок',
+    //         'new_item_name'     => 'Новый Тип гонок',
+    //         'menu_name'         => 'Тип гонок',
+    //     ),
+    //     'description'           => 'Типы гонок',
+    //     'public'                => true,
+    //     'show_tagcloud'         => true,
+    //     'hierarchical'          => true,
+    //     'show_admin_column'     => true,
+    // ) );    
 
 }
 
-// add_action( 'init', 'custom_post_type', 0 );
+add_action( 'init', 'custom_post_type', 0 );
 
 function seohelp_widgets_init() {
     register_sidebar( array(
@@ -128,7 +128,7 @@ function is_login_page() {
 
 function seohelp_styles() {
     if ( ! is_admin() && ! is_login_page() ) {
-        wp_enqueue_style( 'seohelp-style-opensans','https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=cyrillic');
+        wp_enqueue_style( 'seohelp-style-opensans','https://fonts.googleapis.com/css?family=Open+Sans:400,600i,700&amp;subset=cyrillic');
         wp_enqueue_style( 'seohelp-style-roboto',  'https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic');
         wp_enqueue_style( 'seohelp-style-roboto2', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=cyrillic');
         wp_enqueue_style( 'seohelp-style',         get_stylesheet_uri() );
@@ -165,6 +165,23 @@ add_action( 'wp_enqueue_scripts', 'seohelp_scripts' );
 
 add_filter('excerpt_more', function($more) {return '...'; });
 
+// show all tags in admin page
+function wpse_64058_all_tags ( $args ) {
+    if ( defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_POST['action'] ) && $_POST['action'] === 'get-tagcloud' )
+        unset( $args['number'] );
+        $args['hide_empty'] = 0;
+    return $args;
+}
+
+// show archive tags custom post
+function wpa_cpt_tags( $query ) {
+    if ( $query->is_tag() && $query->is_main_query() ) {
+        $query->set( 'post_type', array( 'post', 'stati' ) );
+    }
+}
+add_action( 'pre_get_posts', 'wpa_cpt_tags' );
+
+add_filter( 'get_terms_args', 'wpse_64058_all_tags' );
 
 ## Удаляет "Рубрика: ", "Метка: " и т.д. из заголовка архива
 add_filter('get_the_archive_title', function( $title ){
@@ -270,19 +287,53 @@ function filter_plugin_updates( $value ) {
 }
 add_filter( 'site_transient_update_plugins', 'filter_plugin_updates' );
 
-function list_columns_func( $atts, $content = '' ){
-    $out = $content;
-    $count = $atts['count'];
-    $count_class = '';
-    if ($count) {
-        if (($count) == 1) $count_class = '_1';
-            else if (($count) == 2) $count_class = '_2';
-                    else if (($count) == 3) $count_class = '_3';
-                        else if (($count) == 4) $count_class = '_4';
-        if ($count_class) $out = '<div class="list_columns list_columns'.$count_class.'">'.$out.'</div>';
-    }
+// Add a widget to the dashboard.
+function shortcodes_add_dashboard_widgets() {
+    wp_add_dashboard_widget(
+                 'shortcodes_dashboard_widget',         // Widget slug.
+                 'Полезная информация',         // Title.
+                 'shortcodes_dashboard_widget_function' // Display function.
+        );  
+}
+add_action( 'wp_dashboard_setup', 'shortcodes_add_dashboard_widgets' );
+
+function shortcodes_dashboard_widget_function() {
+    echo 'Шорткоды для отображения информации в контенте страниц, записей и т.д.:<br>';
+    echo '[get_tel] - Показать телефон студии<br>';
+    echo '[get_email] - Показать email студии<br>';
+    echo '[get_content_form] - Показать форму заявки на страницы<br>';
+    echo '[get_content_form title="Заказать перенос сайта"] - Показать форму заявки с новым заголовком<br>';
+    echo '<br>Сменить логотип, номер телефона, email, добавить коды счетчиков и сервисов на сайт можно на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a>.<br>';
+}
+
+// function get_tel_func( $atts, $content = '' ){
+//     $out = $content;
+//     return $out;
+// }
+
+function get_tel_func( $atts ){
+    if ($main_tel = get_field('option_tel','option')) $out = $main_tel;
+        else $out = '';
     return $out;
 }
-add_shortcode('list_columns', 'list_columns_func');
+add_shortcode('get_tel', 'get_tel_func');
+
+function get_email_func( $atts ){
+    if ($main_email = get_field('option_email','option')) $out = $main_email;
+        else $out = '';
+    return $out;
+}
+add_shortcode('get_email', 'get_email_func');
+
+function get_content_form_func( $atts ){
+    if ($atts['title'] != '') $title = $atts['title'];
+        else $title = 'Заказать звонок.';
+    $out = '<div class="form-content">';
+    $out .= '<div class="form-content__title">'.$title.'</div>';
+    $out .= '<div class="form-content__body">'.do_shortcode('[contact-form-7 id="193" title="Форма в контенте"]').'</div>';
+    $out .= '</div>';
+    return $out;
+}
+add_shortcode('get_content_form', 'get_content_form_func');
 
 ?>

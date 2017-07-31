@@ -1,14 +1,14 @@
 @charset "UTF-8";
 @import 'bootstrap.min';
 @import 'reset';
-@import 'fonts';
-@import 'variables';
-@import 'mixins';
 @import 'mixins_project';
+@import 'fonts';
 @import 'header';
 @import 'footer';
+@import 'sidebar';
 @import 'forms';
 @import 'page-all';
-@import 'page-main';
+@import 'tpl-archive';
+@import 'tpl-single';
 @import 'page-about';
 

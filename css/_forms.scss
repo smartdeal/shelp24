@@ -1,0 +1,137 @@
+.wpcf7-checkbox {
+    display: inline-block;
+
+    .wpcf7-list-item {
+        display: block;
+
+        input[type=checkbox],
+        input[type=radio] {
+            display: none;
+
+            &:checked+.wpcf7-list-item-label:before {
+                opacity: 1;
+            }
+        }
+    }
+
+    .wpcf7-list-item-label {
+        display: inline-block;
+        font-family: "Arial", sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        padding: 10px 10px 10px 35px;
+        line-height: 1;
+        position: relative;
+        text-align: left;
+
+        &:before {
+            opacity: 0;
+            content: "X";
+            color: inherit;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: normal;
+            line-height: 29px;
+            text-decoration: inherit;
+            text-align: center;
+            position: absolute;
+            left: 9px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            transition: opacity .5s 0s;
+        }
+        &:after {
+            content: '';
+            width: 28px;
+            height: 28px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: $lightgrey;
+            border: 1px solid $grey;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.wpcf7 {
+    span.wpcf7-list-item {
+        margin: 0;
+    }
+    .ajax-loader {
+        position: absolute;
+    }
+
+    .wpcf7-not-valid,
+    .wpcf7-checkbox.wpcf7-not-valid .wpcf7-list-item-label:after {
+        border-color: red !important;
+    }
+
+    .wpcf7-not-valid-tip {
+        display: none !important;
+    }
+
+    .wpcf7-response-output {
+        margin: 20px 0;
+        text-align: center;
+    }
+    label {
+        margin: 0;
+        font-weight: inherit;
+    }
+}
+
+.form-content {
+    margin: 30px 0;
+    padding: 30px 0;
+    border: 1px solid $grey;
+    border-left: 0;
+    border-right: 0;
+    color: #666;
+    text-align: center;
+    &__title {
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 1.2;
+        text-align: center;
+    }
+    &__body {
+        font-size: 14px;
+        padding: 20px 0 10px;
+    }
+    .form {
+        &__inner {
+            font-size: 0;
+        }
+        &__row {
+            font-size: 16px;
+            display: inline-block;
+            vertical-align: middle;
+            width: 350px;
+            max-width: 100%;
+            margin-bottom: 15px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            @include mn1200 {
+                width: 33.33%;
+                padding-right: 30px;
+                margin-bottom: 0;
+                &:last-child {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+    .wpcf7-submit {
+        @include mn1200 {
+            width: 100%;
+        }
+    }
+}
