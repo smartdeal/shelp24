@@ -3,11 +3,16 @@ body {
     transition: opacity 1s 0s;
     position: relative;
     min-width: 320px;
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 h1 {}
 
-a, .btn {
+[data-aload] { background-image: none !important; }
+
+.loaded a, 
+.loaded .btn {
     transition: all .5s 0s;
 }
 

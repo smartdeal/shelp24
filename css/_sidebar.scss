@@ -7,6 +7,7 @@
     top: 0;
     bottom: 0;
     padding: 70px 30px 30px;
+    z-index: 1;
     @include mn992 {
         display: block;
     }
@@ -121,10 +122,10 @@
         margin-bottom: 50px;
     }
     &__adr {
-    	font-size: 12px;
+        font-size: 12px;
         margin-bottom: 20px;
     }
-    &__bottom-links{
+    &__bottom-links {
         margin: 20px 0;
     }
     &__entry,
@@ -151,4 +152,28 @@
     position: static;
     padding-left: 0;
     padding-right: 0;
+}
+
+.social {
+    margin: 30px 0 20px;
+    &__item {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 10px;
+    }
+    &__item_2 {
+        .social__icon {
+            width: 18px;
+        }
+    }
+    &__icon {
+        width: 30px;
+        height: 24px;
+        display: block;
+        background: url('') left no-repeat;
+        transition: background-position .3s 0s;
+        &:hover {
+            background-position: right;
+        }
+    }
 }

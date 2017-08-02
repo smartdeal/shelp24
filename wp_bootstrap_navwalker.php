@@ -78,7 +78,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
       $atts = array();
       $atts['title']  = ! empty( $item->title ) ? $item->title  : '';
       $atts['target'] = ! empty( $item->target )  ? $item->target : '';
-      $atts['rel']    = ! empty( $item->xfn )   ? $item->xfn  : '';
+      // $atts['rel']    = ! empty( $item->xfn )   ? $item->xfn  : '';
 
       // If item has_children add atts to a.
       if ( $args->has_children ) {

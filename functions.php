@@ -9,6 +9,40 @@ remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
 remove_action( 'admin_print_styles', 'print_emoji_styles' );
+remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+remove_action ('wp_head', 'rsd_link');
+remove_action('wp_head', 'wlwmanifest_link');
+add_filter('the_generator', '__return_empty_string');
+remove_action( 'wp_head', 'dns-prefetch' );
+remove_action( 'wp_head', 'wp_resource_hints', 2 );
+add_filter( 'emoji_svg_url', '__return_false' );
+remove_action('wp_head', 'feed_links', 2);
+remove_action('wp_head', 'feed_links_extra', 3);
+
+// Отключаем сам REST API
+add_filter('rest_enabled', '__return_false');
+ 
+// Отключаем фильтры REST API
+remove_action( 'xmlrpc_rsd_apis', 'rest_output_rsd' );
+remove_action( 'wp_head', 'rest_output_link_wp_head', 10, 0 );
+remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
+remove_action( 'auth_cookie_malformed', 'rest_cookie_collect_status' );
+remove_action( 'auth_cookie_expired', 'rest_cookie_collect_status' );
+remove_action( 'auth_cookie_bad_username', 'rest_cookie_collect_status' );
+remove_action( 'auth_cookie_bad_hash', 'rest_cookie_collect_status' );
+remove_action( 'auth_cookie_valid', 'rest_cookie_collect_status' );
+remove_filter( 'rest_authentication_errors', 'rest_cookie_check_errors', 100 );
+ 
+// Отключаем события REST API
+remove_action( 'init', 'rest_api_init' );
+remove_action( 'rest_api_init', 'rest_api_default_filters', 10, 1 );
+remove_action( 'parse_request', 'rest_api_loaded' );
+ 
+// Отключаем Embeds связанные с REST API
+remove_action( 'rest_api_init', 'wp_oembed_register_route');
+remove_filter( 'rest_pre_serve_request', '_oembed_rest_pre_serve_request', 10, 4 );
+ 
+remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
 
 function my_deregister_scripts(){
     wp_deregister_script( 'wp-embed' );
@@ -54,7 +88,7 @@ function custom_post_type() {
         'menu_name'           => __( 'Полезное', 'seohelp' ),
         'parent_item_colon'   => __( 'Родит. Статья', 'seohelp' ),
         'all_items'           => __( 'Все Статьи', 'seohelp' ),
-        'view_item'           => __( 'Смотреть Статьи', 'seohelp' ),
+        'view_item'           => __( 'Смотреть Статью', 'seohelp' ),
         'add_new_item'        => __( 'Добавить новую Статью', 'seohelp' ),
         'add_new'             => __( 'Добавить новую', 'seohelp' ),
         'edit_item'           => __( 'Редактировать Статью', 'seohelp' ),
@@ -85,6 +119,43 @@ function custom_post_type() {
     );
     register_post_type( 'stati', $args );
 
+    $labels = array(
+        'name'                => _x( 'Портфолио', 'Post Type General Name', 'seohelp' ),
+        'singular_name'       => _x( 'Портфолио', 'Post Type Singular Name', 'seohelp' ),
+        'menu_name'           => __( 'Портфолио', 'seohelp' ),
+        'parent_item_colon'   => __( 'Родит. Портфолио', 'seohelp' ),
+        'all_items'           => __( 'Все Портфолио', 'seohelp' ),
+        'view_item'           => __( 'Смотреть Портфолио', 'seohelp' ),
+        'add_new_item'        => __( 'Добавить новою Портфолио', 'seohelp' ),
+        'add_new'             => __( 'Добавить новою', 'seohelp' ),
+        'edit_item'           => __( 'Редактировать Портфолио', 'seohelp' ),
+        'update_item'         => __( 'Обновить Портфолио', 'seohelp' ),
+        'search_items'        => __( 'Искать Портфолио', 'seohelp' ),
+        'not_found'           => __( 'Не найдено', 'seohelp' ),
+        'not_found_in_trash'  => __( 'Не найдено в корзине', 'seohelp' ),
+    );
+
+    $args = array(
+        'label'               => __( 'Портфолио', 'seohelp' ),
+        'description'         => __( '', 'seohelp' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', ),
+        'taxonomies'          => array(),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+    );
+    register_post_type( 'portfolio', $args );
+
     // register_taxonomy('race-type', array('team-seohelp'), array(
     //     'labels'                => array(
     //         'name'              => 'Тип гонок',
@@ -109,6 +180,11 @@ function custom_post_type() {
 }
 
 add_action( 'init', 'custom_post_type', 0 );
+
+add_action('init', function () {
+     add_rewrite_rule('portfolio/?$','index.php?pagename=portfolio', 'top');
+     flush_rewrite_rules();
+}, 1000);
 
 function seohelp_widgets_init() {
     register_sidebar( array(
@@ -304,6 +380,38 @@ function shortcodes_dashboard_widget_function() {
     echo '[get_content_form] - Показать форму заявки на страницы<br>';
     echo '[get_content_form title="Заказать перенос сайта"] - Показать форму заявки с новым заголовком<br>';
     echo '<br>Сменить логотип, номер телефона, email, добавить коды счетчиков и сервисов на сайт можно на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a>.<br>';
+}
+
+function get_portfolio($posts_per_page = -1) {
+    $out = '<div class="portfolio">';
+    $arg =  array(
+        'orderby'      => 'menu_order',
+        'order'        => 'ASC',
+        'posts_per_page' => $posts_per_page,
+        'post_type' => 'portfolio',
+        'post_status' => 'publish',
+    );
+    $query = new WP_Query($arg);
+    if ($query->have_posts() ):
+        while ( $query->have_posts() ): 
+            $query->the_post();
+            if (!$folio_logo_color = get_field('folio_logo_color'))
+                $folio_logo_color = "#fff";
+            $folio_logo_bg = '';
+            if ($arrFolio_logo_bg = get_field('folio_logo_bg'))
+                $folio_logo_bg = ' url('.$arrFolio_logo_bg['sizes']['medium'].') center no-repeat; background-size: cover';
+            $out .= '<div class="portfolio__item" data-aload style="background:'.$folio_logo_color.$folio_logo_bg.'">';
+            $out .= '<a href="'.get_the_permalink().'" class="portfolio__link">';
+            $out .= '<div class="portfolio__caption">'.get_the_title().'</div>';
+            if (has_post_thumbnail())
+                $out .= '<img src="'.wp_get_attachment_image_url(get_post_thumbnail_id(),'medium').'" alt="'.get_the_title().'" class="portfolio__img">';
+            $out .= '</a>';
+            $out .= '</div>';
+        endwhile;
+    endif;
+    wp_reset_postdata();
+    $out .= '</div>';
+    echo $out;
 }
 
 // function get_tel_func( $atts, $content = '' ){

@@ -58,13 +58,20 @@
 	    <a href="#form-get-offer" class="sidebar__get-offer b-get-offer">Запросить предложение</a>
 	    <?php if ($main_adr = get_field('option_adr','option')): ?>
 		    <div class="sidebar__adr"><?php echo $main_adr; ?></div>
-		    <div class="sidebar__bottom-links">
-				<a href="https://seohelp24.bitrix24.ru/" class="sidebar__entry">Вход</a>
-				<a href="<?php echo home_url(); ?>/garantii" class="sidebar__warranty">100%</a>
-			</div>
-			<div class="social">
-				<div class="social__item"></div>
-			</div>
 	    <?php endif; ?>
+	    <div class="sidebar__bottom-links">
+			<a href="https://seohelp24.bitrix24.ru/" class="sidebar__entry">Вход</a>
+			<a href="<?php echo home_url(); ?>/garantii" class="sidebar__warranty">100%</a>
+		</div>
+		<?php if ($option_social = get_field('option_social', 'option')): ?>
+			<div class="social">
+				<?php $i = 1; ?>
+				<?php foreach ($option_social as $value) { ?>
+					<div class="social__item social__item_<?php echo $i; ?>">
+						<a href="<?php echo $value['option_social_link']; ?>" class="social__icon" style="background-image:url(<?php echo $value['option_social_icon']['sizes']['thumbnail']; ?>)"></a>
+					</div>
+				<?php $i++; } ?>
+			</div>
+		<?php endif; ?>
     </div>
 </div>
