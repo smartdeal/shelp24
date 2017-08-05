@@ -2671,6 +2671,46 @@ input[type=email] {
     .menu-btn {
       display: none; } }
 
+.footer {
+  background: #444;
+  padding: 15px;
+  color: #c6c6c6; }
+  .footer .nav > li > a {
+    padding-top: 0;
+    padding-bottom: 0; }
+  .footer .nav > li > a:hover,
+  .footer .nav > li > a:focus {
+    background-color: transparent;
+    text-decoration: underline; }
+  .footer .nav_footer {
+    text-transform: uppercase;
+    font-size: 14px;
+    text-align: center; }
+    .footer .nav_footer .menu-item {
+      display: inline-block; }
+  .footer__item {
+    display: inline-block;
+    vertical-align: middle; }
+  .footer__right {
+    margin-top: 10px;
+    text-align: center;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .footer__right-text, .footer__right-icons {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 5px; }
+    .footer__right-text {
+      font-size: 12px; }
+      @media (min-width: 550px) {
+        .footer__right-text {
+          margin-right: 25px; } }
+
 .sidebar {
   display: none;
   position: fixed;
@@ -2966,34 +3006,32 @@ img.alignright {
   margin-left: 1em;
   margin-bottom: .5em; }
 
-.content {
-  padding-bottom: 200px; }
+@media (min-width: 992px) {
+  .content {
+    padding-left: 300px; } }
+.content__inner {
+  max-width: 1100px;
+  margin: 0 auto; }
   @media (min-width: 992px) {
-    .content {
-      padding-left: 300px; } }
-  .content__inner {
-    max-width: 1100px;
-    margin: 0 auto; }
-    @media (min-width: 992px) {
-      .content__inner {
-        padding-top: 60px; } }
-  .content__title {
-    margin: 20px 0;
-    padding: 20px 10px;
-    text-align: center; }
-    @media (min-width: 768px) {
-      .content__title {
-        padding: 30px 40px; } }
-    @media (min-width: 992px) {
-      .content__title {
-        text-align: left;
-        margin: 40px 0; } }
-    .content__title h1 {
-      color: #666;
-      font-size: 26px;
-      font-weight: 700;
-      line-height: 1.2;
-      text-transform: uppercase; }
+    .content__inner {
+      padding-top: 60px; } }
+.content__title {
+  margin: 20px 0;
+  padding: 20px 10px;
+  text-align: center; }
+  @media (min-width: 768px) {
+    .content__title {
+      padding: 30px 40px; } }
+  @media (min-width: 992px) {
+    .content__title {
+      text-align: left;
+      margin: 40px 0; } }
+  .content__title h1 {
+    color: #666;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase; }
 
 .b-content__img-wrap {
   text-align: center;

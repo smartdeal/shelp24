@@ -1,8 +1,5 @@
 <?php get_header(); ?>
 
-<?php get_sidebar(); ?>
-
-<div class="content">
     <div class="container-fluid">
         <div class="content__inner content__inner_archive">
             <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
@@ -51,6 +48,5 @@
             </div>
         </div>
     </div>
-</div>
 
 <?php get_footer(); ?>

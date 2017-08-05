@@ -1,15 +1,12 @@
 <?php get_header(); ?>
 
-<?php get_sidebar(); ?>
-
 <?php  
     if (is_singular( array('stati') )) $is_post_with_meta = true;
         else $is_post_with_meta = false;
 ?>
 
-<div class="content" itemscope itemtype="http://schema.org/Article">
     <div class="container-fluid">
-        <div class="content__inner <?php if ($is_post_with_meta) echo 'content__inner_with-meta'; ?>">
+        <div class="content__inner <?php if ($is_post_with_meta) echo 'content__inner_with-meta'; ?>" itemscope itemtype="http://schema.org/Article">
             <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
                 <?php if(function_exists('bcn_display')) {bcn_display(); }?>
             </div>
@@ -81,6 +78,5 @@
                 <?php }} ?>
         </div>
     </div>
-</div>
 
 <?php get_footer(); ?>
