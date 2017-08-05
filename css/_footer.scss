@@ -1,7 +1,18 @@
 .footer {
+	display: none;
     background: #444;
     padding: 15px;
     color: #c6c6c6;
+    text-align: center;
+    @include mn1600 {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
     .nav>li>a {
         padding-top: 0;
         padding-bottom: 0;
@@ -16,12 +27,17 @@
         font-size: 14px;
         text-align: center;
         .menu-item {
-        	display: inline-block;
+            display: inline-block;
         }
     }
     &__item {
-    	display: inline-block;
-    	vertical-align: middle;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    &__left {
+		@include mn1600 {
+			flex-grow: 2;
+		}
     }
     &__right {
         margin-top: 10px;
@@ -32,7 +48,10 @@
         display: -o-flex;
         display: flex;
         justify-content: center;
-    align-items: center;
+        align-items: center;
+		@include mn1600 {
+			margin-top: 0;
+		}
         &-text,
         &-icons {
             display: inline-block;
@@ -42,7 +61,7 @@
         &-text {
             font-size: 12px;
             @include mn550 {
-            	margin-right: 25px;
+                margin-right: 25px;
             }
         }
         &-icons {}

@@ -9,9 +9,11 @@ body {
 
 h1 {}
 
-[data-aload] { background-image: none !important; }
+[data-aload] {
+    background-image: none !important;
+}
 
-.loaded a, 
+.loaded a,
 .loaded .btn {
     transition: all .5s 0s;
 }
@@ -75,12 +77,14 @@ img {
 }
 
 .content {
+
     @include mn992 {
-        padding-left: 300px;
+        margin-left: 300px;
     }
     &__inner {
         max-width: 1100px;
         margin: 0 auto;
+        padding-bottom: 30px;
         @include mn992 {
             padding-top: 60px;
         }
@@ -216,5 +220,35 @@ img {
     }
     .next {
         background-image: url(../img/icon-arrow-right.png);
+    }
+}
+
+html.fixed-footer {
+    @include mn992 {
+        margin-top: 0 !important;
+        height: 100%;
+        body {
+            height: 100%;
+        }
+        body.admin-bar {
+            margin-top: 32px;
+            height: calc(100% - 32px);
+        }
+        .content {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+        .footer {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
     }
 }

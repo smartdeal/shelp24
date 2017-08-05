@@ -6,10 +6,34 @@ function include(scriptUrl) {
     document.write('<script src="'+dir_url + scriptUrl + '"></script>');
 }
 
+function init() {
+    var content_height = $('.content').outerHeight();
+    // var window_width = $(window).width();
+    var window_height = $(window).height();
+    var adminbar_height;
+    if ($('#wpadminbar').length) adminbar_height = $('#wpadminbar').outerHeight()
+        else adminbar_height = 0;
+
+    if (window_height >= 900) {
+        $('body').removeClass('less900');
+    } else {
+        $('body').addClass('less900');
+    }
+
+    if (!$('html').hasClass('fixed-footer')) {
+        if (content_height < window_height-adminbar_height) {
+            $('html').addClass('fixed-footer');
+        } else {
+            $('html').removeClass('fixed-footer');
+        }
+    }
+    $('.footer').show(300);
+}
+
+function aload(t){"use strict";t=t||window.document.querySelectorAll("[data-aload]"),void 0===t.length&&(t=[t]);var a,e=0,r=t.length;for(e;r>e;e+=1)a=t[e],a["LINK"!==a.tagName?"src":"href"]=a.getAttribute("data-aload"),a.removeAttribute("data-aload");return t}
 
 $(document).ready(function() {
 
-    function aload(t){"use strict";t=t||window.document.querySelectorAll("[data-aload]"),void 0===t.length&&(t=[t]);var a,e=0,r=t.length;for(e;r>e;e+=1)a=t[e],a["LINK"!==a.tagName?"src":"href"]=a.getAttribute("data-aload"),a.removeAttribute("data-aload");return t}
     aload();
 
     $('body').addClass('loaded');
@@ -37,30 +61,12 @@ $(document).ready(function() {
     var location_url = window.location.href;
     $('input[name="url"]').val(location_url);
 
-    function init() {
-        var cur_width = $(window).width();
-        var cur_height = $(window).height();
-        console.log("cur_width", cur_width);
-        console.log("cur_height", cur_height);
-        if (cur_height >= 900) {
-            $('body').removeClass('less900');
-        } else {
-            $('body').addClass('less900');
-        }
-
-        var doc_height = $('html').height();
-        var win_height = $(window).height();
-        if (doc_height < win_height) {
-            // $('.content').css('min-height', $('.content').innerHeight() + win_height - doc_height);
-        }
-    }
-
-    $(window).ready(init);
-    $(window).resize(init);
-
-
+   setTimeout(function() { init() }, 1);
 
 }); // $(document).ready
+
+$(window).resize(init);
+
 
 });
 

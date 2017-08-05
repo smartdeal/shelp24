@@ -6,6 +6,7 @@ $m992-width: 992px;
 $m1024-width: 1024px;
 $m1200-width: 1200px;
 $m1400-width: 1400px;
+$m1600-width: 1600px;
 $m1920-width: 1921px;
 @mixin mn550 {
     @media (min-width: #{$m550-width}) {
@@ -51,6 +52,12 @@ $m1920-width: 1921px;
 
 @mixin mn1920 {
     @media (min-width: #{$m1920-width}) {
+        @content;
+    }
+}
+
+@mixin mn1600 {
+    @media (min-width: #{$m1600-width}) {
         @content;
     }
 }

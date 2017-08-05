@@ -2672,9 +2672,20 @@ input[type=email] {
       display: none; } }
 
 .footer {
+  display: none;
   background: #444;
   padding: 15px;
-  color: #c6c6c6; }
+  color: #c6c6c6;
+  text-align: center; }
+  @media (min-width: 1600px) {
+    .footer {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; } }
   .footer .nav > li > a {
     padding-top: 0;
     padding-bottom: 0; }
@@ -2691,6 +2702,9 @@ input[type=email] {
   .footer__item {
     display: inline-block;
     vertical-align: middle; }
+  @media (min-width: 1600px) {
+    .footer__left {
+      flex-grow: 2; } }
   .footer__right {
     margin-top: 10px;
     text-align: center;
@@ -2701,6 +2715,9 @@ input[type=email] {
     display: flex;
     justify-content: center;
     align-items: center; }
+    @media (min-width: 1600px) {
+      .footer__right {
+        margin-top: 0; } }
     .footer__right-text, .footer__right-icons {
       display: inline-block;
       vertical-align: middle;
@@ -3008,10 +3025,11 @@ img.alignright {
 
 @media (min-width: 992px) {
   .content {
-    padding-left: 300px; } }
+    margin-left: 300px; } }
 .content__inner {
   max-width: 1100px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding-bottom: 30px; }
   @media (min-width: 992px) {
     .content__inner {
       padding-top: 60px; } }
@@ -3124,6 +3142,30 @@ img.alignright {
     background: url(../img/icon-arrow-left.png) center no-repeat; }
   .pagi .next {
     background-image: url(../img/icon-arrow-right.png); }
+
+@media (min-width: 992px) {
+  html.fixed-footer {
+    margin-top: 0 !important;
+    height: 100%; }
+    html.fixed-footer body {
+      height: 100%; }
+    html.fixed-footer body.admin-bar {
+      margin-top: 32px;
+      height: calc(100% - 32px); }
+    html.fixed-footer .content {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      position: relative; }
+    html.fixed-footer .footer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0; } }
 
 .content__inner_archive .content__title {
   text-align: center; }
