@@ -94,7 +94,9 @@
 .case {
     margin: 20px 0 40px;
     &__item {
-        padding: 20px 0;
+        padding: 40px 0;
+        border-bottom: 1px solid $grey;
+        position: relative;
         @include mn768 {
             display: -webkit-flex;
             display: -moz-flex;
@@ -106,6 +108,20 @@
             padding-top: 0;
         }
     }
+    &__counter {
+        text-align: right;
+        position: absolute;
+        right: 0;
+        top: 10px;
+        color: #f9817b;
+        opacity: .3;
+        font-size: 80px;
+        font-weight: 900;
+        font-family: "Roboto";
+        width: 88px;
+        line-height: 48px;
+    }
+
     &__txt {
         @include mn768 {
             flex-basis: 40%;
@@ -115,22 +131,39 @@
     }
     &__img {
         text-align: center;
+        border: 1px solid #f7f7f7;
         @include mn768 {
             flex-basis: 60%;
             padding-top: 7px;
         }
     }
-    &__title {
+    &__title_first {
         padding: 0;
         margin-top: 0;
         @include mn768 {
             text-align: left;
         }
     }
+    &__title {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        @include mn768 {
+            text-align: left;
+        }
+    }
     &__desc {
         font-size: 16px;
-        margin: 20px 0;
         line-height: 1.5;
+        margin-bottom: 20px;
+        @include mn768 {
+            margin-bottom: 0;
+        }
+        &_first {
+            margin-top: 20px;
+        }
     }
     &__task {
         margin: 20px 0;
@@ -194,5 +227,89 @@
     &__body {
         color: #999;
         font-size: 13px;
+    }
+}
+
+.case-result {
+    &__digit {
+        text-align: left;
+        color: #333;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-around;
+    }
+    &__caption {
+        font-size: 16px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    &__counter {
+        font-size: 20px;
+        font-family: Roboto;
+        font-weight: 700;
+        display: inline-block;
+        vertical-align: middle;
+        @include mn768 {
+            font-size: 36px;
+        }
+        @include mn1200 {
+            font-size: 48px;
+        }
+    }
+    &__red {
+        color: #f4807a;
+    }
+    &__lightred {
+        color: #f7a39f;
+    }
+    &__grey {
+        color: #959595;
+    }
+    &__lightgrey {
+        color: #c2c2c2;
+    }
+    &__chart {}
+}
+
+.case-chart {
+    background: url(../img/bg-case-chart.png) 0 100% no-repeat;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+    max-width: 500px;
+    margin: 20px auto;
+    padding-bottom: 6px;
+    &__before,
+    &__after {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        align-items: flex-end;
+    }
+    &__before-request,
+    &__before-visitor,
+    &__after-request,
+    &__after-visitor {
+        width: 85px;
+    }
+    &__before-request {
+        background-color: #c2c2c2;
+    }
+    &__before-visitor {
+        background-color: #959595;
+    }
+    &__after-request {
+        background-color: #f4807a;
+    }
+    &__after-visitor {
+        background-color: #f7a39f;
     }
 }

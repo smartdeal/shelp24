@@ -12,7 +12,7 @@
                                 <div class="case__section">
                                     <div class="case__item case__item_first">
                                         <div class="case__txt">
-                                            <div class="content__title case__title" itemprop="headline"><h1><?php the_title(); ?></h1></div>
+                                            <div class="content__title case__title_first" itemprop="headline"><h1><?php the_title(); ?></h1></div>
                                             <?php 
                                                 $folio_theme = get_field('folio_theme');
                                                 $folio_date = get_field('folio_date');
@@ -64,7 +64,7 @@
                                                     </div>
                                                 </div>
                                             <?php endif; ?>
-                                            <div class="case__desc" itemprop="articleBody"><?php the_content(); ?></div>
+                                            <div class="case__desc case__desce_first" itemprop="articleBody"><?php the_content(); ?></div>
                                             <?php if ($folio_task = get_field('folio_task')): ?>
                                                 <div class="case__task">
                                                     <div class="case-task">
@@ -78,16 +78,93 @@
                                             <div class="case__img"><img src="<?php echo $folio_main_img['sizes']['large']; ?>" alt=""></div>
                                         <?php endif; ?>
                                     </div>
-                                    <?php  ?>
-                                    <div class="case__item">
-                                        <div class="case__txt">
-                                            <div class="content__title case__title" itemprop="headline"><h1><?php the_title(); ?></h1></div>
-                                            <div class="case__desc"><?php the_content(); ?></div>
-                                        </div>
-                                        <?php if ($folio_main_img = get_field('folio_main_img')): ?>
-                                            <div class="case__img"><img src="<?php echo $folio_main_img['sizes']['large']; ?>" alt=""></div>
-                                        <?php endif; ?>
-                                    </div>
+
+                                    <?php $folio_stage = get_field('folio_stage'); ?>
+                                    <?php if ($folio_stage): ?>
+                                        <?php $folio_counter = 1; ?>
+                                        <?php foreach ($folio_stage as $value) { ?>
+                                            <div class="case__item">
+                                                <div class="case__counter">&mdash; <?php echo sprintf("%02d", $folio_counter); ?></div>
+                                                <?php if ($value['folio_stage_title'] || $value['folio_stage_desc'] ): ?>
+                                                    <div class="case__txt">
+
+                                                        <?php if ($value['folio_stage_title']): ?>
+                                                            <div class="case__title"><?php echo $value['folio_stage_title']; ?></div>
+                                                        <?php endif; ?>
+
+                                                        <?php if ($value['folio_stage_desc']): ?>
+                                                            <div class="case__desc"><?php echo $value['folio_stage_desc']; ?></div>
+                                                        <?php endif; ?>
+
+                                                    </div>
+                                                <?php endif; ?>
+
+                                                <?php if ($value['folio_stage_img']): ?>
+
+                                                    <div class="case__img">
+
+                                                        <?php if ($value['folio_stage_result']): ?>
+                                                            <?php 
+                                                                $folio_request_after = $value['folio_stage_result'][0]['folio_stage_request_after'];
+                                                                $folio_request_before = $value['folio_stage_result'][0]['folio_stage_request_before'];
+                                                                $folio_visitor_after = $value['folio_stage_result'][0]['folio_stage_visitor_after'];
+                                                                $folio_visitor_before = $value['folio_stage_result'][0]['folio_stage_visitor_before'];
+                                                            ?>
+                                                            <div class="case__result">
+                                                                <div class="case-result">
+                                                                    <div class="case-result__chart">
+                                                                        <div class="case-chart">
+                                                                        <?php 
+                                                                            $digit_height_visitor_max = 220; // max height visitor's block
+                                                                            $digit_height_request_max = 100; // max height request's block
+                                                                            $digit_visitor_max = max($folio_visitor_after, $folio_visitor_before); 
+                                                                            $digit_request_max = max($folio_request_after, $folio_request_before); 
+                                                                        ?>
+                                                                            <div class="case-chart__before">
+                                                                                <div class="case-chart__before-request" style="height:<?php echo round($digit_height_request_max * $folio_request_before / $digit_request_max ); ?>px"></div>
+                                                                                <div class="case-chart__after-request" style="height:<?php echo round($digit_height_request_max * $folio_request_after / $digit_request_max ); ?>px"></div>
+                                                                            </div>
+                                                                            <div class="case-chart__after">
+                                                                                <div class="case-chart__before-visitor" style="height:<?php echo round($digit_height_visitor_max * $folio_visitor_before / $digit_visitor_max ); ?>px"></div>
+                                                                                <div class="case-chart__after-visitor" style="height:<?php echo round($digit_height_visitor_max * $folio_visitor_after / $digit_visitor_max ); ?>px"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="case-result__digit">
+                                                                        <div class="case-result__request">
+                                                                            <div class="case-result__item">
+                                                                                <span class="case-result__caption">Заявки:</span>
+                                                                                <span class="case-result__counter case-result__red"><?php echo $folio_request_after; ?></span>
+                                                                            </div>
+                                                                            <div class="case-result__item">
+                                                                                <span class="case-result__caption">Заявки:</span>
+                                                                                <span class="case-result__counter case-result__grey"><?php echo $folio_request_before; ?></span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="case-result__visitor">
+                                                                            <div class="case-result__item">
+                                                                                <span class="case-result__caption">Посетители:</span>
+                                                                                <span class="case-result__counter case-result__lightred"><?php echo $folio_visitor_after; ?></span>
+                                                                            </div>
+                                                                            <div class="case-result__item">
+                                                                                <span class="case-result__caption">Посетители:</span>
+                                                                                <span class="case-result__counter case-result__lightgrey"><?php echo $folio_visitor_before; ?></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        <?php endif; ?>
+
+                                                        <img src="<?php echo $value['folio_stage_img']['sizes']['large']; ?>" alt="">
+                                                    </div>
+                                                <?php endif; ?>
+
+                                            </div>
+                                            <?php $folio_counter++; ?>
+                                        <?php } ?>
+                                    <?php endif; ?>
+
                                 </div>
                             </div>
                 <?php }} ?>
