@@ -18,7 +18,7 @@
         &:first-child {
             border-left: 0;
             .b-meta__icon {
-            	margin-left: 0;
+                margin-left: 0;
             }
         }
     }
@@ -28,7 +28,10 @@
         vertical-align: middle;
     }
     &__icon {
-    	margin-left: 10px;
-    margin-right: 5px;
+        margin-left: 10px;
+        margin-right: 5px;
+        &_flag {
+            @include svg-icon-flag;
+        }
     }
 }

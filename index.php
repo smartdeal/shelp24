@@ -22,7 +22,7 @@
                                 <div class="b-meta">
                                     <?php if ($arrTags): ?>
                                         <div class="b-meta__item b-meta__tags">
-                                            <img class="b-meta__icon" src="<?php echo get_template_directory_uri().'/img/icon-tags.png'; ?>" alt="">
+                                            <span class="b-meta__icon b-meta__icon_flag"></span>
                                             <?php $is_first = true; ?>
                                             <?php foreach ($arrTags as $tag) { ?>
                                                 <?php if (!$is_first) echo '<span>, </span>'; else $is_first = false; ?>
@@ -47,7 +47,7 @@
                         </div>    
                         <div class="content__body">
                             <div class="content__list">
-                                <div class="b-content<?php if (has_post_thumbnail()) echo ' b-content_with-img'?>" itemscope itemtype="http://schema.org/Article">
+                                <div class="b-content<?php if (has_post_thumbnail()) echo ' b-content_with-img'?>">
                                     <div class="b-content__inner cf">
                                         <?php if (has_post_thumbnail()): ?>
                                             <div class="b-content__img-wrap">

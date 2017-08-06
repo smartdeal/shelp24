@@ -90,3 +90,109 @@
         display: block;
     }
 }
+
+.case {
+    margin: 20px 0 40px;
+    &__item {
+        padding: 20px 0;
+        @include mn768 {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+        }
+        &_first {
+            padding-top: 0;
+        }
+    }
+    &__txt {
+        @include mn768 {
+            flex-basis: 40%;
+            order: 1;
+            padding-left: 20px;
+        }
+    }
+    &__img {
+        text-align: center;
+        @include mn768 {
+            flex-basis: 60%;
+            padding-top: 7px;
+        }
+    }
+    &__title {
+        padding: 0;
+        margin-top: 0;
+        @include mn768 {
+            text-align: left;
+        }
+    }
+    &__desc {
+        font-size: 16px;
+        margin: 20px 0;
+        line-height: 1.5;
+    }
+    &__task {
+        margin: 20px 0;
+    }
+}
+
+.case-task {
+    &__title {
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #666;
+        margin-bottom: 20px;
+    }
+    &__body {
+        color: #333;
+        font-family: Georgia, Times, Times New Roman, serif;
+        font-size: 18px;
+        font-style: italic;
+        line-height: 1.5;
+         ::before {
+            content: '\201C';
+            font-size: 100px;
+            color: $red;
+            float: left;
+            line-height: 30px;
+            font-style: normal;
+            font-weight: 700;
+            transform: translateY(30px);
+            margin-right: 20px;
+        }
+        p {}
+    }
+}
+
+.case-meta {
+    &__item {
+        margin-bottom: 12px;
+    }
+    &__title {
+        color: $red;
+        font-size: 11px;
+        margin-bottom: 5px;
+    }
+    &__caption {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: .5em;
+    }
+    &__icon {
+        &_flag {
+            @include svg-icon-flag;
+        }
+        &_watch {
+            @include svg-icon-watch;
+        }
+        &_share {
+            @include svg-icon-share;
+        }
+    }
+    &__body {
+        color: #999;
+        font-size: 13px;
+    }
+}
