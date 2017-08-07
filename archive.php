@@ -1,5 +1,9 @@
 <?php get_header(); ?>
 
+<?php  
+    if (is_post_type_archive( array('uslugi') )) $is_post_with_meta = true;
+        else $is_post_with_meta = false;
+?>
     <div class="container-fluid">
         <div class="content__inner content__inner_archive">
             <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
@@ -28,12 +32,40 @@
                                         <div class="b-arch-content__caption" itemprop="headline">
                                             <a href="<?php echo $post_link; ?>" title="Перейти на страницу <?php echo $post_title; ?>"><?php echo $post_title; ?></a>
                                         </div>
+                                        <?php if ($is_post_with_meta): ?>
+                                            <?php $arrTags = wp_get_object_terms($post->ID, 'post_tag'); ?>
+                                            <div class="b-arch-content__meta">
+                                                <div class="b-meta">
+                                                    <?php if ($arrTags): ?>
+                                                        <div class="b-meta__item b-meta__tags">
+                                                            <span class="b-meta__icon b-meta__icon_flag"></span>
+                                                            <?php $is_first = true; ?>
+                                                            <?php foreach ($arrTags as $tag) { ?>
+                                                                <?php if (!$is_first) echo '<span>, </span>'; else $is_first = false; ?>
+                                                                <a href="<?php echo get_term_link($tag->term_id); ?>" class="b-meta__link"><?php echo $tag->name; ?></a>
+                                                            <?php } ?>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                    <div class="b-meta__item b-meta__share">
+                                                        <img class="b-meta__icon" src="<?php echo get_template_directory_uri().'/img/icon-share.png'; ?>" alt="">
+                                                        <a href="#" class="b-meta__link">Поделиться</a>
+                                                    </div>
+                                                </div>                                        
+                                            </div>
+                                        <?php endif; ?>
                                         <div class="b-arch-content__txt" itemprop="articleBody">
                                             <?php 
-                                                if (is_single()) the_content();
-                                                    else the_excerpt();
+                                                if (!$is_post_with_meta) the_excerpt();
+                                                    else echo wp_trim_words(get_the_excerpt(), 20);
                                             ?>
-                                            <div class="b-arch-content__btn-wrap"><a href="<?php echo $post_link; ?>" class="b-arch-content__btn btn btn_more" title="Перейти на страницу <?php echo $post_title; ?>">Читать далее</a></div>
+                                            <div class="b-arch-content__btn-wrap">
+                                                <?php if ($is_post_with_meta): ?>
+                                                    <a href="#" class="b-arch-content__btn b-arch-content__btn_order btn btn_reverse js-arch-content__btn_order" title="Открыть форму">Оставить заявку</a>
+                                                <?php endif; ?>
+                                                <a href="<?php echo $post_link; ?>" class="b-arch-content__btn btn btn_more" title="Перейти на страницу <?php echo $post_title; ?>">
+                                                    <?php if ($is_post_with_meta) echo 'Подробнее'; else echo 'Читать далее'; ?>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -46,6 +78,11 @@
                     <?php endif; ?>
                 <?php } ?>
             </div>
+            <?php if (is_post_type_archive( array('uslugi') )): ?>
+                <div class="hidden">
+                    <div class="form_addservice-archive"><?php echo do_shortcode('[get_content_form]' ); ?></div>
+                </div>       
+            <?php endif; ?>
         </div>
     </div>
 

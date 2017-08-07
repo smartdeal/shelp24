@@ -184,10 +184,24 @@ img {
     border: 3px solid $red;
     text-decoration: none;
     cursor: pointer;
+    &:focus {
+        color: $red;
+    }
     &:hover {
         text-decoration: none;
         background-color: $red;
         color: white;
+    }
+    &_reverse {
+        background-color: $red;
+        color: white;
+        &:focus {
+            color: white;
+        }
+        &:hover {
+            background-color: white;
+            color: $red;
+        }
     }
 }
 

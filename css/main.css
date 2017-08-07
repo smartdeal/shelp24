@@ -2875,7 +2875,7 @@ input[type=email] {
     font-family: "Arial", sans-serif;
     font-size: 14px;
     font-weight: normal;
-    padding: 10px 10px 10px 35px;
+    padding: 8px 10px 8px 35px;
     line-height: 1;
     position: relative;
     text-align: left; }
@@ -2938,6 +2938,9 @@ input[type=email] {
     text-transform: uppercase;
     line-height: 1.2;
     text-align: center; }
+    @media (min-width: 1200px) {
+      .form-content__title {
+        text-align: left; } }
   .form-content__body {
     font-size: 14px;
     padding: 20px 0 10px; }
@@ -2955,13 +2958,18 @@ input[type=email] {
     @media (min-width: 1200px) {
       .form-content .form__row {
         width: 33.33%;
-        padding-right: 30px;
+        padding-right: 20px;
         margin-bottom: 0; }
-        .form-content .form__row:last-child {
+        .form-content .form__row:last-of-type {
           padding-right: 0; } }
   @media (min-width: 1200px) {
     .form-content .wpcf7-submit {
       width: 100%; } }
+  .form-content form a {
+    color: inherit;
+    text-decoration: underline; }
+    .form-content form a:hover {
+      text-decoration: none; }
 
 body {
   background: white;
@@ -3113,10 +3121,20 @@ img.alignright {
   border: 3px solid #f8615a;
   text-decoration: none;
   cursor: pointer; }
+  .btn:focus {
+    color: #f8615a; }
   .btn:hover {
     text-decoration: none;
     background-color: #f8615a;
     color: white; }
+  .btn_reverse {
+    background-color: #f8615a;
+    color: white; }
+    .btn_reverse:focus {
+      color: white; }
+    .btn_reverse:hover {
+      background-color: white;
+      color: #f8615a; }
 
 .pagi {
   text-align: center;
@@ -3218,8 +3236,61 @@ img.alignright {
     line-height: 1.4;
     text-transform: uppercase;
     margin-bottom: 10px; }
+  .b-arch-content__meta {
+    margin-bottom: 10px; }
   .b-arch-content__btn-wrap {
-    margin: 30px 0; }
+    margin: 20px 0; }
+  .b-arch-content__btn {
+    margin: 5px 0; }
+  @media (min-width: 768px) {
+    .b-arch-content__btn_order {
+      margin-right: 20px; } }
+
+@media (min-width: 768px) {
+  .post-type-archive-uslugi .b-arch-content__img-wrap {
+    width: 30%; } }
+@media (min-width: 768px) {
+  .post-type-archive-uslugi .b-arch-content__desc {
+    margin-left: 30%; } }
+@media (min-width: 1400px) {
+  .post-type-archive-uslugi .b-arch-content__btn-wrap {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: center; } }
+
+.form_addservice-archive {
+  max-width: 0;
+  overflow: hidden;
+  transition: max-width .5s 0s;
+  height: 45px; }
+  @media (min-width: 1400px) {
+    .form_addservice-archive {
+      margin-right: 20px; } }
+  .form_addservice-archive.sh-visible {
+    max-width: 800px; }
+  .form_addservice-archive .form-content {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    text-align: left; }
+  .form_addservice-archive .form-content__title {
+    display: none; }
+  .form_addservice-archive .form-content__body {
+    padding: 0; }
+  @media (min-width: 1400px) {
+    .form_addservice-archive .form__inner {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+      align-items: center; } }
+  @media (min-width: 1400px) {
+    .form_addservice-archive .form__row {
+      width: auto; } }
 
 .content__inner_with-meta .content__title {
   background-color: #f7f7f7; }
@@ -3348,6 +3419,8 @@ img.alignright {
         display: flex; } }
     .case__item_first {
       padding-top: 0; }
+    .case__item:last-child {
+      border-bottom: 0; }
   .case__counter {
     text-align: right;
     position: absolute;
@@ -3374,7 +3447,7 @@ img.alignright {
         padding-top: 7px; } }
   .case__title_first {
     padding: 0;
-    margin-top: 0; }
+    margin: 0 0 20px; }
     @media (min-width: 768px) {
       .case__title_first {
         text-align: left; } }
@@ -3462,7 +3535,9 @@ img.alignright {
   display: -ms-flex;
   display: -o-flex;
   display: flex;
-  justify-content: space-around; }
+  justify-content: space-around;
+  max-width: 500px;
+  margin: 20px auto; }
 .case-result__caption {
   font-size: 16px;
   display: inline-block;
@@ -3516,5 +3591,9 @@ img.alignright {
     background-color: #f4807a; }
   .case-chart__after-visitor {
     background-color: #f7a39f; }
+
+@media (min-width: 1200px) {
+  .case__form .form-content__title {
+    text-align: left; } }
 
 /*# sourceMappingURL=main.css.map */

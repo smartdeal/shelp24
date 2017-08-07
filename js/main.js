@@ -34,7 +34,10 @@ function aload(t){"use strict";t=t||window.document.querySelectorAll("[data-aloa
 
 $(document).ready(function() {
 
+    setTimeout(function() { init() }, 1);
+
     aload();
+    
 
     $('body').addClass('loaded');
 
@@ -61,12 +64,32 @@ $(document).ready(function() {
     var location_url = window.location.href;
     $('input[name="url"]').val(location_url);
 
-   setTimeout(function() { init() }, 1);
+    if ($('.case').length) {
+        var title = $('.case__form .form-content__title').text();
+        $('.case__form .wpcf7-submit').val(title);
+    }
+    $('.form-content .wpcf7-list-item-label').html('Согласен с <a href="'+home_url+'/privacy-policy/">политикой конфиденциальности</a>');
+
+    $('.form_addservice-archive .wpcf7-submit').val('Отправить').addClass('btn_reverse');
+    $('.js-arch-content__btn_order').click(function(event) {
+        $(".form_addservice-archive").removeClass('sh-visible');
+        $('.js-arch-content__btn_order').removeClass('hidden');
+        $(this).addClass('hidden');
+        $(".form_addservice-archive").prependTo($(this).closest('.b-arch-content__btn-wrap'));
+        setTimeout(function() { 
+            $(".form_addservice-archive").addClass('sh-visible');
+        }, 100);
+    });
+
+    $('.b-arch-content__btn.btn_more').click(function(event) {
+        event.preventDefault();
+        $(".form_addservice-archive").toggleClass('sh-visible');
+    });
+
 
 }); // $(document).ready
 
 $(window).resize(init);
-
 
 });
 

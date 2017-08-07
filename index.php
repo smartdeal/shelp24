@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <?php  
-    if (is_singular( array('stati') )) $is_post_with_meta = true;
+    if (is_singular( array('stati','uslugi') )) $is_post_with_meta = true;
         else $is_post_with_meta = false;
 ?>
 
@@ -30,14 +30,16 @@
                                             <?php } ?>
                                         </div>
                                     <?php endif; ?>
-                                    <div class="b-meta__item b-meta__comments">
-                                        <img class="b-meta__icon" src="<?php echo get_template_directory_uri().'/img/icon-comments.png'; ?>" alt="">
-                                        <a href="#" class="b-meta__link">2</a>
-                                    </div>
-                                    <div class="b-meta__item b-meta__likes">
-                                        <img class="b-meta__icon" src="<?php echo get_template_directory_uri().'/img/icon-likes.png'; ?>" alt="">
-                                        <a href="#" class="b-meta__link">2</a>
-                                    </div>
+                                    <?php if (is_singular( array('stati') )): ?>
+                                        <div class="b-meta__item b-meta__comments">
+                                            <img class="b-meta__icon" src="<?php echo get_template_directory_uri().'/img/icon-comments.png'; ?>" alt="">
+                                            <a href="#" class="b-meta__link">2</a>
+                                        </div>
+                                        <div class="b-meta__item b-meta__likes">
+                                            <img class="b-meta__icon" src="<?php echo get_template_directory_uri().'/img/icon-likes.png'; ?>" alt="">
+                                            <a href="#" class="b-meta__link">2</a>
+                                        </div>
+                                    <?php endif; ?>
                                     <div class="b-meta__item b-meta__share">
                                         <img class="b-meta__icon" src="<?php echo get_template_directory_uri().'/img/icon-share.png'; ?>" alt="">
                                         <a href="#" class="b-meta__link">Поделиться</a>

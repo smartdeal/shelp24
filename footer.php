@@ -20,5 +20,6 @@
 
     <?php wp_footer(); ?>
     <?php the_field('option_code_bottom','option'); ?>
+    <script>var home_url="<?php echo home_url(); ?>"</script>
 </body>
 </html>

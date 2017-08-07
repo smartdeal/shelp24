@@ -107,6 +107,9 @@
         &_first {
             padding-top: 0;
         }
+        &:last-child{
+            border-bottom: 0;
+        }
     }
     &__counter {
         text-align: right;
@@ -139,7 +142,7 @@
     }
     &__title_first {
         padding: 0;
-        margin-top: 0;
+        margin: 0 0 20px;
         @include mn768 {
             text-align: left;
         }
@@ -240,6 +243,8 @@
         display: -o-flex;
         display: flex;
         justify-content: space-around;
+        max-width: 500px;
+    margin: 20px auto;
     }
     &__caption {
         font-size: 16px;
@@ -311,5 +316,13 @@
     }
     &__after-visitor {
         background-color: #f7a39f;
+    }
+}
+
+.case__form {
+    .form-content__title {
+        @include mn1200 {
+            text-align: left;
+        }
     }
 }

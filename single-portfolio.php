@@ -46,10 +46,11 @@
                                                             </div>
                                                             <div class="case-meta__body">
                                                             <?php
-                                                                echo array_shift($folio_type);
+                                                                $folio_type_item = array_shift($folio_type);
+                                                                echo $folio_type_item->name;
                                                                 if (count($folio_type) > 0) {
                                                                     foreach ($folio_type as $value) {
-                                                                        echo ', '.$value;
+                                                                        echo ', '.$value->name;
                                                                     }
                                                                 }
                                                             ?>
@@ -166,6 +167,7 @@
                                     <?php endif; ?>
 
                                 </div>
+                                <div class="case__form"><?php echo do_shortcode('[get_content_form title="Хочу так же!"]' ); ?></div>
                             </div>
                 <?php }} ?>
             </div>

@@ -19,31 +19,6 @@ add_filter( 'emoji_svg_url', '__return_false' );
 remove_action('wp_head', 'feed_links', 2);
 remove_action('wp_head', 'feed_links_extra', 3);
 
-// Отключаем сам REST API
-add_filter('rest_enabled', '__return_false');
- 
-// Отключаем фильтры REST API
-remove_action( 'xmlrpc_rsd_apis', 'rest_output_rsd' );
-remove_action( 'wp_head', 'rest_output_link_wp_head', 10, 0 );
-remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
-remove_action( 'auth_cookie_malformed', 'rest_cookie_collect_status' );
-remove_action( 'auth_cookie_expired', 'rest_cookie_collect_status' );
-remove_action( 'auth_cookie_bad_username', 'rest_cookie_collect_status' );
-remove_action( 'auth_cookie_bad_hash', 'rest_cookie_collect_status' );
-remove_action( 'auth_cookie_valid', 'rest_cookie_collect_status' );
-remove_filter( 'rest_authentication_errors', 'rest_cookie_check_errors', 100 );
- 
-// Отключаем события REST API
-remove_action( 'init', 'rest_api_init' );
-remove_action( 'rest_api_init', 'rest_api_default_filters', 10, 1 );
-remove_action( 'parse_request', 'rest_api_loaded' );
- 
-// Отключаем Embeds связанные с REST API
-remove_action( 'rest_api_init', 'wp_oembed_register_route');
-remove_filter( 'rest_pre_serve_request', '_oembed_rest_pre_serve_request', 10, 4 );
- 
-remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
-
 function my_deregister_scripts(){
     wp_deregister_script( 'wp-embed' );
 }
@@ -136,11 +111,11 @@ function custom_post_type() {
     );
 
     $args = array(
-        'label'               => __( 'Портфолио', 'seohelp' ),
+        'label'               => __( 'Услуги', 'seohelp' ),
         'description'         => __( '', 'seohelp' ),
         'labels'              => $labels,
         'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', ),
-        'taxonomies'          => array(),
+        'taxonomies'          => array('post_tag'),
         'hierarchical'        => false,
         'public'              => true,
         'show_ui'             => true,
@@ -155,6 +130,43 @@ function custom_post_type() {
         'capability_type'     => 'page',
     );
     register_post_type( 'portfolio', $args );
+
+    $labels = array(
+        'name'                => _x( 'Дополнительные услуги', 'Post Type General Name', 'seohelp' ),
+        'singular_name'       => _x( 'Доп.услуга', 'Post Type Singular Name', 'seohelp' ),
+        'menu_name'           => __( 'Доп.услуги', 'seohelp' ),
+        'parent_item_colon'   => __( 'Родит. Доп.услуга', 'seohelp' ),
+        'all_items'           => __( 'Все Доп.услуги', 'seohelp' ),
+        'view_item'           => __( 'Смотреть Доп.услугу', 'seohelp' ),
+        'add_new_item'        => __( 'Добавить новою Доп.услугу', 'seohelp' ),
+        'add_new'             => __( 'Добавить новою', 'seohelp' ),
+        'edit_item'           => __( 'Редактировать Доп.услугу', 'seohelp' ),
+        'update_item'         => __( 'Обновить Доп.услугу', 'seohelp' ),
+        'search_items'        => __( 'Искать Доп.услугу', 'seohelp' ),
+        'not_found'           => __( 'Не найдено', 'seohelp' ),
+        'not_found_in_trash'  => __( 'Не найдено в корзине', 'seohelp' ),
+    );
+
+    $args = array(
+        'label'               => __( 'Доп.услуги', 'seohelp' ),
+        'description'         => __( '', 'seohelp' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', ),
+        'taxonomies'          => array('post_tag'),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+    );
+    register_post_type( 'uslugi', $args );
 
     // register_taxonomy('race-type', array('team-seohelp'), array(
     //     'labels'                => array(
