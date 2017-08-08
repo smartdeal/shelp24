@@ -43,6 +43,23 @@ $(document).ready(function() {
 
     $('.fancybox').fancybox();
 
+    if ($('.js-slider-logo').length){
+        $('.js-slider-logo').slick({
+            dots: false,
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            prevArrow:"<div class='slick-prev pull-left'></div>",
+            nextArrow:"<div class='slick-next pull-right'></div>",
+            responsive: [{
+                breakpoint: 550,
+                settings: {
+                    slidesToShow: 2,
+                }
+            }]
+        });
+    }
+
     // $('.js-mreviews').slick({
     //     dots: false,
     //     infinite: true,
@@ -72,6 +89,7 @@ $(document).ready(function() {
 
     $('.form_addservice-archive .wpcf7-submit').val('Отправить').addClass('btn_reverse');
     $('.js-arch-content__btn_order').click(function(event) {
+        event.preventDefault();
         $(".form_addservice-archive").removeClass('sh-visible');
         $('.js-arch-content__btn_order').removeClass('hidden');
         $(this).addClass('hidden');
@@ -82,8 +100,8 @@ $(document).ready(function() {
     });
 
     $('.b-arch-content__btn.btn_more').click(function(event) {
-        event.preventDefault();
-        $(".form_addservice-archive").toggleClass('sh-visible');
+        // event.preventDefault();
+        // $(".form_addservice-archive").toggleClass('sh-visible');
     });
 
 

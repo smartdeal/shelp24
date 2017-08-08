@@ -1,0 +1,73 @@
+.slick-prev,
+.slick-next {
+    @include svg-icon-arrow-left;
+    cursor: pointer;
+    width: 15px;
+    height: 24px;
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
+    left: -30px;
+}
+
+.slick-next {
+    @include svg-icon-arrow-right;
+    left: auto;
+    right: -30px;
+}
+
+.clients-slider {
+    margin-top: 20px;
+    padding: 50px 0 70px;
+    background: url('../img/bg-clients.jpg') 0 0 repeat;
+    &__inner {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+    &__title {
+        color: #666;
+        font-size: 26px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    &__desc {
+        color: #999;
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 30px;
+    }
+    &__logo {}
+}
+
+.b-slider-logo {
+    margin: 0 40px;
+    &__item {}
+    &__element {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-flow: column wrap;
+    }
+    &__img-wrap {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        height: 60px;
+        padding: 5%;
+        @include mn768 {
+            height: 100px;
+        }
+        @include mn1200 {
+            height: 130px;
+        }
+    }
+    &__img {
+        margin: auto;
+    }
+}

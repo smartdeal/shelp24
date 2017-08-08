@@ -389,9 +389,9 @@ function shortcodes_dashboard_widget_function() {
     echo 'Шорткоды для отображения информации в контенте страниц, записей и т.д.:<br>';
     echo '[get_tel] - Показать телефон студии<br>';
     echo '[get_email] - Показать email студии<br>';
-    echo '[get_content_form] - Показать форму заявки на страницы<br>';
+    echo '[get_content_form] - Показать форму заявки на странице<br>';
     echo '[get_content_form title="Заказать перенос сайта"] - Показать форму заявки с новым заголовком<br>';
-    echo '<br>Сменить логотип, номер телефона, email, добавить коды счетчиков и сервисов на сайт можно на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a>.<br>';
+    echo '<br>Сменить логотип, номер телефона, email, добавить коды счетчиков и сервисов на сайт, настройка блока Наши клиенты можно на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a>.<br>';
 }
 
 function get_portfolio($posts_per_page = -1) {

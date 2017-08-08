@@ -145,3 +145,45 @@
         }
     }
 }
+
+.form_addservice-archive {
+	max-width: 0;
+	opacity: 0;
+	overflow: hidden;
+	transition: max-width .5s 0s, opacity  .5s .3s;
+	height: 45px;
+    @include mn1400 {
+        margin-right: 20px;
+    }
+    &.sh-visible {
+    	max-width: 880px;
+    	opacity: 1;
+    }
+    .form-content {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+    }
+    .form-content__title {
+        display: none;
+    }
+    .form-content__body {
+        padding: 0;
+    }
+    .form__inner {
+        @include mn1400 {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            align-items: center;
+        }
+    }
+    .form__row {
+        @include mn1400 {
+            width: auto;
+        }
+    }
+}

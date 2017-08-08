@@ -44,7 +44,7 @@
             }
         }
     }
-    &__desc {
+    &__desc:not(.b-arch-content__desc_without-img) {
         @include mn768 {
             margin-left: 50%;
         }
@@ -84,7 +84,7 @@
             width: 30%;
         }
     }
-    .b-arch-content__desc {
+    .b-arch-content__desc:not(.b-arch-content__desc_without-img) {
         @include mn768 {
             margin-left: 30%;
         }
@@ -97,46 +97,6 @@
             display: -o-flex;
             display: flex;
             align-items: center;
-        }
-    }
-}
-
-.form_addservice-archive {
-	max-width: 0;
-	overflow: hidden;
-	transition: max-width .5s 0s;
-	height: 45px;
-    @include mn1400 {
-        margin-right: 20px;
-    }
-    &.sh-visible {
-    	max-width: 800px;
-    }
-    .form-content {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        text-align: left;
-    }
-    .form-content__title {
-        display: none;
-    }
-    .form-content__body {
-        padding: 0;
-    }
-    .form__inner {
-        @include mn1400 {
-            display: -webkit-flex;
-            display: -moz-flex;
-            display: -ms-flex;
-            display: -o-flex;
-            display: flex;
-            align-items: center;
-        }
-    }
-    .form__row {
-        @include mn1400 {
-            width: auto;
         }
     }
 }

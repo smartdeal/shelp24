@@ -18,17 +18,19 @@
                         <?php while (have_posts()) { the_post(); 
                             $post_title = get_the_title(); 
                             $post_link = get_the_permalink();
+                            $is_have_img_class = '';
                         ?>
                             <div class="b-arch-content<?php if (has_post_thumbnail()) echo ' b-arch-content_with-img'?>" itemscope itemtype="http://schema.org/Article">
                                 <div class="b-arch-content__inner">
                                     <?php if (has_post_thumbnail()): ?>
                                         <div class="b-arch-content__img-wrap">
                                             <a href="<?php echo $post_link; ?>" title="Перейти на страницу <?php echo $post_title; ?>">
-                                                <img src="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(),'large'); ?>" alt="">
+                                                <img data-aload="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(),'medium'); ?>" alt="">
                                             </a>
                                         </div>
+                                    <?php else: $is_have_img_class = ' b-arch-content__desc_without-img'; ?>
                                     <?php endif; ?>
-                                    <div class="b-arch-content__desc">
+                                    <div class="b-arch-content__desc<?php echo  $is_have_img_class; ?>">
                                         <div class="b-arch-content__caption" itemprop="headline">
                                             <a href="<?php echo $post_link; ?>" title="Перейти на страницу <?php echo $post_title; ?>"><?php echo $post_title; ?></a>
                                         </div>
@@ -42,7 +44,8 @@
                                                             <?php $is_first = true; ?>
                                                             <?php foreach ($arrTags as $tag) { ?>
                                                                 <?php if (!$is_first) echo '<span>, </span>'; else $is_first = false; ?>
-                                                                <a href="<?php echo get_term_link($tag->term_id); ?>" class="b-meta__link"><?php echo $tag->name; ?></a>
+                                                                <span class="b-meta__link"><?php echo $tag->name; ?></span>
+                                                                <?php // <a href="<php echo get_term_link($tag->term_id); >" class="b-meta__link"><php echo $tag->name; ></a> ?>
                                                             <?php } ?>
                                                         </div>
                                                     <?php endif; ?>

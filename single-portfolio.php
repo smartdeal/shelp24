@@ -76,7 +76,7 @@
                                             <?php endif; ?>
                                         </div>
                                         <?php if ($folio_main_img = get_field('folio_main_img')): ?>
-                                            <div class="case__img"><img src="<?php echo $folio_main_img['sizes']['large']; ?>" alt=""></div>
+                                            <div class="case__img"><img data-aload="<?php echo $folio_main_img['sizes']['large']; ?>" alt=""></div>
                                         <?php endif; ?>
                                     </div>
 
@@ -157,7 +157,7 @@
                                                             </div>
                                                         <?php endif; ?>
 
-                                                        <img src="<?php echo $value['folio_stage_img']['sizes']['large']; ?>" alt="">
+                                                        <img data-aload="<?php echo $value['folio_stage_img']['sizes']['large']; ?>" alt="">
                                                     </div>
                                                 <?php endif; ?>
 

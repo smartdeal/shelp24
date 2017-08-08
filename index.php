@@ -56,7 +56,7 @@
                                                 <?php if (is_archive()): ?>
                                                     <a href="<?php echo $post_link; ?>" title="Перейти на страницу <?php echo $post_title; ?>">
                                                 <?php endif; ?>
-                                                        <img src="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(),'large'); ?>" alt="">
+                                                        <img data-aload="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(),'large'); ?>" alt="">
                                                 <?php if (is_archive()): ?>
                                                     </a>
                                                 <?php endif; ?>
@@ -80,5 +80,6 @@
                     <?php }} ?>
             </div>
         </div>
+        <?php if (is_singular( array('uslugi') )) get_template_part( 'inc/tpl-slider-clients-logo' ); ?>
 
 <?php get_footer(); ?>

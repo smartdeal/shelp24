@@ -2971,6 +2971,39 @@ input[type=email] {
     .form-content form a:hover {
       text-decoration: none; }
 
+.form_addservice-archive {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-width .5s 0s, opacity  .5s .3s;
+  height: 45px; }
+  @media (min-width: 1400px) {
+    .form_addservice-archive {
+      margin-right: 20px; } }
+  .form_addservice-archive.sh-visible {
+    max-width: 880px;
+    opacity: 1; }
+  .form_addservice-archive .form-content {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    text-align: left; }
+  .form_addservice-archive .form-content__title {
+    display: none; }
+  .form_addservice-archive .form-content__body {
+    padding: 0; }
+  @media (min-width: 1400px) {
+    .form_addservice-archive .form__inner {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+      align-items: center; } }
+  @media (min-width: 1400px) {
+    .form_addservice-archive .form__row {
+      width: auto; } }
+
 body {
   background: white;
   transition: opacity 1s 0s;
@@ -3158,9 +3191,11 @@ img.alignright {
     background-color: #e5e5e5; }
   .pagi .prev,
   .pagi .next {
-    background: url(../img/icon-arrow-left.png) center no-repeat; }
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24">  <defs>    <style>      .cls-1 {        fill: #999;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M12.162,-0.000 L15.000,2.799 L5.676,12.000 L15.000,21.200 L12.162,24.000 L0.000,12.000 L12.162,-0.000 Z" class="cls-1"/></svg>') 17px 50% no-repeat;
+    background-size: 10px; }
   .pagi .next {
-    background-image: url(../img/icon-arrow-right.png); }
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24">  <defs>    <style>      .cls-1 {        fill: #999;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M2.838,-0.000 L0.000,2.799 L9.324,12.000 L0.000,21.200 L2.838,24.000 L15.000,12.000 L2.838,-0.000 Z" class="cls-1"/></svg>');
+    background-position: 20px 50%; }
 
 @media (min-width: 992px) {
   html.fixed-footer {
@@ -3223,7 +3258,7 @@ img.alignright {
           max-width: 100%;
           margin: 0 auto; } }
   @media (min-width: 768px) {
-    .b-arch-content__desc {
+    .b-arch-content__desc:not(.b-arch-content__desc_without-img) {
       margin-left: 50%; } }
   .b-arch-content__txt {
     color: #999;
@@ -3250,7 +3285,7 @@ img.alignright {
   .post-type-archive-uslugi .b-arch-content__img-wrap {
     width: 30%; } }
 @media (min-width: 768px) {
-  .post-type-archive-uslugi .b-arch-content__desc {
+  .post-type-archive-uslugi .b-arch-content__desc:not(.b-arch-content__desc_without-img) {
     margin-left: 30%; } }
 @media (min-width: 1400px) {
   .post-type-archive-uslugi .b-arch-content__btn-wrap {
@@ -3260,37 +3295,6 @@ img.alignright {
     display: -o-flex;
     display: flex;
     align-items: center; } }
-
-.form_addservice-archive {
-  max-width: 0;
-  overflow: hidden;
-  transition: max-width .5s 0s;
-  height: 45px; }
-  @media (min-width: 1400px) {
-    .form_addservice-archive {
-      margin-right: 20px; } }
-  .form_addservice-archive.sh-visible {
-    max-width: 800px; }
-  .form_addservice-archive .form-content {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    text-align: left; }
-  .form_addservice-archive .form-content__title {
-    display: none; }
-  .form_addservice-archive .form-content__body {
-    padding: 0; }
-  @media (min-width: 1400px) {
-    .form_addservice-archive .form__inner {
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flex;
-      display: -o-flex;
-      display: flex;
-      align-items: center; } }
-  @media (min-width: 1400px) {
-    .form_addservice-archive .form__row {
-      width: auto; } }
 
 .content__inner_with-meta .content__title {
   background-color: #f7f7f7; }
@@ -3595,5 +3599,75 @@ img.alignright {
 @media (min-width: 1200px) {
   .case__form .form-content__title {
     text-align: left; } }
+
+.slick-prev,
+.slick-next {
+  display: inline-block;
+  vertical-align: middle;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24">  <defs>    <style>      .cls-1 {        fill: #999;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M12.162,-0.000 L15.000,2.799 L5.676,12.000 L15.000,21.200 L12.162,24.000 L0.000,12.000 L12.162,-0.000 Z" class="cls-1"/></svg>') center no-repeat;
+  width: 15px;
+  height: 24px;
+  cursor: pointer;
+  width: 15px;
+  height: 24px;
+  position: absolute;
+  top: 50%;
+  margin-top: -12px;
+  left: -30px; }
+
+.slick-next {
+  display: inline-block;
+  vertical-align: middle;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24">  <defs>    <style>      .cls-1 {        fill: #999;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M2.838,-0.000 L0.000,2.799 L9.324,12.000 L0.000,21.200 L2.838,24.000 L15.000,12.000 L2.838,-0.000 Z" class="cls-1"/></svg>') center no-repeat;
+  width: 15px;
+  height: 24px;
+  left: auto;
+  right: -30px; }
+
+.clients-slider {
+  margin-top: 20px;
+  padding: 50px 0 70px;
+  background: url("../img/bg-clients.jpg") 0 0 repeat; }
+  .clients-slider__inner {
+    max-width: 1100px;
+    margin: 0 auto; }
+  .clients-slider__title {
+    color: #666;
+    font-size: 26px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px; }
+  .clients-slider__desc {
+    color: #999;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 30px; }
+
+.b-slider-logo {
+  margin: 0 40px; }
+  .b-slider-logo__element {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-flow: column wrap; }
+  .b-slider-logo__img-wrap {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    height: 60px;
+    padding: 5%; }
+    @media (min-width: 768px) {
+      .b-slider-logo__img-wrap {
+        height: 100px; } }
+    @media (min-width: 1200px) {
+      .b-slider-logo__img-wrap {
+        height: 130px; } }
+  .b-slider-logo__img {
+    margin: auto; }
 
 /*# sourceMappingURL=main.css.map */

@@ -22,3 +22,19 @@
     width: 14px;
     height: 14px;
 }
+
+@mixin svg-icon-arrow-left {
+	display: inline-block;
+	vertical-align: middle;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24">  <defs>    <style>      .cls-1 {        fill: #999;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M12.162,-0.000 L15.000,2.799 L5.676,12.000 L15.000,21.200 L12.162,24.000 L0.000,12.000 L12.162,-0.000 Z" class="cls-1"/></svg>') center no-repeat;
+    width: 15px;
+    height: 24px;
+}
+
+@mixin svg-icon-arrow-right {
+	display: inline-block;
+	vertical-align: middle;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24">  <defs>    <style>      .cls-1 {        fill: #999;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M2.838,-0.000 L0.000,2.799 L9.324,12.000 L0.000,21.200 L2.838,24.000 L15.000,12.000 L2.838,-0.000 Z" class="cls-1"/></svg>') center no-repeat;
+    width: 15px;
+    height: 24px;
+}
