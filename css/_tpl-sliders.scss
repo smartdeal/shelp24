@@ -21,8 +21,7 @@
     padding: 50px 0 70px;
     background: url('../img/bg-clients.jpg') 0 0 repeat;
     &__inner {
-        max-width: 1100px;
-        margin: 0 auto;
+		@include content-width;
     }
     &__title {
         color: #666;

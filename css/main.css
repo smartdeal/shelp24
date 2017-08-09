@@ -2908,6 +2908,8 @@ input[type=email] {
     .wpcf7-checkbox .wpcf7-list-item-label:hover {
       cursor: pointer; }
 
+.wpcf7 form {
+  position: relative; }
 .wpcf7 span.wpcf7-list-item {
   margin: 0; }
 .wpcf7 .ajax-loader {
@@ -2923,6 +2925,11 @@ input[type=email] {
 .wpcf7 label {
   margin: 0;
   font-weight: inherit; }
+
+div.wpcf7 .ajax-loader {
+  position: absolute;
+  right: 0;
+  bottom: -20px; }
 
 .form-content {
   margin: 30px 0;
@@ -3077,11 +3084,7 @@ img.alignright {
       padding-top: 60px; } }
 .content__title {
   margin: 20px 0;
-  padding: 20px 10px;
   text-align: center; }
-  @media (min-width: 768px) {
-    .content__title {
-      padding: 30px 40px; } }
   @media (min-width: 992px) {
     .content__title {
       text-align: left;
@@ -3297,7 +3300,11 @@ img.alignright {
     align-items: center; } }
 
 .content__inner_with-meta .content__title {
+  padding: 20px 10px;
   background-color: #f7f7f7; }
+  @media (min-width: 768px) {
+    .content__inner_with-meta .content__title {
+      padding: 30px 40px; } }
 
 .b-meta {
   color: #f8615a;
@@ -3630,6 +3637,7 @@ img.alignright {
   background: url("../img/bg-clients.jpg") 0 0 repeat; }
   .clients-slider__inner {
     max-width: 1100px;
+    width: 100%;
     margin: 0 auto; }
   .clients-slider__title {
     color: #666;
@@ -3669,5 +3677,95 @@ img.alignright {
         height: 130px; } }
   .b-slider-logo__img {
     margin: auto; }
+
+@media (min-width: 992px) {
+  .content__title_team {
+    text-align: center; } }
+
+.b-team {
+  font-size: 0;
+  text-align: center;
+  margin: 0 -10px; }
+  @media (min-width: 1200px) {
+    .b-team {
+      text-align: left; } }
+  .b-team__item {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 16px;
+    width: 300px;
+    max-width: 100%;
+    text-align: center;
+    padding: 0 10px 20px; }
+    @media (min-width: 1200px) {
+      .b-team__item {
+        width: 33.33%; } }
+  .b-team__img {
+    height: 350px;
+    background: url("../img/placeholder-the_son_of_men.jpg") center no-repeat;
+    background-size: cover; }
+    @media (min-width: 1200px) {
+      .b-team__img {
+        height: 0;
+        padding-bottom: 115%; } }
+  .b-team__desc {
+    padding: 15px 0; }
+  .b-team__name {
+    color: #666;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 5px; }
+  .b-team__position {
+    color: #999;
+    font-weight: 400;
+    margin-bottom: 5px; }
+  .b-team__link {
+    color: #f8615a;
+    font-size: 14px;
+    text-decoration: underline;
+    text-transform: uppercase; }
+    .b-team__link:hover {
+      text-decoration: none; }
+
+.b-content__desc_team {
+  margin-bottom: 50px; }
+
+.b-team-about {
+  background: url("../img/bg-team.jpg") center no-repeat;
+  background-size: cover;
+  color: white;
+  font-size: 16px; }
+  .b-team-about__inner {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto; }
+  .b-team-about h5 {
+    font-size: 26px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 30px 0; }
+  .b-team-about__digits {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 30px 0; }
+  .b-team-about__num {
+    font-family: Georgia, Times, Times New Roman, serif;
+    font-size: 36px; }
+    @media (min-width: 768px) {
+      .b-team-about__num {
+        font-size: 100px; } }
+  .b-team-about__desc {
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase; }
+    @media (min-width: 768px) {
+      .b-team-about__desc {
+        font-size: 20px; } }
 
 /*# sourceMappingURL=main.css.map */

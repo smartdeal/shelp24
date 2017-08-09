@@ -2,6 +2,9 @@
 
 jQuery(function($) { 
 
+var window_height = $(window).height();
+var document_height = $(document).height();
+
 function include(scriptUrl) {
     document.write('<script src="'+dir_url + scriptUrl + '"></script>');
 }
@@ -9,7 +12,6 @@ function include(scriptUrl) {
 function init() {
     var content_height = $('.content').outerHeight();
     // var window_width = $(window).width();
-    var window_height = $(window).height();
     var adminbar_height;
     if ($('#wpadminbar').length) adminbar_height = $('#wpadminbar').outerHeight()
         else adminbar_height = 0;
@@ -108,6 +110,28 @@ $(document).ready(function() {
 }); // $(document).ready
 
 $(window).resize(init);
+
+
+if ($('.js-team-about').length) {
+    var team_about_height = $('.js-team-about').height();
+    var team_about_offset_top = $('.js-team-about').offset().top;
+}
+
+$(window).scroll(function() {
+
+    if ($('.js-team-about').length) {
+        var scroll = $(window).scrollTop();
+        var data_max_num;
+        if ( scroll+window_height-team_about_height > team_about_offset_top) {
+            $('.js-team-about-num').each(function(index, el) {
+                data_max_num = $(el).attr('data-max-num');
+                console.log("data_max_num", data_max_num);
+            });
+
+        }
+    }
+
+});
 
 });
 

@@ -1,7 +1,11 @@
 .content__inner {
     &_with-meta {
         .content__title {
+            padding: 20px 10px;
             background-color: #f7f7f7;
+            @include mn768 {
+                padding: 30px 40px;
+            }
         }
     }
 }

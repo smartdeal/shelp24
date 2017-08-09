@@ -1,0 +1,104 @@
+.content__title_team {
+    @include mn992 {
+        text-align: center;
+    }
+}
+
+.b-team {
+    font-size: 0;
+    text-align: center;
+    margin: 0 -10px;
+    @include mn1200 {
+        text-align: left;
+    }
+    &__item {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 16px;
+        width: 300px;
+        max-width: 100%;
+        text-align: center;
+        padding: 0 10px 20px;
+        @include mn1200 {
+            width: 33.33%;
+        }
+    }
+    &__img {
+        height: 350px;
+        background: url('../img/placeholder-the_son_of_men.jpg') center no-repeat;
+        background-size: cover;
+        @include mn1200 {
+            height: 0;
+            padding-bottom: 115%;
+        }
+    }
+    &__desc {
+        padding: 15px 0;
+    }
+    &__name {
+        color: #666;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+    &__position {
+        color: #999;
+        font-weight: 400;
+        margin-bottom: 5px;
+    }
+    &__link {
+        color: $red;
+        font-size: 14px;
+        text-decoration: underline;
+        text-transform: uppercase;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.b-content__desc_team {
+    margin-bottom: 50px;
+}
+
+.b-team-about {
+    background: url('../img/bg-team.jpg') center no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: 16px;
+    &__inner {
+        @include content-width;
+    }
+    h5 {
+        font-size: 26px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 30px 0;
+    }
+    &__digits {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        margin: 30px 0;
+    }
+    &__num {
+        font-family: Georgia, Times, Times New Roman, serif;
+        font-size: 36px;
+        @include mn768 {
+            font-size: 100px;
+        }
+    }
+    &__desc {
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 1.2;
+        text-transform: uppercase;
+        @include mn768 {
+            font-size: 20px;
+        }
+    }
+}
