@@ -107,6 +107,14 @@ $(document).ready(function() {
     });
 
 
+    if ($('.js-team-about').length) {
+        $.stellar({
+            horizontalScrolling: false,
+            verticalOffset: 10
+        });
+    }
+
+
 }); // $(document).ready
 
 $(window).resize(init);
@@ -117,18 +125,25 @@ if ($('.js-team-about').length) {
     var team_about_offset_top = $('.js-team-about').offset().top;
 }
 
+// animate digits on the team-page
+var is_team_about_scrolled = false;
 $(window).scroll(function() {
 
-    if ($('.js-team-about').length) {
+    if (!is_team_about_scrolled && $('.js-team-about').length) {
         var scroll = $(window).scrollTop();
-        var data_max_num;
         if ( scroll+window_height-team_about_height > team_about_offset_top) {
+            is_team_about_scrolled = true;
             $('.js-team-about-num').each(function(index, el) {
-                data_max_num = $(el).attr('data-max-num');
-                console.log("data_max_num", data_max_num);
+                  $({someValue: 0}).animate({someValue: $(el).attr('data-max-num')}, {
+                      duration: 2000,
+                      easing:'swing', // can be anything
+                      step: function() { // called on every step
+                          $(el).text(Math.round(this.someValue));
+                      }
+                  });
             });
-
         }
+
     }
 
 });

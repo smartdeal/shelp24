@@ -70,7 +70,7 @@ Template Post Type: page
             $team_digits = get_field('team_digits');
         ?>
         <?php if ($team_about || $team_digits): ?>
-            <div class="b-team-about js-team-about">
+            <div class="b-team-about js-team-about" data-stellar-background-ratio="0.5">
                 <div class="container-fluid">
                     <div class="b-team-about__inner">
                         <?php if ($team_about): ?>
@@ -90,6 +90,7 @@ Template Post Type: page
                 </div>
             </div>
         <?php endif; ?>
+        <div style="height:1000px"></div>
         <?php if (is_singular( array('uslugi') )) get_template_part( 'inc/tpl-slider-clients-logo' ); ?>
 
 <?php get_footer(); ?>
