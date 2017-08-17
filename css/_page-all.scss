@@ -3,8 +3,8 @@ body {
     transition: opacity 1s 0s;
     position: relative;
     min-width: 320px;
-    max-width: 1920px;
-    margin: 0 auto;
+    // max-width: 1920px;
+    // margin: 0 auto;
 }
 
 h1 {}
@@ -61,12 +61,14 @@ a:hover {
 }
 
 img {
+    display: inline-block;
     &.alignleft {
         float: left;
         margin-right: 1em;
         margin-bottom: .5em;
     }
     &.aligncenter {
+        display: block;
         margin: 1em auto;
     }
     &.alignright {
@@ -113,6 +115,11 @@ img {
             margin-right: 20px;
             max-width: 60%;
         }
+    }
+    .b-team-about,
+    .clients-slider {
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
 }
 

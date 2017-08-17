@@ -8,7 +8,8 @@ $clients_logo = get_field('clients_logo', 'option');
 
 <?php if ($clients_title || $clients_desc || $clients_logo): ?>
 
-    <div class="clients-slider">
+    <section class="clients-slider js-clients-slider">
+        <div class="clients-slider__bg js-clients-slider__bg"></div>
         <div class="container-fluid">
             <div class="clients-slider__inner">
                 <?php if ($clients_title): ?>
@@ -39,6 +40,6 @@ $clients_logo = get_field('clients_logo', 'option');
                 <?php endif; ?>
             </div>
         </div>
-    </div>
+    </section>
 
 <?php endif; ?>

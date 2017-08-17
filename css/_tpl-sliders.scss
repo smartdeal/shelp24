@@ -17,11 +17,19 @@
 }
 
 .clients-slider {
-    margin-top: 20px;
     padding: 50px 0 70px;
-    background: url('../img/bg-clients.jpg') 0 0 repeat;
+    position: relative;
+    &__bg {
+        background: url('../img/bg-clients.jpg') 0 0 repeat;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+    }
     &__inner {
-		@include content-width;
+        @include content-width;
     }
     &__title {
         color: #666;

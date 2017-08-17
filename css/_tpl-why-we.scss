@@ -1,0 +1,52 @@
+.b-why {
+    margin: 30px 0;
+    padding: 20px 0;
+    border: 1px solid $grey;
+    border-left: 0;
+    border-right: 0;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    &__body {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        @include mn1200 {
+            justify-content: space-between;
+        }
+    }
+    &__item {
+        background: $lightgrey;
+        padding: 20px;
+        margin-bottom: 10px;
+        flex-basis: 220px;
+        @include mn992 {
+            flex-basis: 24%;
+            margin-bottom: 0;
+        }
+        @include mn1200 {
+            flex-basis: 220px;
+        }
+    }
+    &__caption {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        min-height: 42px;
+    }
+    &__img {
+        margin: 10px 0;
+        img {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+    &__desc {
+        margin-top: 20px;
+        line-height: 1.8;
+    }
+}

@@ -54,7 +54,7 @@
         ?>
     <!--/noindex-->
     </nav>
-    <div class="sidebar__bottom">
+    <div class="sidebar__bottom js-sidebar__bottom">
 	    <a href="#form-get-offer" class="sidebar__get-offer b-get-offer">Запросить предложение</a>
 	    <?php if ($main_adr = get_field('option_adr','option')): ?>
 		    <div class="sidebar__adr"><?php echo $main_adr; ?></div>

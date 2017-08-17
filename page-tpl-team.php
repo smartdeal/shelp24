@@ -65,32 +65,64 @@ Template Post Type: page
                     <?php }} ?>
             </div>
         </div>
-        <?php 
-            $team_about = get_field('team_about');
-            $team_digits = get_field('team_digits');
+
+        <?php get_template_part( 'inc/tpl-team-about' ); ?>
+
+        <?php // НАД КАЖДЫМ ПРОЕКТОМ РАБОТАЮТ
+            $team_project_title = get_field('team_project_title');
+            $team_project = get_field('team_project');
         ?>
-        <?php if ($team_about || $team_digits): ?>
-            <div class="b-team-about js-team-about" data-stellar-background-ratio="0.5">
+        <?php if ($team_project): ?>
+            <div class="b-team-project">
                 <div class="container-fluid">
-                    <div class="b-team-about__inner">
-                        <?php if ($team_about): ?>
-                            <div class="b-team-about__txt"><?php echo $team_about; ?></div>
-                        <?php endif; ?>
-                        <?php if ($team_digits): ?>
-                            <div class="b-team-about__digits">
-                                <?php foreach ($team_digits as $key => $value): ?>
-                                    <div class="b-team-about__item">
-                                        <div class="b-team-about__num js-team-about-num" data-max-num="<?php echo $value['team_digits_value'] ?>">0</div>
-                                        <div class="b-team-about__desc"><?php echo $value['team_digits_txt'] ?></div>
-                                    </div>
-                                <?php endforeach ?>
+                <?php if ($team_project_title): ?>
+                    <div class="b-team-project__title"><?php echo $team_project_title; ?></div>
+                <?php endif ?>
+                <div class="b-team-project__body">
+                    <?php foreach ($team_project as $key => $value): ?>
+                        <div class="b-team-project__item">
+                            <div class="b-team-project__img"><img src="<?php echo $value['team_project_img']['sizes']['thumbnail']; ?>" alt=""></div>
+                            <div class="b-team-project__txt">
+                                <div class="b-team-project__caption"><?php echo $value['team_project_caption']; ?></div>
+                                <?php if ($value['team_project_desc']): ?>
+                                    <div class="b-team-project__desc"><?php echo $value['team_project_desc']; ?></div>
+                                <?php endif ?>
                             </div>
-                        <?php endif; ?>
+                        </div>
+                    <?php endforeach ?>
+                    <div class="b-team-project__our"><img src="<?php echo get_template_directory_uri(); ?>/img/icon-team-0.png" alt=""></div>
+                </div>
+                </div>
+            </div>
+        <?php endif ?>
+
+        <?php // Конкурентные преимущества
+            $team_advantages_title = get_field('team_advantages_title');
+            $team_advantages = get_field('team_advantages');
+        ?>
+        <?php if ($team_advantages): ?>
+            <div class="b-team-advantages">
+                <div class="b-team-advantages__inner">
+                    <div class="container-fluid">
+                    <?php if ($team_advantages_title): ?>
+                        <div class="b-team-advantages__title"><?php echo $team_advantages_title; ?></div>
+                    <?php endif ?>
+                    <div class="b-team-advantages__body">
+                        <?php foreach ($team_advantages as $key => $value): ?>
+                            <div class="b-team-advantages__item">
+                                <div class="b-team-advantages__img"><img src="<?php echo $value['team_advantages_img']['sizes']['thumbnail']; ?>" alt=""></div>
+                                <div class="b-team-advantages__txt">
+                                    <?php if ($value['team_advantages_desc']): ?>
+                                        <div class="b-team-advantages__desc"><?php echo $value['team_advantages_desc']; ?></div>
+                                    <?php endif ?>
+                                </div>
+                            </div>
+                        <?php endforeach ?>
+                    </div>
                     </div>
                 </div>
             </div>
-        <?php endif; ?>
-        <div style="height:1000px"></div>
-        <?php if (is_singular( array('uslugi') )) get_template_part( 'inc/tpl-slider-clients-logo' ); ?>
+        <?php endif ?>
+        <?php get_template_part( 'inc/tpl-slider-clients-logo' ); ?>
 
 <?php get_footer(); ?>

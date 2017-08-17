@@ -61,43 +61,211 @@
     margin-bottom: 50px;
 }
 
-.b-team-about {
-    background: url('../img/bg-team.jpg') center no-repeat;
-    color: white;
-    font-size: 16px;
-    &__inner {
-        @include content-width;
-    }
-    h5 {
+.b-team-project {
+    padding: 50px 0;
+    color: #666;
+    &__title {
         font-size: 26px;
         font-weight: 700;
         text-transform: uppercase;
-        margin: 30px 0;
+        line-height: 1.2;
+        margin-bottom: 2em;
+        text-align: center;
+        color: #666;
     }
-    &__digits {
+    &__body {
+        max-width: 450px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        @include mn1200 {
+            max-width: 900px;
+            height: 830px;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white url('../img/team-dashed.png') 50% 110px no-repeat;
+        }
+    }
+    &__item {
+        position: relative;
+        margin-bottom: 20px;
+        @include mn1200 {
+            position: absolute;
+            text-align: center;
+            width: 200px;
+        }
+        &:hover {
+            cursor: default;
+            .b-team-project__img {
+                border: 2px dashed $red;
+            }
+            .b-team-project__caption {
+                text-shadow: 0 0 5px $red;
+                color: white;
+            }
+        }
+    }
+    &__img {
+        border: 1px solid #999;
+        width: 60px;
+        height: 60px;
         display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flex;
         display: -o-flex;
         display: flex;
-        justify-content: space-around;
-        text-align: center;
-        margin: 30px 0;
-    }
-    &__num {
-        font-family: Georgia, Times, Times New Roman, serif;
-        font-size: 36px;
-        @include mn768 {
-            font-size: 100px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: border .5s 0s;
+        @include mn1200 {
+            width: 120px;
+            height: 120px;
+            position: static;
+            margin: 0 auto 15px;
+            background: white;
         }
+        img {
+            max-width: 50%;
+        }
+    }
+    &__txt {
+        margin-left: 70px;
+        min-height: 60px;
+        @include mn1200 {
+            margin-left: 0;
+            min-height: 0;
+            padding: 3px 0;
+        }
+    }
+    &__caption {
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 7px;
+        transition: color .5s 0s;
     }
     &__desc {
-        font-size: 10px;
-        font-weight: 700;
         line-height: 1.2;
-        text-transform: uppercase;
-        @include mn768 {
-            font-size: 20px;
+    }
+    &__our {
+        display: none;
+        width: 222px;
+        height: 160px;
+        background-color: #fff;
+        z-index: 1;
+        margin-top: -110px;
+        @include mn1200 {
+            display: block;
         }
+    }
+    &__item:nth-child(1) {
+        @include mn1200 {
+            top: 0;
+        }
+        .b-team-project__txt {
+            @include mn1200 {
+                background: white;
+            }
+        }
+    }
+    &__item:nth-child(2) {
+        @include mn1200 {
+            right: 65px;
+            top: 60px;
+        }
+    }
+    &__item:nth-child(3) {
+        @include mn1200 {
+            right: -10px;
+            top: 305px;
+        }
+    }
+    &__item:nth-child(4) {
+        @include mn1200 {
+            right: 100px;
+            bottom: 60px;
+        }
+    }
+    &__item:nth-child(5) {
+        @include mn1200 {
+            bottom: 0;
+        }
+    }
+    &__item:nth-child(6) {
+        @include mn1200 {
+            left: 100px;
+            bottom: 60px;
+        }
+    }
+    &__item:nth-child(7) {
+        @include mn1200 {
+            left: -10px;
+            top: 305px;
+        }
+    }
+    &__item:nth-child(8) {
+        @include mn1200 {
+            left: 65px;
+            top: 60px;
+        }
+    }
+}
+
+.b-team-advantages {
+    &__inner {
+        @include content-width;
+        border-top: 1px solid #e5e5e5;
+        padding: 40px 0;
+    }
+    &__title {
+        @extend .b-team-project__title;
+    }
+    &__body {
+        max-width: 450px;
+        margin: 0 auto;
+        position: relative;
+        font-size: 0;
+        color: #666;
+        @include mn1200 {
+            max-width: none;
+        }
+    }
+    &__item {
+        position: relative;
+        margin-bottom: 20px;
+        font-size: 16px;
+        @include mn1200 {
+            display: inline-block;
+            vertical-align: top;
+            width: 33.33%;
+            padding-right: 20px;
+        }
+    }
+    &__img {
+        width: 48px;
+        height: 48px;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    &__txt {
+        margin-left: 60px;
+        min-height: 50px;
     }
 }

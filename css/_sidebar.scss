@@ -25,15 +25,30 @@
     }
 }
 
-.less900 .sidebar {
+.h_less768 .sidebar {
     position: absolute;
+}
+
+.h_less960 {
+    .navbar_sidebar .navbar-nav>.menu-item>a {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .sidebar {
+        min-height: 750px;
+        &__logo,
+        &__email,
+        &__get-offer {
+            margin-bottom: 20px;
+        }
+    }
 }
 
 .admin-bar {
     .sidebar {
         top: 32px;
     }
-    &.less900 {
+    &.h_less768 {
         .sidebar {
             top: 0;
         }
@@ -115,6 +130,7 @@
     right: 0;
     text-align: center;
     padding: 20px 30px;
+    display: none;
 }
 
 .sidebar {
@@ -148,7 +164,7 @@
     }
 }
 
-.less900 .sidebar__bottom {
+.h_less768 .sidebar__bottom {
     position: static;
     padding-left: 0;
     padding-right: 0;

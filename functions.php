@@ -71,8 +71,7 @@ function seohelp_scripts() {
         wp_enqueue_script( 'seohelp-js-sl',        get_template_directory_uri() . '/js/slick/slick.min.js', array('jquery'), '20160630', true );
         wp_enqueue_script( 'seohelp-js-mask',      get_template_directory_uri() . '/js/jquery.inputmask.bundle.min.js', array('jquery'), '20160630', true );
         wp_enqueue_script( 'seohelp-js-fancy',     get_template_directory_uri() . '/js/fancybox/jquery.fancybox.pack.js', array('jquery'), '20160630', true );
-        if (is_page('o-nas'))
-            wp_enqueue_script( 'seohelp-js-parallax',  get_template_directory_uri() . '/js/jquery.stellar.min.js', array('jquery'), '20160630', true );
+        wp_enqueue_script( 'seohelp-js-parallax',  get_template_directory_uri() . '/js/jquery.stellar.min.js', array('jquery'), '20160630', true );
         wp_enqueue_script( 'seohelp-js-custom',    get_template_directory_uri() . '/js/main.js', array('jquery'), '20160630', true );
         
     }
@@ -399,7 +398,9 @@ function shortcodes_dashboard_widget_function() {
     echo '[get_email] - Показать email студии<br>';
     echo '[get_content_form] - Показать форму заявки на странице<br>';
     echo '[get_content_form title="Заказать перенос сайта"] - Показать форму заявки с новым заголовком<br>';
-    echo '<br>Сменить логотип, номер телефона, email, добавить коды счетчиков и сервисов на сайт, настройка блока Наши клиенты можно на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a>.<br>';
+    echo '[get_team_about] - Показать блок "О НАС" с бегающими цифрами. Блок редактируется на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a><br>';
+    echo '[get_clients] - Показать блок с лого "Наши клиенты". Блок редактируется на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a><br>';
+    echo '<br>Сменить логотип, номер телефона, email, добавить коды счетчиков и сервисов на сайт можно на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a>.<br>';
 }
 
 function get_portfolio($posts_per_page = -1) {
@@ -463,5 +464,32 @@ function get_content_form_func( $atts ){
     return $out;
 }
 add_shortcode('get_content_form', 'get_content_form_func');
+
+function get_team_about_func( $atts ){
+    ob_start();
+    get_template_part( 'inc/tpl-team-about' );
+    $out = ob_get_contents();
+    ob_end_clean();
+    return $out;
+}
+add_shortcode('get_team_about', 'get_team_about_func');
+
+function get_clients_func( $atts ){
+    ob_start();
+    get_template_part( 'inc/tpl-slider-clients-logo' );
+    $out = ob_get_contents();
+    ob_end_clean();
+    return $out;
+}
+add_shortcode('get_clients', 'get_clients_func');
+
+function get_why_func( $atts ){
+    ob_start();
+    get_template_part( 'inc/tpl-why-we' );
+    $out = ob_get_contents();
+    ob_end_clean();
+    return $out;
+}
+add_shortcode('get_why', 'get_why_func');
 
 ?>
