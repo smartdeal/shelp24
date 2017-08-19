@@ -29,6 +29,9 @@
             margin-bottom: 0;
         }
         @include mn1200 {
+            flex-basis: 200px;
+        }
+        @include mn1400 {
             flex-basis: 220px;
         }
     }

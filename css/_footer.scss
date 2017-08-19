@@ -67,3 +67,34 @@
         &-icons {}
     }
 }
+
+html.fixed-footer {
+    @include mn992 {
+        margin-top: 0 !important;
+        height: 100%;
+        body,
+        .layout-main {
+            height: 100%;
+        }
+        .admin-bar .layout-main {
+            padding-top: 32px;
+            height: 100%;
+        }
+        .content {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+        .footer {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}

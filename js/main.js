@@ -15,11 +15,14 @@ function init() {
     if (window_height < 768) $('body').addClass('h_less768'); else $('body').removeClass('h_less768');
     if (window_height >= 768 && window_height < 960) $('body').addClass('h_less960'); else $('body').removeClass('h_less960');
 
-    var content_height = $('.content').outerHeight();
+    var content_height = $('.content__inner').outerHeight();
     // var window_width = $(window).width();
-    var adminbar_height;
-    if ($('#wpadminbar').length) adminbar_height = $('#wpadminbar').outerHeight()
-        else adminbar_height = 0;
+    var adminbar_height = 0;
+    if ($('#wpadminbar').length) adminbar_height = $('#wpadminbar').outerHeight();
+
+            console.log("adminbar_height", adminbar_height);
+            console.log("window_height", window_height);
+            console.log("content_height", content_height);
 
     if (!$('html').hasClass('fixed-footer')) {
         if (content_height < window_height-adminbar_height) {
@@ -28,7 +31,16 @@ function init() {
             $('html').removeClass('fixed-footer');
         }
     }
-    $('.footer').show(300);
+    $('.footer').show(0);
+
+    if ($('.content__inner_front').length){
+        var footer_h = $('.footer').outerHeight();
+        var content_max_h = window_height - footer_h - adminbar_height;
+        $('.portfolio__item').css({'padding-bottom':0,'height':content_max_h/3});
+        console.log("window_height", window_height);
+        console.log("footer_h", footer_h);
+        console.log("content_max_h", content_max_h);
+    }
 
     if ($('.js-team-about').length){
         if (window_width >= 1200) {
@@ -61,16 +73,23 @@ function aload(t){"use strict";t=t||window.document.querySelectorAll("[data-aloa
 
 $(document).ready(function() {
 
-
     setTimeout(function() { 
         init();
-        $('.js-sidebar__bottom').show(400);
+        $('.js-sidebar__bottom').show(0);
     }, 1);
 
     aload();
     
-
-    $('body').addClass('loaded');
+    $('.preloader').animate({
+        opacity: 0,
+      }, 1500, function() {
+        $('.preloader').hide();
+        $('.layout-main').animate({
+            opacity: 1,
+          }, 500, function() {
+          });
+        $('body').addClass('loaded');
+      });
 
     $('.fancybox').fancybox();
 
@@ -116,7 +135,7 @@ $(document).ready(function() {
         var title = $('.case__form .form-content__title').text();
         $('.case__form .wpcf7-submit').val(title);
     }
-    $('.form-content .wpcf7-list-item-label').html('Согласен с <a href="'+home_url+'/privacy-policy/">политикой конфиденциальности</a>');
+    $('.form-content .policy .wpcf7-list-item-label').html('Согласен с <a href="'+home_url+'/privacy-policy/">политикой конфиденциальности</a>');
 
     $('.form_addservice-archive .wpcf7-submit').val('Отправить').addClass('btn_reverse');
     $('.js-arch-content__btn_order').click(function(event) {

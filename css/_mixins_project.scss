@@ -44,3 +44,11 @@
     width: 15px;
     height: 24px;
 }
+
+@mixin svg-icon-check {
+	display: inline-block;
+	vertical-align: middle;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15.969" height="12" viewBox="0 0 15.969 12"><defs><style>.cls-1 {fill: #f8615a; fill-rule: evenodd; }</style></defs><path d="M0.184,6.599 C0.061,6.479 -0.000,6.299 -0.000,6.179 C-0.000,6.059 0.061,5.879 0.184,5.759 L1.045,4.919 C1.290,4.679 1.659,4.679 1.905,4.919 L1.966,4.979 L5.346,8.519 C5.469,8.639 5.653,8.639 5.776,8.519 L14.011,0.179 L14.072,0.179 L14.072,0.179 L14.072,0.179 C14.318,-0.061 14.687,-0.061 14.932,0.179 L15.793,1.019 C16.038,1.259 16.038,1.619 15.793,1.859 L15.793,1.859 L15.793,1.859 L5.961,11.819 C5.838,11.939 5.715,11.999 5.530,11.999 C5.346,11.999 5.223,11.939 5.100,11.819 L0.307,6.779 L0.184,6.599 Z" class="cls-1"/></svg>') center no-repeat;
+    width: 16px;
+    height: 12px;
+}

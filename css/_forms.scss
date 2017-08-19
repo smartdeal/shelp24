@@ -26,16 +26,14 @@
 
         &:before {
             opacity: 0;
-            content: "X";
+            content: '';
+            @include svg-icon-check;
             color: inherit;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: normal;
             line-height: 29px;
             text-decoration: inherit;
             text-align: center;
             position: absolute;
-            left: 9px;
+            left: 7px;
             top: 50%;
             transform: translateY(-50%);
             z-index: 1;
@@ -60,14 +58,18 @@
 }
 
 .wpcf7 {
-	form {
-		position: relative;
-	}
+    form {
+        position: relative;
+    }
     span.wpcf7-list-item {
         margin: 0;
     }
     .ajax-loader {
         position: absolute;
+    }
+
+    .wpcf7-form-control-wrap {
+        width: 100%;
     }
 
     .wpcf7-not-valid,
@@ -90,9 +92,9 @@
 }
 
 div.wpcf7 .ajax-loader {
-	position: absolute;
-	right: 0;
-	bottom: -20px;
+    position: absolute;
+    right: 0;
+    bottom: -20px;
 }
 
 .form-content {
@@ -103,6 +105,7 @@ div.wpcf7 .ajax-loader {
     border-right: 0;
     color: #666;
     text-align: center;
+    clear: both;
     &__title {
         font-size: 20px;
         font-weight: 700;
@@ -140,6 +143,10 @@ div.wpcf7 .ajax-loader {
                 }
             }
         }
+        &__label {
+            line-height: 1;
+            font-size: 14px;
+        }
     }
     .wpcf7-submit {
         @include mn1200 {
@@ -156,17 +163,17 @@ div.wpcf7 .ajax-loader {
 }
 
 .form_addservice-archive {
-	max-width: 0;
-	opacity: 0;
-	overflow: hidden;
-	transition: max-width .5s 0s, opacity  .5s .3s;
-	height: 45px;
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-width .5s 0s, opacity .5s .3s;
+    height: 45px;
     @include mn1400 {
         margin-right: 20px;
     }
     &.sh-visible {
-    	max-width: 880px;
-    	opacity: 1;
+        max-width: 880px;
+        opacity: 1;
     }
     .form-content {
         border: 0;
@@ -194,5 +201,57 @@ div.wpcf7 .ajax-loader {
         @include mn1400 {
             width: auto;
         }
+    }
+}
+
+.form-content_service {
+    .form__inner {
+        @include mn1200 {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+    .form-content__body {
+    	padding: 10px 0 0;
+    }
+    .form__row {
+        text-align: left;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        align-items: center;
+        margin: 0 auto 15px;
+        width: 400px;
+        @include mn1200 {
+            width: 33.33%;
+            margin: 15px 0;
+        }
+        &_submit {
+            justify-content: center;
+        }
+        &:nth-child(2) {
+            @include mn1200 {
+                order: 1;
+            }
+        }
+        &:nth-child(3) {
+            @include mn1200 {
+                order: 2;
+            }
+        }
+        &:nth-child(4) {
+            @include mn1200 {
+                order: 3;
+            }
+        }
+    }
+    .wpcf7-checkbox .wpcf7-list-item-label {
+    	padding-left: 25px;
     }
 }

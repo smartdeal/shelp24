@@ -382,6 +382,48 @@ function filter_plugin_updates( $value ) {
 }
 add_filter( 'site_transient_update_plugins', 'filter_plugin_updates' );
 
+// Service menu
+function the_service_menu(){
+    $page_id = get_the_ID();
+    $page_parent_first = $page_id;
+    if (get_page_template_slug($page_id) != 'page-tpl-service.php') return;
+    $page_parent = wp_get_post_parent_id($page_id);
+    $args = array(
+        'post_parent' => $page_id,
+        'post_type'   => 'page', 
+        'numberposts' => -1,
+        'post_status' => 'publish' 
+    );
+    $page_children = get_children( $args );
+    if (!$page_children) {
+        $args = array(
+            'post_parent' => $page_parent,
+            'post_type'   => 'page', 
+            'numberposts' => -1,
+            'post_status' => 'publish' 
+        );
+        $page_children = get_children( $args );
+        $page_parent_first = $page_parent;
+    }
+    if ($page_children) {
+        $out = '<div class="service-menu"><div class="service-menu__title">';
+        if ($page_parent != 0) $out .= '<a href="'.get_permalink($page_parent_first).'">';
+        $out .= get_the_title($page_parent_first);
+        if ($page_parent != 0) $out .= '</a>';
+        $out .= '</div>';
+        $out .= '<ul class="service-menu__body">';
+        foreach ($page_children as $key => $value) {
+            $out .= '<li class="service-menu_item">';
+            if ($value->ID != $page_id) $out .= '<a class="service-menu_link" href="'.get_permalink($value->ID).'">';
+            $out .= $value->post_title;
+            if ($value->ID != $page_id) $out .= '</a>';
+            $out .= '</li>';
+        }
+        $out .= '</ul></div>';
+        echo $out;
+    }
+}
+
 // Add a widget to the dashboard.
 function shortcodes_add_dashboard_widgets() {
     wp_add_dashboard_widget(
@@ -398,6 +440,8 @@ function shortcodes_dashboard_widget_function() {
     echo '[get_email] - Показать email студии<br>';
     echo '[get_content_form] - Показать форму заявки на странице<br>';
     echo '[get_content_form title="Заказать перенос сайта"] - Показать форму заявки с новым заголовком<br>';
+    echo '[get_service_form] - Показать форму заявки услуги на странице<br>';
+    echo '[get_service_form title="Закажите продвижение сайта!"] - Показать форму заявки услуги с новым заголовком<br>';
     echo '[get_team_about] - Показать блок "О НАС" с бегающими цифрами. Блок редактируется на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a><br>';
     echo '[get_clients] - Показать блок с лого "Наши клиенты". Блок редактируется на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a><br>';
     echo '<br>Сменить логотип, номер телефона, email, добавить коды счетчиков и сервисов на сайт можно на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a>.<br>';
@@ -464,6 +508,40 @@ function get_content_form_func( $atts ){
     return $out;
 }
 add_shortcode('get_content_form', 'get_content_form_func');
+
+function get_service_form_func( $atts ){
+    if ($atts['title'] != '') $title = $atts['title'];
+        else $title = 'Заказать звонок';
+    $out = '<div class="form-content form-content_service">';
+    $out .= '<div class="form-content__title">'.$title.'</div>';
+    $out .= '<div class="form-content__body">'.do_shortcode('[contact-form-7 id="517" title="Форма в услугах"]').'</div>';
+    $out .= '</div>';
+    return $out;
+}
+add_shortcode('get_service_form', 'get_service_form_func');
+
+function get_seo_standart_func( $atts ){
+    $out = '<div class="seost">';
+    if ($title = get_field('seost_title','option'))
+        $out .= '<div class="seost__title">'.$title.'</div>';
+    if ($subtitle = get_field('seost_subtitle','option'))
+    $out .= '<div class="seost__subtitle">'.$subtitle.'</div>';
+    $files = get_field('seost_files','option');
+    if ($files) {
+        $first = true;
+        $out .= '<div class="seost__files">';
+        foreach ($files as $key => $value) {
+            if ($first) $btn_class = ' btn_darkgrey';
+                    else  $btn_class = '';
+            $first = false;
+            $out .= '<a href="'.$value['seost_file'].'" class="seost__file btn'.$btn_class.'" target="_blank">'.$value['seost_btn'].'</a>';
+        }
+        $out .= '</div>';
+    }
+    $out .= '</div>';
+    return $out;
+}
+add_shortcode('get_seo_standart', 'get_seo_standart_func');
 
 function get_team_about_func( $atts ){
     ob_start();

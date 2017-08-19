@@ -2,8 +2,7 @@ body {
     background: white; // opacity: 0;
     transition: opacity 1s 0s;
     position: relative;
-    min-width: 320px;
-    // max-width: 1920px;
+    min-width: 320px; // max-width: 1920px;
     // margin: 0 auto;
 }
 
@@ -47,6 +46,20 @@ a:hover {
     opacity: 1;
 }
 
+.preloader {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: url('../img/icon-preload.gif') center no-repeat;
+    z-index: 999;
+}
+
+.layout-main {
+    opacity: 0;
+}
+
 .breadcrumbs {
     color: #333;
     font-size: 12px;
@@ -88,6 +101,13 @@ img {
         @include mn992 {
             padding-top: 60px;
         }
+        &_portfolio {
+            max-width: none;
+            padding: 0;
+        }
+    }
+    &__body {
+        min-height: 300px;
     }
     &__title {
         margin: 20px 0;
@@ -130,7 +150,7 @@ img {
     p {
         margin-bottom: 1em;
     }
-    a {
+    a:not(.btn) {
         color: $red;
         text-decoration: underline;
         &:hover {
@@ -204,6 +224,14 @@ img {
             color: $red;
         }
     }
+    &_darkgrey {
+        color: $darkgrey;
+        border-color: $darkgrey;
+        &:hover {
+            background-color: $darkgrey;
+            color: white;
+        }
+    }
 }
 
 .pagi {
@@ -240,32 +268,73 @@ img {
     }
 }
 
-html.fixed-footer {
-    @include mn992 {
-        margin-top: 0 !important;
-        height: 100%;
-        body {
-            height: 100%;
+.service-menu {
+    float: right;
+    margin: 20px 0 20px 20px;
+    display: none;
+    @include mn768 {
+        display: block;
+    }
+    @include mn1200 {
+        width: 350px;
+    }
+    &__title {
+        background: $lightgrey;
+        padding: 15px 15px 15px 25px;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #666;
+        margin-bottom: 10px;
+    }
+    &_item {
+        color: #999;
+        padding: 4px 0;
+    }
+    &_link {
+        color: #333;
+        &:hover {
+            color: $red;
+            text-decoration: underline;
         }
-        body.admin-bar {
-            margin-top: 32px;
-            height: calc(100% - 32px);
-        }
-        .content {
-            display: -webkit-flex;
-            display: -moz-flex;
-            display: -ms-flex;
-            display: -o-flex;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            position: relative;
-        }
-        .footer {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
+    }
+}
+
+.seost {
+    margin: 40px 0;
+    background: $lightgrey;
+    padding: 20px;
+    text-align: right;
+    line-height: 1.2;
+    color: $darkgrey;
+    font-size: 16px;
+    @include mn768 {
+        padding: 50px 30px;
+        background: $lightgrey url('../img/bg-seo-standart.png') 10% 100% no-repeat;
+        min-height: 380px;
+    }
+    @include mn1200 {
+        padding: 30px;
+    }
+    &__title {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+    &__subtitle {
+        margin-bottom: 20px;
+    }
+    &__files {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: normal;
+        align-items: flex-end;
+    }
+    &__file {
+        margin-bottom: 30px;
     }
 }
