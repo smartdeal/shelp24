@@ -23,10 +23,65 @@
     &__email {
         margin-bottom: 50px;
     }
+    &__get-offer {
+        margin-bottom: 50px;
+    }
+    &__adr {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+    &__bottom-links {
+        margin: 20px 0;
+    }
+    &__entry,
+    &__warranty {
+        display: inline-block;
+        padding: 0 20px;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    &__warranty {
+        color: $red;
+    }
+    &__social {
+        margin: 20px 0 0;
+    }
 }
 
-.h_less768 .sidebar {
-    position: absolute;
+.h_less600 {
+    .sidebar {
+        position: absolute;
+        &__bottom {
+            position: static;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+.h_less768 {
+    .sidebar {
+        padding-top: 50px;
+        min-height: 0;
+        &__logo,
+        &__email,
+        &__get-offer {
+            margin-bottom: 20px;
+        }
+        &__bottom {
+            padding: 0;
+        }
+    }
+    .navbar_sidebar .navbar-nav>.menu-item>a {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        line-height: 1;
+    }
 }
 
 .h_less960 {
@@ -133,43 +188,6 @@
     display: none;
 }
 
-.sidebar {
-    &__get-offer {
-        margin-bottom: 50px;
-    }
-    &__adr {
-        font-size: 12px;
-        margin-bottom: 20px;
-    }
-    &__bottom-links {
-        margin: 20px 0;
-    }
-    &__entry,
-    &__warranty {
-        display: inline-block;
-        padding: 0 20px;
-        font-size: 14px;
-        font-weight: 700;
-        text-transform: uppercase;
-        text-decoration: underline;
-        &:hover {
-            text-decoration: none;
-        }
-    }
-    &__warranty {
-        color: $red;
-    }
-    &__social {
-        margin: 20px 0 0;
-    }
-}
-
-.h_less768 .sidebar__bottom {
-    position: static;
-    padding-left: 0;
-    padding-right: 0;
-}
-
 .social {
     margin: 30px 0 20px;
     &__item {
@@ -180,14 +198,23 @@
     &__item_2 {
         .social__icon {
             width: 18px;
+            &:hover {
+                background-position: -17px 50%;
+            }
         }
+    }
+    &__item_1 .social__icon:hover {
+        background-position: -29px 50%;
+    }
+    &__item_3 .social__icon:hover {
+        background-position: -28px 50%;
     }
     &__icon {
         width: 30px;
         height: 24px;
         display: block;
         background: url('') left no-repeat;
-        transition: background-position .3s 0s;
+        transition: none !important;
         &:hover {
             background-position: right;
         }

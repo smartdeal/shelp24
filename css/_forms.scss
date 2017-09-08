@@ -120,6 +120,9 @@ div.wpcf7 .ajax-loader {
         font-size: 14px;
         padding: 20px 0 10px;
     }
+    &_without-lead .form__row_lead{
+        display: none !important;
+    }
     .form {
         &__inner {
             font-size: 0;

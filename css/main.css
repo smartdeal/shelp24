@@ -2676,7 +2676,6 @@ input[type=email] {
       display: none; } }
 
 .footer {
-  display: none;
   background: #444;
   padding: 15px;
   color: #c6c6c6;
@@ -2691,8 +2690,10 @@ input[type=email] {
       justify-content: space-between;
       align-items: center; } }
   .footer .nav > li > a {
-    padding-top: 0;
-    padding-bottom: 0; }
+    padding: 0 5px; }
+    @media (min-width: 1600px) {
+      .footer .nav > li > a {
+        padding: 0 15px; } }
   .footer .nav > li > a:hover,
   .footer .nav > li > a:focus {
     background-color: transparent;
@@ -2705,20 +2706,13 @@ input[type=email] {
       display: inline-block; }
   .footer__item {
     display: inline-block;
-    vertical-align: middle; }
+    vertical-align: middle;
+    margin: 5px 0; }
   @media (min-width: 1600px) {
     .footer__left {
       flex-grow: 2; } }
   .footer__right {
-    margin-top: 10px;
-    text-align: center;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
+    text-align: center; }
     @media (min-width: 1600px) {
       .footer__right {
         margin-top: 0; } }
@@ -2778,9 +2772,45 @@ input[type=email] {
     margin-bottom: 5px; }
   .sidebar__email {
     margin-bottom: 50px; }
+  .sidebar__get-offer {
+    margin-bottom: 50px; }
+  .sidebar__adr {
+    font-size: 12px;
+    margin-bottom: 20px; }
+  .sidebar__bottom-links {
+    margin: 20px 0; }
+  .sidebar__entry, .sidebar__warranty {
+    display: inline-block;
+    padding: 0 20px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: underline; }
+    .sidebar__entry:hover, .sidebar__warranty:hover {
+      text-decoration: none; }
+  .sidebar__warranty {
+    color: #f8615a; }
+  .sidebar__social {
+    margin: 20px 0 0; }
+
+.h_less600 .sidebar {
+  position: absolute; }
+  .h_less600 .sidebar__bottom {
+    position: static;
+    padding-left: 0;
+    padding-right: 0; }
 
 .h_less768 .sidebar {
-  position: absolute; }
+  padding-top: 50px;
+  min-height: 0; }
+  .h_less768 .sidebar__logo, .h_less768 .sidebar__email, .h_less768 .sidebar__get-offer {
+    margin-bottom: 20px; }
+  .h_less768 .sidebar__bottom {
+    padding: 0; }
+.h_less768 .navbar_sidebar .navbar-nav > .menu-item > a {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  line-height: 1; }
 
 .h_less960 .navbar_sidebar .navbar-nav > .menu-item > a {
   padding-top: 5px;
@@ -2855,32 +2885,6 @@ input[type=email] {
   padding: 20px 30px;
   display: none; }
 
-.sidebar__get-offer {
-  margin-bottom: 50px; }
-.sidebar__adr {
-  font-size: 12px;
-  margin-bottom: 20px; }
-.sidebar__bottom-links {
-  margin: 20px 0; }
-.sidebar__entry, .sidebar__warranty {
-  display: inline-block;
-  padding: 0 20px;
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-decoration: underline; }
-  .sidebar__entry:hover, .sidebar__warranty:hover {
-    text-decoration: none; }
-.sidebar__warranty {
-  color: #f8615a; }
-.sidebar__social {
-  margin: 20px 0 0; }
-
-.h_less768 .sidebar__bottom {
-  position: static;
-  padding-left: 0;
-  padding-right: 0; }
-
 .social {
   margin: 30px 0 20px; }
   .social__item {
@@ -2889,12 +2893,18 @@ input[type=email] {
     padding: 0 10px; }
   .social__item_2 .social__icon {
     width: 18px; }
+    .social__item_2 .social__icon:hover {
+      background-position: -17px 50%; }
+  .social__item_1 .social__icon:hover {
+    background-position: -29px 50%; }
+  .social__item_3 .social__icon:hover {
+    background-position: -28px 50%; }
   .social__icon {
     width: 30px;
     height: 24px;
     display: block;
     background: url("") left no-repeat;
-    transition: background-position .3s 0s; }
+    transition: none !important; }
     .social__icon:hover {
       background-position: right; }
 
@@ -3106,7 +3116,7 @@ body {
 
 .loaded a,
 .loaded .btn {
-  transition: all .5s 0s; }
+  transition: color .5s 0s, background .5s 0s; }
 
 a:hover {
   text-decoration: underline; }
@@ -3512,7 +3522,6 @@ img {
         padding-bottom: 23%; } }
     @media (min-width: 1921px) {
       .portfolio__item {
-        width: 405px;
         padding-bottom: 0;
         height: 355px; } }
   .portfolio__link {
@@ -3521,14 +3530,12 @@ img {
     right: 0;
     top: 0;
     bottom: 0;
-    padding: 20px;
+    padding: 3%;
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
     display: -o-flex;
     display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden; }
     .portfolio__link:hover .portfolio__caption {
       top: 0; }
@@ -3562,7 +3569,9 @@ img {
     transition: top .3s 0s;
     overflow: hidden; }
   .portfolio__img {
-    display: block; }
+    display: block;
+    flex: 0 0 auto;
+    margin: auto; }
 
 .case {
   margin: 20px 0 40px; }

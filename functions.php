@@ -442,6 +442,7 @@ function shortcodes_dashboard_widget_function() {
     echo '[get_content_form title="Заказать перенос сайта"] - Показать форму заявки с новым заголовком<br>';
     echo '[get_service_form] - Показать форму заявки услуги на странице<br>';
     echo '[get_service_form title="Закажите продвижение сайта!"] - Показать форму заявки услуги с новым заголовком<br>';
+    echo '[get_service_form lead="off"] - Показать форму заявки услуги без поля "С бесплатными целевыми посетителями"<br>';
     echo '[get_team_about] - Показать блок "О НАС" с бегающими цифрами. Блок редактируется на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a><br>';
     echo '[get_clients] - Показать блок с лого "Наши клиенты". Блок редактируется на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a><br>';
     echo '<br>Сменить логотип, номер телефона, email, добавить коды счетчиков и сервисов на сайт можно на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a>.<br>';
@@ -512,7 +513,9 @@ add_shortcode('get_content_form', 'get_content_form_func');
 function get_service_form_func( $atts ){
     if ($atts['title'] != '') $title = $atts['title'];
         else $title = 'Заказать звонок';
-    $out = '<div class="form-content form-content_service">';
+    if ($atts['lead'] == 'off') $class_lead = ' form-content_without-lead';
+        else $class_lead = '';
+    $out = '<div class="form-content form-content_service'.$class_lead.'">';
     $out .= '<div class="form-content__title">'.$title.'</div>';
     $out .= '<div class="form-content__body">'.do_shortcode('[contact-form-7 id="517" title="Форма в услугах"]').'</div>';
     $out .= '</div>';

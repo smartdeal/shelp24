@@ -29,7 +29,7 @@
         <?php
             wp_nav_menu( array(
                 'theme_location'    => 'primary',
-                'depth'             => 2,
+                'depth'             => 1,
                 'container'         => 'div',
                 'container_class'   => '',
                 'container_id'      => '',

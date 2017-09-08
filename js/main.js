@@ -12,7 +12,8 @@ function init() {
     document_height = $(document).height();
 
 
-    if (window_height < 768) $('body').addClass('h_less768'); else $('body').removeClass('h_less768');
+    if (window_height < 600) $('body').addClass('h_less600'); else $('body').removeClass('h_less600');
+    if (window_height >= 600 && window_height < 768) $('body').addClass('h_less768'); else $('body').removeClass('h_less768');
     if (window_height >= 768 && window_height < 960) $('body').addClass('h_less960'); else $('body').removeClass('h_less960');
 
     var content_height = $('.content__inner').outerHeight();
@@ -25,13 +26,12 @@ function init() {
             console.log("content_height", content_height);
 
     if (!$('html').hasClass('fixed-footer')) {
-        if (content_height < window_height-adminbar_height) {
+        if ((content_height < window_height-adminbar_height) && !$('body').hasClass('h_less600')) {
             $('html').addClass('fixed-footer');
         } else {
             $('html').removeClass('fixed-footer');
         }
     }
-    $('.footer').show(0);
 
     if ($('.content__inner_front').length){
         var footer_h = $('.footer').outerHeight();

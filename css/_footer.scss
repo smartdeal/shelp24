@@ -1,5 +1,4 @@
 .footer {
-	display: none;
     background: #444;
     padding: 15px;
     color: #c6c6c6;
@@ -14,8 +13,10 @@
         align-items: center;
     }
     .nav>li>a {
-        padding-top: 0;
-        padding-bottom: 0;
+        padding: 0 5px;
+        @include mn1600 {
+            padding: 0 15px;
+        }
     }
     .nav>li>a:hover,
     .nav>li>a:focus {
@@ -33,25 +34,18 @@
     &__item {
         display: inline-block;
         vertical-align: middle;
+        margin: 5px 0;
     }
     &__left {
-		@include mn1600 {
-			flex-grow: 2;
-		}
+        @include mn1600 {
+            flex-grow: 2;
+        }
     }
     &__right {
-        margin-top: 10px;
         text-align: center;
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flex;
-        display: -o-flex;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-		@include mn1600 {
-			margin-top: 0;
-		}
+        @include mn1600 {
+            margin-top: 0;
+        }
         &-text,
         &-icons {
             display: inline-block;

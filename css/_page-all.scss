@@ -14,7 +14,7 @@ h1 {}
 
 .loaded a,
 .loaded .btn {
-    transition: all .5s 0s;
+    transition: color .5s 0s, background .5s 0s;
 }
 
 a:hover {
