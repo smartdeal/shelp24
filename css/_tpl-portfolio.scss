@@ -4,6 +4,9 @@
     @include mn550 {
         text-align: left;
     }
+    &__wrapper {
+        position: relative;
+    }
     &__item {
         font-size: 16px;
         display: inline-block;
@@ -85,10 +88,118 @@
         overflow: hidden;
     }
     &__img {
-        display: block;
-        flex: 0 0 auto;
+        display: block; // flex: 0 0 auto;
         margin: auto;
+        max-width: 70%;
+        max-height: 70%;
     }
+}
+
+.portfolio-filter {
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    right: 30px;
+    max-width: 50px;
+    max-height: 50px;
+    overflow: hidden;
+    transition: max-width 1s 0s, max-height 1s 0s;
+    &.is-hover {
+        max-width: 260px;
+        max-height: 500px;
+        @include mn550 {
+            max-width: 500px;
+        }
+    }
+    &__btn {
+        width: 50px;
+        height: 50px;
+        background-color: #999;
+        position: absolute;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 18px;
+        cursor: pointer;
+        transition: background-color .5s 0s;
+        &:hover {
+            background-color: $red;
+        }
+        span {
+            display: block;
+            width: 25px;
+            height: 4px;
+            margin-bottom: 4px;
+            background: white;
+            &+span {
+                width: 19px;
+                &+span {
+                    width: 8px;
+                }
+            }
+        }
+    }
+}
+
+.portfolio-menu {
+    margin-left: 60px;
+    background: white;
+    padding: 30px;
+    box-shadow: 0 3px 15px rgba(0, 27, 46, 0.2);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    &__link {
+        cursor: pointer;
+        margin-top: 10px;
+        @include mn550 {
+            white-space: nowrap;
+        }
+        &:first-child {
+            margin-top: 0;
+            color: #999;
+        }
+        &:hover {
+            color: $red;
+        }
+    }
+}
+
+.portfolio__item-sizer {
+    width: 100%;
+    @include mn550 {
+        width: 50%;
+    }
+    @include mn768 {
+        width: 33.33%;
+    }
+    @include mn1400 {
+        width: 25%;
+    }
+    @include mn1920 {
+        width: 300px;
+    }
+}
+
+.portfolio__item_all {
+    @extend .portfolio__item-sizer;
+    max-width: none;
+    height: 200px;
+    padding-bottom: 0;
+    transition: none;
+    @include mn1400 {
+        height: 250px;
+    }
+    @include mn1600 {
+        height: 300px;
+    }
+}
+
+.portfolio__item_all img {
+    max-width: 70%;
+    max-height: 70%;
 }
 
 .case {
@@ -107,7 +218,7 @@
         &_first {
             padding-top: 0;
         }
-        &:last-child{
+        &:last-child {
             border-bottom: 0;
         }
     }
@@ -244,7 +355,7 @@
         display: flex;
         justify-content: space-around;
         max-width: 500px;
-    margin: 20px auto;
+        margin: 20px auto;
     }
     &__caption {
         font-size: 16px;

@@ -25,6 +25,7 @@
         text-transform: uppercase;
         font-weight: 700;
         max-width: 300px;
+        z-index: 99;
     }
     .navbar-nav>li>a {
         line-height: 1;
@@ -70,7 +71,7 @@
 }
 
 .menu-btn {
-    position: absolute;
+    position: fixed;
     top: 5px;
     right: 5px;
     width: 40px;
@@ -78,6 +79,7 @@
     border: 1px solid black;
     border-radius: 4px;
     margin: 0;
+    z-index: 99;
     span {
         display: block;
         height: 3px;
@@ -92,4 +94,8 @@
     @include mn992 {
         display: none;
     }
+}
+
+.admin-bar .menu-btn {
+    margin-top: 50px;
 }

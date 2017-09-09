@@ -72,6 +72,7 @@ function seohelp_scripts() {
         wp_enqueue_script( 'seohelp-js-mask',      get_template_directory_uri() . '/js/jquery.inputmask.bundle.min.js', array('jquery'), '20160630', true );
         wp_enqueue_script( 'seohelp-js-fancy',     get_template_directory_uri() . '/js/fancybox/jquery.fancybox.pack.js', array('jquery'), '20160630', true );
         wp_enqueue_script( 'seohelp-js-parallax',  get_template_directory_uri() . '/js/jquery.stellar.min.js', array('jquery'), '20160630', true );
+        if (is_page(101)) wp_enqueue_script( 'seohelp-js-isotope',  get_template_directory_uri() . '/js/isotope.pkgd.min.js', array(), '20160630', true );
         wp_enqueue_script( 'seohelp-js-custom',    get_template_directory_uri() . '/js/main.js', array('jquery'), '20160630', true );
         
     }
@@ -449,7 +450,20 @@ function shortcodes_dashboard_widget_function() {
 }
 
 function get_portfolio($posts_per_page = -1) {
-    $out = '<div class="portfolio">';
+    $arrPortfolio_tax = array();
+    $arrPortfolio_tax_one = array();
+    $out = '';
+    $out_menu = '';
+    $portfolio_full = false;
+    if ($posts_per_page == -1) $portfolio_full = true;
+    if ($portfolio_full) {
+        $class_grid = ' portfolio_all js-portfolio-grid'; 
+        $class_grid_item = ' portfolio__item_all';
+    }
+    else {
+        $class_grid = ''; 
+        $class_grid_item = ''; 
+    }
     $arg =  array(
         'orderby'      => 'menu_order',
         'order'        => 'ASC',
@@ -459,6 +473,10 @@ function get_portfolio($posts_per_page = -1) {
     );
     $query = new WP_Query($arg);
     if ($query->have_posts() ):
+        $out .= '<div class="portfolio'.$class_grid.'">';
+        if ($portfolio_full) {
+            $out .= '<div class="portfolio__item-sizer"></div>';
+        }
         while ( $query->have_posts() ): 
             $query->the_post();
             if (!$folio_logo_color = get_field('folio_logo_color'))
@@ -466,7 +484,20 @@ function get_portfolio($posts_per_page = -1) {
             $folio_logo_bg = '';
             if ($arrFolio_logo_bg = get_field('folio_logo_bg'))
                 $folio_logo_bg = ' url('.$arrFolio_logo_bg['sizes']['medium'].') center no-repeat; background-size: cover';
-            $out .= '<div class="portfolio__item" data-aload style="background:'.$folio_logo_color.$folio_logo_bg.'">';
+            $port_tax = get_field('folio_type',get_the_ID());
+            $class_tax = '';
+            if ($port_tax) {
+                foreach ($port_tax as $key => $value) {
+                    $class_tax .= ' portfolio-tax-'.$value->slug;
+                    $arrPortfolio_tax_one['id'] =   $value->term_id;
+                    $arrPortfolio_tax_one['name'] = $value->name;
+                    $arrPortfolio_tax_one['slug'] = $value->slug;
+                    if (!in_array($arrPortfolio_tax_one, $arrPortfolio_tax)) {
+                        $arrPortfolio_tax[] = $arrPortfolio_tax_one;
+                    }
+                }
+            }
+            $out .= '<div class="portfolio__item'.$class_grid_item.$class_tax.'" data-aload style="background:'.$folio_logo_color.$folio_logo_bg.'">';
             $out .= '<a href="'.get_the_permalink().'" class="portfolio__link">';
             $out .= '<div class="portfolio__caption">'.get_the_title().'</div>';
             if (has_post_thumbnail())
@@ -474,9 +505,26 @@ function get_portfolio($posts_per_page = -1) {
             $out .= '</a>';
             $out .= '</div>';
         endwhile;
+        $arrTmp=array();
+        foreach($arrPortfolio_tax as $key=>$arr){
+            $arrTmp[$key]=$arr['id'];
+        }
+        array_multisort( $arrTmp, SORT_NUMERIC, $arrPortfolio_tax); // сортирует Таксиномию по ИД
+        $out .= '</div>';
+        if ($portfolio_full) {
+            $out_menu .= '<div class="portfolio-filter js-portfolio-filter">';
+            $out_menu .= '<div class="portfolio-filter__btn js-portfolio-filter-btn"><span></span><span></span><span></span></div>';
+            $out_menu .= '<div class="portfolio-menu">';
+            $out_menu .= '<div class="portfolio-menu__link js-portfolio-btn" data-filter="*">Все работы</div>';
+            foreach ($arrPortfolio_tax as $key => $value) {
+                $out_menu .= '<div class="portfolio-menu__link js-portfolio-btn" data-filter=".portfolio-tax-'.$value['slug'].'">'.$value['name'].'</div>';
+            }
+            $out_menu .= '</div>';
+            $out_menu .= '</div>';
+        }
+        $out = '<div class="portfolio__wrapper">'.$out_menu.$out.'</div>';
     endif;
     wp_reset_postdata();
-    $out .= '</div>';
     echo $out;
 }
 

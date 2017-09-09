@@ -1,6 +1,6 @@
 jQuery(function($) { 
 
-var window_height, document_height;
+var window_height, document_height, footer_h;
 
 function include(scriptUrl) {
     document.write('<script src="'+dir_url + scriptUrl + '"></script>');
@@ -10,20 +10,22 @@ function init() {
     window_width = $(window).width();
     window_height = $(window).height();
     document_height = $(document).height();
-
+    footer_h = $('.js-footer').outerHeight();
 
     if (window_height < 600) $('body').addClass('h_less600'); else $('body').removeClass('h_less600');
     if (window_height >= 600 && window_height < 768) $('body').addClass('h_less768'); else $('body').removeClass('h_less768');
     if (window_height >= 768 && window_height < 960) $('body').addClass('h_less960'); else $('body').removeClass('h_less960');
+    if (window_width < 768) $('body').addClass('w_less768'); else $('body').removeClass('w_less768');
+    if (window_width < 992) $('body').addClass('w_less992'); else $('body').removeClass('w_less992');
 
     var content_height = $('.content__inner').outerHeight();
     // var window_width = $(window).width();
     var adminbar_height = 0;
     if ($('#wpadminbar').length) adminbar_height = $('#wpadminbar').outerHeight();
 
-            console.log("adminbar_height", adminbar_height);
-            console.log("window_height", window_height);
-            console.log("content_height", content_height);
+            // console.log("adminbar_height", adminbar_height);
+            // console.log("window_height", window_height);
+            // console.log("content_height", content_height);
 
     if (!$('html').hasClass('fixed-footer')) {
         if ((content_height < window_height-adminbar_height) && !$('body').hasClass('h_less600')) {
@@ -33,13 +35,9 @@ function init() {
         }
     }
 
-    if ($('.content__inner_front').length){
-        var footer_h = $('.footer').outerHeight();
+    if ($('.content__inner_front').length && !$('body').hasClass('w_less992')){
         var content_max_h = window_height - footer_h - adminbar_height;
         $('.portfolio__item').css({'padding-bottom':0,'height':content_max_h/3});
-        console.log("window_height", window_height);
-        console.log("footer_h", footer_h);
-        console.log("content_max_h", content_max_h);
     }
 
     if ($('.js-team-about').length){
@@ -110,20 +108,6 @@ $(document).ready(function() {
         });
     }
 
-    // $('.js-mreviews').slick({
-    //     dots: false,
-    //     infinite: true,
-    //     slidesToShow: 3,
-    //     slidesToScroll: 3,
-    //     responsive: [{
-    //         breakpoint: 992,
-    //         settings: {
-    //             slidesToShow: 1,
-    //             slidesToScroll: 1,
-    //         }
-    //     }]
-    // });
-
     $('input[type=tel]').inputmask({
         mask: "+7(999) 999-99-99"
     });
@@ -153,6 +137,52 @@ $(document).ready(function() {
         // event.preventDefault();
         // $(".form_addservice-archive").toggleClass('sh-visible');
     });
+
+    if ($('.js-portfolio-grid').length) {
+        console.log("js-portfolio-grid");
+        var $portfolio_grid = $('.js-portfolio-grid').isotope({
+            itemSelector: '.portfolio__item',
+            percentPosition: true,
+            layoutMode: 'fitRows',
+            fitRows: {
+                columnWidth: '.portfolio__item-sizer'
+            }
+        });
+
+        $('.js-portfolio-btn').click(function(event) {
+            var filterValue = $( this ).attr('data-filter');
+            if (!$('html').hasClass('fixed-footer')) {
+                $('.js-footer').hide();
+            }
+            $portfolio_grid.isotope({ filter: filterValue });
+        });
+
+        $('.js-portfolio-filter-btn').click(function(event) {
+            // $(this).closest('.js-portfolio-filter').removeClass('is-hover');
+        });
+
+        $portfolio_grid.on( 'layoutComplete',
+          function( event, laidOutItems ) {
+            setTimeout(function() { 
+                var content_height = $('.content__inner').outerHeight();
+                if (window_height > content_height + footer_h){
+                    $('html').addClass('fixed-footer');
+                } else {
+                    $('html').removeClass('fixed-footer');
+                }
+                $('.js-footer').show();
+            }, 1);
+          }
+        );
+
+        $('.js-portfolio-filter').hover(
+            function(){
+              $(this).addClass('is-hover');
+            },
+            function(){
+              $(this).removeClass('is-hover');
+        });
+    }
 
 }); // $(document).ready
 

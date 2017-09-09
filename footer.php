@@ -1,4 +1,4 @@
-		<div class="footer">
+		<div class="footer js-footer">
 			<div class="footer__item footer__left">
 		        <?php
 		            wp_nav_menu( array(
