@@ -175,12 +175,22 @@ $(document).ready(function() {
           }
         );
 
-        $('.js-portfolio-filter').hover(
-            function(){
-              $(this).addClass('is-hover');
-            },
-            function(){
-              $(this).removeClass('is-hover');
+        // $('.js-portfolio-filter').hover(
+        //     function(){
+        //       $(this).addClass('is-hover');
+        //     },
+        //     function(){
+        //       $(this).removeClass('is-hover');
+        // });
+        $('.js-portfolio-filter').click(function(){
+              $(this).toggleClass('is-hover');
+        });
+    }
+
+    if ($('.js-reviews').length) {
+        $('.js-reviews-img').each(function(index, el) {
+            var reviews_big_img = $(this).attr('data-img-src');
+            $(this).zoom({url: reviews_big_img});
         });
     }
 

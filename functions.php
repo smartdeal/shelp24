@@ -72,7 +72,8 @@ function seohelp_scripts() {
         wp_enqueue_script( 'seohelp-js-mask',      get_template_directory_uri() . '/js/jquery.inputmask.bundle.min.js', array('jquery'), '20160630', true );
         wp_enqueue_script( 'seohelp-js-fancy',     get_template_directory_uri() . '/js/fancybox/jquery.fancybox.pack.js', array('jquery'), '20160630', true );
         wp_enqueue_script( 'seohelp-js-parallax',  get_template_directory_uri() . '/js/jquery.stellar.min.js', array('jquery'), '20160630', true );
-        if (is_page(101)) wp_enqueue_script( 'seohelp-js-isotope',  get_template_directory_uri() . '/js/isotope.pkgd.min.js', array(), '20160630', true );
+        if (is_page_template('page-portfolio.php')) wp_enqueue_script( 'seohelp-js-isotope',  get_template_directory_uri() . '/js/isotope.pkgd.min.js', array(), '20160630', true );
+        if (is_page_template('page-reviews.php')) wp_enqueue_script( 'seohelp-js-zoom',  get_template_directory_uri() . '/js/jquery.zoom.min.js', array(), '20160630', true );
         wp_enqueue_script( 'seohelp-js-custom',    get_template_directory_uri() . '/js/main.js', array('jquery'), '20160630', true );
         
     }
