@@ -51,7 +51,8 @@
                                                     <?php endif; ?>
                                                     <div class="b-meta__item b-meta__share">
                                                         <img class="b-meta__icon" src="<?php echo get_template_directory_uri().'/img/icon-share.png'; ?>" alt="">
-                                                        <a href="#" class="b-meta__link">Поделиться</a>
+                                                        <a href="#" class="b-meta__link b-meta__link_share">Поделиться</a>
+                                                        <?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
                                                     </div>
                                                 </div>                                        
                                             </div>
@@ -76,7 +77,7 @@
                         <?php } ?>
                     </div>
                     <?php $pagi = paginate_links(array('prev_text' => '', 'next_text' => '')); ?>
-                    <?php if ($page): ?>
+                    <?php if ($pagi): ?>
                         <div class="pagi"><?php echo $pagi; ?></div>
                     <?php endif; ?>
                 <?php } ?>

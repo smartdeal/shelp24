@@ -163,7 +163,9 @@ img {
         text-transform: uppercase;
         margin: 1em 0;
     }
+    ol,
     ul {
+        overflow: hidden;
         margin: 1em 0;
         padding-left: 1.5em;
     }
@@ -336,5 +338,36 @@ img {
     }
     &__file {
         margin-bottom: 30px;
+    }
+}
+
+.wpulike .wp_ulike_general_class {
+    padding-left: 5px;
+    .wp_ulike_btn {
+        padding: 0;
+        width: 20px;
+        height: 20px;
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+        &:hover {
+            border: none;
+            background-color: transparent;
+            text-shadow: none;
+        }
+    }
+    .count-box {
+        background-color: transparent;
+        border: none;
+        color: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        min-width: 0;
+        padding: 0;
+        margin: 0;
+        &:before {
+            display: none;
+        }
     }
 }

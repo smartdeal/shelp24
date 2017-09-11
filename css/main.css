@@ -2533,7 +2533,8 @@ li {
   list-style-position: inside;
   list-style: none; }
 
-.input, input[type=tel],
+.input, textarea,
+input[type=tel],
 input[type=text],
 input[type=email] {
   font-size: 14px;
@@ -2983,6 +2984,11 @@ input[type=email] {
   margin: 0;
   font-weight: inherit; }
 
+.wpcf7-textarea {
+  resize: none;
+  margin-bottom: 30px;
+  height: 150px; }
+
 div.wpcf7 .ajax-loader {
   position: absolute;
   right: 0;
@@ -3009,25 +3015,25 @@ div.wpcf7 .ajax-loader {
   .form-content__body {
     font-size: 14px;
     padding: 20px 0 10px; }
-  .form-content_without-lead .form__row_lead {
+  .form-content_without-lead .form__col_lead {
     display: none !important; }
   .form-content .form__inner {
     font-size: 0; }
-  .form-content .form__row {
+  .form-content .form__col {
     font-size: 16px;
     display: inline-block;
     vertical-align: middle;
     width: 350px;
     max-width: 100%;
     margin-bottom: 15px; }
-    .form-content .form__row:last-child {
+    .form-content .form__col:last-child {
       margin-bottom: 0; }
     @media (min-width: 1200px) {
-      .form-content .form__row {
+      .form-content .form__col {
         width: 33.33%;
         padding-right: 20px;
         margin-bottom: 0; }
-        .form-content .form__row:last-of-type {
+        .form-content .form__col:last-of-type {
           padding-right: 0; } }
   .form-content .form__label {
     line-height: 1;
@@ -3071,11 +3077,11 @@ div.wpcf7 .ajax-loader {
       display: flex;
       align-items: center; } }
   @media (min-width: 1400px) {
-    .form_addservice-archive .form__row {
+    .form_addservice-archive .form__col {
       width: auto; } }
 
 @media (min-width: 1200px) {
-  .form-content_service .form__inner {
+  .form-content_service .form__row {
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
@@ -3084,7 +3090,7 @@ div.wpcf7 .ajax-loader {
     flex-wrap: wrap; } }
 .form-content_service .form-content__body {
   padding: 10px 0 0; }
-.form-content_service .form__row {
+.form-content_service .form__col {
   text-align: left;
   display: -webkit-flex;
   display: -moz-flex;
@@ -3095,19 +3101,19 @@ div.wpcf7 .ajax-loader {
   margin: 0 auto 15px;
   width: 400px; }
   @media (min-width: 1200px) {
-    .form-content_service .form__row {
+    .form-content_service .form__col {
       width: 33.33%;
       margin: 15px 0; } }
-  .form-content_service .form__row_submit {
+  .form-content_service .form__col_submit {
     justify-content: center; }
   @media (min-width: 1200px) {
-    .form-content_service .form__row:nth-child(2) {
+    .form-content_service .form__col:nth-child(2) {
       order: 1; } }
   @media (min-width: 1200px) {
-    .form-content_service .form__row:nth-child(3) {
+    .form-content_service .form__col:nth-child(3) {
       order: 2; } }
   @media (min-width: 1200px) {
-    .form-content_service .form__row:nth-child(4) {
+    .form-content_service .form__col:nth-child(4) {
       order: 3; } }
 .form-content_service .wpcf7-checkbox .wpcf7-list-item-label {
   padding-left: 25px; }
@@ -3244,7 +3250,9 @@ img {
     font-weight: 700;
     text-transform: uppercase;
     margin: 1em 0; }
+  .article ol,
   .article ul {
+    overflow: hidden;
     margin: 1em 0;
     padding-left: 1.5em; }
   .article li {
@@ -3390,6 +3398,32 @@ img {
   .seost__file {
     margin-bottom: 30px; }
 
+.wpulike .wp_ulike_general_class {
+  padding-left: 5px; }
+  .wpulike .wp_ulike_general_class .wp_ulike_btn {
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    box-shadow: none;
+    border: none; }
+    .wpulike .wp_ulike_general_class .wp_ulike_btn:hover {
+      border: none;
+      background-color: transparent;
+      text-shadow: none; }
+  .wpulike .wp_ulike_general_class .count-box {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    min-width: 0;
+    padding: 0;
+    margin: 0; }
+    .wpulike .wp_ulike_general_class .count-box:before {
+      display: none; }
+
 .content__inner_archive .content__title {
   text-align: center; }
 .content__inner_archive .content__list {
@@ -3497,6 +3531,23 @@ img {
       background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="14" height="10" viewBox="0 0 14 10"><defs><style>.cls-1 {fill: #f8615a; fill-rule: evenodd; } </style> </defs> <path d="M10.758,0.571 C10.537,0.214 10.095,-0.001 9.579,-0.001 L1.474,-0.001 C0.663,-0.001 -0.000,0.642 -0.000,1.428 L-0.000,8.571 C-0.000,9.356 0.663,9.999 1.474,9.999 L9.579,9.999 C10.095,9.999 10.537,9.785 10.758,9.428 L14.000,4.999 L10.758,0.571 ZM9.579,8.571 L1.474,8.571 L1.474,1.428 L9.579,1.428 L12.158,4.999 L9.579,8.571 Z" class="cls-1"/> </svg>') center no-repeat;
       width: 14px;
       height: 10px; }
+  .b-meta__share .addtoany_list:hover, .b-meta__link_share:hover + .addtoany_list {
+    opacity: 1;
+    visibility: visible; }
+  .b-meta__share {
+    position: relative; }
+    .b-meta__share .addtoany_list {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      transition: all 1s 0s;
+      left: 33px;
+      top: 100%;
+      width: 182px;
+      padding: 10px;
+      border: 1px solid;
+      border-radius: 5px;
+      background: white; }
 
 .portfolio {
   font-size: 0;

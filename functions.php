@@ -572,6 +572,17 @@ function get_service_form_func( $atts ){
 }
 add_shortcode('get_service_form', 'get_service_form_func');
 
+function get_review_form_func( $atts ){
+    if ($atts['title'] != '') $title = $atts['title'];
+        else $title = 'Оставить отзыв';
+    $out = '<div class="form-content form-content_review">';
+    $out .= '<div class="form-content__title">'.$title.'</div>';
+    $out .= '<div class="form-content__body">'.do_shortcode('[contact-form-7 id="713" title="Форма Оставить отзыв"]').'</div>';
+    $out .= '</div>';
+    return $out;
+}
+add_shortcode('get_review_form', 'get_review_form_func');
+
 function get_seo_standart_func( $atts ){
     $out = '<div class="seost">';
     if ($title = get_field('seost_title','option'))

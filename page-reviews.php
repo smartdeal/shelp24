@@ -34,6 +34,7 @@ Template Post Type: page
 	                            	<?php endforeach ?>
 	                            </div>
                             <?php endif; ?>
+                            <?php echo do_shortcode('[get_review_form]' ); ?>
                         </div>
             <?php }} ?>
         </div>

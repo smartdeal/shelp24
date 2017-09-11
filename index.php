@@ -36,13 +36,13 @@
                                             <a href="#" class="b-meta__link">2</a>
                                         </div>
                                         <div class="b-meta__item b-meta__likes">
-                                            <img class="b-meta__icon" src="<?php echo get_template_directory_uri().'/img/icon-likes.png'; ?>" alt="">
-                                            <a href="#" class="b-meta__link">2</a>
+                                            <?php if(function_exists('wp_ulike')) wp_ulike('get'); ?>
                                         </div>
                                     <?php endif; ?>
                                     <div class="b-meta__item b-meta__share">
                                         <img class="b-meta__icon" src="<?php echo get_template_directory_uri().'/img/icon-share.png'; ?>" alt="">
-                                        <a href="#" class="b-meta__link">Поделиться</a>
+                                        <a href="#" class="b-meta__link b-meta__link_share">Поделиться</a>
+                                        <?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
                                     </div>
                                 </div>
                             <?php endif; ?>

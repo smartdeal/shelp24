@@ -38,4 +38,25 @@
             @include svg-icon-flag;
         }
     }
+    &__share .addtoany_list:hover,
+    &__link_share:hover + .addtoany_list {
+			opacity: 1;
+			visibility: visible;
+    }
+    &__share {
+        position: relative;
+        .addtoany_list {
+        	opacity: 0;
+        	visibility: hidden;
+            position: absolute;
+            transition: all 1s 0s;
+            left: 33px;
+            top: 100%;
+            width: 182px;
+            padding: 10px;
+            border: 1px solid;
+            border-radius: 5px;
+            background: white;
+        }
+    }
 }
