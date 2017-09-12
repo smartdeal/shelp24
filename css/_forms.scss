@@ -93,8 +93,6 @@
 
 .wpcf7-textarea {
     resize: none;
-    margin-bottom: 30px;
-    height: 150px;
 }
 
 div.wpcf7 .ajax-loader {
@@ -126,7 +124,7 @@ div.wpcf7 .ajax-loader {
         font-size: 14px;
         padding: 20px 0 10px;
     }
-    &_without-lead .form__col_lead{
+    &_without-lead .form__col_lead {
         display: none !important;
     }
     .form {
@@ -225,7 +223,7 @@ div.wpcf7 .ajax-loader {
         }
     }
     .form-content__body {
-    	padding: 10px 0 0;
+        padding: 10px 0 0;
     }
     .form__col {
         text-align: left;
@@ -261,6 +259,82 @@ div.wpcf7 .ajax-loader {
         }
     }
     .wpcf7-checkbox .wpcf7-list-item-label {
-    	padding-left: 25px;
+        padding-left: 25px;
+    }
+}
+
+.form-content_review .wpcf7-textarea {
+    margin-bottom: 30px;
+    height: 150px;
+}
+
+.form-content_contact {
+    border: 0;
+    padding: 0;
+    margin: 20px 0;
+    @include mn1200 {
+        max-width: 750px;
+    }
+    .form__row {
+        font-size: 0;
+    }
+    .wpcf7-form-control-wrap {
+        display: block;
+        margin-bottom: 10px;
+        @include mn550 {
+            margin-bottom: 20px;
+        }
+        &.nm,
+        &.tel {
+            @include mn550 {
+                width: 50%;
+                display: inline-block;
+                vertical-align: top;
+            }
+        }
+        &.nm {
+            @include mn550 {
+                padding-right: 10px;
+            }
+        }
+        &.tel {
+            @include mn550 {
+                padding-left: 10px;
+            }
+        }
+        &.submit,
+        &.policy {
+            @include mn768 {
+                display: inline-block;
+                width: 50%;
+                margin-bottom: 0;
+                vertical-align: middle;
+            }
+        }
+        &.policy {
+            @include mn768 {
+                text-align: left;
+                padding-right: 10px;
+            }
+        }
+        &.submit {
+            @include mn768 {
+                text-align: right;
+            }
+        }
+    }
+    .wpcf7-submit {
+        @include mn768 {
+            width: 350px;
+            max-width: 100%;
+        }
+    }
+    .wpcf7 .wpcf7-response-output {
+        @include mn1400 {
+            display: block;
+            position: absolute;
+            bottom: 44px;
+            width: 100%;
+        }
     }
 }

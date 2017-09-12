@@ -1,6 +1,6 @@
 jQuery(function($) { 
 
-var window_height, document_height, footer_h;
+var window_width, window_height, document_height, footer_h;
 
 function include(scriptUrl) {
     document.write('<script src="'+dir_url + scriptUrl + '"></script>');
@@ -19,16 +19,15 @@ function init() {
     if (window_width < 992) $('body').addClass('w_less992'); else $('body').removeClass('w_less992');
 
     var content_height = $('.content__inner').outerHeight();
-    // var window_width = $(window).width();
     var adminbar_height = 0;
     if ($('#wpadminbar').length) adminbar_height = $('#wpadminbar').outerHeight();
 
             // console.log("adminbar_height", adminbar_height);
-            // console.log("window_height", window_height);
-            // console.log("content_height", content_height);
+            console.log("window_height", window_height);
+            console.log("content_height", content_height);
 
     if (!$('html').hasClass('fixed-footer')) {
-        if ((content_height < window_height-adminbar_height) && !$('body').hasClass('h_less600')) {
+        if ((content_height < window_height-adminbar_height-footer_h) && !$('body').hasClass('h_less600')) {
             $('html').addClass('fixed-footer');
         } else {
             $('html').removeClass('fixed-footer');
@@ -209,23 +208,69 @@ var is_team_about_scrolled = false;
 $(window).scroll(function() {
 
     if (!is_team_about_scrolled && $('.js-team-about').length) {
-        var scroll = $(window).scrollTop();
-        if ( scroll+window_height-team_about_height > team_about_offset_top) {
-            is_team_about_scrolled = true;
+        if (window_width >= 1200) {
+            var scroll = $(window).scrollTop();
+            if ( scroll+window_height-team_about_height > team_about_offset_top) {
+                is_team_about_scrolled = true;
+                $('.js-team-about-num').each(function(index, el) {
+                      $({someValue: 0}).animate({someValue: $(el).attr('data-max-num')}, {
+                          duration: 2000,
+                          easing:'swing', // can be anything
+                          step: function() { // called on every step
+                              $(el).text(Math.round(this.someValue));
+                          }
+                      });
+                });
+            } 
+        } else {
             $('.js-team-about-num').each(function(index, el) {
-                  $({someValue: 0}).animate({someValue: $(el).attr('data-max-num')}, {
-                      duration: 2000,
-                      easing:'swing', // can be anything
-                      step: function() { // called on every step
-                          $(el).text(Math.round(this.someValue));
-                      }
-                  });
+                var cur_num = $(el).attr('data-max-num');
+                $(el).text(cur_num);
             });
         }
-
     }
 
 });
+
+/* Yandex Map
+ ========================================================*/
+    var map_container = document.getElementById("map");
+    if (map_container) {
+        $(document).ready(function () {
+            get_map(map_container, map_contact);
+        });
+    }
+
+    function get_map(map_container, map_array){
+        if (map_container !== null) {
+            ymaps.ready(init);
+            var myMap, 
+                myPlacemark,
+                curLat,
+                curLong,
+                curDesc;
+
+            function init(){ 
+                curLat = map_array['lat'];
+                curLong = map_array['long'];
+                myMap = new ymaps.Map(map_container, {
+                    // center: [61.582319, 98.112851],
+                    center: [curLat, curLong],
+                    zoom: 17
+                }); 
+                // curDesc = map_array['desc'];
+                myPlacemark = new ymaps.Placemark([curLat, curLong], {}, {
+                    // balloonContent: curDesc
+                    iconLayout: 'default#image',
+                    iconImageHref: theme_url+'/img/map-pin.png',
+                    iconImageSize: [42, 58],
+                    iconImageOffset: [-30, -70]
+                });
+                myMap.geoObjects.add(myPlacemark);
+            }
+        }
+    }
+
 
 });
 

@@ -67,14 +67,15 @@ function seohelp_scripts() {
         // wp_enqueue_script('jquery');
 
     // wp_enqueue_script( 'seohelp-js-ym', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array(), '20160630', true );
-        wp_enqueue_script( 'seohelp-js-bt',        get_template_directory_uri() . '/js/bootstrap.min.js', array(), '20160630', true );
-        wp_enqueue_script( 'seohelp-js-sl',        get_template_directory_uri() . '/js/slick/slick.min.js', array('jquery'), '20160630', true );
-        wp_enqueue_script( 'seohelp-js-mask',      get_template_directory_uri() . '/js/jquery.inputmask.bundle.min.js', array('jquery'), '20160630', true );
-        wp_enqueue_script( 'seohelp-js-fancy',     get_template_directory_uri() . '/js/fancybox/jquery.fancybox.pack.js', array('jquery'), '20160630', true );
-        wp_enqueue_script( 'seohelp-js-parallax',  get_template_directory_uri() . '/js/jquery.stellar.min.js', array('jquery'), '20160630', true );
-        if (is_page_template('page-portfolio.php')) wp_enqueue_script( 'seohelp-js-isotope',  get_template_directory_uri() . '/js/isotope.pkgd.min.js', array(), '20160630', true );
-        if (is_page_template('page-reviews.php')) wp_enqueue_script( 'seohelp-js-zoom',  get_template_directory_uri() . '/js/jquery.zoom.min.js', array(), '20160630', true );
-        wp_enqueue_script( 'seohelp-js-custom',    get_template_directory_uri() . '/js/main.js', array('jquery'), '20160630', true );
+        wp_enqueue_script( 'seohelp-js-bt',        get_template_directory_uri() . '/js/bootstrap.min.js', array(), '20170630', true );
+        wp_enqueue_script( 'seohelp-js-sl',        get_template_directory_uri() . '/js/slick/slick.min.js', array('jquery'), '20170630', true );
+        wp_enqueue_script( 'seohelp-js-mask',      get_template_directory_uri() . '/js/jquery.inputmask.bundle.min.js', array('jquery'), '20170630', true );
+        wp_enqueue_script( 'seohelp-js-fancy',     get_template_directory_uri() . '/js/fancybox/jquery.fancybox.pack.js', array('jquery'), '20170630', true );
+        wp_enqueue_script( 'seohelp-js-parallax',  get_template_directory_uri() . '/js/jquery.stellar.min.js', array('jquery'), '20170630', true );
+        if (is_page_template('page-portfolio.php')) wp_enqueue_script( 'seohelp-js-isotope',  get_template_directory_uri() . '/js/isotope.pkgd.min.js', array(), '20170630', true );
+        if (is_page_template('page-reviews.php')) wp_enqueue_script( 'seohelp-js-zoom',  get_template_directory_uri() . '/js/jquery.zoom.min.js', array(), '20170630', true );
+        if (is_page_template('page-contacts.php')) wp_enqueue_script( 'seohelp-js-map',  'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array(), '', true );
+        wp_enqueue_script( 'seohelp-js-custom',    get_template_directory_uri() . '/js/main.js', array('jquery'), '20170630', true );
         
     }
 }
@@ -582,6 +583,14 @@ function get_review_form_func( $atts ){
     return $out;
 }
 add_shortcode('get_review_form', 'get_review_form_func');
+
+function get_contact_form_func( $atts ){
+    $out = '<div class="form-content form-content_contact">';
+    $out .= '<div class="form-content__body">'.do_shortcode('[contact-form-7 id="771" title="Форма Контакты"]').'</div>';
+    $out .= '</div>';
+    return $out;
+}
+add_shortcode('get_contact_form', 'get_contact_form_func');
 
 function get_seo_standart_func( $atts ){
     $out = '<div class="seost">';

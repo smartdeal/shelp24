@@ -34,9 +34,10 @@
                         <a href="mailto:<?php echo $main_email; ?>" class="header-mobile__item b-email b-email_header"><?php echo $main_email; ?></a>
                     <?php endif; ?>
                     <a href="#form-get-offer" class="header-mobile__item b-get-offer">Запросить предложение</a>
-                    <div class="menu-btn navbar-toggle" data-toggle="collapse" data-target="#menu-collapse"><span></span><span></span><span></span></div>
-                    <nav class="navbar navbar_seohelp" role="navigation">
-                    <!--noindex-->
+                    <div class="menu-mob">
+                        <button class="menu-btn navbar-toggle" data-toggle="collapse" data-target="#menu-collapse"><span></span><span></span><span></span></button>
+                        <nav class="navbar navbar_seohelp" role="navigation">
+                        <!--noindex-->
                         <?php
                             wp_nav_menu( array(
                                 'theme_location'    => 'primary',
@@ -49,8 +50,9 @@
                                 'walker'            => new wp_bootstrap_navwalker())
                             );
                         ?>
-                    <!--/noindex-->
-                    </nav>
+                        <!--/noindex-->
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>

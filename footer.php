@@ -20,7 +20,10 @@
 
 	    <?php wp_footer(); ?>
 	    <?php the_field('option_code_bottom','option'); ?>
-	    <script>var home_url="<?php echo home_url(); ?>"</script>
+	    <script>
+	    	var home_url="<?php echo home_url(); ?>";
+	    	var theme_url="<?php echo get_template_directory_uri(); ?>";
+    	</script>
     </div>
 </body>
 </html>

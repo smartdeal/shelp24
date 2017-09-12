@@ -1,0 +1,99 @@
+.content {
+    &__title_contacts {
+        @include mn992 {
+            text-align: center;
+        }
+    }
+
+    &__map {
+        height: 340px;
+    }
+    &__inner_contacts {
+        max-width: none;
+        padding-bottom: 0;
+    }
+    &__layout {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+}
+
+.b-contact {
+    margin: 20px 0;
+    font-size: 16px;
+    &__item {
+        margin: 10px 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        @include mn1400 {
+            margin-bottom: 40px;
+        }
+    }
+    &__icon {
+        display: inline-block;
+        vertical-align: middle;
+        width: 64px;
+        height: 64px;
+        background: $lightgrey;
+        border-radius: 50%;
+        flex: 0 0 auto;
+        text-align: center;
+        font-size: 0;
+        &:before {
+            content: '';
+            background: url(../img/icons-contacts.png) center no-repeat;
+            background-position: 0 0;
+            width: 25px;
+            height: 25px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        &:after {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            width: 0;
+            height: 100%;
+        }
+        &_email:before {
+            background-position: -27px 0;
+        }
+        &_adr:before {
+            background-position: -54px 0;
+        }
+    }
+    &__txt {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+    }
+    &__tel {
+        font-size: 22px;
+        font-weight: 700;
+        margin: 5px 0;
+        color: $darkgrey;
+    }
+    &__email {
+        a {
+            text-decoration: underline;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    &__adr_2 {
+        font-size: 14px;
+    }
+}
+
+.contact__row {
+    @include mn1400 {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        margin-bottom: 30px;
+    }
+}
