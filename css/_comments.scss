@@ -1,0 +1,45 @@
+#comments {
+    border-top: 1px solid #e5e5e5;
+    margin-top: 30px;
+    a {
+        color: $red;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .comment {
+        margin-bottom: 1em;
+    }
+    .children {
+        margin-top: 1em;
+        padding-left: 2em;
+    }
+    .comment-form {
+        @include mn550 {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+    .comment-notes {
+    	margin-bottom: 10px;
+        width: 100%;
+    }
+    .comment-form {
+        &__item {
+        	margin-bottom: 10px;
+            width: 100%;
+            &_author,
+            &_email {
+                @include mn550 {
+                    width: 50%;
+                }
+            }
+            &_author {
+                @include mn550 {
+                    padding-right: 20px;
+                }
+            }
+        }
+    }
+}

@@ -172,6 +172,8 @@ img {
     li {
         padding-left: 1em;
         position: relative;
+    }
+    li {
         &:before {
             content: '\002e';
             color: #f8615a;
@@ -180,6 +182,19 @@ img {
             top: -5px;
             font-size: 30px;
             line-height: .5;
+        }
+    }
+    ol {
+        counter-reset: list 0;
+        li {
+            padding-left: 2em;
+            &:before {
+                counter-increment: list;
+                content: counter(list) ".";
+                font-size: inherit;
+                top: 0;
+                line-height: 1.6;
+            }
         }
     }
     blockquote {

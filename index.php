@@ -33,7 +33,7 @@
                                     <?php if (is_singular( array('stati') )): ?>
                                         <div class="b-meta__item b-meta__comments">
                                             <img class="b-meta__icon" src="<?php echo get_template_directory_uri().'/img/icon-comments.png'; ?>" alt="">
-                                            <a href="#" class="b-meta__link">2</a>
+                                            <a href="#" class="b-meta__link"><?php echo get_comments_number() ?></a>
                                         </div>
                                         <div class="b-meta__item b-meta__likes">
                                             <?php if(function_exists('wp_ulike')) wp_ulike('get'); ?>
@@ -75,6 +75,11 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php 
+                                    if ( comments_open() && is_singular('stati') ) :
+                                        comments_template();
+                                    endif;
+                                ?>                                
                             </div>
                         </div>
                     <?php }} ?>

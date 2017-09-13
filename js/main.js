@@ -132,10 +132,29 @@ $(document).ready(function() {
         }, 100);
     });
 
-    $('.b-arch-content__btn.btn_more').click(function(event) {
-        // event.preventDefault();
-        // $(".form_addservice-archive").toggleClass('sh-visible');
+    $('.js-btn-get-offer').click(function(event) {
+        event.preventDefault();
+        $('.form-get-offer').toggleClass('opened');
     });
+
+    $('.js-form-get-offer-close').click(function(event) {
+        event.preventDefault();
+        $('.form-get-offer').removeClass('opened');
+    });
+
+    $(".wpcf7").on('wpcf7mailsent', function(event){
+        if ( '517' == event.detail.contactFormId ) {
+            if ($('.js-form-sent-ok').length){
+                $('.js-form-sent-ok').fadeIn('slow');
+            }
+        }
+    });
+
+    // document.addEventListener( 'wpcf7submit', function( event ) {
+    //         alert( "The contact form ID is 123." );
+    //         // do something productive
+    //     }
+    // }, false );
 
     if ($('.js-portfolio-grid').length) {
         console.log("js-portfolio-grid");

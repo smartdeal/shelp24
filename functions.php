@@ -124,7 +124,7 @@ function custom_post_type() {
         'label'               => __( 'Полезное', 'seohelp' ),
         'description'         => __( '', 'seohelp' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', ),
+        'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'comments'),
         'taxonomies'          => array('post_tag'),
         'hierarchical'        => false,
         'public'              => true,
@@ -530,6 +530,51 @@ function get_portfolio($posts_per_page = -1) {
     echo $out;
 }
 
+function mytheme_comment($comment, $args, $depth){
+   $GLOBALS['comment'] = $comment; ?>
+   <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
+    <div id="comment-<?php comment_ID(); ?>">
+    <div class="comment-author vcard">
+        <?php echo get_avatar( $comment, $size='48', $default='<path_to_url>' ); ?>
+
+        <cite class="fn"><?php echo get_comment_author_link() ?></cite>:
+        <?php edit_comment_link('(Редактировать)', '  ', '') ?>
+    </div>
+    <?php if ($comment->comment_approved == '0') : ?>
+        <em>Ваш комментарий ожидает проверки.</em>
+        <br />
+    <?php endif; ?>
+
+    <?php comment_text() ?>
+
+    <div class="reply">
+        <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+    </div>
+    </div>
+<?php
+}
+
+add_filter( 'comment_form_submit_button', function( $submit_button, $args )
+{
+    // Override the submit button HTML:
+    $button = '<input name="%1$s" type="submit" id="%2$s" class="%3$s btn" value="%4$s" />';
+
+    return sprintf(
+        $button,
+        esc_attr( $args['name_submit'] ),
+        esc_attr( $args['id_submit'] ),
+        esc_attr( $args['class_submit'] ),
+        esc_attr( $args['label_submit'] )
+     );
+
+}, 10, 2 );
+
+add_action('wpcf7_mail_sent', function ($cf7) {
+    // Run code after the email has been sent
+});
+
+add_filter( 'wpcf7_skip_mail',  '__return_true' );
+
 // function get_tel_func( $atts, $content = '' ){
 //     $out = $content;
 //     return $out;
@@ -568,6 +613,7 @@ function get_service_form_func( $atts ){
     $out = '<div class="form-content form-content_service'.$class_lead.'">';
     $out .= '<div class="form-content__title">'.$title.'</div>';
     $out .= '<div class="form-content__body">'.do_shortcode('[contact-form-7 id="517" title="Форма в услугах"]').'</div>';
+    $out .= '<div class="form-sent-ok js-form-sent-ok"><div class="form-sent-ok__inner"><div class="form-sent-ok__title">Спасибо!</div><div class="form-sent-ok__subtitle">Заявка принята. Наш специалист позвонит Вам.</div></div></div>';
     $out .= '</div>';
     return $out;
 }

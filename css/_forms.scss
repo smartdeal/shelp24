@@ -110,6 +110,7 @@ div.wpcf7 .ajax-loader {
     color: #666;
     text-align: center;
     clear: both;
+    position: relative;
     &__title {
         font-size: 20px;
         font-weight: 700;
@@ -261,6 +262,9 @@ div.wpcf7 .ajax-loader {
     .wpcf7-checkbox .wpcf7-list-item-label {
         padding-left: 25px;
     }
+    .wpcf7-mail-sent-ok {
+        display: none !important;
+    }
 }
 
 .form-content_review .wpcf7-textarea {
@@ -336,5 +340,32 @@ div.wpcf7 .ajax-loader {
             bottom: 44px;
             width: 100%;
         }
+    }
+}
+
+.form-sent-ok {
+    position: absolute;
+    left: 0px;
+    right: 0;
+    top: 20px;
+    bottom: 20px;
+    background: $lightgrey;
+    text-transform: uppercase;
+    z-index: 1;
+	display: none;
+    &__inner {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &__title {
+        color: $red;
+        font-weight: 700;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    &__subtitle {
+        font-size: 18px;
+        color: $darkgrey;
     }
 }
