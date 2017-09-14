@@ -92,6 +92,9 @@ img {
 }
 
 .content {
+    position: relative;
+    top: 0;
+    transition: top 1s 0s;
     @include mn992 {
         margin-left: 300px;
     }

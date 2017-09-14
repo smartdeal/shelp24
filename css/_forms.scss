@@ -168,6 +168,9 @@ div.wpcf7 .ajax-loader {
             text-decoration: none;
         }
     }
+    .wpcf7-mail-sent-ok {
+        display: none !important;
+    }    
 }
 
 .form_addservice-archive {
@@ -264,6 +267,9 @@ div.wpcf7 .ajax-loader {
     }
     .wpcf7-mail-sent-ok {
         display: none !important;
+    }
+    .wpcf7 .wpcf7-response-output {
+    	margin: 0;
     }
 }
 

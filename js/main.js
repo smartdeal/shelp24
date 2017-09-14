@@ -6,6 +6,28 @@ function include(scriptUrl) {
     document.write('<script src="'+dir_url + scriptUrl + '"></script>');
 }
 
+// Lazy load
+function aload(t){"use strict";t=t||window.document.querySelectorAll("[data-aload]"),void 0===t.length&&(t=[t]);var a,e=0,r=t.length;for(e;r>e;e+=1)a=t[e],a["LINK"!==a.tagName?"src":"href"]=a.getAttribute("data-aload"),a.removeAttribute("data-aload");return t}
+
+function preinit() {
+    aload();
+    if ($('.js-slider-logo').length){
+        $('.js-slider-logo').slick({
+            dots: false,
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            prevArrow:"<div class='slick-prev pull-left'></div>",
+            nextArrow:"<div class='slick-next pull-right'></div>",
+            responsive: [{
+                breakpoint: 550,
+                settings: {
+                    slidesToShow: 2,
+                }
+            }]
+        });
+    }    
+}
 function init() {
     window_width = $(window).width();
     window_height = $(window).height();
@@ -26,12 +48,10 @@ function init() {
             console.log("window_height", window_height);
             console.log("content_height", content_height);
 
-    if (!$('html').hasClass('fixed-footer')) {
-        if ((content_height < window_height-adminbar_height-footer_h) && !$('body').hasClass('h_less600')) {
-            $('html').addClass('fixed-footer');
-        } else {
-            $('html').removeClass('fixed-footer');
-        }
+    if ((content_height < window_height-adminbar_height-footer_h) && !$('body').hasClass('h_less600')) {
+        $('html').addClass('fixed-footer');
+    } else {
+        $('html').removeClass('fixed-footer');
     }
 
     if ($('.content__inner_front').length && !$('body').hasClass('w_less992')){
@@ -65,17 +85,12 @@ function init() {
     }
 }
 
-// Lazy load
-function aload(t){"use strict";t=t||window.document.querySelectorAll("[data-aload]"),void 0===t.length&&(t=[t]);var a,e=0,r=t.length;for(e;r>e;e+=1)a=t[e],a["LINK"!==a.tagName?"src":"href"]=a.getAttribute("data-aload"),a.removeAttribute("data-aload");return t}
-
 $(document).ready(function() {
-
+    preinit();
     setTimeout(function() { 
         init();
         $('.js-sidebar__bottom').show(0);
     }, 1);
-
-    aload();
     
     $('.preloader').animate({
         opacity: 0,
@@ -89,23 +104,6 @@ $(document).ready(function() {
       });
 
     $('.fancybox').fancybox();
-
-    if ($('.js-slider-logo').length){
-        $('.js-slider-logo').slick({
-            dots: false,
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            prevArrow:"<div class='slick-prev pull-left'></div>",
-            nextArrow:"<div class='slick-next pull-right'></div>",
-            responsive: [{
-                breakpoint: 550,
-                settings: {
-                    slidesToShow: 2,
-                }
-            }]
-        });
-    }
 
     $('input[type=tel]').inputmask({
         mask: "+7(999) 999-99-99"
@@ -143,7 +141,8 @@ $(document).ready(function() {
     });
 
     $(".wpcf7").on('wpcf7mailsent', function(event){
-        if ( '517' == event.detail.contactFormId ) {
+        var forms = ['517', '193'];
+        if ( forms.indexOf(event.detail.contactFormId) != -1 ) {
             if ($('.js-form-sent-ok').length){
                 $('.js-form-sent-ok').fadeIn('slow');
             }
@@ -155,6 +154,26 @@ $(document).ready(function() {
     //         // do something productive
     //     }
     // }, false );
+
+    $('.link-ajax').click(function(event) {
+        event.preventDefault();
+        var cur_link = $(this).attr('href');
+        console.log('click', -document_height);
+        console.log('state', history.state);
+
+        $('#js-content')
+            .css('top',-document_height+'px')
+            .load('http://seohelp.the4mobile.com/wp-content/themes/seohelp/ajax.php?link='+cur_link, function() {
+                history.pushState({param: 'Value'}, '', cur_link);
+                console.log( "Load was performed." );
+                $(this).css('top','0');
+                preinit();
+                init();
+            });
+            // .css('display','none')
+            // .css('top',-window_height+'px')
+            // .css('display','block')
+    });
 
     if ($('.js-portfolio-grid').length) {
         console.log("js-portfolio-grid");
@@ -193,13 +212,6 @@ $(document).ready(function() {
           }
         );
 
-        // $('.js-portfolio-filter').hover(
-        //     function(){
-        //       $(this).addClass('is-hover');
-        //     },
-        //     function(){
-        //       $(this).removeClass('is-hover');
-        // });
         $('.js-portfolio-filter').click(function(){
               $(this).toggleClass('is-hover');
         });

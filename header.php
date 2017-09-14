@@ -59,4 +59,4 @@
 
         <?php get_sidebar(); ?>
 
-        <div class="content">
+        <div id="js-content" class="content">

@@ -99,11 +99,8 @@
 
                                                     </div>
                                                 <?php endif; ?>
-
-                                                <?php if ($value['folio_stage_img']): ?>
-
-                                                    <div class="case__img">
-
+                                                <?php if ($value['folio_stage_result'] || $value['folio_stage_img']): ?>
+                                                    <div class="case__imgs">
                                                         <?php if ($value['folio_stage_result']): ?>
                                                             <?php 
                                                                 $folio_request_after = $value['folio_stage_result'][0]['folio_stage_request_after'];
@@ -112,7 +109,7 @@
                                                                 $folio_visitor_before = $value['folio_stage_result'][0]['folio_stage_visitor_before'];
                                                             ?>
                                                             <div class="case__result">
-                                                                <div class="case-result">
+                                                                <div class="case-result__graf">
                                                                     <div class="case-result__chart">
                                                                         <div class="case-chart">
                                                                         <?php 
@@ -157,10 +154,13 @@
                                                             </div>
                                                         <?php endif; ?>
 
-                                                        <img data-aload="<?php echo $value['folio_stage_img']['sizes']['large']; ?>" alt="">
+                                                        <?php if ($value['folio_stage_img']): ?>
+                                                            <div class="case__img2">
+                                                                <img data-aload="<?php echo $value['folio_stage_img']['sizes']['large']; ?>" alt="">
+                                                            </div>
+                                                        <?php endif; ?>
                                                     </div>
                                                 <?php endif; ?>
-
                                             </div>
                                             <?php $folio_counter++; ?>
                                         <?php } ?>
