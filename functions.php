@@ -598,7 +598,7 @@ function get_service_result_func( $atts ){
     $query = new WP_Query($arg);
     if ($query->have_posts() ):
         $out .= '<div class="b-result">';
-        $out .= '<div class="b-result__title">'.$title.'</div>';
+        $out .= '<div class="b-result__title">'.$title.'</div><div class="b-result__body js-result-slider">';
         while ( $query->have_posts() ): 
             $query->the_post();
             
@@ -608,15 +608,13 @@ function get_service_result_func( $atts ){
             if ($arrFolio_logo_bg = get_field('folio_logo_bg'))
                 $folio_logo_bg = ' url('.$arrFolio_logo_bg['sizes']['medium'].') center no-repeat; background-size: cover';
 
-            $out .= '<div class="b-result__body"><div class="b-result__top"><div class="b-result__desc">';
+            $out .= '<div class="b-result__item"><div class="b-result__top"><div class="b-result__desc">';
             $out .= '<div class="b-result__name">'.get_the_title().'</div>';
             if ($folio_res_desc = get_field('folio_res_desc'))
-                $out .= '<div class="b-result__desc">'.$folio_res_desc.'</div>';
+                $out .= '<div class="b-result__txt">'.$folio_res_desc.'</div>';
             $out .= '</div>';
             if ($folio_res_txt = get_field('folio_res_txt'))
-                $out .= '<div class="b-result__txt">'.$folio_res_txt.'</div>';
-
-            $out .= '<div class="b-result__middle"></div>';
+                $out .= '<div class="b-result__middle">'.$folio_res_txt.'</div>';
             $out .= '<div class="b-result__graf">';
 
             $folio_request_before = get_field('folio_res_graf_before');
@@ -662,7 +660,7 @@ function get_service_result_func( $atts ){
             $out .= '</div>';
             $out .= '</div>';
         endwhile;
-        $out .= '</div>';
+        $out .= '</div></div>';
     endif;
     wp_reset_postdata();
     return $out;

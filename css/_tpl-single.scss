@@ -39,15 +39,15 @@
         }
     }
     &__share .addtoany_list:hover,
-    &__link_share:hover + .addtoany_list {
-			opacity: 1;
-			visibility: visible;
+    &__link_share:hover+.addtoany_list {
+        opacity: 1;
+        visibility: visible;
     }
     &__share {
         position: relative;
         .addtoany_list {
-        	opacity: 0;
-        	visibility: hidden;
+            opacity: 0;
+            visibility: hidden;
             position: absolute;
             transition: all 1s 0s;
             right: 0;
@@ -58,5 +58,170 @@
             border-radius: 5px;
             background: white;
         }
+    }
+}
+
+.b-result {
+    margin: 30px 0;
+    padding: 30px 0;
+    border: 1px solid #e5e5e5;
+    border-left: 0;
+    border-right: 0;
+    clear: both;
+    color: #666;
+    &__title {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1;
+        text-transform: uppercase;
+        margin-right: 60px;
+    }
+    p {
+        margin: 0;
+        line-height: 1.4;
+    }
+    &__body {
+        padding-top: 20px;
+    }
+    &__top {
+        border-bottom: 1px solid transparent;
+        @include mn550 {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+    &__desc {
+        margin: 10px 0;
+        @include mn550 {
+            width: 100%;
+        }
+        @include mn1200 {
+            width: 33.33%;
+            padding-right: 20px;
+        }
+    }
+    &__name {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+    &__txt {
+        font-size: 14px;
+    }
+    &__middle {
+        position: relative;
+        padding-left: 40px;
+        margin: 10px 0;
+        @include mn550 {
+            flex: 1 2 200px;
+            padding-right: 20px;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            background: url('../img/icon-grow.png') center no-repeat;
+            width: 30px;
+            height: 26px;
+            left: 0;
+            top: 7px;
+        }
+    }
+    &__graf {
+        margin: 10px auto;
+        position: relative;
+        max-width: 330px;
+        padding-left: 40px;
+        padding-right: 100px;
+        @include mn550 {
+            flex: 1 1 300px;
+        }
+        .case-chart {
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+        .case-result__txt {
+            position: relative;
+            padding-bottom: 20px;
+        }
+        .case-result__caption {
+            position: absolute;
+            top: 0;
+            left: 77px;
+            line-height: 1.2;
+            font-size: 14px;
+            &:last-child {
+                left: 127px;
+            }
+        }
+        .case-chart__before-request,
+        .case-chart__after-request {
+            width: 50px;
+            @include mn1200 {
+                width: 60px;
+            }
+        }
+        .case-chart__before-request {
+            margin-right: 20px;
+        }
+    }
+    &__graf-txt {
+        position: absolute;
+        top: 30px;
+        right: 0;
+        width: 100px;
+        padding: 0 10px;
+        line-height: 1.2;
+        font-size: 14px;
+    }
+    .b-result__bottom {
+        @include mn550 {
+            display: block;
+            position: relative;
+            min-height: 150px;
+        }
+        @include mn768 {
+            min-height: 250px;
+        }
+    }
+    &__pic {
+        max-width: 200px;
+        height: 150px;
+        margin: 10px auto;
+        position: relative;
+        text-align: center;
+        @include mn550 {
+            width: 33.33%;
+            max-width: none;
+            margin: 0;
+            position: absolute;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+    }
+    &__res-img {
+        border: 1px solid #e5e5e5;
+        padding: 20px;
+        @include mn550 {
+            width: auto;
+            border: 1px solid #e5e5e5;
+            padding: 20px;
+            margin-left: 36%;
+        }
+    }
+    &__link {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .slick-prev,
+    .slick-next {
+        top: -10px;
+        right: 0;
+    }
+    .slick-prev {
+        right: 30px;
+        left: auto;
     }
 }

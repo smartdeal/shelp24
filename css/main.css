@@ -3012,7 +3012,7 @@ input[type=email] {
       content: '';
       display: inline-block;
       vertical-align: middle;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15.969" height="12" viewBox="0 0 15.969 12"><defs><style>.cls-1 {fill: #f8615a; fill-rule: evenodd; }</style></defs><path d="M0.184,6.599 C0.061,6.479 -0.000,6.299 -0.000,6.179 C-0.000,6.059 0.061,5.879 0.184,5.759 L1.045,4.919 C1.290,4.679 1.659,4.679 1.905,4.919 L1.966,4.979 L5.346,8.519 C5.469,8.639 5.653,8.639 5.776,8.519 L14.011,0.179 L14.072,0.179 L14.072,0.179 L14.072,0.179 C14.318,-0.061 14.687,-0.061 14.932,0.179 L15.793,1.019 C16.038,1.259 16.038,1.619 15.793,1.859 L15.793,1.859 L15.793,1.859 L5.961,11.819 C5.838,11.939 5.715,11.999 5.530,11.999 C5.346,11.999 5.223,11.939 5.100,11.819 L0.307,6.779 L0.184,6.599 Z" class="cls-1"/></svg>') center no-repeat;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15.969" height="12" viewBox="0 0 15.969 12"><defs><style>.cls-1 {fill: %23f8615a; fill-rule: evenodd; }</style></defs><path d="M0.184,6.599 C0.061,6.479 -0.000,6.299 -0.000,6.179 C-0.000,6.059 0.061,5.879 0.184,5.759 L1.045,4.919 C1.290,4.679 1.659,4.679 1.905,4.919 L1.966,4.979 L5.346,8.519 C5.469,8.639 5.653,8.639 5.776,8.519 L14.011,0.179 L14.072,0.179 L14.072,0.179 L14.072,0.179 C14.318,-0.061 14.687,-0.061 14.932,0.179 L15.793,1.019 C16.038,1.259 16.038,1.619 15.793,1.859 L15.793,1.859 L15.793,1.859 L5.961,11.819 C5.838,11.939 5.715,11.999 5.530,11.999 C5.346,11.999 5.223,11.939 5.100,11.819 L0.307,6.779 L0.184,6.599 Z" class="cls-1"/></svg>') center no-repeat;
       width: 16px;
       height: 12px;
       color: inherit;
@@ -3698,7 +3698,7 @@ img {
     .b-meta__icon_flag {
       display: inline-block;
       vertical-align: middle;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="14" height="10" viewBox="0 0 14 10"><defs><style>.cls-1 {fill: #f8615a; fill-rule: evenodd; } </style> </defs> <path d="M10.758,0.571 C10.537,0.214 10.095,-0.001 9.579,-0.001 L1.474,-0.001 C0.663,-0.001 -0.000,0.642 -0.000,1.428 L-0.000,8.571 C-0.000,9.356 0.663,9.999 1.474,9.999 L9.579,9.999 C10.095,9.999 10.537,9.785 10.758,9.428 L14.000,4.999 L10.758,0.571 ZM9.579,8.571 L1.474,8.571 L1.474,1.428 L9.579,1.428 L12.158,4.999 L9.579,8.571 Z" class="cls-1"/> </svg>') center no-repeat;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="14" height="10" viewBox="0 0 14 10"><defs><style>.cls-1 {fill: %23f8615a; fill-rule: evenodd; } </style> </defs> <path d="M10.758,0.571 C10.537,0.214 10.095,-0.001 9.579,-0.001 L1.474,-0.001 C0.663,-0.001 -0.000,0.642 -0.000,1.428 L-0.000,8.571 C-0.000,9.356 0.663,9.999 1.474,9.999 L9.579,9.999 C10.095,9.999 10.537,9.785 10.758,9.428 L14.000,4.999 L10.758,0.571 ZM9.579,8.571 L1.474,8.571 L1.474,1.428 L9.579,1.428 L12.158,4.999 L9.579,8.571 Z" class="cls-1"/> </svg>') center no-repeat;
       width: 14px;
       height: 10px; }
   .b-meta__share .addtoany_list:hover, .b-meta__link_share:hover + .addtoany_list {
@@ -3718,6 +3718,147 @@ img {
       border: 1px solid;
       border-radius: 5px;
       background: white; }
+
+.b-result {
+  margin: 30px 0;
+  padding: 30px 0;
+  border: 1px solid #e5e5e5;
+  border-left: 0;
+  border-right: 0;
+  clear: both;
+  color: #666; }
+  .b-result__title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-right: 60px; }
+  .b-result p {
+    margin: 0;
+    line-height: 1.4; }
+  .b-result__body {
+    padding-top: 20px; }
+  .b-result__top {
+    border-bottom: 1px solid transparent; }
+    @media (min-width: 550px) {
+      .b-result__top {
+        display: flex;
+        flex-wrap: wrap; } }
+  .b-result__desc {
+    margin: 10px 0; }
+    @media (min-width: 550px) {
+      .b-result__desc {
+        width: 100%; } }
+    @media (min-width: 1200px) {
+      .b-result__desc {
+        width: 33.33%;
+        padding-right: 20px; } }
+  .b-result__name {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px; }
+  .b-result__txt {
+    font-size: 14px; }
+  .b-result__middle {
+    position: relative;
+    padding-left: 40px;
+    margin: 10px 0; }
+    @media (min-width: 550px) {
+      .b-result__middle {
+        flex: 1 2 200px;
+        padding-right: 20px; } }
+    .b-result__middle:before {
+      content: '';
+      position: absolute;
+      background: url("../img/icon-grow.png") center no-repeat;
+      width: 30px;
+      height: 26px;
+      left: 0;
+      top: 7px; }
+  .b-result__graf {
+    margin: 10px auto;
+    position: relative;
+    max-width: 330px;
+    padding-left: 40px;
+    padding-right: 100px; }
+    @media (min-width: 550px) {
+      .b-result__graf {
+        flex: 1 1 300px; } }
+    .b-result__graf .case-chart {
+      margin-top: 10px;
+      margin-bottom: 0; }
+    .b-result__graf .case-result__txt {
+      position: relative;
+      padding-bottom: 20px; }
+    .b-result__graf .case-result__caption {
+      position: absolute;
+      top: 0;
+      left: 77px;
+      line-height: 1.2;
+      font-size: 14px; }
+      .b-result__graf .case-result__caption:last-child {
+        left: 127px; }
+    .b-result__graf .case-chart__before-request,
+    .b-result__graf .case-chart__after-request {
+      width: 50px; }
+      @media (min-width: 1200px) {
+        .b-result__graf .case-chart__before-request,
+        .b-result__graf .case-chart__after-request {
+          width: 60px; } }
+    .b-result__graf .case-chart__before-request {
+      margin-right: 20px; }
+  .b-result__graf-txt {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 100px;
+    padding: 0 10px;
+    line-height: 1.2;
+    font-size: 14px; }
+  @media (min-width: 550px) {
+    .b-result .b-result__bottom {
+      display: block;
+      position: relative;
+      min-height: 150px; } }
+  @media (min-width: 768px) {
+    .b-result .b-result__bottom {
+      min-height: 250px; } }
+  .b-result__pic {
+    max-width: 200px;
+    height: 150px;
+    margin: 10px auto;
+    position: relative;
+    text-align: center; }
+    @media (min-width: 550px) {
+      .b-result__pic {
+        width: 33.33%;
+        max-width: none;
+        margin: 0;
+        position: absolute;
+        height: 100%;
+        left: 0;
+        top: 0; } }
+  .b-result__res-img {
+    border: 1px solid #e5e5e5;
+    padding: 20px; }
+    @media (min-width: 550px) {
+      .b-result__res-img {
+        width: auto;
+        border: 1px solid #e5e5e5;
+        padding: 20px;
+        margin-left: 36%; } }
+  .b-result__link {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .b-result .slick-prev,
+  .b-result .slick-next {
+    top: -10px;
+    right: 0; }
+  .b-result .slick-prev {
+    right: 30px;
+    left: auto; }
 
 .portfolio {
   font-size: 0;
@@ -4011,19 +4152,19 @@ img {
 .case-meta__icon_flag {
   display: inline-block;
   vertical-align: middle;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="14" height="10" viewBox="0 0 14 10"><defs><style>.cls-1 {fill: #f8615a; fill-rule: evenodd; } </style> </defs> <path d="M10.758,0.571 C10.537,0.214 10.095,-0.001 9.579,-0.001 L1.474,-0.001 C0.663,-0.001 -0.000,0.642 -0.000,1.428 L-0.000,8.571 C-0.000,9.356 0.663,9.999 1.474,9.999 L9.579,9.999 C10.095,9.999 10.537,9.785 10.758,9.428 L14.000,4.999 L10.758,0.571 ZM9.579,8.571 L1.474,8.571 L1.474,1.428 L9.579,1.428 L12.158,4.999 L9.579,8.571 Z" class="cls-1"/> </svg>') center no-repeat;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="14" height="10" viewBox="0 0 14 10"><defs><style>.cls-1 {fill: %23f8615a; fill-rule: evenodd; } </style> </defs> <path d="M10.758,0.571 C10.537,0.214 10.095,-0.001 9.579,-0.001 L1.474,-0.001 C0.663,-0.001 -0.000,0.642 -0.000,1.428 L-0.000,8.571 C-0.000,9.356 0.663,9.999 1.474,9.999 L9.579,9.999 C10.095,9.999 10.537,9.785 10.758,9.428 L14.000,4.999 L10.758,0.571 ZM9.579,8.571 L1.474,8.571 L1.474,1.428 L9.579,1.428 L12.158,4.999 L9.579,8.571 Z" class="cls-1"/> </svg>') center no-repeat;
   width: 14px;
   height: 10px; }
 .case-meta__icon_watch {
   display: inline-block;
   vertical-align: middle;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="14" height="14" viewBox="0 0 14 14">  <defs>    <style>      .cls-1 {        fill: #f8615a;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M7.000,13.999 C3.150,13.999 -0.000,10.849 -0.000,6.999 C-0.000,3.149 3.150,-0.001 7.000,-0.001 C10.850,-0.001 14.000,3.149 14.000,6.999 C14.000,10.849 10.850,13.999 7.000,13.999 ZM7.000,1.400 C3.920,1.400 1.400,3.919 1.400,6.999 C1.400,10.079 3.920,12.599 7.000,12.599 C10.080,12.599 12.600,10.079 12.600,6.999 C12.600,3.919 10.080,1.400 7.000,1.400 ZM6.300,7.699 L6.300,3.499 L7.350,3.499 L7.350,7.139 L10.500,9.030 L9.940,9.940 L6.300,7.699 Z" class="cls-1"/></svg>') center no-repeat;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="14" height="14" viewBox="0 0 14 14">  <defs>    <style>      .cls-1 {        fill: %23f8615a;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M7.000,13.999 C3.150,13.999 -0.000,10.849 -0.000,6.999 C-0.000,3.149 3.150,-0.001 7.000,-0.001 C10.850,-0.001 14.000,3.149 14.000,6.999 C14.000,10.849 10.850,13.999 7.000,13.999 ZM7.000,1.400 C3.920,1.400 1.400,3.919 1.400,6.999 C1.400,10.079 3.920,12.599 7.000,12.599 C10.080,12.599 12.600,10.079 12.600,6.999 C12.600,3.919 10.080,1.400 7.000,1.400 ZM6.300,7.699 L6.300,3.499 L7.350,3.499 L7.350,7.139 L10.500,9.030 L9.940,9.940 L6.300,7.699 Z" class="cls-1"/></svg>') center no-repeat;
   width: 14px;
   height: 14px; }
 .case-meta__icon_share {
   display: inline-block;
   vertical-align: middle;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="14" height="14" viewBox="0 0 14 14">  <defs>    <style>      .cls-1 {        fill: #f8615a;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M11.601,9.123 C10.917,9.123 10.303,9.415 9.866,9.883 L4.765,7.342 C4.782,7.223 4.794,7.102 4.794,6.978 C4.794,6.856 4.783,6.738 4.766,6.622 L9.860,4.109 C10.297,4.580 10.915,4.876 11.601,4.876 C12.925,4.876 13.998,3.784 13.998,2.438 C13.998,1.091 12.925,0.000 11.601,0.000 C10.278,0.000 9.205,1.091 9.205,2.438 C9.205,2.559 9.216,2.677 9.233,2.793 L4.139,5.306 C3.702,4.835 3.085,4.540 2.398,4.540 C1.074,4.540 0.001,5.631 0.001,6.978 C0.001,8.324 1.074,9.415 2.398,9.415 C3.082,9.415 3.696,9.123 4.133,8.656 L9.234,11.196 C9.217,11.315 9.205,11.436 9.205,11.561 C9.205,12.907 10.278,13.998 11.601,13.998 C12.925,13.998 13.998,12.907 13.998,11.561 C13.998,10.214 12.925,9.123 11.601,9.123 Z" class="cls-1"/></svg>') center no-repeat;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="14" height="14" viewBox="0 0 14 14">  <defs>    <style>      .cls-1 {        fill: %23f8615a;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M11.601,9.123 C10.917,9.123 10.303,9.415 9.866,9.883 L4.765,7.342 C4.782,7.223 4.794,7.102 4.794,6.978 C4.794,6.856 4.783,6.738 4.766,6.622 L9.860,4.109 C10.297,4.580 10.915,4.876 11.601,4.876 C12.925,4.876 13.998,3.784 13.998,2.438 C13.998,1.091 12.925,0.000 11.601,0.000 C10.278,0.000 9.205,1.091 9.205,2.438 C9.205,2.559 9.216,2.677 9.233,2.793 L4.139,5.306 C3.702,4.835 3.085,4.540 2.398,4.540 C1.074,4.540 0.001,5.631 0.001,6.978 C0.001,8.324 1.074,9.415 2.398,9.415 C3.082,9.415 3.696,9.123 4.133,8.656 L9.234,11.196 C9.217,11.315 9.205,11.436 9.205,11.561 C9.205,12.907 10.278,13.998 11.601,13.998 C12.925,13.998 13.998,12.907 13.998,11.561 C13.998,10.214 12.925,9.123 11.601,9.123 Z" class="cls-1"/></svg>') center no-repeat;
   width: 14px;
   height: 14px; }
 .case-meta__body {
@@ -4099,27 +4240,8 @@ img {
   .case__form .form-content__title {
     text-align: left; } }
 
-.b-result {
-  margin: 30px 0;
-  padding: 30px 0;
-  border: 1px solid #e5e5e5;
-  border-left: 0;
-  border-right: 0;
-  clear: both;
-  color: #666; }
-  .b-result__title {
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1;
-    text-transform: uppercase; }
-
 .slick-prev,
 .slick-next {
-  display: inline-block;
-  vertical-align: middle;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24">  <defs>    <style>      .cls-1 {        fill: #999;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M12.162,-0.000 L15.000,2.799 L5.676,12.000 L15.000,21.200 L12.162,24.000 L0.000,12.000 L12.162,-0.000 Z" class="cls-1"/></svg>') center no-repeat;
-  width: 15px;
-  height: 24px;
   cursor: pointer;
   width: 15px;
   height: 24px;
@@ -4128,14 +4250,25 @@ img {
   margin-top: -12px;
   left: -30px; }
 
+.slick-prev {
+  display: inline-block;
+  vertical-align: middle;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24">  <defs>    <style>      .cls-1 {        fill: %23999;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M12.162,-0.000 L15.000,2.799 L5.676,12.000 L15.000,21.200 L12.162,24.000 L0.000,12.000 L12.162,-0.000 Z" class="cls-1"/></svg>') center no-repeat;
+  width: 15px;
+  height: 24px; }
+  .slick-prev:hover {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24">  <defs>    <style>      .cls-1 {        fill: %23f8615a;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M12.162,-0.000 L15.000,2.799 L5.676,12.000 L15.000,21.200 L12.162,24.000 L0.000,12.000 L12.162,-0.000 Z" class="cls-1"/></svg>'); }
+
 .slick-next {
   display: inline-block;
   vertical-align: middle;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24">  <defs>    <style>      .cls-1 {        fill: #999;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M2.838,-0.000 L0.000,2.799 L9.324,12.000 L0.000,21.200 L2.838,24.000 L15.000,12.000 L2.838,-0.000 Z" class="cls-1"/></svg>') center no-repeat;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24"><defs><style>.cls-1{fill: %23999;fill-rule: evenodd;}</style></defs><path d="M2.838,-0.000 L0.000,2.799 L9.324,12.000 L0.000,21.200 L2.838,24.000 L15.000,12.000 L2.838,-0.000 Z" class="cls-1"/></svg>') center no-repeat;
   width: 15px;
   height: 24px;
   left: auto;
   right: -30px; }
+  .slick-next:hover {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24">  <defs>    <style>      .cls-1 {        fill: %23f8615a;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M2.838,-0.000 L0.000,2.799 L9.324,12.000 L0.000,21.200 L2.838,24.000 L15.000,12.000 L2.838,-0.000 Z" class="cls-1"/></svg>'); }
 
 .clients-slider {
   padding: 50px 0 70px;

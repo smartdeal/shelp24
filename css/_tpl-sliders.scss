@@ -1,6 +1,5 @@
 .slick-prev,
 .slick-next {
-    @include svg-icon-arrow-left;
     cursor: pointer;
     width: 15px;
     height: 24px;
@@ -10,10 +9,19 @@
     left: -30px;
 }
 
+.slick-prev {
+    @include svg-icon-arrow-left;
+	&:hover {
+		@include svg-icon-arrow-left-red;
+	}
+}
 .slick-next {
     @include svg-icon-arrow-right;
     left: auto;
     right: -30px;
+	&:hover {
+		@include svg-icon-arrow-right-red;
+	}
 }
 
 .clients-slider {

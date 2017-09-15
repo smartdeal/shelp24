@@ -27,6 +27,16 @@ function preinit() {
             }]
         });
     }    
+    if ($('.js-result-slider').length){
+        $('.js-result-slider').slick({
+            dots: false,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            prevArrow:"<div class='slick-prev pull-left'></div>",
+            nextArrow:"<div class='slick-next pull-right'></div>",
+        });
+    }    
 }
 function init() {
     window_width = $(window).width();
