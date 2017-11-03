@@ -38,8 +38,8 @@ Template Post Type: page
                                         </div>
                                         <?php if ($arrTeam = get_field('team')): ?>
                                             <div class="b-team">
-                                                <?php foreach ($arrTeam as $value) { ?>
-                                                    <div class="b-team__item">
+                                                <?php foreach ($arrTeam as $key => $value) { ?>
+                                                    <div class="b-team__item<?php if ($key == 0) echo ' js-team-item-boss'; ?>">
                                                         <?php 
                                                             if ($value['team_img']) $team_img_src = ' style="background-image:url('.$value['team_img']['sizes']['large'].')"';
                                                                 else $team_img_src = '';
@@ -50,11 +50,19 @@ Template Post Type: page
                                                             <?php if ($value['team_position']): ?>
                                                                 <div class="b-team__position"><?php echo $value['team_position']; ?></div>
                                                             <?php endif; ?>
-                                                            <?php if ($value['team_link_txt']): ?>
-                                                                <a class="b-team__link" href="<?php echo $value['team_link']; ?>"><?php echo $value['team_link_txt']; ?></a>
+                                                            <?php if ($key == 0): ?>
+                                                                <a class="b-team__link js-team-call-boss" href="#">Прямая связь</a>
                                                             <?php endif; ?>
                                                         </div>
                                                     </div>
+                                                    <?php if ($key == 0): ?>
+                                                        <div class="b-team__form js-team-form-boss">
+                                                            <div class="b-team__form-inner js-team-form-inner">
+                                                                <div class="b-team__form-title">Связь с директором</div>
+                                                                <?php echo do_shortcode('[contact-form-7 id="1935"]'); ?>
+                                                            </div>
+                                                        </div>
+                                                    <?php endif; ?>
                                                 <?php } ?>
                                             </div>
                                         <?php endif; ?>

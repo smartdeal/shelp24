@@ -8,6 +8,7 @@
     font-size: 0;
     text-align: center;
     margin: 0 -10px;
+    position: relative;
     @include mn1200 {
         text-align: left;
     }
@@ -74,7 +75,7 @@
         color: #666;
     }
     &__body {
-        max-width: 450px; 
+        max-width: 450px;
         margin: 0 auto;
         position: relative;
         overflow: hidden;
@@ -130,7 +131,7 @@
             width: 120px;
             height: 120px;
             position: static;
-            margin: 0 auto 15px;
+            margin: 0 auto 10px;
             background: white;
         }
         img {
@@ -152,9 +153,17 @@
         font-weight: 700;
         margin-bottom: 7px;
         transition: color .5s 0s;
+        @include mn1200 {
+            font-size: 15px;
+        }
     }
     &__desc {
         line-height: 1.2;
+        @include mn1200 {
+            font-size: 13px;
+            max-width: 160px;
+            margin: 0 auto;
+        }
     }
     &__our {
         display: none;

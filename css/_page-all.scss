@@ -6,7 +6,9 @@ body {
     // margin: 0 auto;
 }
 
-h1 {}
+hr.bold {
+    border: 1px solid $grey;
+}
 
 [data-aload] {
     background-image: none !important;
@@ -15,10 +17,6 @@ h1 {}
 .loaded a,
 .loaded .btn {
     transition: color .5s 0s, background .5s 0s;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 .admin-bar #wpadminbar {

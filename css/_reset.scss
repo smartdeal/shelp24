@@ -15,16 +15,11 @@ h1 {
 }
 
 a {
-    color: inherit;
     cursor: pointer;
+    color: inherit;
     &:hover,
     &:focus {
         outline: none;
-        color: inherit;
-    }
-    &:focus {
-        color: inherit;
-        text-decoration: none;
     }
 }
 
@@ -49,7 +44,6 @@ a,
 a:hover,
 a:active,
 a:visited {
-    text-decoration: none;
     cursor: pointer;
     outline: none;
 }
@@ -152,6 +146,7 @@ li {
     border: 1px solid $grey;
     width: 100%;
     padding: 10px 20px;
+    text-overflow: ellipsis;
 }
 
 textarea,

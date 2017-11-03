@@ -182,7 +182,6 @@ a {
   text-decoration: none; }
 
 a:hover, a:focus {
-  color: #23527c;
   text-decoration: underline; }
 
 a:focus {
@@ -2417,14 +2416,10 @@ h1 {
   padding: 0; }
 
 a {
-  color: inherit;
-  cursor: pointer; }
+  cursor: pointer;
+  color: inherit; }
   a:hover, a:focus {
-    outline: none;
-    color: inherit; }
-  a:focus {
-    color: inherit;
-    text-decoration: none; }
+    outline: none; }
 
 p {
   margin: 0; }
@@ -2441,7 +2436,6 @@ a,
 a:hover,
 a:active,
 a:visited {
-  text-decoration: none;
   cursor: pointer;
   outline: none; }
 
@@ -2545,7 +2539,8 @@ input[type=email] {
   background: #f7f7f7;
   border: 1px solid #e5e5e5;
   width: 100%;
-  padding: 10px 20px; }
+  padding: 10px 20px;
+  text-overflow: ellipsis; }
 
 .cf {
   *zoom: 1; }
@@ -3133,20 +3128,33 @@ div.wpcf7 .ajax-loader {
 .form_addservice-archive {
   max-width: 0;
   opacity: 0;
-  overflow: hidden;
-  transition: max-width .5s 0s, opacity .5s .3s;
-  height: 45px; }
+  position: relative;
+  transition: max-width .5s 0s, max-height .5s 0s, opacity .5s .3s; }
+  @media (min-width: 1200px) {
+    .form_addservice-archive {
+      max-height: 0;
+      overflow: hidden; } }
   @media (min-width: 1400px) {
     .form_addservice-archive {
       margin-right: 20px; } }
   .form_addservice-archive.sh-visible {
     max-width: 880px;
     opacity: 1; }
+    @media (min-width: 1200px) {
+      .form_addservice-archive.sh-visible {
+        max-height: 45px;
+        overflow: visible; } }
   .form_addservice-archive .form-content {
     border: 0;
     margin: 0;
     padding: 0;
     text-align: left; }
+    @media (min-width: 550px) {
+      .form_addservice-archive .form-content .form__col {
+        margin-right: 10px; } }
+    @media (min-width: 1200px) {
+      .form_addservice-archive .form-content .form__col {
+        margin-right: 0; } }
   .form_addservice-archive .form-content__title {
     display: none; }
   .form_addservice-archive .form-content__body {
@@ -3159,9 +3167,17 @@ div.wpcf7 .ajax-loader {
       display: -o-flex;
       display: flex;
       align-items: center; } }
-  @media (min-width: 1400px) {
-    .form_addservice-archive .form__col {
-      width: auto; } }
+  .form_addservice-archive .wpcf7-response-output {
+    margin: 0 0 10px;
+    position: absolute;
+    z-index: 1;
+    background: white;
+    top: 100%; }
+    @media (min-width: 1400px) {
+      .form_addservice-archive .wpcf7-response-output {
+        top: 105%; } }
+  .form_addservice-archive .wpcf7-checkbox .wpcf7-list-item-label {
+    font-size: 12px; }
 
 @media (min-width: 1200px) {
   .form-content_service .form__row {
@@ -3199,7 +3215,9 @@ div.wpcf7 .ajax-loader {
     .form-content_service .form__col:nth-child(4) {
       order: 3; } }
 .form-content_service .wpcf7-checkbox .wpcf7-list-item-label {
-  padding-left: 25px; }
+  padding-left: 25px;
+  text-indent: -999em;
+  width: 0; }
 .form-content_service .wpcf7-mail-sent-ok {
   display: none !important; }
 .form-content_service .wpcf7 .wpcf7-response-output {
@@ -3282,11 +3300,95 @@ div.wpcf7 .ajax-loader {
     font-size: 18px;
     color: #666; }
 
+.b-team__form {
+  position: absolute;
+  left: 0;
+  right: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .5s 0s; }
+  .b-team__form.active {
+    max-height: 500px; }
+  .b-team__form-inner {
+    padding: 20px;
+    background: #e5e5e5;
+    font-size: 14px;
+    margin: 0 10px 30px; }
+    @media (min-width: 768px) {
+      .b-team__form-inner {
+        padding: 30px; } }
+  .b-team__form-title {
+    color: #666;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-bottom: 20px; }
+    @media (min-width: 768px) {
+      .b-team__form-title {
+        margin-bottom: 30px;
+        text-align: left; } }
+  .b-team__form .wpcf7-textarea {
+    height: 100px; }
+  .b-team__form .form__row,
+  .b-team__form .form__col {
+    margin-bottom: 20px; }
+  .b-team__form .wpcf7-response-output {
+    margin: 10px 0 0; }
+  @media (min-width: 768px) {
+    .b-team__form .form__row .form__col {
+      width: calc(33.33% - 20px);
+      margin-bottom: 0; } }
+  @media (min-width: 550px) {
+    .b-team__form .form__row_name-tel {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap; } }
+  @media (min-width: 768px) {
+    .b-team__form .form__row_btn {
+      text-align: right;
+      margin-bottom: 0; } }
+  @media (min-width: 768px) {
+    .b-team__form .form__row_btn .form__col {
+      margin-left: auto;
+      margin-bottom: 0; } }
+  @media (min-width: 1200px) {
+    .b-team__form .form__row_btn .form__col {
+      padding-left: 30px; } }
+  @media (min-width: 1400px) {
+    .b-team__form .form__row_btn .form__col {
+      padding-left: 0; } }
+  @media (min-width: 768px) {
+    .b-team__form .form__row_btn .wpcf7-submit {
+      width: 100%; } }
+  @media (min-width: 550px) {
+    .b-team__form .form__col_name,
+    .b-team__form .form__col_tel {
+      width: calc(50% - 10px); } }
+  @media (min-width: 550px) {
+    .b-team__form .form__col_policy {
+      width: 100%; } }
+  @media (min-width: 1200px) {
+    .b-team__form .form__col_policy {
+      padding-left: 30px; } }
+  @media (min-width: 1400px) {
+    .b-team__form .form__col_policy {
+      padding-left: 0; } }
+  .b-team__form .form__col_policy .wpcf7-checkbox .wpcf7-list-item-label {
+    font-size: 13px; }
+
+.js-team-item-boss {
+  transition: margin .5s 0s; }
+
 body {
   background: white;
   transition: opacity 1s 0s;
   position: relative;
   min-width: 320px; }
+
+hr.bold {
+  border: 1px solid #e5e5e5; }
 
 [data-aload] {
   background-image: none !important; }
@@ -3294,9 +3396,6 @@ body {
 .loaded a,
 .loaded .btn {
   transition: color .5s 0s, background .5s 0s; }
-
-a:hover {
-  text-decoration: underline; }
 
 .admin-bar #wpadminbar {
   top: -46px; }
@@ -3639,7 +3738,8 @@ img {
       @media (min-width: 768px) {
         .b-arch-content__img-wrap img {
           max-width: 100%;
-          margin: 0 auto; } }
+          margin: 0 auto;
+          max-height: 200px; } }
   @media (min-width: 768px) {
     .b-arch-content__desc:not(.b-arch-content__desc_without-img) {
       margin-left: 50%; } }
@@ -4341,7 +4441,8 @@ img {
 .b-team {
   font-size: 0;
   text-align: center;
-  margin: 0 -10px; }
+  margin: 0 -10px;
+  position: relative; }
   @media (min-width: 1200px) {
     .b-team {
       text-align: left; } }
@@ -4450,7 +4551,7 @@ img {
         width: 120px;
         height: 120px;
         position: static;
-        margin: 0 auto 15px;
+        margin: 0 auto 10px;
         background: white; } }
     .b-team-project__img img {
       max-width: 50%; }
@@ -4468,8 +4569,16 @@ img {
     font-weight: 700;
     margin-bottom: 7px;
     transition: color .5s 0s; }
+    @media (min-width: 1200px) {
+      .b-team-project__caption {
+        font-size: 15px; } }
   .b-team-project__desc {
     line-height: 1.2; }
+    @media (min-width: 1200px) {
+      .b-team-project__desc {
+        font-size: 13px;
+        max-width: 160px;
+        margin: 0 auto; } }
   .b-team-project__our {
     display: none;
     width: 222px;

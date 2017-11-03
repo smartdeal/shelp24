@@ -23,9 +23,22 @@ Template Post Type: page
                                 <?php the_content(); ?>
                             </div>
                             <?php 
+                                $reviews = get_field('review_dips'); 
+                                if ($reviews):
+                            ?>
+                                <div class="b-reviews js-reviews">
+                                    <?php foreach ($reviews as $key => $value): ?>
+                                        <div class="b-reviews__item">
+                                            <div class="b-reviews__img js-reviews-img" style="background-image:url(<?php echo $value['sizes']['medium']; ?>)" data-img-src="<?php echo $value['sizes']['large']; ?>"></div>
+                                        </div>
+                                    <?php endforeach ?>
+                                </div>
+                            <?php endif; ?>
+                            <?php 
                             	$reviews = get_field('review_imgs'); 
                             	if ($reviews):
                         	?>
+                                <hr class="bold">
 	                            <div class="b-reviews js-reviews">
 	                            	<?php foreach ($reviews as $key => $value): ?>
 			                            <div class="b-reviews__item">

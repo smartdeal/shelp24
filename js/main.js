@@ -129,14 +129,22 @@ $(document).ready(function() {
     $('.form-content .policy .wpcf7-list-item-label').html('Согласен с <a href="'+home_url+'/privacy-policy/">политикой конфиденциальности</a>');
 
     $('.form_addservice-archive .wpcf7-submit').val('Отправить').addClass('btn_reverse');
+
+    $('.form_addservice-archive .wpcf7-submit').click(function(event) {
+        var $form = $(this).closest('form');
+        setTimeout(function() { 
+            $form.find('.wpcf7-response-output').hide();
+        }, 5000);
+    });
+
     $('.js-arch-content__btn_order').click(function(event) {
         event.preventDefault();
-        $(".form_addservice-archive").removeClass('sh-visible');
+        $('.form_addservice-archive').removeClass('sh-visible');
         $('.js-arch-content__btn_order').removeClass('hidden');
         $(this).addClass('hidden');
-        $(".form_addservice-archive").prependTo($(this).closest('.b-arch-content__btn-wrap'));
+        $('.form_addservice-archive').prependTo($(this).closest('.b-arch-content__btn-wrap'));
         setTimeout(function() { 
-            $(".form_addservice-archive").addClass('sh-visible');
+            $('.form_addservice-archive').addClass('sh-visible');
         }, 100);
     });
 
@@ -164,6 +172,21 @@ $(document).ready(function() {
     //         // do something productive
     //     }
     // }, false );
+
+    $('.js-team-call-boss').click(function(event) {
+        event.preventDefault();
+        var $fboss = $('.js-team-form-boss');
+        if ($fboss.hasClass('active')) {
+            $fboss.removeClass('active');
+            $('.js-team-item-boss').css({'margin-bottom':''});
+        } else {
+            var h_item = $('.js-team-item-boss').outerHeight();
+            var h_form = $('.js-team-form-inner').outerHeight()+50;
+            $('.js-team-item-boss').css({'margin-bottom':h_form+'px'});
+            $fboss.css({'top':h_item+'px'}).addClass('active');
+        }
+
+    });
 
     $('.link-ajax').click(function(event) {
         event.preventDefault();

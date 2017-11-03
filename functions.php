@@ -581,6 +581,12 @@ add_action('wpcf7_mail_sent', function ($cf7) {
 //     return $out;
 // }
 
+// Move Yoast to bottom
+function yoasttobottom() {
+    return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
+
 function get_service_result_func( $atts ){
     $out = '';
     if (is_array($atts) && array_key_exists('title', $atts) && $atts['title'] != '') $title = $atts['title'];

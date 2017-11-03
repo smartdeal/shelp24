@@ -170,27 +170,42 @@ div.wpcf7 .ajax-loader {
     }
     .wpcf7-mail-sent-ok {
         display: none !important;
-    }    
+    }
 }
 
 .form_addservice-archive {
     max-width: 0;
     opacity: 0;
-    overflow: hidden;
-    transition: max-width .5s 0s, opacity .5s .3s;
-    height: 45px;
+    position: relative;
+    transition: max-width .5s 0s, max-height .5s 0s, opacity .5s .3s;
+    @include mn1200 {
+        max-height: 0;
+        overflow: hidden;
+    }
     @include mn1400 {
         margin-right: 20px;
     }
     &.sh-visible {
         max-width: 880px;
         opacity: 1;
+        @include mn1200 {
+            max-height: 45px;
+            overflow: visible;
+        }
     }
     .form-content {
         border: 0;
         margin: 0;
         padding: 0;
         text-align: left;
+        .form__col {
+            @include mn550 {
+                margin-right: 10px;
+            }
+            @include mn1200 {
+                margin-right: 0;
+            }
+        }
     }
     .form-content__title {
         display: none;
@@ -210,8 +225,21 @@ div.wpcf7 .ajax-loader {
     }
     .form__col {
         @include mn1400 {
-            width: auto;
+            // width: auto;
         }
+    }
+    .wpcf7-response-output {
+        margin: 0 0 10px;
+        position: absolute;
+        z-index: 1;
+        background: white;
+        top: 100%;
+        @include mn1400 {
+            top: 105%;
+        }
+    }
+    .wpcf7-checkbox .wpcf7-list-item-label {
+        font-size: 12px;
     }
 }
 
@@ -264,12 +292,14 @@ div.wpcf7 .ajax-loader {
     }
     .wpcf7-checkbox .wpcf7-list-item-label {
         padding-left: 25px;
+        text-indent: -999em;
+        width: 0;
     }
     .wpcf7-mail-sent-ok {
         display: none !important;
     }
     .wpcf7 .wpcf7-response-output {
-    	margin: 0;
+        margin: 0;
     }
 }
 
@@ -358,7 +388,7 @@ div.wpcf7 .ajax-loader {
     background: $lightgrey;
     text-transform: uppercase;
     z-index: 1;
-	display: none;
+    display: none;
     &__inner {
         position: relative;
         top: 50%;
@@ -374,4 +404,110 @@ div.wpcf7 .ajax-loader {
         font-size: 18px;
         color: $darkgrey;
     }
+}
+
+.b-team__form {
+    position: absolute;
+    left: 0;
+    right: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s 0s;
+    &.active{
+        max-height: 500px;
+    }
+    &-inner {
+        padding: 20px;
+        background: $grey;
+        font-size: 14px;
+        margin: 0 10px 30px;
+        @include mn768 {
+            padding: 30px;
+        }
+    }
+    &-title {
+        color: $darkgrey;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 24px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        @include mn768 {
+            margin-bottom: 30px;
+            text-align: left;
+        }
+    }
+    .wpcf7-textarea {
+        height: 100px;
+    }
+    .form__row,
+    .form__col {
+        margin-bottom: 20px;
+    }
+    .wpcf7-response-output {
+        margin: 10px 0 0;
+    }
+    .form__row {
+        .form__col {
+            @include mn768 {
+                width: calc(33.33% - 20px);
+                margin-bottom: 0;
+            }
+        }
+    }
+    .form__row_name-tel {
+        @include mn550 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    }
+    .form__row_btn {
+        @include mn768 {
+            text-align: right;
+            margin-bottom: 0;
+        }
+        .form__col {
+            @include mn768 {
+                margin-left: auto;
+                margin-bottom: 0;
+            }
+            @include mn1200 {
+                padding-left: 30px;
+            }
+            @include mn1400 {
+                padding-left: 0;
+            }
+        }
+        .wpcf7-submit {
+            @include mn768 {
+                width: 100%;
+            }
+        }
+    }
+    .form__col_name,
+    .form__col_tel {
+        @include mn550 {
+            width: calc(50% - 10px);
+        }
+    }
+    .form__col_policy {
+        @include mn550 {
+            width: 100%;
+        }
+        @include mn1200 {
+            padding-left: 30px;
+        }
+        @include mn1400 {
+            padding-left: 0;
+        }
+        .wpcf7-checkbox .wpcf7-list-item-label {
+            font-size: 13px;
+        }
+    }
+}
+
+.js-team-item-boss {
+    transition: margin .5s 0s;
 }
