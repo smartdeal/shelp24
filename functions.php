@@ -694,9 +694,9 @@ function get_content_form_func( $atts ){
 add_shortcode('get_content_form', 'get_content_form_func');
 
 function get_service_form_func( $atts ){
-    if ($atts['title'] != '') $title = $atts['title'];
+    if (array_key_exists('title', $atts) && $atts['title'] != '') $title = $atts['title'];
         else $title = 'Заказать звонок';
-    if ($atts['lead'] == 'off') $class_lead = ' form-content_without-lead';
+    if (array_key_exists('lead', $atts) && $atts['lead'] == 'off') $class_lead = ' form-content_without-lead';
         else $class_lead = '';
     $out = '<div class="form-content form-content_service'.$class_lead.'">';
     $out .= '<div class="form-content__title">'.$title.'</div>';

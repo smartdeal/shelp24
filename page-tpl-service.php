@@ -7,6 +7,11 @@ Template Post Type: page
 
 <?php get_header(); ?>
 
+<?php  
+    if (is_singular( array('stati','uslugi') )) $is_post_with_meta = true;
+        else $is_post_with_meta = false;
+?>
+
         <div class="content__inner <?php if ($is_post_with_meta) echo 'content__inner_with-meta'; ?>" itemscope itemtype="http://schema.org/Article">
             <div class="container-fluid">
                 <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">

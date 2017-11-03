@@ -44,6 +44,17 @@ function init() {
     document_height = $(document).height();
     footer_h = $('.js-footer').outerHeight();
 
+    if ($('.dimentions').length) {
+        $('.dimentions').text( window_width+'x'+window_height);
+    } else {
+        $('body').prepend('<div class="dimentions"></div>').find('.dimentions').text( window_width+'x'+window_height);
+    }
+    $('.dimentions').css({
+        'position':'fixed',
+        'font-size':'16px',
+        'z-index':'999'
+    });
+
     if (window_height < 600) $('body').addClass('h_less600'); else $('body').removeClass('h_less600');
     if (window_height >= 600 && window_height < 768) $('body').addClass('h_less768'); else $('body').removeClass('h_less768');
     if (window_height >= 768 && window_height < 960) $('body').addClass('h_less960'); else $('body').removeClass('h_less960');

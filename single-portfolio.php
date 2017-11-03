@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
         <div class="content__inner" itemscope itemtype="http://schema.org/Article">
             <div class="container-fluid">
                 <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
