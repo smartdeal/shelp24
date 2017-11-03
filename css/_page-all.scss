@@ -215,8 +215,6 @@ img {
 
 .btn {
     display: inline-block;
-    color: $red;
-    background: transparent;
     font-size: 14px;
     font-weight: 700;
     line-height: 1.4;
@@ -225,31 +223,35 @@ img {
     border: 3px solid $red;
     text-decoration: none;
     cursor: pointer;
+    background-color: $red;
+    color: white;
     &:focus {
-        color: $red;
+        color: white;
     }
     &:hover {
-        text-decoration: none;
-        background-color: $red;
-        color: white;
+        background-color: white;
+        color: $red;
     }
     &_reverse {
-        background-color: $red;
-        color: white;
+        color: $red;
+        background: transparent;
         &:focus {
-            color: white;
+            color: $red;
         }
         &:hover {
-            background-color: white;
-            color: $red;
+            text-decoration: none;
+            background-color: $red;
+            color: white;
         }
     }
     &_darkgrey {
         color: $darkgrey;
         border-color: $darkgrey;
+        background: transparent;
         &:hover {
             background-color: $darkgrey;
             color: white;
+            text-decoration: none;
         }
     }
 }

@@ -107,7 +107,7 @@ input:focus {
 }
 
 @include placeholder {
-    color: #999;
+    color: inherit;
     font-weight: 400;
 }
 
@@ -147,8 +147,9 @@ li {
     font-weight: 400;
     border: 0;
     border-radius: 0;
+    color: inherit;
     background: $lightgrey;
-    border: 1px solid $lightgrey;
+    border: 1px solid $grey;
     width: 100%;
     padding: 10px 20px;
 }

@@ -583,8 +583,7 @@ add_action('wpcf7_mail_sent', function ($cf7) {
 
 function get_service_result_func( $atts ){
     $out = '';
-
-    if ($atts['title'] != '') $title = $atts['title'];
+    if (is_array($atts) && array_key_exists('title', $atts) && $atts['title'] != '') $title = $atts['title'];
         else $title = 'Результаты наших клиентов';
 
     $arg =  array(
@@ -638,7 +637,7 @@ function get_service_result_func( $atts ){
             $out .= '</div>';
             $out .= '<div class="b-result__bottom">';
 
-            $out .= '<div class="b-result__pic'.$class_grid_item.$class_tax.'" data-aload style="background:'.$folio_logo_color.$folio_logo_bg.'">';
+            $out .= '<div class="b-result__pic" data-aload style="background:'.$folio_logo_color.$folio_logo_bg.'">';
             $out .= '<a href="'.get_the_permalink().'" class="b-result__link">';
             if (has_post_thumbnail())
                 $out .= '<img src="'.wp_get_attachment_image_url(get_post_thumbnail_id(),'medium').'" alt="'.get_the_title().'" class="b-result__img">';
@@ -694,9 +693,9 @@ function get_content_form_func( $atts ){
 add_shortcode('get_content_form', 'get_content_form_func');
 
 function get_service_form_func( $atts ){
-    if (array_key_exists('title', $atts) && $atts['title'] != '') $title = $atts['title'];
+    if (is_array($atts) && array_key_exists('title', $atts) && $atts['title'] != '') $title = $atts['title'];
         else $title = 'Заказать звонок';
-    if (array_key_exists('lead', $atts) && $atts['lead'] == 'off') $class_lead = ' form-content_without-lead';
+    if (is_array($atts) && array_key_exists('lead', $atts) && $atts['lead'] == 'off') $class_lead = ' form-content_without-lead';
         else $class_lead = '';
     $out = '<div class="form-content form-content_service'.$class_lead.'">';
     $out .= '<div class="form-content__title">'.$title.'</div>';

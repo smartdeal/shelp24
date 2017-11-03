@@ -44,17 +44,6 @@ function init() {
     document_height = $(document).height();
     footer_h = $('.js-footer').outerHeight();
 
-    if ($('.dimentions').length) {
-        $('.dimentions').text( window_width+'x'+window_height);
-    } else {
-        $('body').prepend('<div class="dimentions"></div>').find('.dimentions').text( window_width+'x'+window_height);
-    }
-    $('.dimentions').css({
-        'position':'fixed',
-        'font-size':'16px',
-        'z-index':'999'
-    });
-
     if (window_height < 600) $('body').addClass('h_less600'); else $('body').removeClass('h_less600');
     if (window_height >= 600 && window_height < 768) $('body').addClass('h_less768'); else $('body').removeClass('h_less768');
     if (window_height >= 768 && window_height < 960) $('body').addClass('h_less960'); else $('body').removeClass('h_less960');
@@ -66,8 +55,8 @@ function init() {
     if ($('#wpadminbar').length) adminbar_height = $('#wpadminbar').outerHeight();
 
             // console.log("adminbar_height", adminbar_height);
-            console.log("window_height", window_height);
-            console.log("content_height", content_height);
+            // console.log("window_height", window_height);
+            // console.log("content_height", content_height);
 
     if ((content_height < window_height-adminbar_height-footer_h) && !$('body').hasClass('h_less600')) {
         $('html').addClass('fixed-footer');
@@ -249,18 +238,14 @@ $(document).ready(function() {
 
 $(window).resize(init);
 
-
-if ($('.js-team-about').length) {
-    var team_about_height = $('.js-team-about').height();
-    var team_about_offset_top = $('.js-team-about').offset().top;
-}
-
 // animate digits on the team-page
 var is_team_about_scrolled = false;
 $(window).scroll(function() {
 
     if (!is_team_about_scrolled && $('.js-team-about').length) {
         if (window_width >= 1200) {
+            var team_about_height = $('.js-team-about').height();
+            var team_about_offset_top = $('.js-team-about').offset().top;
             var scroll = $(window).scrollTop();
             if ( scroll+window_height-team_about_height > team_about_offset_top) {
                 is_team_about_scrolled = true;

@@ -2489,23 +2489,23 @@ input:focus {
   outline: none !important; }
 
 input {
-  color: #999;
+  color: inherit;
   font-weight: 400; }
 
 ::-webkit-input-placeholder {
-  color: #999;
+  color: inherit;
   font-weight: 400; }
 
 :-moz-placeholder {
-  color: #999;
+  color: inherit;
   font-weight: 400; }
 
 ::-moz-placeholder {
-  color: #999;
+  color: inherit;
   font-weight: 400; }
 
 :-ms-input-placeholder {
-  color: #999;
+  color: inherit;
   font-weight: 400; }
 
 input[type="checkbox"],
@@ -2541,8 +2541,9 @@ input[type=email] {
   font-weight: 400;
   border: 0;
   border-radius: 0;
+  color: inherit;
   background: #f7f7f7;
-  border: 1px solid #f7f7f7;
+  border: 1px solid #e5e5e5;
   width: 100%;
   padding: 10px 20px; }
 
@@ -2842,10 +2843,17 @@ input[type=email] {
     margin-bottom: 20px; }
   .h_less768 .sidebar__bottom {
     padding: 0; }
+  .h_less768 .sidebar__get-offer {
+    font-size: 14px; }
+  .h_less768 .sidebar__entry, .h_less768 .sidebar__warranty {
+    font-size: 12px; }
 .h_less768 .navbar_sidebar .navbar-nav > .menu-item > a {
   padding-top: 5px;
   padding-bottom: 5px;
-  line-height: 1; }
+  line-height: 1;
+  font-size: 12px; }
+.h_less768 .footer .nav_footer {
+  font-size: 12px; }
 
 .h_less960 .navbar_sidebar .navbar-nav > .menu-item > a {
   padding-top: 5px;
@@ -3069,7 +3077,7 @@ div.wpcf7 .ajax-loader {
 .form-content {
   margin: 30px 0;
   padding: 30px 0;
-  border: 1px solid #e5e5e5;
+  border: 2px solid #e5e5e5;
   border-left: 0;
   border-right: 0;
   color: #666;
@@ -3448,8 +3456,6 @@ img {
 
 .btn {
   display: inline-block;
-  color: #f8615a;
-  background: transparent;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.4;
@@ -3457,27 +3463,31 @@ img {
   text-transform: uppercase;
   border: 3px solid #f8615a;
   text-decoration: none;
-  cursor: pointer; }
+  cursor: pointer;
+  background-color: #f8615a;
+  color: white; }
   .btn:focus {
-    color: #f8615a; }
+    color: white; }
   .btn:hover {
-    text-decoration: none;
-    background-color: #f8615a;
-    color: white; }
+    background-color: white;
+    color: #f8615a; }
   .btn_reverse {
-    background-color: #f8615a;
-    color: white; }
+    color: #f8615a;
+    background: transparent; }
     .btn_reverse:focus {
-      color: white; }
-    .btn_reverse:hover {
-      background-color: white;
       color: #f8615a; }
+    .btn_reverse:hover {
+      text-decoration: none;
+      background-color: #f8615a;
+      color: white; }
   .btn_darkgrey {
     color: #666;
-    border-color: #666; }
+    border-color: #666;
+    background: transparent; }
     .btn_darkgrey:hover {
       background-color: #666;
-      color: white; }
+      color: white;
+      text-decoration: none; }
 
 .pagi {
   text-align: center;
@@ -4271,7 +4281,7 @@ img {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24">  <defs>    <style>      .cls-1 {        fill: %23f8615a;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M2.838,-0.000 L0.000,2.799 L9.324,12.000 L0.000,21.200 L2.838,24.000 L15.000,12.000 L2.838,-0.000 Z" class="cls-1"/></svg>'); }
 
 .clients-slider {
-  padding: 50px 0 70px;
+  padding: 30px 0;
   position: relative; }
   .clients-slider__bg {
     background: url("../img/bg-clients.jpg") 0 0 repeat;
