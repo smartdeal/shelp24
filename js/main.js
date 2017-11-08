@@ -130,7 +130,7 @@ $(document).ready(function() {
 
     $('.form_addservice-archive .wpcf7-submit').val('Отправить').addClass('btn_reverse');
 
-    $('.form_addservice-archive .wpcf7-submit').click(function(event) {
+    $('.wpcf7-submit').click(function(event) {
         var $form = $(this).closest('form');
         setTimeout(function() { 
             $form.find('.wpcf7-response-output').hide();

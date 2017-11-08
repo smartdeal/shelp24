@@ -88,6 +88,6 @@ Template Post Type: page
                     <?php }} ?>
             </div>
         </div>
-        <?php if (is_singular( array('uslugi') )) get_template_part( 'inc/tpl-slider-clients-logo' ); ?>
+        <?php get_template_part( 'inc/tpl-slider-clients-logo' ); ?>
 
 <?php get_footer(); ?>

@@ -85,7 +85,7 @@
                                         <?php foreach ($folio_stage as $value) { ?>
                                             <div class="case__item">
                                                 <div class="case__counter">&mdash; <?php echo sprintf("%02d", $folio_counter); ?></div>
-                                                <?php if ($value['folio_stage_title'] || $value['folio_stage_desc'] ): ?>
+                                                <?php if ($value['folio_stage_title'] || $value['folio_stage_desc'] || $value['folio_stage_block'] ): ?>
                                                     <div class="case__txt">
 
                                                         <?php if ($value['folio_stage_title']): ?>
@@ -96,6 +96,14 @@
                                                             <div class="case__desc"><?php echo $value['folio_stage_desc']; ?></div>
                                                         <?php endif; ?>
 
+                                                        <?php if ($value['folio_stage_block'] && $value['folio_stage_show_block'][0] == 'Да'): ?>
+                                                            <div class="case__stage-block">
+                                                                <?php foreach ($value['folio_stage_block'] as $value2): ?>
+                                                                    <div class="case__stage-title"><?php echo $value2['folio_stage_block_title'] ?></div>
+                                                                    <div class="case__stage-desc"><?php echo $value2['folio_stage_block_desc'] ?></div>
+                                                                <?php endforeach ?>
+                                                            </div>
+                                                        <?php endif; ?>
                                                     </div>
                                                 <?php endif; ?>
                                                 <?php if ($value['folio_stage_result'] || $value['folio_stage_img']): ?>

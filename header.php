@@ -28,14 +28,14 @@
                         <?php if (!is_front_page()) { ?></a><?php } ?>
                     <?php endif; ?>
                     <?php if ($main_tel = get_field('option_tel','option')): ?>
-                        <a href="tel:<?php echo preg_replace("/[^0-9]/","",$main_tel); ?>" class="header-mobile__item b-tel b-tel_header"><?php echo $main_tel; ?></a>
+                        <a href="tel:<?php echo preg_replace("/[^0-9+]/","",$main_tel); ?>" class="header-mobile__item b-tel b-tel_header"><?php echo $main_tel; ?></a>
                     <?php endif; ?>
                     <?php if ($main_email = get_field('option_email','option')): ?>
                         <a href="mailto:<?php echo $main_email; ?>" class="header-mobile__item b-email b-email_header"><?php echo $main_email; ?></a>
                     <?php endif; ?>
                     <a href="#form-get-offer" class="header-mobile__item b-get-offer">Запросить предложение</a>
+                    <button class="menu-btn navbar-toggle" data-toggle="collapse" data-target="#menu-collapse"><span></span><span></span><span></span></button>
                     <div class="menu-mob">
-                        <button class="menu-btn navbar-toggle" data-toggle="collapse" data-target="#menu-collapse"><span></span><span></span><span></span></button>
                         <nav class="navbar navbar_seohelp" role="navigation">
                         <!--noindex-->
                         <?php

@@ -16,7 +16,7 @@
 		    <?php endif; ?>
 		    <?php if ($main_tel = get_field('option_tel','option')): ?>
 		    	<div class="sidebar__tel">
-			        <a href="tel:<?php echo preg_replace("/[^0-9]/","",$main_tel); ?>" class="b-tel b-tel_sidebar"><?php echo $main_tel; ?></a>
+			        <a href="tel:<?php echo preg_replace("/[^0-9+]/","",$main_tel); ?>" class="b-tel b-tel_sidebar"><?php echo $main_tel; ?></a>
 		        </div>
 		    <?php endif; ?>
 		    <?php if ($main_email = get_field('option_email','option')): ?>

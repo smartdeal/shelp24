@@ -60,9 +60,13 @@ hr.bold {
 
 .breadcrumbs {
     color: #333;
-    font-size: 12px;
+    font-size: 10px;
     margin-bottom: 20px;
-    @include mn992 {}
+    text-align: center;
+    @include mn768 {
+        font-size: 12px;
+        text-align: left;
+    }
     a {
         text-decoration: underline;
         &:hover {
@@ -100,7 +104,7 @@ img {
         @include content-width;
         padding-bottom: 30px;
         @include mn992 {
-            padding-top: 60px;
+            padding-top: 30px;
         }
         &_portfolio {
             max-width: none;
@@ -219,6 +223,7 @@ img {
     padding: 10px 20px;
     text-transform: uppercase;
     border: 3px solid $red;
+    border-radius: 0;
     text-decoration: none;
     cursor: pointer;
     background-color: $red;

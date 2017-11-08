@@ -296,6 +296,19 @@
     &__task {
         margin: 20px 0;
     }
+    &__stage-block {
+        margin: 20px 0;
+    }
+    &__stage-title {
+        background: $lightgrey;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 13px 25px;
+        margin-bottom: 10px;
+    }
+    &__stage-desc {
+        margin-bottom: 20px;
+    }
 }
 
 .case-task {
@@ -415,6 +428,7 @@
     max-width: 500px;
     margin: 20px auto;
     padding-bottom: 6px;
+    overflow: hidden;
     &__before,
     &__after {
         display: -webkit-flex;
@@ -428,7 +442,10 @@
     &__before-visitor,
     &__after-request,
     &__after-visitor {
-        width: 85px;
+        width: 55px;
+        @include mn768 {
+            width: 85px;
+        }
     }
     &__before-request {
         background-color: #c2c2c2;

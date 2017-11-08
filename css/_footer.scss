@@ -28,7 +28,10 @@
         font-size: 14px;
         text-align: center;
         .menu-item {
-            display: inline-block;
+            display: block;
+            @include mn600 {
+                display: inline-block;
+            }
         }
     }
     &__item {
