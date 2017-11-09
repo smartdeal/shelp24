@@ -59,7 +59,10 @@ Template Post Type: page
                                                         <div class="b-team__form js-team-form-boss">
                                                             <div class="b-team__form-inner js-team-form-inner">
                                                                 <div class="b-team__form-title">Связь с директором</div>
-                                                                <?php echo do_shortcode('[contact-form-7 id="1935"]'); ?>
+                                                                <div class="form-wrap js-form-wrap">
+                                                                    <?php echo do_shortcode('[contact-form-7 id="1935"]'); ?>
+                                                                    <div class="form-sent-ok js-form-sent-ok"><div class="form-sent-ok__inner"><div class="form-sent-ok__title">Спасибо!</div><div class="form-sent-ok__subtitle">Заявка принята. Наш специалист позвонит Вам.</div></div></div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     <?php endif; ?>

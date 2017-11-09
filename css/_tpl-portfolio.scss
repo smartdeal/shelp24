@@ -48,6 +48,7 @@
         display: -ms-flex;
         display: -o-flex;
         display: flex;
+        align-items: center;
         overflow: hidden;
         &:hover {
             .portfolio__caption {
@@ -93,6 +94,11 @@
         max-width: 70%;
         max-height: 70%;
     }
+}
+
+.h_less600 .portfolio__img {
+    width: auto;
+    max-height: 100%;
 }
 
 .portfolio-filter {
@@ -254,7 +260,7 @@
         @include mn768 {
             flex-basis: 40%;
             order: 1;
-            padding-left: 20px;
+            padding: 0 10px 0 20px;
         }
     }
     &__imgs {
@@ -382,7 +388,7 @@
         display: flex;
         justify-content: space-around;
         max-width: 500px;
-        margin: 20px auto;
+        margin: 40px auto 20px;
     }
     &__caption {
         font-size: 16px;
@@ -428,7 +434,6 @@
     max-width: 500px;
     margin: 20px auto;
     padding-bottom: 6px;
-    overflow: hidden;
     &__before,
     &__after {
         display: -webkit-flex;
@@ -437,6 +442,7 @@
         display: -o-flex;
         display: flex;
         align-items: flex-end;
+        position: relative;
     }
     &__before-request,
     &__before-visitor,
@@ -448,16 +454,23 @@
         }
     }
     &__before-request {
-        background-color: #c2c2c2;
-    }
-    &__before-visitor {
         background-color: #959595;
     }
     &__after-request {
+        background-color: #c2c2c2;
+    }
+    &__before-visitor {
         background-color: #f4807a;
     }
     &__after-visitor {
         background-color: #f7a39f;
+    }
+    &__txt {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding-top: 10px;
     }
 }
 

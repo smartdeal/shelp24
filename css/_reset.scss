@@ -1,6 +1,10 @@
 @import 'mixins';
 @import 'variables';
 
+@-ms-viewport{
+width:auto!important;
+}
+
 body {
     font-family: "Open Sans";
     font-size: 14px;

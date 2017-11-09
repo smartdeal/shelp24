@@ -87,7 +87,6 @@
                                                 <div class="case__counter">&mdash; <?php echo sprintf("%02d", $folio_counter); ?></div>
                                                 <?php if ($value['folio_stage_title'] || $value['folio_stage_desc'] || $value['folio_stage_block'] ): ?>
                                                     <div class="case__txt">
-
                                                         <?php if ($value['folio_stage_title']): ?>
                                                             <div class="case__title"><?php echo $value['folio_stage_title']; ?></div>
                                                         <?php endif; ?>
@@ -128,10 +127,12 @@
                                                                             <div class="case-chart__before">
                                                                                 <div class="case-chart__before-request" style="height:<?php echo round($digit_height_request_max * $folio_request_before / $digit_request_max ); ?>px"></div>
                                                                                 <div class="case-chart__after-request" style="height:<?php echo round($digit_height_request_max * $folio_request_after / $digit_request_max ); ?>px"></div>
+                                                                                <div class="case-chart__txt">до</div>
                                                                             </div>
                                                                             <div class="case-chart__after">
                                                                                 <div class="case-chart__before-visitor" style="height:<?php echo round($digit_height_visitor_max * $folio_visitor_before / $digit_visitor_max ); ?>px"></div>
                                                                                 <div class="case-chart__after-visitor" style="height:<?php echo round($digit_height_visitor_max * $folio_visitor_after / $digit_visitor_max ); ?>px"></div>
+                                                                                <div class="case-chart__txt">после</div>
                                                                             </div>
                                                                         </div>
                                                                     </div>

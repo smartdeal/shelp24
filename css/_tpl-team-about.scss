@@ -36,16 +36,23 @@
         justify-content: space-around;
         text-align: center;
         margin: 30px 0;
+        flex-direction: column;
+        @include mn550 {
+            flex-direction: row;
+        }
     }
     &__num {
         font-family: Georgia, Times, Times New Roman, serif;
-        font-size: 36px;
+        font-size: 100px;
+        @include mn550 {
+            font-size: 80px;
+        }
         @include mn768 {
             font-size: 100px;
         }
     }
     &__desc {
-        font-size: 8px;
+        font-size: 16px;
         font-weight: 700;
         line-height: 1.2;
         text-transform: uppercase;

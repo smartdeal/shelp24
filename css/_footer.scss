@@ -1,6 +1,6 @@
 .footer {
     background: #444;
-    padding: 15px;
+    padding: 5px 10px;
     color: #c6c6c6;
     text-align: center;
     @include mn1600 {
@@ -9,7 +9,8 @@
         display: -ms-flex;
         display: -o-flex;
         display: flex;
-        justify-content: space-between;
+        // justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
     }
     .nav>li>a {
@@ -41,7 +42,7 @@
     }
     &__left {
         @include mn1600 {
-            flex-grow: 2;
+            // flex-grow: 2;
         }
     }
     &__right {
@@ -54,6 +55,10 @@
             display: inline-block;
             vertical-align: middle;
             margin: 5px;
+            @include mn550 {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
         }
         &-text {
             font-size: 12px;

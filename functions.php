@@ -689,7 +689,7 @@ add_shortcode('get_email', 'get_email_func');
 function get_content_form_func( $atts ){
     if ($atts['title'] != '') $title = $atts['title'];
         else $title = 'Заказать звонок.';
-    $out = '<div class="form-content">';
+    $out = '<div class="form-content form-wrap js-form-wrap">';
     $out .= '<div class="form-content__title">'.$title.'</div>';
     $out .= '<div class="form-content__body">'.do_shortcode('[contact-form-7 id="193" title="Форма в контенте"]').'</div>';
     $out .= '<div class="form-sent-ok js-form-sent-ok"><div class="form-sent-ok__inner"><div class="form-sent-ok__title">Спасибо!</div><div class="form-sent-ok__subtitle">Заявка принята. Наш специалист позвонит Вам.</div></div></div>';
@@ -703,7 +703,7 @@ function get_service_form_func( $atts ){
         else $title = 'Заказать звонок';
     if (is_array($atts) && array_key_exists('lead', $atts) && $atts['lead'] == 'off') $class_lead = ' form-content_without-lead';
         else $class_lead = '';
-    $out = '<div class="form-content form-content_service'.$class_lead.'">';
+    $out = '<div class="form-content form-content_service'.$class_lead.' form-wrap js-form-wrap">';
     $out .= '<div class="form-content__title">'.$title.'</div>';
     $out .= '<div class="form-content__body">'.do_shortcode('[contact-form-7 id="517" title="Форма в услугах"]').'</div>';
     $out .= '<div class="form-sent-ok js-form-sent-ok"><div class="form-sent-ok__inner"><div class="form-sent-ok__title">Спасибо!</div><div class="form-sent-ok__subtitle">Заявка принята. Наш специалист позвонит Вам.</div></div></div>';

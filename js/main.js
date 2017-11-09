@@ -64,9 +64,19 @@ function init() {
         $('html').removeClass('fixed-footer');
     }
 
+    var cur_h;
     if ($('.content__inner_front').length && !$('body').hasClass('w_less992')){
-        var content_max_h = window_height - footer_h - adminbar_height;
-        $('.portfolio__item').css({'padding-bottom':0,'height':content_max_h/3});
+        if ($('body').hasClass('h_less600')) {
+            cur_h = ($('.js-sidebar__inner').outerHeight())/3;
+        } 
+        else {
+            cur_h = (window_height - footer_h - adminbar_height)/3;
+        }
+        $('.portfolio__item').css({'padding-bottom':0,'height':cur_h});
+    }
+    if ($('.content__inner_contacts').length && $('html').hasClass('fixed-footer')){
+        cur_h = window_height - $('.content__inner_contacts .container-fluid').outerHeight()-footer_h-adminbar_height;
+        $('#map').css({'height':cur_h});
     }
 
     if ($('.js-team-about').length){
@@ -159,11 +169,8 @@ $(document).ready(function() {
     });
 
     $(".wpcf7").on('wpcf7mailsent', function(event){
-        var forms = ['517', '193'];
-        if ( forms.indexOf(event.detail.contactFormId) != -1 ) {
-            if ($('.js-form-sent-ok').length){
-                $('.js-form-sent-ok').fadeIn('slow');
-            }
+        if ($(this).closest('.js-form-wrap').find('.js-form-sent-ok').length){
+            $(this).closest('.js-form-wrap').find('.js-form-sent-ok').fadeIn('slow');
         }
     });
 

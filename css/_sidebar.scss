@@ -6,7 +6,7 @@
     left: 0;
     top: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: 2;
     @include mn992 {
         display: block;
     }
@@ -100,6 +100,15 @@
     }
     .footer .nav_footer {
         font-size: 12px;
+    }
+}
+
+.h_less600 {
+    .sidebar {
+        min-height: 0;
+    }
+    .sidebar__inner {
+        height: auto;
     }
 }
 
@@ -247,9 +256,9 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: -2%;
+    left: 0;
     background: rgba(255, 255, 255, 0.8);
-    box-shadow: 1px 1px 2px lightgrey;
+    border-right: 1px solid lightgrey;
     transition: left 1s 0s;
     z-index: -1;
     text-align: center;
@@ -260,6 +269,7 @@
         position: relative;
         top: 50%;
         transform: translateY(-50%);
+        padding: 1px 0;
     }
     .form__row {
         margin-bottom: 20px;
@@ -282,13 +292,14 @@
         top: -70px;
         right: 0;
         font-family: Arial, sans-serif;
-        font-size: 30px;
+        font-size: 50px;
         transition: transform .5s 0s;
-        transform: rotate(0deg);
+        transform: rotate(45deg);
+        line-height: 25px;
         &:hover {
             color: $red;
             text-decoration: none;
-            transform: rotate(360deg);
+            transform: rotate(315deg);
         }
     }
 }

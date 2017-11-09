@@ -21,6 +21,9 @@
 .b-contact {
     margin: 20px 0;
     font-size: 16px;
+    @include mn1200 {
+        padding-right: 20px;
+    }
     &__item {
         margin: 10px 0;
         display: flex;

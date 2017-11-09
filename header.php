@@ -33,22 +33,28 @@
                     <?php if ($main_email = get_field('option_email','option')): ?>
                         <a href="mailto:<?php echo $main_email; ?>" class="header-mobile__item b-email b-email_header"><?php echo $main_email; ?></a>
                     <?php endif; ?>
-                    <a href="#form-get-offer" class="header-mobile__item b-get-offer">Запросить предложение</a>
+                    <a href="#form-get-offer" class="header-mobile__item b-get-offer fancybox">Запросить предложение</a>
                     <button class="menu-btn navbar-toggle" data-toggle="collapse" data-target="#menu-collapse"><span></span><span></span><span></span></button>
                     <div class="menu-mob">
                         <nav class="navbar navbar_seohelp" role="navigation">
                         <!--noindex-->
+                        <div id="menu-collapse" class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav">
+                              <?php wp_nav_menu( array('theme_location' => 'primary',     'container' => false, 'fallback_cb' => 'wp_bootstrap_navwalker::fallback', 'walker' => new wp_bootstrap_navwalker(), 'items_wrap' => '%3$s' ) ); ?>
+                              <?php wp_nav_menu( array('theme_location' => 'secondary',   'container' => false, 'fallback_cb' => 'wp_bootstrap_navwalker::fallback', 'walker' => new wp_bootstrap_navwalker(), 'items_wrap' => '%3$s' ) ); ?>
+                            </ul>
+                        </div>
                         <?php
-                            wp_nav_menu( array(
-                                'theme_location'    => 'primary',
-                                'depth'             => 2,
-                                'container'         => 'div',
-                                'container_class'   => 'collapse navbar-collapse',
-                                'container_id'      => 'menu-collapse',
-                                'menu_class'        => 'nav navbar-nav',
-                                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                                'walker'            => new wp_bootstrap_navwalker())
-                            );
+                            // wp_nav_menu( array(
+                            //     'theme_location'    => 'primary',
+                            //     'depth'             => 2,
+                            //     'container'         => 'div',
+                            //     'container_class'   => 'collapse navbar-collapse',
+                            //     'container_id'      => 'menu-collapse',
+                            //     'menu_class'        => 'nav navbar-nav',
+                            //     'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                            //     'walker'            => new wp_bootstrap_navwalker())
+                            // );
                         ?>
                         <!--/noindex-->
                         </nav>

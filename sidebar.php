@@ -5,7 +5,7 @@
 ?>
 
 <div class="sidebar">
-<div class="sidebar__inner">
+<div class="sidebar__inner js-sidebar__inner">
 	<div class="sidebar__top">
 		    <?php if ($main_logo = get_field('option_logo','option')): ?>
 		    	<div class="sidebar__logo">
@@ -75,11 +75,12 @@
 				</div>
 			<?php endif; ?>
 	</div>
-</div>
-    <div class="form-get-offer">
-	    <div class="form-get-offer__inner">
-		    <a href="#" class="form-get-offer__close js-form-get-offer-close">X</a>
+    <div id="form-get-offer" class="form-get-offer">
+	    <div class="form-get-offer__inner form-wrap js-form-wrap">
+		    <a href="#" class="form-get-offer__close js-form-get-offer-close">+</a>
 	    	<?php echo do_shortcode('[contact-form-7 id="782" title="Форма Запросить предложение"]') ?>
+	    	<div class="form-sent-ok js-form-sent-ok"><div class="form-sent-ok__inner"><div class="form-sent-ok__title">Спасибо!</div><div class="form-sent-ok__subtitle">Заявка принята. Наш специалист позвонит Вам.</div></div></div>
 	    </div>
     </div>
+</div>
 </div>

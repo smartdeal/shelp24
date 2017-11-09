@@ -47,7 +47,10 @@ Template Post Type: page
 	                            	<?php endforeach ?>
 	                            </div>
                             <?php endif; ?>
-                            <?php echo do_shortcode('[get_review_form]' ); ?>
+                            <div class="form-wrap js-form-wrap">
+                                <?php echo do_shortcode('[get_review_form]' ); ?>
+                                <div class="form-sent-ok js-form-sent-ok"><div class="form-sent-ok__inner"><div class="form-sent-ok__title">Спасибо!</div><div class="form-sent-ok__subtitle">Заявка принята. Наш специалист позвонит Вам.</div></div></div>
+                            </div>
                         </div>
             <?php }} ?>
         </div>

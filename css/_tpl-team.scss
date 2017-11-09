@@ -115,13 +115,8 @@
         border: 1px solid #999;
         width: 60px;
         height: 60px;
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flex;
-        display: -o-flex;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        display: block;
+        padding: 14px;
         border-radius: 50%;
         position: absolute;
         left: 0;
@@ -134,8 +129,12 @@
             margin: 0 auto 10px;
             background: white;
         }
-        img {
-            max-width: 50%;
+        &:after {
+            content: '';
+            vertical-align: middle;
+            display: inline-block;
+            height: 100%;
+            width: 0;
         }
     }
     &__txt {
