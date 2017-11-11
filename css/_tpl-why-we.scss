@@ -15,25 +15,27 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+        margin: 0 -10px;
         @include mn1200 {
             justify-content: space-between;
         }
     }
     &__item {
-        background: $lightgrey;
-        padding: 20px;
-        margin-bottom: 10px;
-        flex-basis: 220px;
-        @include mn992 {
-            flex-basis: 24%;
-            margin-bottom: 0;
+        padding: 10px;
+        width: 100%;
+        max-width: 350px;
+        @include mn768 {
+            width: 50%;
+            max-width: none;
         }
         @include mn1200 {
-            flex-basis: 200px;
+            width: 25%;
         }
-        @include mn1400 {
-            flex-basis: 220px;
-        }
+    }
+    &__inner {
+        background: $lightgrey;
+        padding: 20px;
+        height: 100%;
     }
     &__caption {
         font-weight: 700;

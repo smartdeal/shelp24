@@ -44,8 +44,8 @@ function init() {
     document_height = $(document).height();
     footer_h = $('.js-footer').outerHeight();
 
-    if (window_height < 600) $('body').addClass('h_less600'); else $('body').removeClass('h_less600');
-    if (window_height >= 600 && window_height < 768) $('body').addClass('h_less768'); else $('body').removeClass('h_less768');
+    if (window_height < 550) $('body').addClass('h_less600'); else $('body').removeClass('h_less600');
+    if (window_height >= 550 && window_height < 768) $('body').addClass('h_less768'); else $('body').removeClass('h_less768');
     if (window_height >= 768 && window_height < 960) $('body').addClass('h_less960'); else $('body').removeClass('h_less960');
     if (window_width < 768) $('body').addClass('w_less768'); else $('body').removeClass('w_less768');
     if (window_width < 992) $('body').addClass('w_less992'); else $('body').removeClass('w_less992');
@@ -66,6 +66,7 @@ function init() {
 
     var cur_h;
     if ($('.content__inner_front').length && !$('body').hasClass('w_less992')){
+        $('body').addClass('fullpage');
         if ($('body').hasClass('h_less600')) {
             cur_h = ($('.js-sidebar__inner').outerHeight())/3;
         } 
@@ -73,6 +74,8 @@ function init() {
             cur_h = (window_height - footer_h - adminbar_height)/3;
         }
         $('.portfolio__item').css({'padding-bottom':0,'height':cur_h});
+    } else {
+        $('body').removeClass('fullpage');
     }
     if ($('.content__inner_contacts').length && $('html').hasClass('fixed-footer')){
         cur_h = window_height - $('.content__inner_contacts .container-fluid').outerHeight()-footer_h-adminbar_height;

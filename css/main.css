@@ -2741,8 +2741,11 @@ input[type=email] {
     text-decoration: underline; }
   .footer .nav_footer {
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 10px;
     text-align: center; }
+    @media (min-width: 1400px) {
+      .footer .nav_footer {
+        font-size: 14px; } }
     .footer .nav_footer .menu-item {
       display: block; }
       @media (min-width: 600px) {
@@ -2766,8 +2769,9 @@ input[type=email] {
           margin-top: 0;
           margin-bottom: 0; } }
     .footer__right-text {
-      font-size: 12px; }
-      @media (min-width: 550px) {
+      font-size: 12px;
+      margin-right: 5px; }
+      @media (min-width: 1400px) {
         .footer__right-text {
           margin-right: 25px; } }
 
@@ -3440,6 +3444,9 @@ body {
   position: relative;
   min-width: 320px; }
 
+body.fullpage:not(.h_less600) {
+  overflow: hidden; }
+
 hr.bold {
   border: 1px solid #e5e5e5; }
 
@@ -3867,7 +3874,7 @@ img {
     .b-meta__icon_flag {
       display: inline-block;
       vertical-align: middle;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="14" height="10" viewBox="0 0 14 10"><defs><style>.cls-1 {fill: %23f8615a; fill-rule: evenodd; } </style> </defs> <path d="M10.758,0.571 C10.537,0.214 10.095,-0.001 9.579,-0.001 L1.474,-0.001 C0.663,-0.001 -0.000,0.642 -0.000,1.428 L-0.000,8.571 C-0.000,9.356 0.663,9.999 1.474,9.999 L9.579,9.999 C10.095,9.999 10.537,9.785 10.758,9.428 L14.000,4.999 L10.758,0.571 ZM9.579,8.571 L1.474,8.571 L1.474,1.428 L9.579,1.428 L12.158,4.999 L9.579,8.571 Z" class="cls-1"/> </svg>') center no-repeat;
+      background: url("../img/icon-flag.png") center no-repeat;
       width: 14px;
       height: 10px; }
   .b-meta__share .addtoany_list:hover, .b-meta__link_share:hover + .addtoany_list {
@@ -4042,23 +4049,16 @@ img {
     display: inline-block;
     vertical-align: top;
     transition: all .2s ease-out;
-    max-width: 350px;
-    width: 100%;
-    height: 250px;
-    position: relative; }
-    @media (min-width: 550px) {
-      .portfolio__item {
-        max-width: none;
-        width: 50%;
-        height: 0;
-        padding-bottom: 40%; } }
+    position: relative;
+    width: 50%;
+    height: 0;
+    padding-bottom: 50%; }
     @media (min-width: 768px) {
       .portfolio__item {
-        width: 33.33%;
-        padding-bottom: 30%; } }
+        width: 25%;
+        padding-bottom: 25%; } }
     @media (min-width: 1200px) {
       .portfolio__item {
-        width: 25%;
         padding-bottom: 23%; } }
     @media (min-width: 1921px) {
       .portfolio__item {
@@ -4070,13 +4070,8 @@ img {
     right: 0;
     top: 0;
     bottom: 0;
-    padding: 3%;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    align-items: center;
+    padding: 5%;
+    text-align: center;
     overflow: hidden; }
     .portfolio__link:hover .portfolio__caption {
       top: 0; }
@@ -4094,6 +4089,12 @@ img {
       bottom: 0;
       background: black;
       transition: all .3s 0s; }
+    .portfolio__link:after {
+      content: '';
+      width: 0;
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle; }
   .portfolio__caption {
     position: absolute;
     left: 0;
@@ -4110,14 +4111,11 @@ img {
     transition: top .3s 0s;
     overflow: hidden; }
   .portfolio__img {
-    display: block;
-    margin: auto;
-    max-width: 70%;
-    max-height: 70%; }
+    display: inline-block;
+    vertical-align: middle; }
 
 .h_less600 .portfolio__img {
-  width: auto;
-  max-height: 100%; }
+  width: auto; }
 
 .portfolio-filter {
   position: absolute;
@@ -4140,6 +4138,7 @@ img {
         position: absolute;
         width: 35px;
         top: 23px;
+        left: 8px;
         transform: rotate(-45deg); }
         .portfolio-filter.is-hover .portfolio-filter__btn span + span {
           transform: rotate(45deg); }
@@ -4152,6 +4151,10 @@ img {
     position: absolute;
     left: 0;
     right: 0;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -4192,14 +4195,8 @@ img {
       color: #f8615a; }
 
 .portfolio__item-sizer, .portfolio__item_all {
-  width: 100%; }
-  @media (min-width: 550px) {
-    .portfolio__item-sizer, .portfolio__item_all {
-      width: 50%; } }
+  width: 50%; }
   @media (min-width: 768px) {
-    .portfolio__item-sizer, .portfolio__item_all {
-      width: 33.33%; } }
-  @media (min-width: 1400px) {
     .portfolio__item-sizer, .portfolio__item_all {
       width: 25%; } }
   @media (min-width: 1921px) {
@@ -4207,20 +4204,10 @@ img {
       width: 300px; } }
 
 .portfolio__item_all {
-  max-width: none;
-  height: 200px;
-  padding-bottom: 0;
   transition: none; }
-  @media (min-width: 1400px) {
-    .portfolio__item_all {
-      height: 250px; } }
   @media (min-width: 1600px) {
     .portfolio__item_all {
       height: 300px; } }
-
-.portfolio__item_all img {
-  max-width: 70%;
-  max-height: 70%; }
 
 .case {
   margin: 20px 0 40px; }
@@ -4336,19 +4323,19 @@ img {
 .case-meta__icon_flag {
   display: inline-block;
   vertical-align: middle;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="14" height="10" viewBox="0 0 14 10"><defs><style>.cls-1 {fill: %23f8615a; fill-rule: evenodd; } </style> </defs> <path d="M10.758,0.571 C10.537,0.214 10.095,-0.001 9.579,-0.001 L1.474,-0.001 C0.663,-0.001 -0.000,0.642 -0.000,1.428 L-0.000,8.571 C-0.000,9.356 0.663,9.999 1.474,9.999 L9.579,9.999 C10.095,9.999 10.537,9.785 10.758,9.428 L14.000,4.999 L10.758,0.571 ZM9.579,8.571 L1.474,8.571 L1.474,1.428 L9.579,1.428 L12.158,4.999 L9.579,8.571 Z" class="cls-1"/> </svg>') center no-repeat;
+  background: url("../img/icon-flag.png") center no-repeat;
   width: 14px;
   height: 10px; }
 .case-meta__icon_watch {
   display: inline-block;
   vertical-align: middle;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="14" height="14" viewBox="0 0 14 14">  <defs>    <style>      .cls-1 {        fill: %23f8615a;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M7.000,13.999 C3.150,13.999 -0.000,10.849 -0.000,6.999 C-0.000,3.149 3.150,-0.001 7.000,-0.001 C10.850,-0.001 14.000,3.149 14.000,6.999 C14.000,10.849 10.850,13.999 7.000,13.999 ZM7.000,1.400 C3.920,1.400 1.400,3.919 1.400,6.999 C1.400,10.079 3.920,12.599 7.000,12.599 C10.080,12.599 12.600,10.079 12.600,6.999 C12.600,3.919 10.080,1.400 7.000,1.400 ZM6.300,7.699 L6.300,3.499 L7.350,3.499 L7.350,7.139 L10.500,9.030 L9.940,9.940 L6.300,7.699 Z" class="cls-1"/></svg>') center no-repeat;
+  background: url("../img/icon-watch.png") center no-repeat;
   width: 14px;
   height: 14px; }
 .case-meta__icon_share {
   display: inline-block;
   vertical-align: middle;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="14" height="14" viewBox="0 0 14 14">  <defs>    <style>      .cls-1 {        fill: %23f8615a;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M11.601,9.123 C10.917,9.123 10.303,9.415 9.866,9.883 L4.765,7.342 C4.782,7.223 4.794,7.102 4.794,6.978 C4.794,6.856 4.783,6.738 4.766,6.622 L9.860,4.109 C10.297,4.580 10.915,4.876 11.601,4.876 C12.925,4.876 13.998,3.784 13.998,2.438 C13.998,1.091 12.925,0.000 11.601,0.000 C10.278,0.000 9.205,1.091 9.205,2.438 C9.205,2.559 9.216,2.677 9.233,2.793 L4.139,5.306 C3.702,4.835 3.085,4.540 2.398,4.540 C1.074,4.540 0.001,5.631 0.001,6.978 C0.001,8.324 1.074,9.415 2.398,9.415 C3.082,9.415 3.696,9.123 4.133,8.656 L9.234,11.196 C9.217,11.315 9.205,11.436 9.205,11.561 C9.205,12.907 10.278,13.998 11.601,13.998 C12.925,13.998 13.998,12.907 13.998,11.561 C13.998,10.214 12.925,9.123 11.601,9.123 Z" class="cls-1"/></svg>') center no-repeat;
+  background: url("../img/icon-share.png") center no-repeat;
   width: 14px;
   height: 14px; }
 .case-meta__body {
@@ -4447,22 +4434,22 @@ img {
 .slick-prev {
   display: inline-block;
   vertical-align: middle;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24">  <defs>    <style>      .cls-1 {        fill: %23999;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M12.162,-0.000 L15.000,2.799 L5.676,12.000 L15.000,21.200 L12.162,24.000 L0.000,12.000 L12.162,-0.000 Z" class="cls-1"/></svg>') center no-repeat;
+  background: url("../img/icon-arrow-left.png") center no-repeat;
   width: 15px;
   height: 24px; }
   .slick-prev:hover {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24">  <defs>    <style>      .cls-1 {        fill: %23f8615a;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M12.162,-0.000 L15.000,2.799 L5.676,12.000 L15.000,21.200 L12.162,24.000 L0.000,12.000 L12.162,-0.000 Z" class="cls-1"/></svg>'); }
+    background: url("../img/icon-arrow-left-red.png") center no-repeat; }
 
 .slick-next {
   display: inline-block;
   vertical-align: middle;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24"><defs><style>.cls-1{fill: %23999;fill-rule: evenodd;}</style></defs><path d="M2.838,-0.000 L0.000,2.799 L9.324,12.000 L0.000,21.200 L2.838,24.000 L15.000,12.000 L2.838,-0.000 Z" class="cls-1"/></svg>') center no-repeat;
+  background: url("../img/icon-arrow-right.png") center no-repeat;
   width: 15px;
   height: 24px;
   left: auto;
   right: -30px; }
   .slick-next:hover {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="15" height="24" viewBox="0 0 15 24">  <defs>    <style>      .cls-1 {        fill: %23f8615a;        fill-rule: evenodd;      }    </style>  </defs>  <path d="M2.838,-0.000 L0.000,2.799 L9.324,12.000 L0.000,21.200 L2.838,24.000 L15.000,12.000 L2.838,-0.000 Z" class="cls-1"/></svg>'); }
+    background: url("../img/icon-arrow-right-red.png") center no-repeat; }
 
 .clients-slider {
   padding: 30px 0;
@@ -4826,25 +4813,26 @@ img {
     display: -o-flex;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; }
+    justify-content: space-around;
+    margin: 0 -10px; }
     @media (min-width: 1200px) {
       .b-why__body {
         justify-content: space-between; } }
   .b-why__item {
-    background: #f7f7f7;
-    padding: 20px;
-    margin-bottom: 10px;
-    flex-basis: 220px; }
-    @media (min-width: 992px) {
+    padding: 10px;
+    width: 100%;
+    max-width: 350px; }
+    @media (min-width: 768px) {
       .b-why__item {
-        flex-basis: 24%;
-        margin-bottom: 0; } }
+        width: 50%;
+        max-width: none; } }
     @media (min-width: 1200px) {
       .b-why__item {
-        flex-basis: 200px; } }
-    @media (min-width: 1400px) {
-      .b-why__item {
-        flex-basis: 220px; } }
+        width: 25%; } }
+  .b-why__inner {
+    background: #f7f7f7;
+    padding: 20px;
+    height: 100%; }
   .b-why__caption {
     font-weight: 700;
     text-transform: uppercase;
