@@ -129,9 +129,16 @@
     &__graf {
         margin: 10px auto;
         position: relative;
-        max-width: 330px;
+        max-width: 450px;
         padding-left: 40px;
-        padding-right: 100px;
+        padding-right: 40px;
+        @include mn450 {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+        }
         @include mn550 {
             flex: 1 1 300px;
         }
@@ -139,19 +146,22 @@
             margin-top: 10px;
             margin-bottom: 0;
         }
+        .case-result__graf {
+            width: 190px;
+        }
         .case-result__txt {
-            position: relative;
-            padding-bottom: 20px;
+            padding: 0 15px 15px 30px;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            justify-content: space-around;
         }
         .case-result__caption {
-            position: absolute;
-            top: 0;
-            left: 77px;
+            display: inline-block;
             line-height: 1.2;
             font-size: 14px;
-            &:last-child {
-                left: 127px;
-            }
         }
         .case-chart__before-request,
         .case-chart__after-request {
@@ -165,13 +175,13 @@
         }
     }
     &__graf-txt {
-        position: absolute;
-        top: 30px;
-        right: 0;
-        width: 100px;
+        width: 130px;
         padding: 0 10px;
         line-height: 1.2;
         font-size: 14px;
+        @include mn450 {
+            margin-bottom: 30px;
+        }
     }
     .b-result__bottom {
         @include mn550 {

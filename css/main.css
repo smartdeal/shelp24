@@ -2978,6 +2978,7 @@ input[type=email] {
 
 .form-get-offer {
   width: 300px;
+  max-width: 100%;
   padding: 20px;
   overflow: hidden;
   position: absolute;
@@ -3089,7 +3090,8 @@ input[type=email] {
   text-align: center; }
 .wpcf7 .wpcf7-validation-errors {
   border: 0;
-  color: red; }
+  color: red;
+  font-style: italic; }
 .wpcf7 .wpcf7-mail-sent-ok {
   display: none !important; }
 .wpcf7 label {
@@ -3338,7 +3340,8 @@ div.wpcf7 .ajax-loader {
     margin-bottom: 10px; }
   .form-sent-ok__subtitle {
     font-size: 18px;
-    color: #666; }
+    color: #666;
+    padding: 0 10px; }
 
 .b-team__form {
   position: absolute;
@@ -3536,7 +3539,8 @@ img {
         padding-top: 30px; } }
     .content__inner_portfolio {
       max-width: none;
-      padding: 0; }
+      padding-top: 0;
+      padding-bottom: 0; }
   .content__body {
     min-height: 300px; }
   .content__title {
@@ -3954,26 +3958,36 @@ img {
   .b-result__graf {
     margin: 10px auto;
     position: relative;
-    max-width: 330px;
+    max-width: 450px;
     padding-left: 40px;
-    padding-right: 100px; }
+    padding-right: 40px; }
+    @media (min-width: 450px) {
+      .b-result__graf {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex; } }
     @media (min-width: 550px) {
       .b-result__graf {
         flex: 1 1 300px; } }
     .b-result__graf .case-chart {
       margin-top: 10px;
       margin-bottom: 0; }
+    .b-result__graf .case-result__graf {
+      width: 190px; }
     .b-result__graf .case-result__txt {
-      position: relative;
-      padding-bottom: 20px; }
+      padding: 0 15px 15px 30px;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+      justify-content: space-around; }
     .b-result__graf .case-result__caption {
-      position: absolute;
-      top: 0;
-      left: 77px;
+      display: inline-block;
       line-height: 1.2;
       font-size: 14px; }
-      .b-result__graf .case-result__caption:last-child {
-        left: 127px; }
     .b-result__graf .case-chart__before-request,
     .b-result__graf .case-chart__after-request {
       width: 50px; }
@@ -3984,13 +3998,13 @@ img {
     .b-result__graf .case-chart__before-request {
       margin-right: 20px; }
   .b-result__graf-txt {
-    position: absolute;
-    top: 30px;
-    right: 0;
-    width: 100px;
+    width: 130px;
     padding: 0 10px;
     line-height: 1.2;
     font-size: 14px; }
+    @media (min-width: 450px) {
+      .b-result__graf-txt {
+        margin-bottom: 30px; } }
   @media (min-width: 550px) {
     .b-result .b-result__bottom {
       display: block;
@@ -4477,7 +4491,8 @@ img {
     color: #999;
     font-size: 16px;
     line-height: 1.5;
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    text-align: center; }
 
 .b-slider-logo {
   margin: 0 40px; }

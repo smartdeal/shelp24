@@ -90,6 +90,7 @@
     .wpcf7-validation-errors {
         border: 0;
         color: red;
+        font-style: italic;
     }
     .wpcf7-mail-sent-ok {
         display: none !important;
@@ -418,6 +419,7 @@ div.wpcf7 .ajax-loader {
     &__subtitle {
         font-size: 18px;
         color: $darkgrey;
+        padding: 0 10px;
     }
 }
 

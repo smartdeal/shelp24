@@ -398,6 +398,7 @@ function the_service_menu(){
         'post_status' => 'publish' 
     );
     $page_children = get_children( $args );
+    if (!$page_children && !$page_parent) return;
     if (!$page_children) {
         $args = array(
             'post_parent' => $page_parent,
@@ -606,13 +607,14 @@ function get_service_result_func( $atts ){
         $out .= '<div class="b-result__title">'.$title.'</div><div class="b-result__body js-result-slider">';
         while ( $query->have_posts() ): 
             $query->the_post();
-            
             if (!$folio_logo_color = get_field('folio_logo_color'))
                 $folio_logo_color = "#fff";
             $folio_logo_bg = '';
             if ($arrFolio_logo_bg = get_field('folio_logo_bg'))
                 $folio_logo_bg = ' url('.$arrFolio_logo_bg['sizes']['medium'].') center no-repeat; background-size: cover';
 
+            $folio_res_check = get_field('folio_res_check');
+            if (!is_null($folio_res_check) && $folio_res_check[0] == 'yes') continue;
             $out .= '<div class="b-result__item"><div class="b-result__top"><div class="b-result__desc">';
             $out .= '<div class="b-result__name">'.get_the_title().'</div>';
             if ($folio_res_desc = get_field('folio_res_desc'))

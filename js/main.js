@@ -35,6 +35,7 @@ function preinit() {
             slidesToScroll: 1,
             prevArrow:"<div class='slick-prev pull-left'></div>",
             nextArrow:"<div class='slick-next pull-right'></div>",
+            adaptiveHeight: true
         });
     }    
 }
@@ -198,36 +199,17 @@ $(document).ready(function() {
 
     });
 
-    $('.link-ajax').click(function(event) {
-        event.preventDefault();
-        var cur_link = $(this).attr('href');
-        console.log('click', -document_height);
-        console.log('state', history.state);
-
-        $('#js-content')
-            .css('top',-document_height+'px')
-            .load('http://seohelp.the4mobile.com/wp-content/themes/seohelp/ajax.php?link='+cur_link, function() {
-                history.pushState({param: 'Value'}, '', cur_link);
-                console.log( "Load was performed." );
-                $(this).css('top','0');
-                preinit();
-                init();
-            });
-            // .css('display','none')
-            // .css('top',-window_height+'px')
-            // .css('display','block')
-    });
-
     if ($('.js-portfolio-grid').length) {
-        console.log("js-portfolio-grid");
-        var $portfolio_grid = $('.js-portfolio-grid').isotope({
-            itemSelector: '.portfolio__item',
-            percentPosition: true,
-            layoutMode: 'fitRows',
-            fitRows: {
-                columnWidth: '.portfolio__item-sizer'
-            }
-        });
+        var $portfolio_grid = $('.js-portfolio-grid')
+                .isotope({
+                    itemSelector: '.portfolio__item',
+                    percentPosition: true,
+                    layoutMode: 'fitRows',
+                    fitRows: {
+                        columnWidth: '.portfolio__item-sizer'
+                    }
+                })
+                .isotope({ filter: '' }); // bugfix
 
         $('.js-portfolio-btn').click(function(event) {
             var filterValue = $( this ).attr('data-filter');
@@ -235,10 +217,6 @@ $(document).ready(function() {
                 $('.js-footer').hide();
             }
             $portfolio_grid.isotope({ filter: filterValue });
-        });
-
-        $('.js-portfolio-filter-btn').click(function(event) {
-            // $(this).closest('.js-portfolio-filter').removeClass('is-hover');
         });
 
         $portfolio_grid.on( 'layoutComplete',
