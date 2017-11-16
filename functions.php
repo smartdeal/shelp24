@@ -627,7 +627,7 @@ function get_service_result_func( $atts ){
             $folio_request_before = get_field('folio_res_graf_before');
             $folio_request_after = get_field('folio_res_graf_after');
             
-            if ($folio_request_before && $folio_request_after):
+            if ($folio_request_before != '' && $folio_request_after != ''):
                 $out .= '<div class="case-result__graf"><div class="case-result__chart"><div class="case-chart">';
                 $digit_height_request_max = 100; // max height request's block
                 $digit_request_max = max($folio_request_after, $folio_request_before); 
