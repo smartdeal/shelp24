@@ -72,8 +72,7 @@ function seohelp_scripts() {
         wp_enqueue_script( 'seohelp-js-mask',      get_template_directory_uri() . '/js/jquery.inputmask.bundle.min.js', array('jquery'), '20170630', true );
         wp_enqueue_script( 'seohelp-js-fancy',     get_template_directory_uri() . '/js/fancybox/jquery.fancybox.pack.js', array('jquery'), '20170630', true );
         wp_enqueue_script( 'seohelp-js-parallax',  get_template_directory_uri() . '/js/jquery.stellar.min.js', array('jquery'), '20170630', true );
-        if (is_page_template('page-portfolio.php')) wp_enqueue_script( 'seohelp-js-isotope',  get_template_directory_uri() . '/js/isotope.pkgd.min.js', array(), '20170630', true );
-        if (is_page_template('page-reviews.php')) wp_enqueue_script( 'seohelp-js-zoom',  get_template_directory_uri() . '/js/jquery.zoom.min.js', array(), '20170630', true );
+        if (is_page_template('page-reviews.php')) wp_enqueue_script( 'seohelp-js-zoom',  get_template_directory_uri() . '/js/jquery.zoom.min.js', array('jquery'), '20170630', true );
         if (is_page_template('page-contacts.php')) wp_enqueue_script( 'seohelp-js-map',  'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array(), '', true );
         wp_enqueue_script( 'seohelp-js-custom',    get_template_directory_uri() . '/js/main.js', array('jquery'), '20170630', true );
         
@@ -478,9 +477,6 @@ function get_portfolio($posts_per_page = -1) {
     $query = new WP_Query($arg);
     if ($query->have_posts() ):
         $out .= '<div class="portfolio'.$class_grid.'">';
-        if ($portfolio_full) {
-            $out .= '<div class="portfolio__item-sizer"></div>';
-        }
         while ( $query->have_posts() ): 
             $query->the_post();
             if (!$folio_logo_color = get_field('folio_logo_color'))
@@ -519,9 +515,9 @@ function get_portfolio($posts_per_page = -1) {
             $out_menu .= '<div class="portfolio-filter js-portfolio-filter">';
             $out_menu .= '<div class="portfolio-filter__btn js-portfolio-filter-btn"><span></span><span></span><span></span></div>';
             $out_menu .= '<div class="portfolio-menu">';
-            $out_menu .= '<div class="portfolio-menu__link js-portfolio-btn" data-filter="*">Все работы</div>';
+            $out_menu .= '<a href="#" class="portfolio-menu__link js-portfolio-btn" data-filter=".portfolio__item">Все работы</a>';
             foreach ($arrPortfolio_tax as $key => $value) {
-                $out_menu .= '<div class="portfolio-menu__link js-portfolio-btn" data-filter=".portfolio-tax-'.$value['slug'].'">'.$value['name'].'</div>';
+                $out_menu .= '<a href="#" class="portfolio-menu__link js-portfolio-btn" data-filter=".portfolio-tax-'.$value['slug'].'">'.$value['name'].'</a>';
             }
             $out_menu .= '</div>';
             $out_menu .= '</div>';

@@ -23,11 +23,6 @@
         @include mn1200 {
             padding-bottom: 23%;
         }
-        @include mn1920 {
-            // width: 405px;
-            padding-bottom: 0;
-            height: 355px;
-        }
     }
     &__link {
         position: absolute;
@@ -169,7 +164,7 @@
     font-weight: 700;
     text-transform: uppercase;
     &__link {
-        cursor: pointer;
+        display: block;
         margin-top: 10px;
         @include mn550 {
             white-space: nowrap;
@@ -181,24 +176,6 @@
         &:hover {
             color: $red;
         }
-    }
-}
-
-.portfolio__item-sizer {
-    width: 50%;
-    @include mn768 {
-        width: 25%;
-    }
-    @include mn1920 {
-        width: 300px;
-    }
-}
-
-.portfolio__item_all {
-    @extend .portfolio__item-sizer;
-    transition: none;
-    @include mn1600 {
-        height: 300px;
     }
 }
 

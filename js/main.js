@@ -212,40 +212,18 @@ $(document).ready(function() {
     });
 
     if ($('.js-portfolio-grid').length) {
-        var $portfolio_grid = $('.js-portfolio-grid')
-                .isotope({
-                    itemSelector: '.portfolio__item',
-                    percentPosition: true,
-                    layoutMode: 'fitRows',
-                    fitRows: {
-                        columnWidth: '.portfolio__item-sizer'
-                    }
-                })
-        setTimeout(function() { 
-                $portfolio_grid.isotope({ filter: '' }); // bugfix
-        }, 1);
 
         $('.js-portfolio-btn').click(function(event) {
+            event.preventDefault();
             var filterValue = $( this ).attr('data-filter');
+            $('.js-portfolio-grid')
+                .find('.portfolio__item').fadeOut(0)
+                .filter(filterValue).fadeIn(500);
             if (!$('html').hasClass('fixed-footer')) {
                 $('.js-footer').hide();
             }
-            $portfolio_grid.isotope({ filter: filterValue });
         });
 
-        $portfolio_grid.on( 'layoutComplete',
-          function( event, laidOutItems ) {
-            setTimeout(function() { 
-                var content_height = $('.content__inner').outerHeight();
-                if (window_height > content_height + footer_h){
-                    $('html').addClass('fixed-footer');
-                } else {
-                    $('html').removeClass('fixed-footer');
-                }
-                $('.js-footer').show();
-            }, 1);
-          }
-        );
 
         $('.js-portfolio-filter').click(function(){
               $(this).toggleClass('is-hover');
