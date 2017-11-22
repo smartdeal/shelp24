@@ -3881,9 +3881,13 @@ img {
       background: url("../img/icon-flag.png") center no-repeat;
       width: 14px;
       height: 10px; }
-  .b-meta__share .addtoany_list:hover, .b-meta__link_share:hover + .addtoany_list {
+  .b-meta__share.opened .addtoany_list, .b-meta__link_share.opened + .addtoany_list {
     opacity: 1;
     visibility: visible; }
+  @media (min-width: 992px) {
+    .b-meta__share .addtoany_list:hover, .b-meta__link_share:hover + .addtoany_list {
+      opacity: 1;
+      visibility: visible; } }
   .b-meta__share {
     position: relative; }
     .b-meta__share .addtoany_list {
@@ -3891,7 +3895,7 @@ img {
       visibility: hidden;
       position: absolute;
       transition: all 1s 0s;
-      right: 0;
+      left: 0;
       top: 120%;
       width: 182px;
       padding: 10px;
@@ -4235,9 +4239,13 @@ img {
     line-height: 48px; }
   @media (min-width: 768px) {
     .case__txt {
-      flex-basis: 40%;
+      flex: 1 1 40%;
       order: 1;
       padding: 0 10px 0 20px; } }
+  @media (min-width: 768px) {
+    .case__img {
+      flex: 1 1 60%;
+      max-width: 600px; } }
   .case__imgs {
     text-align: center;
     border: 1px solid #f7f7f7; }

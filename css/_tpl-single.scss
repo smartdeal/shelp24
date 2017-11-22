@@ -38,10 +38,17 @@
             @include svg-icon-flag;
         }
     }
-    &__share .addtoany_list:hover,
-    &__link_share:hover+.addtoany_list {
+    &__share.opened .addtoany_list,
+    &__link_share.opened+.addtoany_list {
         opacity: 1;
         visibility: visible;
+    }
+    &__share .addtoany_list:hover,
+    &__link_share:hover+.addtoany_list {
+        @include mn992 {
+            opacity: 1;
+            visibility: visible;
+        }
     }
     &__share {
         position: relative;
@@ -50,7 +57,7 @@
             visibility: hidden;
             position: absolute;
             transition: all 1s 0s;
-            right: 0;
+            left: 0;
             top: 120%;
             width: 182px;
             padding: 10px;

@@ -49,9 +49,9 @@
                                                             <?php } ?>
                                                         </div>
                                                     <?php endif; ?>
-                                                    <div class="b-meta__item b-meta__share">
+                                                    <div class="b-meta__item b-meta__share js-meta-share">
                                                         <img class="b-meta__icon" src="<?php echo get_template_directory_uri().'/img/icon-share.png'; ?>" alt="">
-                                                        <a href="#" class="b-meta__link b-meta__link_share">Поделиться</a>
+                                                        <a href="#" class="b-meta__link b-meta__link_share js-link-share">Поделиться</a>
                                                         <?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
                                                     </div>
                                                 </div>                                        

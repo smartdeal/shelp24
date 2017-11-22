@@ -69,7 +69,7 @@
 					<?php $i = 1; ?>
 					<?php foreach ($option_social as $value) { ?>
 						<div class="social__item social__item_<?php echo $i; ?>">
-							<a href="<?php echo $value['option_social_link']; ?>" class="social__icon" style="background-image:url(<?php echo $value['option_social_icon']['sizes']['thumbnail']; ?>)"></a>
+							<a href="<?php echo $value['option_social_link']; ?>" class="social__icon" target="_blank" style="background-image:url(<?php echo $value['option_social_icon']['sizes']['thumbnail']; ?>)"></a>
 						</div>
 					<?php $i++; } ?>
 				</div>

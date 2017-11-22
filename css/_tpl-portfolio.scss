@@ -194,6 +194,12 @@
         }
         &_first {
             padding-top: 0;
+            .case__img {
+                
+            }
+            .case__txt {
+
+            }
         }
         &:last-child {
             border-bottom: 0;
@@ -215,9 +221,15 @@
 
     &__txt {
         @include mn768 {
-            flex-basis: 40%;
+            flex: 1 1 40%;
             order: 1;
             padding: 0 10px 0 20px;
+        }
+    }
+    &__img {
+        @include mn768 {
+            flex: 1 1 60%;
+            max-width: 600px;
         }
     }
     &__imgs {

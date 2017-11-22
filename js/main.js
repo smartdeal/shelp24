@@ -184,6 +184,11 @@ $(document).ready(function() {
         $('.form-get-offer').removeClass('opened');
     });
 
+    $('.js-link-share').click(function(event) {
+        event.preventDefault();
+        $(this).closest('.js-meta-share').toggleClass('opened');
+    });
+
     $(".wpcf7").on('wpcf7mailsent', function(event){
         if ($(this).closest('.js-form-wrap').find('.js-form-sent-ok').length){
             $(this).closest('.js-form-wrap').find('.js-form-sent-ok').fadeIn('slow');
@@ -311,6 +316,20 @@ $(window).scroll(function() {
         }
     }
 
+    // Targets
+    var wpcf7Elm;
+    wpcf7Elm = document.getElementById( 'wpcf7-f782-o1' );
+    if (wpcf7Elm != null) wpcf7Elm.addEventListener( 'wpcf7mailsent', function( event ) {yaCounter24815432.reachGoal('zaprosit-offer-header'); }, false ); 
+    wpcf7Elm = document.getElementById( 'wpcf7-f517-p7-o2' );
+    if (wpcf7Elm != null) wpcf7Elm.addEventListener( 'wpcf7mailsent', function( event ) {yaCounter24815432.reachGoal('zayavka-usluga'); }, false ); 
+    wpcf7Elm = document.getElementById( 'wpcf7-f1935-p98-o2' );
+    if (wpcf7Elm != null) wpcf7Elm.addEventListener( 'wpcf7mailsent', function( event ) {yaCounter24815432.reachGoal('pryamaya-svyas'); }, false ); 
+    wpcf7Elm = document.getElementById( 'wpcf7-f193-p235-o2' );
+    if (wpcf7Elm != null) wpcf7Elm.addEventListener( 'wpcf7mailsent', function( event ) {yaCounter24815432.reachGoal('case-hochy-takzhe'); }, false ); 
+    wpcf7Elm = document.getElementById( 'wpcf7-f713-p104-o2' );
+    if (wpcf7Elm != null) wpcf7Elm.addEventListener( 'wpcf7mailsent', function( event ) {yaCounter24815432.reachGoal('feedback'); }, false ); 
+    wpcf7Elm = document.getElementById( 'wpcf7-f193-p776-o2' );
+    if (wpcf7Elm != null) wpcf7Elm.addEventListener( 'wpcf7mailsent', function( event ) {yaCounter24815432.reachGoal('100-garantiya'); }, false ); 
 
 });
 

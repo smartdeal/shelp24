@@ -56,10 +56,11 @@
                                                             </div>
                                                         </div>
                                                     <?php endif; ?>
-                                                    <div class="case-meta__item case-meta__item_share">
+                                                    <div class="case-meta__item case-meta__item_share b-meta__share js-meta-share">
                                                         <div class="case-meta__title">
                                                             <span class="case-meta__icon case-meta__icon_share"></span>
-                                                            <span class="case-meta__caption"><a href="#">Поделиться</a></span>
+                                                            <a class="case-meta__caption b-meta__link b-meta__link_share js-link-share" href="#">Поделиться</a>
+                                                            <?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
                                                         </div>
                                                     </div>
                                                 </div>
