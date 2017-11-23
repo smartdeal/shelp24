@@ -37,6 +37,9 @@
             .portfolio__caption {
                 top: 0;
             }
+            .portfolio__tax-main {
+                bottom: 0;
+            }
             &::before {
                 opacity: .3;
                 visibility: visible;
@@ -62,6 +65,7 @@
             vertical-align: middle;
         }
     }
+    &__tax-main,
     &__caption {
         position: absolute;
         left: 0;
@@ -77,6 +81,14 @@
         text-transform: uppercase;
         transition: top .3s 0s;
         overflow: hidden;
+    }
+    &__tax-main{
+        padding: 20px 10px;
+        font-size: 13px;
+        font-weight: 400;
+        top: auto;
+        bottom: -50px;
+        transition: bottom .3s 0s;
     }
     &__img {
         display: inline-block;

@@ -457,6 +457,7 @@ function get_portfolio($posts_per_page = -1) {
     $arrPortfolio_tax_one = array();
     $out = '';
     $out_menu = '';
+    $tax_name_main = '';
     $portfolio_full = false;
     if ($posts_per_page == -1) $portfolio_full = true;
     if ($portfolio_full) {
@@ -495,11 +496,13 @@ function get_portfolio($posts_per_page = -1) {
                     if (!in_array($arrPortfolio_tax_one, $arrPortfolio_tax)) {
                         $arrPortfolio_tax[] = $arrPortfolio_tax_one;
                     }
+                    if ($key == 0) $tax_name_main = $value->name;
                 }
             }
             $out .= '<div class="portfolio__item'.$class_grid_item.$class_tax.'" data-aload style="background:'.$folio_logo_color.$folio_logo_bg.'">';
             $out .= '<a href="'.get_the_permalink().'" class="portfolio__link">';
             $out .= '<div class="portfolio__caption">'.get_the_title().'</div>';
+            if ($tax_name_main) $out .= '<div class="portfolio__tax-main">'.$tax_name_main.'</div>';
             if (has_post_thumbnail())
                 $out .= '<img src="'.wp_get_attachment_image_url(get_post_thumbnail_id(),'medium').'" alt="'.get_the_title().'" class="portfolio__img">';
             $out .= '</a>';

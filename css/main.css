@@ -4089,6 +4089,8 @@ img {
     overflow: hidden; }
     .portfolio__link:hover .portfolio__caption {
       top: 0; }
+    .portfolio__link:hover .portfolio__tax-main {
+      bottom: 0; }
     .portfolio__link:hover::before {
       opacity: .3;
       visibility: visible; }
@@ -4109,7 +4111,7 @@ img {
       height: 100%;
       display: inline-block;
       vertical-align: middle; }
-  .portfolio__caption {
+  .portfolio__tax-main, .portfolio__caption {
     position: absolute;
     left: 0;
     right: 0;
@@ -4124,6 +4126,13 @@ img {
     text-transform: uppercase;
     transition: top .3s 0s;
     overflow: hidden; }
+  .portfolio__tax-main {
+    padding: 20px 10px;
+    font-size: 13px;
+    font-weight: 400;
+    top: auto;
+    bottom: -50px;
+    transition: bottom .3s 0s; }
   .portfolio__img {
     display: inline-block;
     vertical-align: middle; }
