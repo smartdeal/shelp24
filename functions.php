@@ -496,13 +496,13 @@ function get_portfolio($posts_per_page = -1) {
                     if (!in_array($arrPortfolio_tax_one, $arrPortfolio_tax)) {
                         $arrPortfolio_tax[] = $arrPortfolio_tax_one;
                     }
-                    if ($key == 0) $tax_name_main = $value->name;
                 }
             }
             $out .= '<div class="portfolio__item'.$class_grid_item.$class_tax.'" data-aload style="background:'.$folio_logo_color.$folio_logo_bg.'">';
             $out .= '<a href="'.get_the_permalink().'" class="portfolio__link">';
             $out .= '<div class="portfolio__caption">'.get_the_title().'</div>';
-            if ($tax_name_main) $out .= '<div class="portfolio__tax-main">'.$tax_name_main.'</div>';
+            $tax_name_main = get_field('folio_type_tile');
+            if ($tax_name_main) $out .= '<div class="portfolio__tax-main">'.get_term($tax_name_main)->name.'</div>';
             if (has_post_thumbnail())
                 $out .= '<img src="'.wp_get_attachment_image_url(get_post_thumbnail_id(),'medium').'" alt="'.get_the_title().'" class="portfolio__img">';
             $out .= '</a>';
@@ -570,9 +570,24 @@ add_filter( 'comment_form_submit_button', function( $submit_button, $args )
 
 }, 10, 2 );
 
-add_action('wpcf7_mail_sent', function ($cf7) {
+function acf_load_folio_type_tile_choices( $field ) {
+    
+    $field['choices'] = array();
+    $choices = get_field('folio_type', false, false);
+    if( is_array($choices) ) {
+        foreach( $choices as $choice ) {
+            $field['choices'][ $choice ] = get_term($choice)->name;
+        }
+        
+    }
+    return $field;
+}
+
+add_filter('acf/load_field/name=folio_type_tile', 'acf_load_folio_type_tile_choices');
+
+// add_action('wpcf7_mail_sent', function ($cf7) {
     // Run code after the email has been sent
-});
+// });
 
 // add_filter( 'wpcf7_skip_mail',  '__return_true' );
 
