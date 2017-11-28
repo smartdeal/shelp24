@@ -165,7 +165,7 @@
 
                                                         <?php if ($value['folio_stage_img']): ?>
                                                             <div class="case__img2">
-                                                                <img data-aload="<?php echo $value['folio_stage_img']['sizes']['large']; ?>" alt="">
+                                                                <img data-aload="<?php echo kama_thumb_src( array('src' => $value['folio_stage_img']['url'], 'w' => 646, 'q' => 50 ) ); ?>" alt="">
                                                             </div>
                                                         <?php endif; ?>
                                                     </div>

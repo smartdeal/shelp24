@@ -25,5 +25,6 @@
 	    	var theme_url="<?php echo get_template_directory_uri(); ?>";
     	</script>
     </div>
+	<script type="text/javascript" src="//cdn.callbackhunter.com/cbh.js?hunter_code=282179804a9fc288486f39cd913d9636" charset="UTF-8"></script>
 </body>
 </html>

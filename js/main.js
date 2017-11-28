@@ -9,7 +9,20 @@ function include(scriptUrl) {
 // Lazy load
 function aload(t){"use strict";t=t||window.document.querySelectorAll("[data-aload]"),void 0===t.length&&(t=[t]);var a,e=0,r=t.length;for(e;r>e;e+=1)a=t[e],a["LINK"!==a.tagName?"src":"href"]=a.getAttribute("data-aload"),a.removeAttribute("data-aload");return t}
 
+
+$.loadScript = function (url, callback) {$.ajax({url: url, dataType: 'script', success: callback, async: true }); }
+//if (typeof someObject == 'undefined') $.loadScript('url_to_someScript.js', function(){
+    //Stuff to do after someScript has loaded
+//});
+
+function loadCSS(url){$("<link/>", {rel: "stylesheet", type: "text/css", href: url }).appendTo("head"); }
+
 function preinit() {
+
+    loadCSS('https://fonts.googleapis.com/css?family=Open+Sans:400,600i,700&amp;subset=cyrillic');
+    loadCSS('https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic');
+    loadCSS('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=cyrillic');
+
     aload();
     if ($('.js-slider-logo').length){
         $('.js-slider-logo').slick({
@@ -96,15 +109,29 @@ function init() {
     }
 
     if ($('.js-team-about').length){
-        if (window_width >= 1200) {
-            $.stellar({
-                horizontalScrolling: false,
-                verticalOffset: 10
-            });
+        if (typeof $.stellar == 'undefined') {
+            $.loadScript(theme_url+'/js/stellar.js', function(){
+                if (window_width >= 1200) {
+                    $.stellar({
+                        horizontalScrolling: false,
+                        verticalOffset: 10
+                    });
+                } else {
+                    $.stellar('destroy');
+                }
+            });        
         } else {
-            $.stellar('destroy');
+            if (window_width >= 1200) {
+                $.stellar({
+                    horizontalScrolling: false,
+                    verticalOffset: 10
+                });
+            } else {
+                $.stellar('destroy');
+            }            
         }
     }
+
     if ($('.js-team-about__bg').length){
         if ( window_width >= 1200){
             var w_team_bg = $('.js-team-about').innerWidth();
@@ -139,10 +166,16 @@ $(document).ready(function() {
         $('body').addClass('loaded');
       });
 
-    $('.fancybox').fancybox();
+    $.loadScript(theme_url+'/js/fancybox/jquery.fancybox.pack.js', function(){
+        loadCSS(theme_url+'/js/fancybox/jquery.fancybox.css');
+        $('.fancybox').fancybox();
+    });
 
-    $('input[type=tel]').inputmask({
-        mask: "+7(999) 999-99-99"
+    $.loadScript(theme_url+'/js/jquery.inputmask.bundle.min.js', function(){
+        $('input[type=tel]').inputmask({mask: "+7(999) 999-99-99"});
+    });
+
+    $.loadScript(theme_url+'/js/plugins.js', function(){
     });
 
     var location_url = window.location.href;
@@ -241,6 +274,33 @@ $(document).ready(function() {
             $(this).zoom({url: reviews_big_img});
         });
     }
+
+    if ($('.js-widget-reviews').length){
+        if (typeof Swiper == 'undefined') {
+            loadCSS(theme_url+'/js/swiper.min.css');
+            $.loadScript(theme_url+'/js/swiper.min.js', function(){
+            var swiper = new Swiper('.js-widget-reviews', {
+              effect: 'coverflow',
+              grabCursor: true,
+              centeredSlides: true,
+              slidesPerView: 'auto',
+              coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows : true,
+              },
+              autoplay: {
+                delay: 5000,
+              },
+              // pagination: {
+              //   el: '.swiper-pagination',
+              // },
+            });                
+            });        
+        }    
+    }    
 
 }); // $(document).ready
 

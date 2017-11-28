@@ -36,7 +36,6 @@ add_action('after_setup_theme','footer_enqueue_scripts');
 
 function seohelp_styles() {
     if ( ! is_admin() && ! is_login_page() ) {
-        wp_enqueue_style( 'seohelp-style-main',    get_template_directory_uri() . '/css/main.css');
     }
 }
 
@@ -55,23 +54,11 @@ add_action('admin_enqueue_scripts', 'my_admin_theme_style');
 
 function seohelp_scripts() {
     if( !is_admin()){
-        wp_enqueue_style( 'seohelp-style-opensans','https://fonts.googleapis.com/css?family=Open+Sans:400,600i,700&amp;subset=cyrillic');
-        wp_enqueue_style( 'seohelp-style-roboto',  'https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic');
-        wp_enqueue_style( 'seohelp-style-roboto2', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=cyrillic');
         wp_enqueue_style( 'seohelp-style',         get_stylesheet_uri() );
-        wp_enqueue_style( 'seohelp-style-sl',      get_template_directory_uri() . '/js/slick/slick.css');
-        wp_enqueue_style( 'seohelp-style-fancy',   get_template_directory_uri() . '/js/fancybox/jquery.fancybox.css');
-        // wp_deregister_script('jquery');
-        // wp_deregister_script('jquery-migrate');
-        // wp_register_script('jquery', get_template_directory_uri().'/js/vendor/jquery-2.2.4.min.js', false, '2.2.4');
-        // wp_enqueue_script('jquery');
+        wp_enqueue_style( 'seohelp-style-main',    get_template_directory_uri() . '/css/main.css');
+        wp_deregister_script('jquery-migrate');
 
-    // wp_enqueue_script( 'seohelp-js-ym', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array(), '20160630', true );
-        wp_enqueue_script( 'seohelp-js-bt',        get_template_directory_uri() . '/js/bootstrap.min.js', array(), '20170630', true );
-        wp_enqueue_script( 'seohelp-js-sl',        get_template_directory_uri() . '/js/slick/slick.min.js', array('jquery'), '20170630', true );
-        wp_enqueue_script( 'seohelp-js-mask',      get_template_directory_uri() . '/js/jquery.inputmask.bundle.min.js', array('jquery'), '20170630', true );
-        wp_enqueue_script( 'seohelp-js-fancy',     get_template_directory_uri() . '/js/fancybox/jquery.fancybox.pack.js', array('jquery'), '20170630', true );
-        wp_enqueue_script( 'seohelp-js-parallax',  get_template_directory_uri() . '/js/jquery.stellar.min.js', array('jquery'), '20170630', true );
+        wp_enqueue_script( 'seohelp-js-bt',        get_template_directory_uri() . '/js/plugins.js', array('jquery'), '20170630', true );
         if (is_page_template('page-reviews.php')) wp_enqueue_script( 'seohelp-js-zoom',  get_template_directory_uri() . '/js/jquery.zoom.min.js', array('jquery'), '20170630', true );
         if (is_page_template('page-contacts.php')) wp_enqueue_script( 'seohelp-js-map',  'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array(), '', true );
         wp_enqueue_script( 'seohelp-js-custom',    get_template_directory_uri() . '/js/main.js', array('jquery'), '20170630', true );
@@ -91,7 +78,7 @@ function new_setup() {
         ) 
     );
     if ( function_exists( 'add_image_size' ) ) { 
-    //     add_image_size( 'middle', 300, 300, false ); 
+        // add_image_size( 'middle', 270, 370, false ); 
         add_image_size( 'thumb1024', 1024 );
         // add_image_size( 'thumb1920', 1920 );
 
@@ -449,6 +436,7 @@ function shortcodes_dashboard_widget_function() {
     echo '[get_service_form lead="off"] - Показать форму заявки услуги без поля "С бесплатными целевыми посетителями"<br>';
     echo '[get_team_about] - Показать блок "О НАС" с бегающими цифрами. Блок редактируется на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a><br>';
     echo '[get_clients] - Показать блок с лого "Наши клиенты". Блок редактируется на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a><br>';
+    echo '[get_reviews] - Показать блок с отзывами. Блок редактируется на странице <a href="'.home_url().'/wp-admin/post.php?post=104&action=edit">Дипломы и отзывы</a><br>';
     echo '<br>Сменить логотип, номер телефона, email, добавить коды счетчиков и сервисов на сайт можно на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a>.<br>';
 }
 
@@ -584,6 +572,21 @@ function acf_load_folio_type_tile_choices( $field ) {
 }
 
 add_filter('acf/load_field/name=folio_type_tile', 'acf_load_folio_type_tile_choices');
+
+// обязательный для темы плагин kama thumbnail
+if( ! is_admin() && ! function_exists('kama_thumb_img') ){
+    add_action( 'admin_notices', function(){
+        echo '<div class="error"><p>'. __( 'This theme requires plugin Kama Thumbnail. Install it please.', 'dom' ) .'</p></div>';
+    } );
+
+    function kama_thumb_src(){}
+
+    function kama_thumb_img(){}
+
+    function kama_thumb_a_img(){}
+
+    function kama_thumb(){}
+}
 
 // add_action('wpcf7_mail_sent', function ($cf7) {
     // Run code after the email has been sent
@@ -797,4 +800,23 @@ function get_why_func( $atts ){
 }
 add_shortcode('get_why', 'get_why_func');
 
-?>
+function get_reviews_func( $atts ){
+    $reviews_page_id = 104;
+    $out = '';
+    $reviews = array();
+    $reviews1 = get_field('review_dips', $reviews_page_id);
+    if (is_array($reviews1)) $reviews = $reviews1;
+    $reviews1 = get_field('review_imgs', $reviews_page_id); 
+    if (is_array($reviews1)) $reviews = array_merge($reviews,$reviews1);
+    $out .= '<div class="b-widget-reviews">';
+    $out .= '<div class="b-widget-reviews__title">Отзывы</div>';
+    $out .= '<div class="b-widget-reviews__items js-widget-reviews swiper-container"><div class="swiper-wrapper">';
+    foreach ($reviews as $key => $value):
+        $out .= '<div class="b-widget-reviews__item swiper-slide">'; // kama_thumb_src( array('src' => $value['url'], 'w' => 270, 'h' => 370, ) ); 
+        $out .= '<a href="'.get_permalink($reviews_page_id).'"><img class="b-widget-reviews__img" src="'.$value['sizes']['medium'].'"></a>';
+        $out .= '</div>';
+    endforeach;
+    $out .= '</div></div></div>';
+    return $out;
+}
+add_shortcode('get_reviews', 'get_reviews_func');

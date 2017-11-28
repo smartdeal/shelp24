@@ -29,7 +29,7 @@ Template Post Type: page
                                 <div class="b-reviews js-reviews">
                                     <?php foreach ($reviews as $key => $value): ?>
                                         <div class="b-reviews__item">
-                                            <div class="b-reviews__img js-reviews-img" style="background-image:url(<?php echo $value['sizes']['large']; ?>)" data-img-src="<?php echo $value['sizes']['large']; ?>"></div>
+                                            <div class="b-reviews__img js-reviews-img" style="background-image:url(<?php echo kama_thumb_src( array('src' => $value['url'], 'w' => 270, 'h' => 370, ) ); ?>)" data-img-src="<?php echo $value['sizes']['large']; ?>"></div>
                                         </div>
                                     <?php endforeach ?>
                                 </div>
@@ -42,7 +42,7 @@ Template Post Type: page
 	                            <div class="b-reviews js-reviews">
 	                            	<?php foreach ($reviews as $key => $value): ?>
 			                            <div class="b-reviews__item">
-			                            	<div class="b-reviews__img js-reviews-img" style="background-image:url(<?php echo $value['sizes']['large']; ?>)" data-img-src="<?php echo $value['sizes']['large']; ?>"></div>
+			                            	<div class="b-reviews__img js-reviews-img" style="background-image:url(<?php echo kama_thumb_src( array('src' => $value['url'], 'w' => 270, 'h' => 370, ) ); ?>)" data-img-src="<?php echo $value['sizes']['large']; ?>"></div>
 		                            	</div>
 	                            	<?php endforeach ?>
 	                            </div>
