@@ -4403,6 +4403,11 @@ img {
         margin-bottom: 0; } }
     .case__desc_first {
       margin-top: 20px; }
+    .case__desc a {
+      text-decoration: underline;
+      color: #f8615a; }
+      .case__desc a:hover {
+        text-decoration: none; }
   .case__task {
     margin: 20px 0; }
   .case__stage-block {

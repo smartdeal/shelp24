@@ -279,6 +279,13 @@
         &_first {
             margin-top: 20px;
         }
+        a {
+            text-decoration: underline;
+            color: #f8615a;
+            &:hover {
+                text-decoration: none;
+            }
+        }
     }
     &__task {
         margin: 20px 0;
