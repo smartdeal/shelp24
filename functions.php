@@ -803,20 +803,18 @@ add_shortcode('get_why', 'get_why_func');
 function get_reviews_func( $atts ){
     $reviews_page_id = 104;
     $out = '';
-    $reviews = array();
-    $reviews1 = get_field('review_dips', $reviews_page_id);
-    if (is_array($reviews1)) $reviews = $reviews1;
-    $reviews1 = get_field('review_imgs', $reviews_page_id); 
-    if (is_array($reviews1)) $reviews = array_merge($reviews,$reviews1);
-    $out .= '<div class="b-widget-reviews">';
-    $out .= '<div class="b-widget-reviews__title">Отзывы</div>';
-    $out .= '<div class="b-widget-reviews__items js-widget-reviews swiper-container"><div class="swiper-wrapper">';
-    foreach ($reviews as $key => $value):
-        $out .= '<div class="b-widget-reviews__item swiper-slide">'; // kama_thumb_src( array('src' => $value['url'], 'w' => 270, 'h' => 370, ) ); 
-        $out .= '<a href="'.get_permalink($reviews_page_id).'"><img class="b-widget-reviews__img" src="'.$value['sizes']['medium'].'"></a>';
-        $out .= '</div>';
-    endforeach;
-    $out .= '</div></div></div>';
+    $reviews =  get_field('review_imgs', $reviews_page_id); 
+    if (is_array($reviews)) {
+        $out .= '<div class="b-widget-reviews">';
+        $out .= '<div class="b-widget-reviews__title">Отзывы</div>';
+        $out .= '<div class="b-widget-reviews__items js-widget-reviews swiper-container"><div class="swiper-wrapper">';
+        foreach ($reviews as $key => $value):
+            $out .= '<div class="b-widget-reviews__item swiper-slide">'; // kama_thumb_src( array('src' => $value['url'], 'w' => 270, 'h' => 370, ) ); 
+            $out .= '<a href="'.get_permalink($reviews_page_id).'"><img class="b-widget-reviews__img" src="'.$value['sizes']['medium'].'"></a>';
+            $out .= '</div>';
+        endforeach;
+        $out .= '</div></div></div>';
+    }
     return $out;
 }
 add_shortcode('get_reviews', 'get_reviews_func');

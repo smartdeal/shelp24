@@ -277,13 +277,16 @@ $(document).ready(function() {
 
     if ($('.js-widget-reviews').length){
         if (typeof Swiper == 'undefined') {
-            loadCSS(theme_url+'/js/swiper.min.css');
+            // loadCSS(theme_url+'/js/swiper.min.css');
             $.loadScript(theme_url+'/js/swiper.min.js', function(){
             var swiper = new Swiper('.js-widget-reviews', {
               effect: 'coverflow',
               grabCursor: true,
-              centeredSlides: true,
+              // centeredSlides: true,
               slidesPerView: 'auto',
+              autoplay: {
+                delay: 3000,
+              },
               coverflowEffect: {
                 rotate: 50,
                 stretch: 0,
@@ -294,10 +297,8 @@ $(document).ready(function() {
               autoplay: {
                 delay: 5000,
               },
-              // pagination: {
-              //   el: '.swiper-pagination',
-              // },
             });                
+            swiper.slideTo(2);
             });        
         }    
     }    

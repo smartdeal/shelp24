@@ -412,7 +412,10 @@ img {
         text-align: center;
     }
     &__item {
-        width: 200px;
-            border: 1px solid #e5e5e5;
+        width: 150px;
+        border: 1px solid #e5e5e5;
+        @include mn768 {
+            width: 200px;
+        }
     }
 }

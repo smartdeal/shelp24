@@ -61,7 +61,7 @@
 			    <div class="sidebar__adr"><?php echo $main_adr; ?></div>
 		    <?php endif; ?>
 		    <div class="sidebar__bottom-links">
-				<a href="https://seohelp24.bitrix24.ru/" class="sidebar__entry">Вход</a>
+				<a href="https://seohelp24.bitrix24.ru/" class="sidebar__entry" rel="nofollow">Вход</a>
 				<a href="<?php echo home_url(); ?>/garantii" class="sidebar__warranty">100%</a>
 			</div>
 			<?php if ($option_social = get_field('option_social', 'option')): ?>
