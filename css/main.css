@@ -3982,7 +3982,8 @@ div.wpcf7 .ajax-loader {
   box-shadow: 0 0 2px grey;
   text-transform: uppercase;
   z-index: 1;
-  display: none; }
+  display: none;
+  font-size: 20px; }
   .form-sent-ok__inner {
     position: relative;
     top: 50%;
@@ -3990,12 +3991,16 @@ div.wpcf7 .ajax-loader {
   .form-sent-ok__title {
     color: #f8615a;
     font-weight: 700;
-    font-size: 20px;
     margin-bottom: 10px; }
   .form-sent-ok__subtitle {
-    font-size: 18px;
+    font-size: .8em;
     color: #666;
     padding: 0 10px; }
+
+.b-arch-content .form-sent-ok {
+  font-size: 12px; }
+  .b-arch-content .form-sent-ok__title {
+    margin-bottom: 0; }
 
 .b-team__form {
   position: absolute;
