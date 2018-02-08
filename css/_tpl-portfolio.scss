@@ -82,7 +82,7 @@
         transition: top .3s 0s;
         overflow: hidden;
     }
-    &__tax-main{
+    &__tax-main {
         padding: 20px 10px;
         font-size: 13px;
         font-weight: 400;
@@ -206,12 +206,8 @@
         }
         &_first {
             padding-top: 0;
-            .case__img {
-                
-            }
-            .case__txt {
-
-            }
+            .case__img {}
+            .case__txt {}
         }
         &:last-child {
             border-bottom: 0;
@@ -411,6 +407,12 @@
     &__chart {}
 }
 
+// цвета столбиков графика результата
+$chart-colors: ( 0: #b6b6b6,
+1: #f4807a,
+2: #eada91,
+3: #98d69b);
+
 .case-chart {
     background: url(../img/bg-case-chart.png) 0 100% no-repeat;
     display: -webkit-flex;
@@ -421,7 +423,8 @@
     justify-content: space-around;
     max-width: 500px;
     margin: 20px auto;
-    padding-bottom: 6px;
+    padding: 0 20px 7px;
+    /*
     &__before,
     &__after {
         display: -webkit-flex;
@@ -459,6 +462,84 @@
         left: 0;
         right: 0;
         padding-top: 10px;
+    }
+    */
+    &__item {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        width: 120px;
+        text-align: center;
+        position: relative;
+        font-size: 0;
+        &-before,
+        &-after {
+            width: 50%;
+            max-width: 100px;
+            background: red;
+        }
+        &-txt {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            padding-top: 10px;
+            font-size: 14px;
+        }
+        @each $i,
+        $color in$chart-colors {
+            &_#{$i} {
+                .case-chart__item-before {
+                    background: lighten( $color, 10%);
+                }
+                .case-chart__item-after {
+                    background: $color;
+                }
+            }
+        }
+    }
+}
+
+.case-result__digit {
+    table {
+        width: 100%;
+        font-size: 18px;
+    }
+    th,
+    td {
+        text-align: center;
+    }
+    td {
+        border: 1px solid #eaeaea;
+        padding: 5px 20px;
+        font-size: 22px;
+        font-family: Roboto;
+        font-weight: 700;
+        font-size: 36px;
+    }
+    td:first-child,
+    th {
+        font-weight: inherit;
+        font-family: inherit;
+        font-size: inherit;
+    }
+    td:first-child {
+        text-align: left;
+    }
+    @each $i,
+    $color in$chart-colors {
+        tr:nth-child(#{$i+1}) {
+            td:nth-child(2) {
+                color: lighten( $color, 10%);
+            }
+            td:nth-child(3) {
+                color: $color;
+            }
+        }
     }
 }
 

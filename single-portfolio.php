@@ -106,58 +106,57 @@
                                                         <?php endif; ?>
                                                     </div>
                                                 <?php endif; ?>
-                                                <?php if ($value['folio_stage_result'] || $value['folio_stage_img']): ?>
+
+                                                <?php $result_graf = $value['folio_stage_result_graf']; ?>            
+                                                <?php if ($result_graf || $value['folio_stage_img']): ?>
                                                     <div class="case__imgs">
-                                                        <?php if ($value['folio_stage_result']): ?>
-                                                            <?php 
-                                                                $folio_request_after = $value['folio_stage_result'][0]['folio_stage_request_after'];
-                                                                $folio_request_before = $value['folio_stage_result'][0]['folio_stage_request_before'];
-                                                                $folio_visitor_after = $value['folio_stage_result'][0]['folio_stage_visitor_after'];
-                                                                $folio_visitor_before = $value['folio_stage_result'][0]['folio_stage_visitor_before'];
-                                                            ?>
+
+                                                        <?php if ($result_graf): ?>
                                                             <div class="case__result">
                                                                 <div class="case-result__graf">
                                                                     <div class="case-result__chart">
                                                                         <div class="case-chart">
-                                                                        <?php 
-                                                                            $digit_height_visitor_max = 220; // max height visitor's block
-                                                                            $digit_height_request_max = 100; // max height request's block
-                                                                            $digit_visitor_max = max($folio_visitor_after, $folio_visitor_before); 
-                                                                            $digit_request_max = max($folio_request_after, $folio_request_before); 
-                                                                        ?>
-                                                                            <div class="case-chart__before">
-                                                                                <div class="case-chart__before-request" style="height:<?php echo round($digit_height_request_max * $folio_request_before / $digit_request_max ); ?>px"></div>
-                                                                                <div class="case-chart__after-request" style="height:<?php echo round($digit_height_request_max * $folio_request_after / $digit_request_max ); ?>px"></div>
-                                                                                <div class="case-chart__txt">до</div>
-                                                                            </div>
-                                                                            <div class="case-chart__after">
-                                                                                <div class="case-chart__before-visitor" style="height:<?php echo round($digit_height_visitor_max * $folio_visitor_before / $digit_visitor_max ); ?>px"></div>
-                                                                                <div class="case-chart__after-visitor" style="height:<?php echo round($digit_height_visitor_max * $folio_visitor_after / $digit_visitor_max ); ?>px"></div>
-                                                                                <div class="case-chart__txt">после</div>
-                                                                            </div>
+
+                                                                            <?php 
+                                                                                $arrDigits = array();
+                                                                                $digit_height_max = 220; // max height block
+                                                                                foreach ($result_graf as $key => $value2):
+                                                                                    $digit_max = max($value2['after'], $value2['before']);
+                                                                                    $arrDigits[$key] = $digit_max;
+                                                                                endforeach; 
+                                                                                rsort($arrDigits);
+                                                                            ?>
+
+                                                                            <?php foreach ($result_graf as $key => $value2): ?>
+                                                                                <?php 
+                                                                                    $digit_max = max($value2['after'], $value2['before']); 
+                                                                                    $chart__item_width = round(100/count($result_graf)) - 4;
+                                                                                    $item_weight = array_search($digit_max, $arrDigits);
+                                                                                    $item_height_max = round($digit_height_max/($item_weight+1));
+                                                                                ?>
+                                                                                <div class="case-chart__item case-chart__item_<?php echo $key; ?>" style="width:<?php echo $chart__item_width; ?>%">
+                                                                                    <div class="case-chart__item-before" style="height:<?php echo round($item_height_max *  $value2['before'] / $digit_max ); ?>px"></div>
+                                                                                    <div class="case-chart__item-after" style="height:<?php echo round($item_height_max * $value2['after'] / $digit_max ); ?>px"></div>
+                                                                                    <div class="case-chart__item-txt"><?php echo $value2['param']; ?></div>
+                                                                                </div>
+                                                                            <?php endforeach; ?>
                                                                         </div>
                                                                     </div>
                                                                     <div class="case-result__digit">
-                                                                        <div class="case-result__request">
-                                                                            <div class="case-result__item">
-                                                                                <span class="case-result__caption">Заявки:</span>
-                                                                                <span class="case-result__counter case-result__red"><?php echo $folio_request_after; ?></span>
-                                                                            </div>
-                                                                            <div class="case-result__item">
-                                                                                <span class="case-result__caption">Заявки:</span>
-                                                                                <span class="case-result__counter case-result__grey"><?php echo $folio_request_before; ?></span>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="case-result__visitor">
-                                                                            <div class="case-result__item">
-                                                                                <span class="case-result__caption">Посетители:</span>
-                                                                                <span class="case-result__counter case-result__lightred"><?php echo $folio_visitor_after; ?></span>
-                                                                            </div>
-                                                                            <div class="case-result__item">
-                                                                                <span class="case-result__caption">Посетители:</span>
-                                                                                <span class="case-result__counter case-result__lightgrey"><?php echo $folio_visitor_before; ?></span>
-                                                                            </div>
-                                                                        </div>
+                                                                        <table>
+                                                                            <thead>
+                                                                                <tr><th></th><th>До</th><th>После</th></tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <?php foreach ($result_graf as $key => $value2): ?>
+                                                                                    <tr>
+                                                                                        <td><?php echo $value2['param']; ?></td>
+                                                                                        <td><?php echo $value2['before']; ?></td>
+                                                                                        <td><?php echo $value2['after']; ?></td>
+                                                                                    </tr>
+                                                                                <?php endforeach; ?>
+                                                                            </tbody>
+                                                                        </table>
                                                                     </div>
                                                                 </div>
                                                             </div>

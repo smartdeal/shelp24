@@ -5080,34 +5080,123 @@ img {
   justify-content: space-around;
   max-width: 500px;
   margin: 20px auto;
-  padding-bottom: 6px; }
-  .case-chart__before, .case-chart__after {
+  padding: 0 20px 7px;
+  /*
+  &__before,
+  &__after {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+  }
+  &__before-request,
+  &__before-visitor,
+  &__after-request,
+  &__after-visitor {
+      width: 55px;
+      @include mn768 {
+          width: 85px;
+      }
+  }
+  &__before-request {
+      background-color: #959595;
+  }
+  &__after-request {
+      background-color: #c2c2c2;
+  }
+  &__before-visitor {
+      background-color: #f4807a;
+  }
+  &__after-visitor {
+      background-color: #f7a39f;
+  }
+  &__txt {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      padding-top: 10px;
+  }
+  */ }
+  .case-chart__item {
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
     display: -o-flex;
     display: flex;
     align-items: flex-end;
-    position: relative; }
-  .case-chart__before-request, .case-chart__before-visitor, .case-chart__after-request, .case-chart__after-visitor {
-    width: 55px; }
-    @media (min-width: 768px) {
-      .case-chart__before-request, .case-chart__before-visitor, .case-chart__after-request, .case-chart__after-visitor {
-        width: 85px; } }
-  .case-chart__before-request {
-    background-color: #959595; }
-  .case-chart__after-request {
-    background-color: #c2c2c2; }
-  .case-chart__before-visitor {
-    background-color: #f4807a; }
-  .case-chart__after-visitor {
-    background-color: #f7a39f; }
-  .case-chart__txt {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    padding-top: 10px; }
+    justify-content: center;
+    width: 120px;
+    text-align: center;
+    position: relative;
+    font-size: 0; }
+    .case-chart__item-before, .case-chart__item-after {
+      width: 50%;
+      max-width: 100px;
+      background: red; }
+    .case-chart__item-txt {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      padding-top: 10px;
+      font-size: 14px; }
+    .case-chart__item_0 .case-chart__item-before {
+      background: #d0d0d0; }
+    .case-chart__item_0 .case-chart__item-after {
+      background: #b6b6b6; }
+    .case-chart__item_1 .case-chart__item-before {
+      background: #f8ada9; }
+    .case-chart__item_1 .case-chart__item-after {
+      background: #f4807a; }
+    .case-chart__item_2 .case-chart__item-before {
+      background: #f2e8bc; }
+    .case-chart__item_2 .case-chart__item-after {
+      background: #eada91; }
+    .case-chart__item_3 .case-chart__item-before {
+      background: #bce5be; }
+    .case-chart__item_3 .case-chart__item-after {
+      background: #98d69b; }
+
+.case-result__digit table {
+  width: 100%;
+  font-size: 18px; }
+.case-result__digit th,
+.case-result__digit td {
+  text-align: center; }
+.case-result__digit td {
+  border: 1px solid #eaeaea;
+  padding: 5px 20px;
+  font-size: 22px;
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 36px; }
+.case-result__digit td:first-child,
+.case-result__digit th {
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: inherit; }
+.case-result__digit td:first-child {
+  text-align: left; }
+.case-result__digit tr:nth-child(1) td:nth-child(2) {
+  color: #d0d0d0; }
+.case-result__digit tr:nth-child(1) td:nth-child(3) {
+  color: #b6b6b6; }
+.case-result__digit tr:nth-child(2) td:nth-child(2) {
+  color: #f8ada9; }
+.case-result__digit tr:nth-child(2) td:nth-child(3) {
+  color: #f4807a; }
+.case-result__digit tr:nth-child(3) td:nth-child(2) {
+  color: #f2e8bc; }
+.case-result__digit tr:nth-child(3) td:nth-child(3) {
+  color: #eada91; }
+.case-result__digit tr:nth-child(4) td:nth-child(2) {
+  color: #bce5be; }
+.case-result__digit tr:nth-child(4) td:nth-child(3) {
+  color: #98d69b; }
 
 @media (min-width: 1200px) {
   .case__form .form-content__title, .case__form .b-widget-reviews__title {

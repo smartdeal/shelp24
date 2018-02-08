@@ -15,8 +15,8 @@
                         $post_title = get_the_title();
                         $post_link = get_the_permalink();
                     ?>
-                        <div class="content__title" itemprop="headline">
-                            <h1><?php the_title(); ?></h1>
+                        <div class="content__title">
+                            <h1 itemprop="headline"><?php the_title(); ?></h1>
                             <?php if ($is_post_with_meta): ?>
                                 <?php $arrTags = wp_get_object_terms($post->ID, 'post_tag'); ?>
                                 <div class="b-meta">
