@@ -4148,10 +4148,12 @@ hr.bold {
   top: 0;
   bottom: 0;
   background: url("../img/icon-preload.gif") center no-repeat;
-  z-index: 999; }
+  z-index: 999;
+  opacity: 1;
+  display: none; }
 
 .layout-main {
-  opacity: 0; }
+  transition: opacity 1s 0s; }
 
 .breadcrumbs {
   color: #333;
@@ -4811,6 +4813,14 @@ img {
   .portfolio__img {
     display: inline-block;
     vertical-align: middle; }
+
+@media (min-width: 1200px) {
+  .content__inner_front .portfolio__item {
+    padding-bottom: 0;
+    height: 30.4vh; } }
+@media (min-width: 1400px) {
+  .content__inner_front .portfolio__item {
+    height: 31.1vh; } }
 
 .h_less600 .portfolio__img {
   width: auto; }

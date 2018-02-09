@@ -11,12 +11,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="<?php echo get_template_directory_uri(); ?>/favicon.png" rel="shortcut icon" type="image/png">
+    <?php /*
+    <script>
+        document.addEventListener("DOMContentLoaded", ready);
+        function ready() {
+            setTimeout(function() {
+                preloader = document.querySelector('.preloader');
+                preloader.parentNode.removeChild(preloader);
+                document.querySelector('.layout-main').style.opacity = 1;
+            }, 2000);        
+        }
+    </script>    
+    */ ?>
     <?php wp_head(); ?> 
 </head>
 
 <body id="to-top" <?php body_class(); ?>>
     <?php the_field('option_code_top','option'); ?>
+    <?php /*
     <div class="preloader"></div>
+    */ ?>
     <div class="layout-main">
         <span class="hidden" id="url"><?php // echo get_template_directory_uri(); ?></span>
         <div class="header-mobile">

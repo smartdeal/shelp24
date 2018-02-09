@@ -154,17 +154,19 @@ $(document).ready(function() {
         init();
         $('.js-sidebar__bottom').show(0);
     }, 1);
+
+    $('body').addClass('loaded');
     
-    $('.preloader').animate({
-        opacity: 0,
-      }, 1500, function() {
-        $('.preloader').hide();
-        $('.layout-main').animate({
-            opacity: 1,
-          }, 500, function() {
-          });
-        $('body').addClass('loaded');
-      });
+    // $('.preloader').animate({
+    //     opacity: 0,
+    //   }, 1500, function() {
+    //     $('.preloader').hide();
+    //     $('.layout-main').animate({
+    //         opacity: 1,
+    //       }, 500, function() {
+    //       });
+    //     $('body').addClass('loaded');
+    //   });
 
     $.loadScript(theme_url+'/js/fancybox/jquery.fancybox.pack.js', function(){
         loadCSS(theme_url+'/js/fancybox/jquery.fancybox.css');

@@ -96,6 +96,18 @@
     }
 }
 
+.content__inner_front {
+    .portfolio__item {
+        @include mn1200 {
+            padding-bottom: 0;
+            height: 30.4vh;
+        }
+        @include mn1400 {
+            height: 31.1vh;
+        }
+    }
+}
+
 .h_less600 .portfolio__img {
     width: auto;
 }
