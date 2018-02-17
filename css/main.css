@@ -4731,6 +4731,25 @@ img {
     right: 30px;
     left: auto; }
 
+@media (min-width: 1200px) {
+  .single-uslugi .content__title {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; } }
+@media (min-width: 1200px) {
+  .single-uslugi .b-meta {
+    margin-top: 0;
+    margin-left: 20px;
+    white-space: nowrap; } }
+@media (min-width: 1200px) {
+  .single-uslugi .b-meta__share .addtoany_list {
+    left: auto;
+    right: 0; } }
+
 .portfolio {
   font-size: 0;
   text-align: center; }
@@ -5089,7 +5108,7 @@ img {
   display: flex;
   justify-content: space-around;
   max-width: 500px;
-  margin: 20px auto;
+  margin: 20px auto 60px;
   padding: 0 20px 7px;
   /*
   &__before,

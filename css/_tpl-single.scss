@@ -242,3 +242,30 @@
         left: auto;
     }
 }
+
+.single-uslugi {
+    .content__title {
+        @include mn1200 {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    .b-meta {
+        @include mn1200 {
+            margin-top: 0;
+            margin-left: 20px;
+            white-space: nowrap;
+        }
+    }
+    .b-meta__share .addtoany_list {
+        @include mn1200 {
+            left: auto;
+            right: 0;
+        }
+    }
+}

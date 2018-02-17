@@ -818,3 +818,10 @@ function get_reviews_func( $atts ){
     return $out;
 }
 add_shortcode('get_reviews', 'get_reviews_func');
+
+function artabr_opengraph_fix_yandex($lang) {
+    $lang_prefix = 'prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#  profile: http://ogp.me/ns/profile# fb: http://ogp.me/ns/fb#"';
+    $lang_fix = preg_replace('!prefix="(.*?)"!si', $lang_prefix, $lang);
+    return $lang_fix;
+    }
+add_filter( 'language_attributes', 'artabr_opengraph_fix_yandex',20,1);

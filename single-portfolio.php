@@ -107,11 +107,12 @@
                                                     </div>
                                                 <?php endif; ?>
 
+                                                <?php $show_result = $value['folio_stage_show_result']; ?>
                                                 <?php $result_graf = $value['folio_stage_result_graf']; ?>            
-                                                <?php if ($result_graf || $value['folio_stage_img']): ?>
+                                                <?php if ( $result_graf || $value['folio_stage_img'] ): ?>
                                                     <div class="case__imgs">
 
-                                                        <?php if ($result_graf): ?>
+                                                        <?php if ($show_result && $result_graf): ?>
                                                             <div class="case__result">
                                                                 <div class="case-result__graf">
                                                                     <div class="case-result__chart">
