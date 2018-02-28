@@ -92,6 +92,7 @@
             font-size: 12px;
         }
     }
+    .navbar_sidebar .navbar-nav>.menu-item>span,
     .navbar_sidebar .navbar-nav>.menu-item>a {
         padding-top: 5px;
         padding-bottom: 5px;
@@ -113,6 +114,7 @@
 }
 
 .h_less960 {
+    .navbar_sidebar .navbar-nav>.menu-item>span,
     .navbar_sidebar .navbar-nav>.menu-item>a {
         padding-top: 5px;
         padding-bottom: 5px;
@@ -156,6 +158,7 @@
             opacity: 1;
             visibility: visible;
         }
+        >.menu-item>span,
         >.menu-item>a {
             display: block;
             white-space: nowrap;
@@ -183,11 +186,18 @@
         a:focus {
             color: $red;
         }
+        >.menu-item>span,
         >.menu-item>a {
+            display: block;
             font-size: 14px;
             font-weight: 700;
             text-transform: uppercase;
             padding: 10px 0;
+            line-height: 1.4;
+
+        }
+        >.menu-item>span {
+            color: #999;
         }
         .menu-item-has-children a:hover+.sub-menu {
             opacity: 1;

@@ -35,6 +35,7 @@
 	            'container_class'   => '',
 	            'container_id'      => '',
 	            'menu_class'        => 'nav navbar-nav',
+	            'walker' => new Texas_Ranger()
 	            )
 	        );
 	    ?>
@@ -50,6 +51,7 @@
 	            'container_class'   => '',
 	            'container_id'      => '',
 	            'menu_class'        => 'nav navbar-nav',
+	            'walker' => new Texas_Ranger()
 	            )
 	        );
 	    ?>
