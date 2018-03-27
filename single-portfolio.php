@@ -168,10 +168,11 @@
 
                                                         <?php if ($value['folio_stage_img']): ?>
                                                             <div class="case__img2">
-                                                                <img data-aload="<?php echo kama_thumb_src( array('src' => $value['folio_stage_img']['url'], 'w' => 646, 'q' => 50 ) ); ?>" alt="">
-                                                                <?php 
-                                                                /* <img data-aload="<?php echo $value['folio_stage_img']['url']; ?>" alt=""> */
-                                                                ?>
+                                                                <?php if(is_array($value['folio_stage_show_gif']) && $value['folio_stage_show_gif'][0] == 'yes'): ?>
+                                                                    <img data-aload="<?php echo $value['folio_stage_img']['url']; ?>" alt="">
+                                                                <?php else: ?>
+                                                                    <img data-aload="<?php echo kama_thumb_src( array('src' => $value['folio_stage_img']['url'], 'w' => 646, 'q' => 50 ) ); ?>" alt="">
+                                                                <?php endif; ?>
                                                             </div>
                                                         <?php endif; ?>
                                                     </div>
