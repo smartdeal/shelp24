@@ -85,7 +85,10 @@
                                         <?php $folio_counter = 1; ?>
                                         <?php foreach ($folio_stage as $value) { ?>
                                             <div class="case__item">
-                                                <div class="case__counter">&mdash; <?php echo sprintf("%02d", $folio_counter); ?></div>
+                                                <?php if (empty($value['folio_stage_is_result'])) { ?>
+                                                    <div class="case__counter">&mdash; <?php echo sprintf("%02d", $folio_counter); ?></div>
+                                                    <?php $folio_counter++; ?>
+                                                <?php } ?>
                                                 <?php if ($value['folio_stage_title'] || $value['folio_stage_desc'] || $value['folio_stage_block'] ): ?>
                                                     <div class="case__txt">
                                                         <?php if ($value['folio_stage_title']): ?>
@@ -166,12 +169,14 @@
                                                         <?php if ($value['folio_stage_img']): ?>
                                                             <div class="case__img2">
                                                                 <img data-aload="<?php echo kama_thumb_src( array('src' => $value['folio_stage_img']['url'], 'w' => 646, 'q' => 50 ) ); ?>" alt="">
+                                                                <?php 
+                                                                /* <img data-aload="<?php echo $value['folio_stage_img']['url']; ?>" alt=""> */
+                                                                ?>
                                                             </div>
                                                         <?php endif; ?>
                                                     </div>
                                                 <?php endif; ?>
                                             </div>
-                                            <?php $folio_counter++; ?>
                                         <?php } ?>
                                     <?php endif; ?>
 

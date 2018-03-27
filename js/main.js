@@ -224,6 +224,15 @@ $(document).ready(function() {
         $(this).closest('.js-meta-share').toggleClass('opened');
     });
 
+    $('.menu-item-has-children.dropdown').click(function(event) {
+        if ($(this).hasClass('open')) {
+            document.location.href = $(this).find('.dropdown-toggle').first().attr('href');
+        } else {
+            $('.menu-item-has-children.dropdown').removeClass('open');
+            $(this).addClass('open');
+        }
+    });
+
     $(".wpcf7").on('wpcf7mailsent', function(event){
         if ($(this).closest('.js-form-wrap').find('.js-form-sent-ok').length){
             $(this).closest('.js-form-wrap').find('.js-form-sent-ok').fadeIn('slow');
