@@ -170,6 +170,14 @@
             line-height: 1.2;
             font-size: 14px;
         }
+        .case-chart__before {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            align-items: flex-end;
+        }
         .case-chart__before-request,
         .case-chart__after-request {
             width: 50px;
@@ -179,6 +187,10 @@
         }
         .case-chart__before-request {
             margin-right: 20px;
+            background: #d0d0d0;
+        }
+        .case-chart__after-request {
+            background: #b6b6b6;
         }
     }
     &__graf-txt {
@@ -211,7 +223,7 @@
             max-width: none;
             margin: 0;
             position: absolute;
-            height: 100%;
+            height: 250px;
             left: 0;
             top: 0;
         }

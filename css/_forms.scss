@@ -286,17 +286,28 @@ div.wpcf7 .ajax-loader {
         }
         &:nth-child(2) {
             @include mn1200 {
-                order: 1;
+                order: 4;
             }
         }
         &:nth-child(3) {
             @include mn1200 {
-                order: 2;
+                order: 5;
             }
         }
         &:nth-child(4) {
             @include mn1200 {
+                order: 6;
+            }
+        }
+        &:nth-child(5) {
+            @include mn1200 {
                 order: 3;
+            }
+        }
+        &.form__col_submit {
+            @include mn1200 {
+                order: 1;
+                padding-right: 20px;
             }
         }
     }

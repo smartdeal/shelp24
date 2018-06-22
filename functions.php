@@ -611,13 +611,20 @@ function get_service_result_func( $atts ){
         else $title = 'Результаты наших клиентов';
 
     $arg =  array(
-        'orderby'       => 'menu_order',
-        'tag_id'        => 7, // Категория "Продвижение"
-        'order'         => 'ASC',
-        'posts_per_page'=> -1,
+        'posts_per_page'=> 100,
         'post_type'     => 'portfolio',
         'post_status'   => 'publish',
     );
+    
+    if ( !empty($atts) && isset($atts['ids']) ) {
+        $arr_ids = explode(',', $atts['ids']);
+        $arg['post__in'] = $arr_ids;
+    } else {
+        $arg['tag_id'] = 7; // Категория "Продвижение"
+        $arg['orderby'] = 'menu_order';
+        $arg['order'] = 'ASC';
+    }
+    
     $query = new WP_Query($arg);
     if ($query->have_posts() ):
         $out .= '<div class="b-result">';

@@ -359,7 +359,7 @@ $(window).scroll(function() {
     }
 
     function get_map(map_container, map_array){
-        if (map_container !== null) {
+        if (map_container !== null && typeof ymaps !== 'undefined') {
             ymaps.ready(init);
             var myMap, 
                 myPlacemark,
@@ -402,6 +402,11 @@ $(window).scroll(function() {
     if (wpcf7Elm != null) wpcf7Elm.addEventListener( 'wpcf7mailsent', function( event ) {yaCounter24815432.reachGoal('feedback'); }, false ); 
     wpcf7Elm = document.getElementById( 'wpcf7-f193-p776-o2' );
     if (wpcf7Elm != null) wpcf7Elm.addEventListener( 'wpcf7mailsent', function( event ) {yaCounter24815432.reachGoal('100-garantiya'); }, false ); 
+    $('.b-tel_header').click(function(event) {
+        if ( $('body').hasClass('w_less992') ) {
+            yaCounter24815432.reachGoal('zvonok-s-mobilnoi');
+        }
+    });
 
 });
 
