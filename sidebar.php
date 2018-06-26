@@ -77,12 +77,16 @@
 				</div>
 			<?php endif; ?>
 	</div>
-    <div id="form-get-offer" class="form-get-offer">
+    <div id="form-get-offer" class="form-get-offer forms">
 	    <div class="form-get-offer__inner form-wrap js-form-wrap">
-		    <a href="#" class="form-get-offer__close js-form-get-offer-close">+</a>
+		    <a href="#" class="forms__close js-form-get-offer-close">+</a>
 	    	<?php echo do_shortcode('[contact-form-7 id="782" title="Форма Запросить предложение"]') ?>
 	    	<div class="form-sent-ok js-form-sent-ok"><div class="form-sent-ok__inner"><div class="form-sent-ok__title">Спасибо!</div><div class="form-sent-ok__subtitle">Заявка принята. Наш специалист позвонит Вам.</div></div></div>
 	    </div>
     </div>
+<?php 
+	if ( is_page('test') )
+		get_template_part( 'inc/tpl-roll' );
+?>
 </div>
 </div>

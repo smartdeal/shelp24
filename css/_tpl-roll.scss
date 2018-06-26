@@ -1,0 +1,83 @@
+.roll {
+    position: absolute;
+    top: 50px;
+    left: -238px;
+    &__center {
+        background: #f8615a url(../img/icon-roll-center.png) center no-repeat;
+        width: 66px;
+        height: 66px;
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &__marker {
+        background: url(../img/icon-roll-marker.png) center no-repeat;
+        width: 48px;
+        height: 34px;
+        position: absolute;
+        right: -30px;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+    &__drum {
+        background: white;
+        width: 480px;
+        height: 480px;
+        border-radius: 50%;
+        position: relative;
+        background: url(../img/roll.png) center no-repeat;
+        transform: rotate(0deg);
+        transition: transform 5s ease 0s;
+    }
+    &__item {
+        position: absolute;
+        font-size: 14px;
+        color: black;
+        width: 230px;
+        padding: 0 10px 0 50px;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transform-origin: 0 10px 0;
+        top: 230px;
+        left: 240px;
+        &:nth-child(even) {
+            color: #fff;
+        }
+        &:nth-child(2) {
+            transform: rotate(36deg);
+        }
+        &:nth-child(3) {
+            transform: rotate(72deg);
+        }
+        &:nth-child(4) {
+            transform: rotate(108deg);
+        }
+        &:nth-child(5) {
+            transform: rotate(144deg);
+        }
+        &:nth-child(6) {
+            transform: rotate(180deg);
+        }
+        &:nth-child(7) {
+            transform: rotate(216deg);
+        }
+        &:nth-child(8) {
+            transform: rotate(252deg);
+        }
+        &:nth-child(9) {
+            transform: rotate(288deg);
+        }
+        &:nth-child(10) {
+            transform: rotate(324deg);
+        }
+    }
+}
+
+.form-sent-ok__prize {
+    font-weight: 700;
+    margin: 10px 0;
+}

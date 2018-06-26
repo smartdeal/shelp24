@@ -62,7 +62,7 @@ function seohelp_scripts() {
         if (is_page_template('page-reviews.php')) wp_enqueue_script( 'seohelp-js-zoom',  get_template_directory_uri() . '/js/jquery.zoom.min.js', array('jquery'), '20170630', true );
         if (is_page_template('page-contacts.php')) wp_enqueue_script( 'seohelp-js-map',  'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array(), '', true );
         wp_enqueue_script( 'seohelp-js-custom',    get_template_directory_uri() . '/js/main.js', array('jquery'), '20170630', true );
-        
+        // wp_localize_script( 'seohelp-js-custom', 'roll_prize', rand(1,10) );
     }
 }
 add_action( 'wp_enqueue_scripts', 'seohelp_scripts' );
@@ -887,4 +887,20 @@ class Texas_Ranger extends Walker_Nav_Menu {
         // build html
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
+}
+
+function the_roll(){
+    $roll = get_field('roll_items','option');
+    if ( empty($roll) ) return;
+    $out = '<div class="roll">';
+    $out .= '<div class="roll__drum js-roll-drum">';
+    foreach ($roll as $key => $value) {
+        $out .= '<div class="roll__item">';
+        $out .= $value['roll_txt'];
+        $out .= '</div>';
+    }
+    $out .= '</div>';
+    $out .= '<div class="roll__center"></div><div class="roll__marker"></div>';
+    $out .= '</div>';
+    echo $out;
 }
