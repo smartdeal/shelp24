@@ -314,29 +314,37 @@ $(document).ready(function() {
         }    
     }    
 
+    // Рулетка
     if ( $('.js-form-get-roll').length ) {
-        setTimeout(function(){
-            $('body').addClass('open-form-roll');
-        }, 5000);
+
+        if ($(window).width() >= 1200 && !$.cookie('roll_popup')) {
+            setTimeout(function() { 
+                $.cookie('roll_popup', 'value', { expires: 365, path: '/' });
+                $('body').addClass('open-form-roll'); 
+            }, 30000);
+        }
+
         $('.js-form-get-roll-close').click(function(event) {
             event.preventDefault();
             $('body').removeClass('open-form-roll');
         });
-        $('.js-form-get-roll .wpcf7-submit').click(function(event) {
-            event.preventDefault();
-            var roll_prize = Math.floor(Math.random() * 10);
-            var roll_lap = 1*360;
-            var roll_deg = roll_prize*36+(roll_lap)-36;
-            var prize = $('.roll__item').eq(roll_prize-1).text();
-            $('.js-form-sent-ok-prize').text(prize);
-            $('.js-roll-drum').css('transform', 'rotate(-' + roll_deg + 'deg)');
-            setTimeout(function(){
-                $(".wpcf7").trigger('wpcf7mailsent');
-            }, 12000);
-        });
+
+        var roll_prize = Math.floor(Math.random() * 10);
+        var roll_lap = 1*360;
+        var roll_deg = roll_prize*36+(roll_lap)-36;
+        var prize = $('.roll__item').eq(roll_prize-1).text();
+
+        $('.js-form-sent-ok-prize').attr('data-deg', roll_deg).text(prize);
+        $('.js-form-get-roll input[name=prize]').val(prize);
+
         $(".wpcf7").on('wpcf7mailsent', function(event){
             if ( 'wpcf7-f3855-o2' == event.target.id) {
-                $(this).closest('.js-form-get-roll').find('.js-form-roll-sent-ok').fadeIn('slow');
+                $('.js-form-get-roll .wpcf7-submit').attr('disabled', true);
+                var roll_deg = $('.js-form-sent-ok-prize').attr('data-deg');
+                $('.js-roll-drum').css('transform', 'rotate(-' + roll_deg + 'deg)');
+                setTimeout(function(){
+                    $('.js-form-get-roll .js-form-roll-sent-ok').fadeIn('slow');
+                }, 8000);
             }
         });        
     }

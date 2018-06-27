@@ -4140,12 +4140,17 @@ div.wpcf7 .ajax-loader {
     font-weight: 700;
     text-transform: uppercase;
     line-height: 1.2;
-    color: #666;
+    color: #666; }
+  .form-get-roll__subtitle {
+    font-size: 26px;
+    color: grey;
     border-bottom: 1px solid #e5e5e5;
     padding-bottom: 20px;
     margin-bottom: 20px; }
   .form-get-roll input:not(.wpcf7-submit) {
     border-color: transparent; }
+  .form-get-roll__form {
+    position: relative; }
   .form-get-roll .wpcf7-submit {
     width: 100%; }
   .form-get-roll .form__row_decl {
@@ -4163,11 +4168,24 @@ div.wpcf7 .ajax-loader {
     top: auto;
     bottom: -60px;
     background: white; }
+  .form-get-roll .form-sent-ok {
+    font-size: 16px; }
+  .form-get-roll .ajax-loader {
+    display: none !important; }
 
 .open-form-roll {
   background: rgba(0, 0, 0, 0.5); }
   .open-form-roll .form-get-roll {
     left: 40%; }
+  .open-form-roll .content::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1; }
 
 body {
   background: white;
@@ -5766,7 +5784,7 @@ img {
     position: relative;
     background: url(../img/roll.png) center no-repeat;
     transform: rotate(0deg);
-    transition: transform 5s ease 0s; }
+    transition: transform 7s ease-out 0s; }
   .roll__item {
     position: absolute;
     font-size: 14px;

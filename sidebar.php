@@ -84,9 +84,6 @@
 	    	<div class="form-sent-ok js-form-sent-ok"><div class="form-sent-ok__inner"><div class="form-sent-ok__title">Спасибо!</div><div class="form-sent-ok__subtitle">Заявка принята. Наш специалист позвонит Вам.</div></div></div>
 	    </div>
     </div>
-<?php 
-	if ( is_page('test') )
-		get_template_part( 'inc/tpl-roll' );
-?>
+	<?php get_template_part( 'inc/tpl-roll' ); ?>
 </div>
 </div>
