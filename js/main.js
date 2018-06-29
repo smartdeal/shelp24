@@ -321,6 +321,7 @@ $(document).ready(function() {
             setTimeout(function() { 
                 $.cookie('roll_popup2', 'value', { path: '/' });
                 $('body').addClass('open-form-roll'); 
+                yaCounter24815432.reachGoal('roll_show');
             }, 20000);
         }
 
@@ -348,6 +349,8 @@ $(document).ready(function() {
             }
         });        
     }
+
+
 
 }); // $(document).ready
 
@@ -441,6 +444,14 @@ $(window).scroll(function() {
         if ( $('body').hasClass('w_less992') ) {
             yaCounter24815432.reachGoal('zvonok-s-mobilnoi');
         }
+    });
+
+    $('.wpcf7').each(function(index, el) {
+        var id = $(el).attr('id');
+        if (id.indexOf('f3855') != -1) 
+            $(el).on('wpcf7mailsent', function(event) {
+                yaCounter24815432.reachGoal('roll_send');
+            });
     });
 
 });
