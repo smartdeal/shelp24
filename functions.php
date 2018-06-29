@@ -54,9 +54,10 @@ function my_admin_theme_style() {
 add_action('admin_enqueue_scripts', 'my_admin_theme_style');
 
 function seohelp_scripts() {
+
     if( !is_admin()){
         wp_enqueue_style( 'seohelp-style',         get_stylesheet_uri() );
-        wp_deregister_script('jquery-migrate');
+        // wp_deregister_script('jquery-migrate');
 
         wp_enqueue_script( 'seohelp-js-bt',        get_template_directory_uri() . '/js/plugins.js', array('jquery'), '20170630', true );
         if (is_page_template('page-reviews.php')) wp_enqueue_script( 'seohelp-js-zoom',  get_template_directory_uri() . '/js/jquery.zoom.min.js', array('jquery'), '20170630', true );

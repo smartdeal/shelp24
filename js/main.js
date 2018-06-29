@@ -317,11 +317,11 @@ $(document).ready(function() {
     // Рулетка
     if ( $('.js-form-get-roll').length ) {
 
-        if ($(window).width() >= 1200 && !$.cookie('roll_popup')) {
+        if ($(window).width() >= 1200 && !$.cookie('roll_popup2')) {
             setTimeout(function() { 
-                $.cookie('roll_popup', 'value', { expires: 365, path: '/' });
+                $.cookie('roll_popup2', 'value', { path: '/' });
                 $('body').addClass('open-form-roll'); 
-            }, 30000);
+            }, 20000);
         }
 
         $('.js-form-get-roll-close').click(function(event) {
