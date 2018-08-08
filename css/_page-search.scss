@@ -1,0 +1,19 @@
+.page-search {
+    .content {
+    	&__title {
+    		margin: 20px 0;
+    	}
+    	&__body {
+    		min-height: 0;
+    	}
+        &__btn-more {
+        	text-align: right;
+        }
+    }
+    .btn-more {
+		text-decoration: underline;
+		&:hover{
+			text-decoration: none;
+		}
+    }
+}

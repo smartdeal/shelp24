@@ -37,6 +37,7 @@ add_action('after_setup_theme','footer_enqueue_scripts');
 function seohelp_styles() {
     if ( ! is_admin() && ! is_login_page() ) {
         wp_enqueue_style( 'seohelp-style-main',    get_template_directory_uri() . '/css/main.css');
+        wp_enqueue_style( 'seohelp-style-cust',    get_template_directory_uri() . '/css/custom.css');
     }
 }
 
@@ -61,9 +62,10 @@ function seohelp_scripts() {
 
         wp_enqueue_script( 'seohelp-js-bt',        get_template_directory_uri() . '/js/plugins.js', array('jquery'), '20170630', true );
         if (is_page_template('page-reviews.php')) wp_enqueue_script( 'seohelp-js-zoom',  get_template_directory_uri() . '/js/jquery.zoom.min.js', array('jquery'), '20170630', true );
-        if (is_page_template('page-contacts.php')) wp_enqueue_script( 'seohelp-js-map',  'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array(), '', true );
+        // if (is_page_template('page-contacts.php')) wp_enqueue_script( 'seohelp-js-map',  '', array(), '', true );
         wp_enqueue_script( 'seohelp-js-custom',    get_template_directory_uri() . '/js/main.js', array('jquery'), '20170630', true );
-        // wp_localize_script( 'seohelp-js-custom', 'roll_prize', rand(1,10) );
+        $map_contact = array('lat' => get_field('option_map_lat','option'), 'long' => get_field('option_map_long','option'));
+        wp_localize_script( 'seohelp-js-custom', 'map_contact', $map_contact );
     }
 }
 add_action( 'wp_enqueue_scripts', 'seohelp_scripts' );
@@ -75,7 +77,11 @@ function new_setup() {
     register_nav_menus( array(
             'primary' => __( 'Главное меню', 'seohelp' ), 
             'secondary' => __( 'Второстепенное меню', 'seohelp' ), 
-            'footer' => __( 'Футер меню', 'seohelp' ), 
+            'footer1' => __( 'Футер меню 1', 'seohelp' ),
+            'footer2' => __( 'Футер меню 2', 'seohelp' ),
+            'footer3' => __( 'Футер меню 3', 'seohelp' ),
+            'footer_mob1' => __( 'Футер меню мобильное 1', 'seohelp' ),
+            'footer_mob2' => __( 'Футер меню мобильное 2', 'seohelp' ),
         ) 
     );
     if ( function_exists( 'add_image_size' ) ) { 
@@ -148,7 +154,7 @@ function custom_post_type() {
         'label'               => __( 'Услуги', 'seohelp' ),
         'description'         => __( '', 'seohelp' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', ),
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes'),
         'taxonomies'          => array('post_tag'),
         'hierarchical'        => false,
         'public'              => true,
@@ -438,6 +444,7 @@ function shortcodes_dashboard_widget_function() {
     echo '[get_team_about] - Показать блок "О НАС" с бегающими цифрами. Блок редактируется на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a><br>';
     echo '[get_clients] - Показать блок с лого "Наши клиенты". Блок редактируется на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a><br>';
     echo '[get_reviews] - Показать блок с отзывами. Блок редактируется на странице <a href="'.home_url().'/wp-admin/post.php?post=104&action=edit">Дипломы и отзывы</a><br>';
+    echo '[get_banner_check] [get_banner_report] [get_banner_audit] - Показать баннеры Чеклист и Пример отчета. Файлы добавляются на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a><br>';
     echo '<br>Сменить логотип, номер телефона, email, добавить коды счетчиков и сервисов на сайт можно на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a>.<br>';
 }
 
@@ -807,6 +814,36 @@ function get_why_func( $atts ){
     return $out;
 }
 add_shortcode('get_why', 'get_why_func');
+
+function get_banner_check_func( $atts ){
+	$url = get_field('option_bn_check','option');
+	if (!$url) $url = "#";
+    $out = '<div class="bnr"><a href="'.$url.'" target="_blank">';
+    $out .= '<img src="'.get_template_directory_uri().'/img/bn-check.jpg" alt="">';
+    $out .= '</a></div>';
+    return $out;
+}
+add_shortcode('get_banner_check', 'get_banner_check_func');
+
+function get_banner_report_func( $atts ){
+    $url = get_field('option_bn_report','option');
+    if (!$url) $url = "#";
+    $out = '<div class="bnr"><a href="'.$url.'" target="_blank">';
+    $out .= '<img src="'.get_template_directory_uri().'/img/bn-report.jpg" alt="">';
+    $out .= '</a></div>';
+    return $out;
+}
+add_shortcode('get_banner_report', 'get_banner_report_func');
+
+function get_banner_audit_func( $atts ){
+	$url = get_field('option_bn_audit','option');
+	if (!$url) $url = "#";
+    $out = '<div class="bnr"><a href="'.$url.'" target="_blank">';
+    $out .= '<img src="'.get_template_directory_uri().'/img/bn-audit.jpg" alt="">';
+    $out .= '</a></div>';
+    return $out;
+}
+add_shortcode('get_banner_audit', 'get_banner_audit_func');
 
 function get_reviews_func( $atts ){
     $reviews_page_id = 104;

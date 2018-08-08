@@ -14,11 +14,11 @@
         transition: all .2s ease-out;
         position: relative;
         width: 50%;
-        height: 0;
-        padding-bottom: 50%;
+        height: 150px;
         @include mn768 {
             width: 25%;
             padding-bottom: 25%;
+            height: 0;
         }
         @include mn1200 {
             padding-bottom: 23%;
@@ -99,11 +99,11 @@
 .content__inner_front {
     .portfolio__item {
         @include mn1200 {
-            padding-bottom: 0;
-            height: 30.4vh;
+            // padding-bottom: 0;
+            // height: 30.4vh;
         }
         @include mn1400 {
-            height: 31.1vh;
+            // height: 31.1vh;
         }
     }
 }

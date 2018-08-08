@@ -1,6 +1,6 @@
 jQuery(function($) { 
 
-var window_width, window_height, document_height, footer_h;
+var window_width, window_height;
 
 function include(scriptUrl) {
     document.write('<script src="'+dir_url + scriptUrl + '"></script>');
@@ -55,58 +55,12 @@ function preinit() {
 function init() {
     window_width = $(window).width();
     window_height = $(window).height();
-    document_height = $(document).height();
-    footer_h = $('.js-footer').outerHeight();
+    // $('.test-div').text(window_width + ' * ' +window_height);
 
-    // if ($('.dimentions').length) {
-    //     $('.dimentions').text( window_width+'x'+window_height);
-    // } else {
-    //     $('body').prepend('<div class="dimentions"></div>').find('.dimentions').text( window_width+'x'+window_height);
-    // }
-    // $('.dimentions').css({
-    //     'position':'fixed',
-    //     'font-size':'16px',
-    //     'top': '5px',
-    //     'z-index':'999'
-    // });    
-
-    if (window_height < 550) $('body').addClass('h_less600'); else $('body').removeClass('h_less600');
-    if (window_height >= 550 && window_height < 768) $('body').addClass('h_less768'); else $('body').removeClass('h_less768');
-    if (window_height >= 768 && window_height < 960) $('body').addClass('h_less960'); else $('body').removeClass('h_less960');
-    if (window_width < 768) $('body').addClass('w_less768'); else $('body').removeClass('w_less768');
-    if (window_width < 992) $('body').addClass('w_less992'); else $('body').removeClass('w_less992');
-
-    var content_height = $('.content__inner').outerHeight();
-    var adminbar_height = 0;
-    if ($('#wpadminbar').length) adminbar_height = $('#wpadminbar').outerHeight();
-
-            // console.log("adminbar_height", adminbar_height);
-            // console.log("window_height", window_height);
-            // console.log("content_height", content_height);
-
-    if ((content_height < window_height-adminbar_height-footer_h) && !$('body').hasClass('h_less600')) {
-        $('html').addClass('fixed-footer');
-    } else {
-        $('html').removeClass('fixed-footer');
-    }
-
-    var cur_h;
-    if ($('.content__inner_front').length && !$('body').hasClass('w_less992')){
-        $('body').addClass('fullpage');
-        if ($('body').hasClass('h_less600')) {
-            cur_h = ($('.js-sidebar__inner').outerHeight())/3;
-        } 
-        else {
-            cur_h = (window_height - footer_h - adminbar_height)/3;
-        }
-        $('.portfolio__item').css({'padding-bottom':0,'height':cur_h});
-    } else {
-        $('body').removeClass('fullpage');
-    }
-    if ($('.content__inner_contacts').length && $('html').hasClass('fixed-footer')){
-        cur_h = window_height - $('.content__inner_contacts .container-fluid').outerHeight()-footer_h-adminbar_height;
-        $('#map').css({'height':cur_h});
-    }
+    if (window_height < 800) 
+        $('body').addClass('h800less');
+    else
+        $('body').removeClass('h800less');
 
     if ($('.js-team-about').length){
         if (typeof $.stellar == 'undefined') {
@@ -211,12 +165,18 @@ $(document).ready(function() {
 
     $('.js-btn-get-offer').click(function(event) {
         event.preventDefault();
-        $('.form-get-offer').toggleClass('opened');
+        // $("html, body").animate({ scrollTop: 0 }, "slow");
+        $('.form-get-offer').addClass('opened');
+        $(this).closest('.sidebar').addClass('opened');
     });
 
     $('.js-form-get-offer-close').click(function(event) {
         event.preventDefault();
         $('.form-get-offer').removeClass('opened');
+        var $sidebar = $(this);
+        setTimeout(function() { 
+            $sidebar.closest('.sidebar').removeClass('opened');
+        }, 1000);
     });
 
     $('.js-link-share').click(function(event) {
@@ -226,13 +186,35 @@ $(document).ready(function() {
 
     $('.menu-item-has-children.dropdown').click(function(event) {
         if ($(this).hasClass('open')) {
-            document.location.href = $(this).find('.dropdown-toggle').first().attr('href');
+            if (event.target.className == 'caret') {
+                console.log('ddd',event.target.className);
+                event.preventDefault();
+                $(this).removeClass('open');
+            } else {
+                document.location.href = $(this).find('.dropdown-toggle').first().attr('href');
+            }
         } else {
             $('.menu-item-has-children.dropdown').removeClass('open');
             $(this).addClass('open');
         }
     });
 
+    $('#menu-collapse').on('shown.bs.collapse', function () {
+        $('body').addClass('open-menu');
+    });
+
+    $('#menu-collapse').on('hidden.bs.collapse', function () {
+        $('body').removeClass('open-menu');
+    });
+/*
+    $('.header-mobile .navbar-nav > li > a').click(function(event) {
+        console.log("event", event);
+        if (event.target.className == 'caret' && $(this).closest('.menu-item').hasClass('open')) {
+            // $('#menu-collapse').collapse('hide');
+            $(this).closest('.menu-item').find('.dropdown-toggle').dropdown("toggle");
+        }
+    });
+*/
     $(".wpcf7").on('wpcf7mailsent', function(event){
         if ($(this).closest('.js-form-wrap').find('.js-form-sent-ok').length){
             $(this).closest('.js-form-wrap').find('.js-form-sent-ok').fadeIn('slow');
@@ -268,9 +250,6 @@ $(document).ready(function() {
             $('.js-portfolio-grid')
                 .find('.portfolio__item').fadeOut(0)
                 .filter(filterValue).fadeIn(500);
-            if (!$('html').hasClass('fixed-footer')) {
-                $('.js-footer').hide();
-            }
         });
 
 
@@ -350,8 +329,6 @@ $(document).ready(function() {
         });        
     }
 
-
-
 }); // $(document).ready
 
 $(window).resize(init);
@@ -360,11 +337,11 @@ $(window).resize(init);
 var is_team_about_scrolled = false;
 $(window).scroll(function() {
 
+    var scroll = $(window).scrollTop();
     if (!is_team_about_scrolled && $('.js-team-about').length) {
         if (window_width >= 1200) {
             var team_about_height = $('.js-team-about').height();
             var team_about_offset_top = $('.js-team-about').offset().top;
-            var scroll = $(window).scrollTop();
             if ( scroll+window_height-team_about_height > team_about_offset_top) {
                 is_team_about_scrolled = true;
                 $('.js-team-about-num').each(function(index, el) {
@@ -397,32 +374,42 @@ $(window).scroll(function() {
     }
 
     function get_map(map_container, map_array){
-        if (map_container !== null && typeof ymaps !== 'undefined') {
-            ymaps.ready(init);
-            var myMap, 
-                myPlacemark,
-                curLat,
-                curLong,
-                curDesc;
 
-            function init(){ 
-                curLat = map_array['lat'];
-                curLong = map_array['long'];
-                myMap = new ymaps.Map(map_container, {
-                    // center: [61.582319, 98.112851],
-                    center: [curLat, curLong],
-                    zoom: 17
-                }); 
-                // curDesc = map_array['desc'];
-                myPlacemark = new ymaps.Placemark([curLat, curLong], {}, {
-                    // balloonContent: curDesc
-                    iconLayout: 'default#image',
-                    iconImageHref: theme_url+'/img/map-pin.png',
-                    iconImageSize: [42, 58],
-                    iconImageOffset: [-30, -70]
-                });
-                myMap.geoObjects.add(myPlacemark);
-            }
+    
+        if ( map_container !== null ) {
+            if (typeof ymaps === 'undefined') 
+                $.loadScript('https://api-maps.yandex.ru/2.1/?lang=ru_RU', function(){
+                
+                    ymaps.ready(init);
+                    var myMap, 
+                        myPlacemark,
+                        curLat,
+                        curLong,
+                        curDesc;
+
+                    function init(){ 
+                        curLat = map_array['lat'];
+                        curLong = map_array['long'];
+                        myMap = new ymaps.Map(map_container, {
+                            // center: [61.582319, 98.112851],
+                            center: [curLat, curLong],
+                            zoom: 17
+                        }); 
+                        myPlacemark = new ymaps.Placemark([curLat, curLong], 
+                            {
+                                balloonContentBody: '<span class="ym-balloon">г. Москва, ул. Русаковская, д. 13, оф. 905<br><b>+7 495 266-25-40</b></span>',
+                            },
+                            {
+                                iconLayout: 'default#image',
+                                iconImageHref: theme_url+'/img/map-pin.png',
+                                iconImageSize: [42, 58],
+                                iconImageOffset: [-30, -70]
+                            }
+                        );
+                        myMap.geoObjects.add(myPlacemark);
+                    }
+
+            });
         }
     }
 
@@ -453,6 +440,27 @@ $(window).scroll(function() {
                 yaCounter24815432.reachGoal('roll_send');
             });
     });
+
+
+$(function() {
+ $.fn.scrollToTop = function() {
+  $(this).hide().removeAttr("href");
+  if ($(window).scrollTop() >= "250") $(this).fadeIn("slow")
+  var scrollDiv = $(this);
+  $(window).scroll(function() {
+   if ($(window).scrollTop() <= "250") $(scrollDiv).fadeOut("slow")
+   else $(scrollDiv).fadeIn("slow")
+  });
+  $(this).click(function(e) {
+    e.preventDefault();
+   $("html, body").animate({scrollTop: 0}, "slow")
+  })
+ }
+});
+
+$(function() {
+ $(".js-scrollup").scrollToTop();
+});
 
 });
 

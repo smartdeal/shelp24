@@ -79,14 +79,7 @@ Template Post Type: page
                 <?php }} ?>
             </div>
         </div>
-        <?php 
-            $map_contact = array('lat' => get_field('option_map_lat','option'),
-                                 'long' => get_field('option_map_long','option'));
-        ?>                        
         <div id="map" class="content__map"></div>
-        <script>
-            var map_contact = <?php echo json_encode($map_contact); ?>;
-        </script>                        
     </div>
 
 <?php get_footer(); ?>

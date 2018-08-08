@@ -7,6 +7,7 @@ $m992-width: 992px;
 $m1024-width: 1024px;
 $m1200-width: 1200px;
 $m1400-width: 1400px;
+$m1500-width: 1500px;
 $m1600-width: 1600px;
 $m1920-width: 1921px;
 @mixin mn450 {
@@ -53,6 +54,12 @@ $m1920-width: 1921px;
 
 @mixin mn1400 {
     @media (min-width: #{$m1400-width}) {
+        @content;
+    }
+}
+
+@mixin mn1500 {
+    @media (min-width: #{$m1500-width}) {
         @content;
     }
 }

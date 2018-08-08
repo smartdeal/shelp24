@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-<div class="content">
+<div class="content__inner page-search">
     <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-        <div class="container">
+        <div class="container-fluid">
         <?php if(function_exists('bcn_display'))
         {
             bcn_display();
@@ -10,18 +10,18 @@
         </div>
     </div>
     <div class="page__title">
-        <div class="container">
+        <div class="container-fluid">
             <h1><?php printf( __( 'Результаты поиска для: %s', 'shape' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
         </div>
     </div>    
     <section class="page__content">
-        <div class="container">
+        <div class="container-fluid">
             <div class="content__list">
             <?php if (have_posts()) {while (have_posts()) { the_post(); ?>        
                 <div class="content__item" itemscope itemtype="http://schema.org/Article">
                     <div class="content__txt">
                         <div class="content__desc content__desc_archive">
-                            <div class="content__title" itemprop="headline"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
+                            <h2 class="content__title" itemprop="headline"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                             <div class="content__body" itemprop="articleBody"><?php the_excerpt(); ?></div>
                         </div>
                         <div class="content__btn-more"><a href="<?php the_permalink(); ?>" class="btn-more btn-more_articles">Смотреть подробно</a></div>

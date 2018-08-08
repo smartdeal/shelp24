@@ -27,6 +27,7 @@
 </head>
 
 <body id="to-top" <?php body_class(); ?>>
+    <div class="test-div"></div>
     <?php the_field('option_code_top','option'); ?>
     <?php /*
     <div class="preloader"></div>
@@ -36,42 +37,44 @@
         <div class="header-mobile">
             <div class="container">
                 <div class="header-mobile__inner">
-                    <?php if ($main_logo = get_field('option_logo','option')): ?>
-                        <?php if (!is_front_page()) { ?><a href="<?php echo home_url(); ?>"><?php } ?>
-                            <img class="header-mobile__item b-logo b-logo_header" src="<?php echo $main_logo['sizes']['medium']; ?>" alt="logo">
-                        <?php if (!is_front_page()) { ?></a><?php } ?>
-                    <?php endif; ?>
-                    <?php if ($main_tel = get_field('option_tel','option')): ?>
-                        <a href="tel:<?php echo preg_replace("/[^0-9+]/","",$main_tel); ?>" class="header-mobile__item b-tel b-tel_header"><?php echo $main_tel; ?></a>
-                    <?php endif; ?>
-                    <?php if ($main_email = get_field('option_email','option')): ?>
-                        <a href="mailto:<?php echo $main_email; ?>" class="header-mobile__item b-email b-email_header"><?php echo $main_email; ?></a>
-                    <?php endif; ?>
-                    <a href="#form-get-offer" class="header-mobile__item b-get-offer fancybox">Запросить предложение</a>
-                    <button class="menu-btn navbar-toggle" data-toggle="collapse" data-target="#menu-collapse"><span></span><span></span><span></span></button>
-                    <div class="menu-mob">
-                        <nav class="navbar navbar_seohelp" role="navigation">
-                        <!--noindex-->
-                        <div id="menu-collapse" class="collapse navbar-collapse">
-                            <ul class="nav navbar-nav">
-                              <?php wp_nav_menu( array('theme_location' => 'primary',     'container' => false, 'fallback_cb' => 'wp_bootstrap_navwalker::fallback', 'walker' => new wp_bootstrap_navwalker(), 'items_wrap' => '%3$s' ) ); ?>
-                              <?php wp_nav_menu( array('theme_location' => 'secondary',   'container' => false, 'fallback_cb' => 'wp_bootstrap_navwalker::fallback', 'walker' => new wp_bootstrap_navwalker(), 'items_wrap' => '%3$s' ) ); ?>
-                            </ul>
+                    <div class="header-mobile__top">
+                        <?php $main_tel = get_field('option_tel','option'); ?>
+                        <button class="menu-btn navbar-toggle" data-toggle="collapse" data-target="#menu-collapse"><span></span><span></span><span></span></button>
+                        <div class="menu-mob">
+                            <nav class="navbar navbar_seohelp" role="navigation">
+                            <!--noindex-->
+                            <div id="menu-collapse" class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                  <?php wp_nav_menu( array('theme_location' => 'primary',     'container' => false, 'fallback_cb' => 'wp_bootstrap_navwalker::fallback', 'walker' => new wp_bootstrap_navwalker(), 'items_wrap' => '%3$s' ) ); ?>
+                                  <?php wp_nav_menu( array('theme_location' => 'secondary',   'container' => false, 'fallback_cb' => 'wp_bootstrap_navwalker::fallback', 'walker' => new wp_bootstrap_navwalker(), 'items_wrap' => '%3$s' ) ); ?>
+                                </ul>
+                            </div>
+                            <!--/noindex-->
+                            </nav>
                         </div>
-                        <?php
-                            // wp_nav_menu( array(
-                            //     'theme_location'    => 'primary',
-                            //     'depth'             => 2,
-                            //     'container'         => 'div',
-                            //     'container_class'   => 'collapse navbar-collapse',
-                            //     'container_id'      => 'menu-collapse',
-                            //     'menu_class'        => 'nav navbar-nav',
-                            //     'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                            //     'walker'            => new wp_bootstrap_navwalker())
-                            // );
-                        ?>
-                        <!--/noindex-->
-                        </nav>
+                        <?php if ($main_logo = get_field('option_logo','option')): ?>
+                            <?php if (!is_front_page()) { ?><a href="<?php echo home_url(); ?>"><?php } ?>
+                                <img class="header-mobile__logo b-logo b-logo_header" src="<?php echo $main_logo['sizes']['medium']; ?>" alt="logo">
+                            <?php if (!is_front_page()) { ?></a><?php } ?>
+                        <?php endif; ?>
+                        <a href="tel:<?php echo preg_replace("/[^0-9+]/","",$main_tel); ?>" class="header-mobile__call-btn">&nbsp;</a>
+                    </div>
+
+                    <?php 
+                        $top_slogan = get_field('option_slogan', 'option');
+                        if ($top_slogan):
+                    ?>
+
+                        <div class="header-mobile__slogan"><?php echo $top_slogan; ?></div>
+
+                    <?php endif; ?>
+
+                    <div class="header-mobile__bottom">
+                        <a href="tel:<?php echo preg_replace("/[^0-9+]/","",$main_tel); ?>" class="header-mobile__item b-tel b-tel_header"><?php echo $main_tel; ?></a>
+                        <?php if ($main_email = get_field('option_email','option')): ?>
+                            <a href="mailto:<?php echo $main_email; ?>" class="header-mobile__item b-email b-email_header"><?php echo $main_email; ?></a>
+                        <?php endif; ?>
+                        <a href="#form-get-offer" class="header-mobile__item b-get-offer fancybox">Запросить предложение</a>
                     </div>
                 </div>
             </div>

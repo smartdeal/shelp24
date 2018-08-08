@@ -30,7 +30,7 @@
 	    <?php
 	        wp_nav_menu( array(
 	            'theme_location'    => 'primary',
-	            'depth'             => 1,
+	            'depth'             => 2,
 	            'container'         => 'div',
 	            'container_class'   => '',
 	            'container_id'      => '',
@@ -46,7 +46,7 @@
 	    <?php
 	        wp_nav_menu( array(
 	            'theme_location'    => 'secondary',
-	            'depth'             => 1,
+	            'depth'             => 2,
 	            'container'         => 'div',
 	            'container_class'   => '',
 	            'container_id'      => '',
@@ -58,6 +58,10 @@
 	<!--/noindex-->
 	</nav>
 	<div class="sidebar__bottom js-sidebar__bottom">
+			<form role="search" method="get" class="search-form" action="<?php echo home_url() ?>">
+				<input type="search" class="search-form__input" placeholder="Поиск" value="" name="s">
+				<input type="submit" class="search-form__submit" value="Поиск">
+			</form>
 		    <a href="#form-get-offer" class="sidebar__get-offer b-get-offer js-btn-get-offer">Запросить предложение</a>
 		    <?php if ($main_adr = get_field('option_adr','option')): ?>
 			    <div class="sidebar__adr"><?php echo $main_adr; ?></div>
@@ -77,13 +81,13 @@
 				</div>
 			<?php endif; ?>
 	</div>
-    <div id="form-get-offer" class="form-get-offer forms">
-	    <div class="form-get-offer__inner form-wrap js-form-wrap">
-		    <a href="#" class="forms__close js-form-get-offer-close">+</a>
-	    	<?php echo do_shortcode('[contact-form-7 id="782" title="Форма Запросить предложение"]') ?>
-	    	<div class="form-sent-ok js-form-sent-ok"><div class="form-sent-ok__inner"><div class="form-sent-ok__title">Спасибо!</div><div class="form-sent-ok__subtitle">Заявка принята. Наш специалист позвонит Вам.</div></div></div>
-	    </div>
-    </div>
-	<?php get_template_part( 'inc/tpl-roll' ); ?>
 </div>
+<div id="form-get-offer" class="form-get-offer forms">
+    <div class="form-get-offer__inner form-wrap js-form-wrap">
+	    <a href="#" class="forms__close js-form-get-offer-close">+</a>
+    	<?php echo do_shortcode('[contact-form-7 id="782" title="Форма Запросить предложение"]') ?>
+    	<div class="form-sent-ok js-form-sent-ok"><div class="form-sent-ok__inner"><div class="form-sent-ok__title">Спасибо!</div><div class="form-sent-ok__subtitle">Заявка принята. Наш специалист позвонит Вам.</div></div></div>
+    </div>
+</div>
+<?php get_template_part( 'inc/tpl-roll' ); ?>
 </div>
