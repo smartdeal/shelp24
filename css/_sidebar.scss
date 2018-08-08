@@ -122,6 +122,7 @@
         >.menu-item>span {
             color: #999;
         }
+        .menu-item-has-children span:hover+.sub-menu,
         .menu-item-has-children a:hover+.sub-menu {
             padding: 20px 30px;
             max-width: 400px;

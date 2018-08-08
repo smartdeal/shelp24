@@ -3628,6 +3628,7 @@ input[type=email] {
       line-height: 1.4; }
     .navbar_sidebar .navbar-nav > .menu-item > span {
       color: #999; }
+    .navbar_sidebar .navbar-nav .menu-item-has-children span:hover + .sub-menu,
     .navbar_sidebar .navbar-nav .menu-item-has-children a:hover + .sub-menu {
       padding: 20px 30px;
       max-width: 400px; }

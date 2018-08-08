@@ -18,7 +18,7 @@ Template Post Type: page
                     <?php if(function_exists('bcn_display')) {bcn_display(); }?>
                 </div>
                 <?php if (have_posts()) { 
-                    the_service_menu();
+                    // the_service_menu();
                     while (have_posts()) { the_post();
                         $post_title = get_the_title();
                         $post_link = get_the_permalink();
