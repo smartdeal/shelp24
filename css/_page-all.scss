@@ -114,7 +114,7 @@ img {
     top: 0;
     transition: top 1s 0s;
     @include mn992 {
-        margin-left: 300px;
+        margin-left: 270px;
     }
     &__inner {
         @include content-width;

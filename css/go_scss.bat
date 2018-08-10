@@ -1,1 +1,1 @@
-sass --no-cache --watch ./:./
+sass --no-cache --sourcemap=inline --watch ./:./

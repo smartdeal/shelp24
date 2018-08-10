@@ -94,14 +94,14 @@ function init() {
             var cur_team_offset = '-'+((window_width - w_sidebar - w_team_bg) / 2)+'px';
             var cur_clients_offset = '-'+((window_width - w_sidebar - w_clients_bg) / 2)+'px';
             $('.js-team-about__bg').css({'margin-left':cur_team_offset,'margin-right':cur_team_offset});
-            $('.js-clients-slider__bg').css({'margin-left':cur_clients_offset,'margin-right':cur_clients_offset});
+            // $('.js-clients-slider__bg').css({'margin-left':cur_clients_offset,'margin-right':cur_clients_offset});
         } else {
             $('.js-team-about__bg').css({'margin-left':0,'margin-right':0});
-            $('.js-clients-slider__bg').css({'margin-left':0,'margin-right':0});
+            // $('.js-clients-slider__bg').css({'margin-left':0,'margin-right':0});
         }
     }
-}
 
+}
 $(document).ready(function() {
     preinit();
     setTimeout(function() { 

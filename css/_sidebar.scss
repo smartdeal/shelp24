@@ -1,13 +1,14 @@
 .sidebar {
     display: none;
     position: fixed;
-    width: 300px;
+    width: 270px;
     left: 0;
     top: 0;
     z-index: 2;
     height: 100vh;
     @include mn992 {
         display: block;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
     } // &:hover,
     // &.opened {
     //     overflow-y: visible;
@@ -70,7 +71,7 @@
     .sub-menu {
         position: absolute;
         transition: all .5s .2s;
-        left: 300px;
+        left: 270px;
         background: white;
         top: auto;
         margin-top: -40px;

@@ -1,0 +1,38 @@
+.content-wrap_team {
+    background: $red url(../img/bg-team1.png) top right no-repeat;
+    .breadcrumbs {
+        color: #fff;
+    }
+    .content__title {
+        text-align: left;
+        h1 {
+            color: #fff;
+            font-size: 40px;
+            font-weight: 900;
+        }
+        @include mn992 {
+            margin-bottom: 60px;
+        }
+        &::after {
+            @include mn992 {
+                content: '';
+                width: 50px;
+                height: 3px;
+                background: white;
+                display: block;
+                position: relative;
+                bottom: -30px;
+            }
+        }
+    }
+    .b-content__desc {
+        font-size: 24px;
+        color: #fff;
+        font-family: HelveticaNeueCyr;
+        font-weight: 100;
+        line-height: 1.2;
+        p {
+            margin-bottom: .5em;
+        }
+    }
+}

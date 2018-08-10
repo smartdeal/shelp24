@@ -3187,47 +3187,10 @@ input[type=email] {
     clear: both; }
 
 @font-face {
-  font-family: "Neo Sans Pro";
-  src: url("../fonts/NeoSansPro-Light.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 300; }
-@font-face {
-  font-family: "Neo Sans Pro";
-  src: url("../fonts/NeoSansPro-LightItalic.ttf") format("truetype");
-  font-style: italic;
-  font-weight: 300; }
-@font-face {
-  font-family: "Neo Sans Pro";
-  src: url("../fonts/NeoSansPro-Regular.ttf") format("truetype");
-  src: url("../fonts/NeoSansProRegular.woff") format("woff");
-  font-style: normal;
-  font-weight: 400; }
-@font-face {
-  font-family: "Neo Sans Pro";
-  src: url("../fonts/NeoSansPro-Italic.ttf") format("truetype");
-  font-style: italic;
-  font-weight: 400; }
-@font-face {
-  font-family: "Neo Sans Pro";
-  src: url("../fonts/NeoSansPro-Medium.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 500; }
-@font-face {
-  font-family: "Neo Sans Pro";
-  src: url("../fonts/NeoSansPro-Bold.ttf") format("truetype");
-  src: url("../fonts/NeoSansProBold.woff") format("woff");
-  font-style: normal;
-  font-weight: 700; }
-@font-face {
-  font-family: "Neo Sans Pro";
-  src: url("../fonts/NeoSansPro-BoldItalic.ttf") format("truetype");
-  font-style: italic;
-  font-weight: 700; }
-@font-face {
-  font-family: "Neo Sans Pro";
-  src: url("../fonts/NeoSansPro-Ultra.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 800; }
+  font-family: 'HelveticaNeueCyr';
+  src: url("../fonts/HelveticaNeueCyr-Thin.eot");
+  src: local("HelveticaNeueCyr-Thin"), url("../fonts/HelveticaNeueCyr-Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/HelveticaNeueCyr-Thin.woff") format("woff"), url("../fonts/HelveticaNeueCyr-Thin.ttf") format("truetype");
+  font-weight: 100; }
 .header-mobile {
   text-align: center;
   padding: 10px 0; }
@@ -3348,7 +3311,7 @@ input[type=email] {
   border: 1px solid #f8615a;
   color: white;
   padding: 10px 15px;
-  font-size: 14px;
+  font-size: 12px;
   text-decoration: none;
   text-transform: uppercase; }
   .b-get-offer:hover {
@@ -3535,14 +3498,15 @@ input[type=email] {
 .sidebar {
   display: none;
   position: fixed;
-  width: 300px;
+  width: 270px;
   left: 0;
   top: 0;
   z-index: 2;
   height: 100vh; }
   @media (min-width: 992px) {
     .sidebar {
-      display: block; } }
+      display: block;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2); } }
   .sidebar__inner {
     background: white;
     padding: 3vh 30px;
@@ -3586,7 +3550,7 @@ input[type=email] {
   .navbar_sidebar .sub-menu {
     position: absolute;
     transition: all .5s .2s;
-    left: 300px;
+    left: 270px;
     background: white;
     top: auto;
     margin-top: -40px;
@@ -4335,7 +4299,7 @@ img {
   transition: top 1s 0s; }
   @media (min-width: 992px) {
     .content {
-      margin-left: 300px; } }
+      margin-left: 270px; } }
   .content__inner {
     max-width: 1100px;
     width: 100%;
@@ -5849,6 +5813,37 @@ img {
     @media (min-width: 768px) {
       .b-team-about__desc {
         font-size: 20px; } }
+
+.content-wrap_team {
+  background: #f8615a url(../img/bg-team1.png) top right no-repeat; }
+  .content-wrap_team .breadcrumbs {
+    color: #fff; }
+  .content-wrap_team .content__title {
+    text-align: left; }
+    .content-wrap_team .content__title h1 {
+      color: #fff;
+      font-size: 40px;
+      font-weight: 900; }
+    @media (min-width: 992px) {
+      .content-wrap_team .content__title {
+        margin-bottom: 60px; } }
+    @media (min-width: 992px) {
+      .content-wrap_team .content__title::after {
+        content: '';
+        width: 50px;
+        height: 3px;
+        background: white;
+        display: block;
+        position: relative;
+        bottom: -30px; } }
+  .content-wrap_team .b-content__desc {
+    font-size: 24px;
+    color: #fff;
+    font-family: HelveticaNeueCyr;
+    font-weight: 100;
+    line-height: 1.2; }
+    .content-wrap_team .b-content__desc p {
+      margin-bottom: .5em; }
 
 .b-why {
   margin: 30px 0;
