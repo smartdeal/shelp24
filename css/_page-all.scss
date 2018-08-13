@@ -239,13 +239,13 @@ img {
     }
     li {
         &:before {
-            content: '\002e';
-            color: #f8615a;
+            content: '\2022';
+            color:$red;
             position: absolute;
             left: 2px;
-            top: -5px;
-            font-size: 30px;
-            line-height: .5;
+            top: 7px;
+            font-size: 13px;
+            line-height: 1;        
         }
     }
     ol {
@@ -521,6 +521,7 @@ img {
     right: 30px;
     transform: rotate(-135deg);
     cursor: pointer;
+    z-index: 99;
 }
 
 .bnr {
