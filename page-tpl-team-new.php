@@ -86,10 +86,61 @@ Template Post Type: page
                     </div>
                 </div>
             </div>
-            <div class="s-team-about">
+            <div class="s-team-about js-team-about">
                 <div class="container-fluid">
+                    <div class="s-team-about__inner">
+                        <div class="s-team-about__left">
+                            <div class="s-team-about__title t-title"><?php the_field('team-about-title') ?></div>
+                            <div class="s-team-about__text"><?php the_field('team-about-desc') ?></div>
+                        </div>
+                        <div class="s-team-about__right">
+                            <div class="b-mission">
+                                <div class="b-mission__inner">
+                                    <div class="b-mission__title"><?php the_field('team-about-title2') ?></div>
+                                    <div class="b-mission__desc"><?php the_field('team-about-desc2') ?></div>
+                                </div>
+                                <div class="shadow"></div>
+                            </div>
+                        </div>
+                        <div class="b-digits">
+                            <?php $digits = get_field('team-about-digits'); ?>
+                            <?php if ($digits && is_array($digits)): ?>
+                                <?php foreach($digits as $digit): ?>
+                                    <div class="b-digits__item">
+                                        <div class="b-digits__num js-team-about-num" data-max-num="<?= $digit['digit'] ?>">0</div>
+                                        <div class="b-digits__desc"><?= $digit['text'] ?></div>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="s-team-work">
+                <div class="container-fluid">
+                    <div class="s-team-work__inner">
+                        <div class="s-team-work__left">
+                            <div class="s-team-work__title t-title"><?php the_field('team-work-title') ?></div>
+                        </div>
+                        <div class="b-works">
+                            <?php $works = get_field('team-work-items'); ?>
+                            <?php if ($works && is_array($works)): ?>
+                                <?php foreach($works as $value): ?>
+                                    <div class="b-works__item">
+                                        <div class="b-works__img"><img src="<?= $value['img']['url'] ?>" alt=""></div>
+                                        <div class="b-works__caption"><?= $value['caption'] ?></div>
+                                        <div class="b-works__desc"><?= $value['text'] ?></div>
+                                    </div>
+                                <?php endforeach; ?>
+                                <div class="b-works__item b-works__item_lamp">
+                                    <div class="b-works__lamp"><img src="<?= get_template_directory_uri() ?>/img/team-icon-9.png" alt=""></div>
+                                    <div class="b-works__lamp-title">Ваш<br>проект</div>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>            
         </div>
     </div>
 

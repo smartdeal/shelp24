@@ -102,10 +102,8 @@ function init() {
         }
     }
 
-    console.log('window_width',window_width);
     if ($('.js-team-advantages').length){
         var $carousel = $('.js-team-advantages');
-        console.log('window_width',window_width);
         
         if ( window_width > 1199){
             if ($carousel.hasClass('slick-initialized')) {
