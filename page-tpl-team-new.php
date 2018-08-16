@@ -119,31 +119,33 @@ Template Post Type: page
             <div class="s-team-work">
                 <div class="container-fluid">
                     <div class="s-team-work__inner">
-                        <div class="s-team-work__left">
+                        <div class="s-team-work__top">
                             <div class="s-team-work__title t-title"><?php the_field('team-work-title') ?></div>
                         </div>
-                        <div class="b-works">
-                            <?php $works = get_field('team-work-items'); ?>
-                            <?php if ($works && is_array($works)): ?>
-                                <?php foreach($works as $value): ?>
-                                    <div class="b-works__item">
-                                        <div class="b-works__img"><img src="<?= $value['img']['url'] ?>" alt=""></div>
-                                        <div class="b-works__caption"><?= $value['caption'] ?></div>
-                                        <div class="b-works__desc"><?= $value['text'] ?></div>
+                        <div class="s-team-work__bottom">
+                            <div class="b-works">
+                                <?php $works = get_field('team-work-items'); ?>
+                                <?php if ($works && is_array($works)): ?>
+                                    <?php foreach($works as $value): ?>
+                                        <div class="b-works__item">
+                                            <div class="b-works__img"><img src="<?= $value['img']['url'] ?>" alt=""></div>
+                                            <div class="b-works__caption"><?= $value['caption'] ?></div>
+                                            <div class="b-works__desc"><?= $value['text'] ?></div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                    <div class="b-works__item b-works__item_lamp">
+                                        <div class="b-works__lamp"><img src="<?= get_template_directory_uri() ?>/img/team-icon-9.png" alt=""></div>
+                                        <div class="b-works__lamp-title">Ваш<br>проект</div>
                                     </div>
-                                <?php endforeach; ?>
-                                <div class="b-works__item b-works__item_lamp">
-                                    <div class="b-works__lamp"><img src="<?= get_template_directory_uri() ?>/img/team-icon-9.png" alt=""></div>
-                                    <div class="b-works__lamp-title">Ваш<br>проект</div>
-                                </div>
-                            <?php endif; ?>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>            
+            <?php get_template_part( 'inc/tpl-slider-clients-logo2' ); ?>
         </div>
     </div>
 
-    <?php get_template_part( 'inc/tpl-slider-clients-logo' ); ?>
 
 <?php get_footer(); ?>

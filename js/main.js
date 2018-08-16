@@ -41,6 +41,17 @@ function preinit() {
         });
     }    
   
+    if ($('.js-slider2-logo').length){
+        $('.js-slider2-logo').slick({
+            dots: false,
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            prevArrow:"<div class='slick2-prev pull-left'></div>",
+            nextArrow:"<div class='slick2-next pull-right'></div>",
+        });
+    }    
+  
     if ($('.js-result-slider').length){
         $('.js-result-slider').slick({
             dots: false,

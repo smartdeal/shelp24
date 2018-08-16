@@ -1,3 +1,30 @@
+<?php if (is_page(5585)): ?>
+		
+		<div class="footernew">
+			<div class="container-fluid">
+				<div class="footernew__inner">
+					<div class="footernew__item footernew__left">
+						<?php if (!is_front_page()) { ?><a href="<?php echo home_url(); ?>"><?php } ?>
+						<img class="footernew__logo" src="<?php echo get_template_directory_uri() ?>/img/logo-footer.png" alt="logo">
+						<?php if (!is_front_page()) { ?></a><?php } ?>
+						<div class="footernew__text">Мы являемся сертифицированными партнерами:</div>
+						<div class="footernew__icons"><img src="<?php echo get_template_directory_uri(); ?>/img/icons-footer-grey.png" alt=""></div>
+					</div>
+					<div class="footernew__item footernew__right">
+						<div class="footernew-menu">
+							<?php 
+								wp_nav_menu( array('theme_location' => 'footer1', 'depth' => 1, 'container' => 'div', 'container_class' => 'nav_footer_container', 'menu_class' => 'nav nav_footer', ) );
+								wp_nav_menu( array('theme_location' => 'footer2', 'depth' => 1, 'container' => 'div', 'container_class' => 'nav_footer_container', 'menu_class' => 'nav nav_footer', ) );
+								wp_nav_menu( array('theme_location' => 'footer3', 'depth' => 1, 'container' => 'div', 'container_class' => 'nav_footer_container', 'menu_class' => 'nav nav_footer', ) );
+							?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<?php else: ?>
+		
 		<div class="footer">
 			<div class="footer__item footer__left">
                 <?php if ($main_logo = get_field('option_logo','option')): ?>
@@ -49,8 +76,10 @@
 			</div>
 		</div>
 
+<?php endif; ?>
+
 		</div> <!-- end content -->
-    </div>
+    </div> <!--  layout-main -->
 
 	<div class="js-scrollup"></div>
 
