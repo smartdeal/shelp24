@@ -33,6 +33,7 @@
         padding: 5%;
         text-align: center;
         overflow: hidden;
+        &.hover,
         &:hover {
             .portfolio__caption {
                 top: 0;

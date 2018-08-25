@@ -378,6 +378,51 @@ $(document).ready(function() {
         });        
     }
 
+    var portfolio_hover = function () {
+        var $portfolio = $('.home .portfolio__link');
+        if (!$portfolio.length) return;
+        setTimeout(() => {
+            $portfolio.eq(3).addClass('hover');
+            setTimeout(() => {
+                $portfolio.eq(3).removeClass('hover');
+                $portfolio.eq(1).addClass('hover');
+                setTimeout(() => {
+                    $portfolio.eq(6).addClass('hover');
+                    setTimeout(() => {
+                        $portfolio.eq(11).addClass('hover');                
+                        setTimeout(() => {
+                            $portfolio.eq(1).removeClass('hover');
+                            $portfolio.eq(6).removeClass('hover');
+                            $portfolio.eq(11).removeClass('hover');                
+                            setTimeout(() => {
+                                $portfolio.eq(4).addClass('hover');
+                                setTimeout(() => {
+                                    $portfolio.eq(9).addClass('hover');
+                                    setTimeout(() => {
+                                        $portfolio.eq(14).addClass('hover');                
+                                        setTimeout(() => {
+                                            $portfolio.eq(4).removeClass('hover');
+                                            $portfolio.eq(9).removeClass('hover');
+                                            $portfolio.eq(14).removeClass('hover');                
+                                            setTimeout(() => {
+                                                $portfolio.eq(12).addClass('hover');                
+                                                setTimeout(() => {
+                                                    $portfolio.eq(12).removeClass('hover');                
+                                                }, 3000);                                                                                    
+                                            }, 500);
+                                
+                                        }, 3000);
+                                    }, 500);
+                                }, 500);
+                            }, 500);
+                        }, 3000);            
+                    }, 500);
+                }, 500);
+            }, 3000);
+        }, 3000);
+    }
+    portfolio_hover();
+
 }); // $(document).ready
 
 $(window).resize(init);
@@ -411,6 +456,12 @@ $(window).scroll(function() {
         }
     }
 
+});
+
+$('#file-upload').change(function() {
+    var i = $(this).closest('form').find('label').clone();
+    var file = $('#file-upload')[0].files[0].name;
+    $(this).closest('form').find('label').text(file);
 });
 
 /* Yandex Map
@@ -466,7 +517,7 @@ $(window).scroll(function() {
     var wpcf7Elm;
     wpcf7Elm = document.getElementById( 'wpcf7-f782-o1' );
     if (wpcf7Elm != null) wpcf7Elm.addEventListener( 'wpcf7mailsent', function( event ) {yaCounter24815432.reachGoal('zaprosit-offer-header'); }, false ); 
-    wpcf7Elm = document.getElementById( 'wpcf7-f517-p7-o2' );
+    wpcf7Elm = document.querySelector('.form-content_service .wpcf7');
     if (wpcf7Elm != null) wpcf7Elm.addEventListener( 'wpcf7mailsent', function( event ) {yaCounter24815432.reachGoal('zayavka-usluga'); }, false ); 
     wpcf7Elm = document.getElementById( 'wpcf7-f1935-p98-o2' );
     if (wpcf7Elm != null) wpcf7Elm.addEventListener( 'wpcf7mailsent', function( event ) {yaCounter24815432.reachGoal('pryamaya-svyas'); }, false ); 

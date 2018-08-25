@@ -49,17 +49,33 @@ Template Post Type: page
                                         </div>
                                     </div>
                                     <div class="b-employees__persons">
-                                    <?php for ($i=2; $i < count($arrTeam); $i++): ?>
+                                        <?php for ($i=2; $i < count($arrTeam); $i++): ?>
+                                            <div class="b-employees__person">
+                                                <div class="b-employees__photo">
+                                                    <div class="b-employees__img"><img src="<?php echo kama_thumb_src("w=320 &h=470", $arrTeam[$i]['photo']['url']) ?>" alt=""><span class="border"></span></div>
+                                                    <div class="b-employees__text">
+                                                        <div class="b-employees__name"><?php echo $arrTeam[$i]['name'] ?><span class="border"></span></div>
+                                                        <div class="b-employees__positon"><?php echo $arrTeam[$i]['position'] ?></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php endfor; ?>
                                         <div class="b-employees__person">
                                             <div class="b-employees__photo">
-                                                <div class="b-employees__img"><img src="<?php echo kama_thumb_src("w=320 &h=470", $arrTeam[$i]['photo']['url']) ?>" alt=""><span class="border"></span></div>
-                                                <div class="b-employees__text">
-                                                    <div class="b-employees__name"><?php echo $arrTeam[$i]['name'] ?><span class="border"></span></div>
-                                                    <div class="b-employees__positon"><?php echo $arrTeam[$i]['position'] ?></div>
+                                                <div class="b-employees__img">
+                                                    <div class="f-resume">
+                                                        <img src="<?php echo kama_thumb_src("w=320 &h=470", $arrTeam[$i]['photo']['url']) ?>" alt="">
+                                                        <div class="f-resume__body">
+                                                            <div class="f-resume__title"></div>
+                                                            <div class="f-resume__logo"><img src="<?php echo get_template_directory_uri() ?>/img/logo-footer.png" alt=""></div>
+                                                            <div class="f-resume__form">
+                                                                <?= do_shortcode('[contact-form-7 id="5683" title="Форма Стать сотрудником"]') ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    <?php endfor; ?>
                                     </div>
                                 </div>
                             <?php endif; ?>

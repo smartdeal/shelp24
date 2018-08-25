@@ -435,6 +435,7 @@ function shortcodes_dashboard_widget_function() {
     echo 'Шорткоды для отображения информации в контенте страниц, записей и т.д.:<br>';
     echo '[get_tel] - Показать телефон студии<br>';
     echo '[get_email] - Показать email студии<br>';
+    echo '[get_content_btns] - Показать кнопки Создать сайт и Продвинуть сайт<br>';
     echo '[get_content_form] - Показать форму заявки на странице<br>';
     echo '[get_content_form title="Заказать перенос сайта"] - Показать форму заявки с новым заголовком<br>';
     echo '[get_service_form] - Показать форму заявки услуги на странице<br>';
@@ -445,6 +446,7 @@ function shortcodes_dashboard_widget_function() {
     echo '[get_clients] - Показать блок с лого "Наши клиенты". Блок редактируется на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a><br>';
     echo '[get_reviews] - Показать блок с отзывами. Блок редактируется на странице <a href="'.home_url().'/wp-admin/post.php?post=104&action=edit">Дипломы и отзывы</a><br>';
     echo '[get_banner_check] [get_banner_report] [get_banner_audit] - Показать баннеры Чеклист и Пример отчета. Файлы добавляются на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a><br>';
+    echo '[get_banner title="Чек-лист" text="по SEO аудиту" file="путь к файлу"] - Универсальный баннер<br>';
     echo '<br>Сменить логотип, номер телефона, email, добавить коды счетчиков и сервисов на сайт можно на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a>.<br>';
 }
 
@@ -815,11 +817,62 @@ function get_why_func( $atts ){
 }
 add_shortcode('get_why', 'get_why_func');
 
+function get_content_btns_func( $atts ){
+    if (!is_user_logged_in()) return;
+    $out = '';
+    $out .= '<div class="content-btns">';
+    $out .= '</div>';
+    return $out;
+}
+add_shortcode('get_content_btns', 'get_content_btns_func');
+
+function get_banner_func( $atts ){
+    if ($atts && is_array($atts) && isset($atts['file']) && !empty($atts['file']))
+        $url = $atts['file'];
+    else
+        $url = get_field('option_bn_check','option');
+
+    $title = 'Чек-лист';
+    $text = 'по SEO аудиту сайта';
+    if (!$url) $url = "#";
+
+    if ($atts && is_array($atts) && isset($atts['title']) && !empty($atts['title']))
+        $title = $atts['title'];
+
+    if ($atts && is_array($atts) && isset($atts['text']) && !empty($atts['text']))
+        $text = $atts['text'];
+
+    $out = '<div class="bnr bnr_html"><a href="'.$url.'" target="_blank">';
+    $out .= '<div class="bnr__inner">';
+    $out .= '<div class="bnr__title"><span>'.$title.'</span></div>';
+    $out .= '<div class="bnr__text">'.$text.'</div>';
+    $out .= '<div class="bnr__img"><img src="'.get_template_directory_uri().'/img/bn-check-img1.jpg" alt=""></div>';
+    $out .= '<div class="bnr__btn">Смотреть '.$title.'</div>';
+    $out .= '</div>';
+    $out .= '</a></div>';
+    return $out;
+}
+add_shortcode('get_banner', 'get_banner_func');
+
 function get_banner_check_func( $atts ){
-	$url = get_field('option_bn_check','option');
-	if (!$url) $url = "#";
-    $out = '<div class="bnr"><a href="'.$url.'" target="_blank">';
-    $out .= '<img src="'.get_template_directory_uri().'/img/bn-check.jpg" alt="">';
+    if ($atts && is_array($atts) && isset($atts['file']) && !empty($atts['file']))
+        $url = $atts['file'];
+    else
+        $url = get_field('option_bn_check','option');
+    if ($atts && is_array($atts) && isset($atts['text']) && !empty($atts['text']))
+        $text = $atts['text'];
+    else
+        $text = 'по SEO аудиту сайта';
+    if (!$url) $url = "#";
+    $title = "Чек-лист";
+    $out = '<div class="bnr bnr_html"><a href="'.$url.'" target="_blank">';
+    // $out .= '<img src="'.get_template_directory_uri().'/img/bn-check.jpg" alt="">';
+    $out .= '<div class="bnr__inner">';
+    $out .= '<div class="bnr__title"><span>'.$title.'</span></div>';
+    $out .= '<div class="bnr__text">'.$text.'</div>';
+    $out .= '<div class="bnr__img"><img src="'.get_template_directory_uri().'/img/bn-check-img1.jpg" alt=""></div>';
+    $out .= '<div class="bnr__btn">Смотреть '.$title.'</div>';
+    $out .= '</div>';
     $out .= '</a></div>';
     return $out;
 }

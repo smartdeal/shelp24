@@ -1,4 +1,4 @@
-<?php if (is_page(5585)): ?>
+<?php if (true): ?>
 		
 		<div class="footernew">
 			<div class="container-fluid">
@@ -89,6 +89,5 @@
     	var home_url="<?php echo home_url(); ?>";
     	var theme_url="<?php echo get_template_directory_uri(); ?>";
 	</script>
-	<script type="text/javascript" src="//cdn.callbackhunter.com/cbh.js?hunter_code=282179804a9fc288486f39cd913d9636" charset="UTF-8"></script>
 </body>
 </html>
