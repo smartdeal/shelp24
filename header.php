@@ -74,9 +74,13 @@
                         <?php if ($main_email = get_field('option_email','option')): ?>
                             <a href="mailto:<?php echo $main_email; ?>" class="header-mobile__item b-email b-email_header"><?php echo $main_email; ?></a>
                         <?php endif; ?>
-                        <a href="#form-get-offer" class="header-mobile__item b-get-offer fancybox">Запросить предложение</a>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="header-mobile-btn">
+            <div class="container">
+                <a href="#form-get-offer" class="header-mobile__item b-get-offer fancybox">Запросить предложение</a>
             </div>
         </div>
 

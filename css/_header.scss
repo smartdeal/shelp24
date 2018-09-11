@@ -1,6 +1,7 @@
 .header-mobile {
     text-align: center;
-    padding: 10px 0;
+    padding-top: 10px;
+    margin-bottom: 10px;
     @include mn992 {
         display: none;
     }
@@ -107,6 +108,25 @@
         margin: 10px -10px;
         font-size: 16px;
         line-height: 1.6;
+    }
+}
+
+.header-mobile-btn {
+    margin: 10px 0;
+    text-align: center;
+    position: sticky;
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;    
+    top: 15px;
+    z-index: 19;
+    @include mn992{
+        display: none;
+    }
+    .b-get-offer {
+        margin: 0;
+        box-shadow: 0px 1px 2px white;
     }
 }
 

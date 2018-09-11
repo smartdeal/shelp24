@@ -818,9 +818,16 @@ function get_why_func( $atts ){
 add_shortcode('get_why', 'get_why_func');
 
 function get_content_btns_func( $atts ){
-    if (!is_user_logged_in()) return;
     $out = '';
     $out .= '<div class="content-btns">';
+    $out .= '<div class="content-btns__btns">';
+    $out .= '<div class="content-btns__btn content-btns__btn_create js-content-btns-btn">Создать сайт</div>';
+    $out .= '<div class="content-btns__btn content-btns__btn_seo js-content-btns-btn">Продвинуть сайт</div>';
+    $out .= '</div>';
+    $out .= '<div class="content-btns__form js-content-btns-form form-wrap js-form-wrap">';
+    $out .= do_shortcode('[contact-form-7 id="6043" title="Форма создать сайт на главной"]');
+    $out .= '<div class="form-sent-ok js-form-sent-ok"><div class="form-sent-ok__inner"><div class="form-sent-ok__title">Спасибо!</div><div class="form-sent-ok__subtitle">Заявка принята. Наш специалист позвонит Вам.</div></div></div>';
+    $out .= '</div>';
     $out .= '</div>';
     return $out;
 }
@@ -995,3 +1002,5 @@ function the_roll(){
     $out .= '</div>';
     echo $out;
 }
+
+require_once('func/func_table_serm.php');

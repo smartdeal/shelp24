@@ -8,7 +8,11 @@
 						<img class="footernew__logo" src="<?php echo get_template_directory_uri() ?>/img/logo-footer.png" alt="logo">
 						<?php if (!is_front_page()) { ?></a><?php } ?>
 						<div class="footernew__text">Мы являемся сертифицированными партнерами:</div>
-						<div class="footernew__icons"><img src="<?php echo get_template_directory_uri(); ?>/img/icons-footer-grey.png" alt=""></div>
+						<div class="footernew__icons">
+							<div class="footernew__icon footernew__icon_1"></div>
+							<div class="footernew__icon footernew__icon_2"></div>
+							<div class="footernew__icon footernew__icon_3"></div>
+						</div>
 					</div>
 					<div class="footernew__item footernew__right">
 						<div class="footernew-menu">

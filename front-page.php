@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <div class="content__inner content__inner_portfolio content__inner_front" itemscope itemtype="http://schema.org/Article">
-	<div class="content__title content__title_front">Наши работы</div>
+	<div class="content__title content__title_front">истории успеха</div>
 	<?php get_portfolio(16); ?>
 	<?php if (have_posts()) { 
         while (have_posts()) { the_post();

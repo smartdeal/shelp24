@@ -380,46 +380,21 @@ $(document).ready(function() {
 
     var portfolio_hover = function () {
         var $portfolio = $('.home .portfolio__link');
+        var ms = 350;
         if (!$portfolio.length) return;
         setTimeout(() => {
-            $portfolio.eq(3).addClass('hover');
-            setTimeout(() => {
-                $portfolio.eq(3).removeClass('hover');
-                $portfolio.eq(1).addClass('hover');
+            // [3,1,6,11,4,9,14,12].forEach(function(item, i, arr) {
+            [3,2,7,11,6,1,0,5,10,15,14,9,4,8,13,12].forEach(function(item, i, arr) {
                 setTimeout(() => {
-                    $portfolio.eq(6).addClass('hover');
+                    $portfolio.eq(item).addClass('hover');
                     setTimeout(() => {
-                        $portfolio.eq(11).addClass('hover');                
-                        setTimeout(() => {
-                            $portfolio.eq(1).removeClass('hover');
-                            $portfolio.eq(6).removeClass('hover');
-                            $portfolio.eq(11).removeClass('hover');                
-                            setTimeout(() => {
-                                $portfolio.eq(4).addClass('hover');
-                                setTimeout(() => {
-                                    $portfolio.eq(9).addClass('hover');
-                                    setTimeout(() => {
-                                        $portfolio.eq(14).addClass('hover');                
-                                        setTimeout(() => {
-                                            $portfolio.eq(4).removeClass('hover');
-                                            $portfolio.eq(9).removeClass('hover');
-                                            $portfolio.eq(14).removeClass('hover');                
-                                            setTimeout(() => {
-                                                $portfolio.eq(12).addClass('hover');                
-                                                setTimeout(() => {
-                                                    $portfolio.eq(12).removeClass('hover');                
-                                                }, 3000);                                                                                    
-                                            }, 500);
-                                
-                                        }, 3000);
-                                    }, 500);
-                                }, 500);
-                            }, 500);
-                        }, 3000);            
-                    }, 500);
-                }, 500);
-            }, 3000);
+                        $portfolio.eq(item).removeClass('hover');
+                    }, ms);
+                }, i*ms+ms);
+            });
         }, 3000);
+            
+                                
     }
     portfolio_hover();
 
@@ -463,6 +438,24 @@ $('#file-upload').change(function() {
     var file = $('#file-upload')[0].files[0].name;
     $(this).closest('form').find('label').text(file);
 });
+
+$('.js-table-serm-btn').click(function (e) { 
+    e.preventDefault();
+    $('.js-btn-get-offer').trigger('click');
+});
+$('.js-table-serm-btn-mobile').click(function (e) { 
+    e.preventDefault();
+    $('.b-get-offer').trigger('click');
+});
+
+$('.js-content-btns-btn').click(function (e) { 
+    e.preventDefault();
+    var title = $(this).text();
+    var $form = $(this).closest('.content-btns').find('.js-content-btns-form');
+    $form.find('input[name="title"]').val(title);
+    $form.slideToggle();
+});
+
 
 /* Yandex Map
  ========================================================*/
