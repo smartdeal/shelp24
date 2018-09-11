@@ -4964,55 +4964,79 @@ img {
   text-transform: uppercase;
   letter-spacing: .05em; }
 
-.table-serm {
+.tablepress.tableprice,
+.table-price {
   margin: 30px 0;
   font-size: 15px;
   font-weight: 400;
   text-align: center; }
-  .table-serm__title {
+  .tablepress.tableprice__title,
+  .table-price__title {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 20px; }
     @media (min-width: 768px) {
-      .table-serm__title {
+      .tablepress.tableprice__title,
+      .table-price__title {
         text-align: left; } }
   @media (min-width: 768px) {
-    .table-serm__table_mobile {
+    .tablepress.tableprice__table_mobile,
+    .table-price__table_mobile {
       display: none; } }
-  .table-serm__table_desktop {
+  .tablepress.tableprice__table_desktop,
+  .table-price__table_desktop {
     display: none; }
     @media (min-width: 768px) {
-      .table-serm__table_desktop {
+      .tablepress.tableprice__table_desktop,
+      .table-price__table_desktop {
         display: block; } }
-  .table-serm table {
+  .tablepress.tableprice table,
+  .table-price table {
     width: 100%; }
-  .table-serm tr:not(:first-child) {
+  .tablepress.tableprice tfoot th,
+  .tablepress.tableprice tbody td,
+  .table-price tfoot th,
+  .table-price tbody td {
     border-top: 1px solid #eeeeee; }
-  .table-serm th {
+  .tablepress.tableprice th,
+  .table-price th {
     font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
     line-height: 50px;
+    text-align: center;
+    background: transparent; }
+  .tablepress.tableprice td,
+  .table-price td {
+    padding: 9px 10px;
     text-align: center; }
-  .table-serm td {
-    padding: 9px 10px; }
-  .table-serm td:first-child {
+  .tablepress.tableprice td:first-child,
+  .table-price td:first-child {
     text-align: left;
     font-weight: 700; }
-  .table-serm th:nth-child(2),
-  .table-serm th:nth-child(4),
-  .table-serm td:nth-child(2),
-  .table-serm td:nth-child(4) {
+  .tablepress.tableprice th:nth-child(2),
+  .tablepress.tableprice th:nth-child(4),
+  .tablepress.tableprice td:nth-child(2),
+  .tablepress.tableprice td:nth-child(4),
+  .table-price th:nth-child(2),
+  .table-price th:nth-child(4),
+  .table-price td:nth-child(2),
+  .table-price td:nth-child(4) {
     background: #f7f7f7; }
-  .table-serm th:nth-child(3),
-  .table-serm td:nth-child(3) {
+  .tablepress.tableprice th:nth-child(3),
+  .tablepress.tableprice td:nth-child(3),
+  .table-price th:nth-child(3),
+  .table-price td:nth-child(3) {
     background: #f9bfbc; }
-  .table-serm tr:last-child td {
+  .tablepress.tableprice tr:last-child td,
+  .table-price tr:last-child td {
     font-weight: 700;
     font-size: 18px; }
-  .table-serm tr:last-child td:nth-child(3) {
+  .tablepress.tableprice tr:last-child td:nth-child(3),
+  .table-price tr:last-child td:nth-child(3) {
     color: #f8615a; }
-  .table-serm .table-serm__btn {
+  .tablepress.tableprice .table-price__btn,
+  .table-price .table-price__btn {
     display: block;
     width: 140px;
     margin: 5px auto 10px;
@@ -5023,26 +5047,33 @@ img {
     line-height: 36px;
     font-size: 14px;
     font-weight: 700;
-    text-transform: uppercase; }
-    .table-serm .table-serm__btn:hover {
+    text-transform: uppercase;
+    text-align: center; }
+    .tablepress.tableprice .table-price__btn:hover,
+    .table-price .table-price__btn:hover {
       color: #f8615a !important;
       background: white; }
 
-.table-serm__table_mobile table {
+.table-price__table_mobile table {
   margin-bottom: 20px; }
-  .table-serm__table_mobile table:nth-child(2) th,
-  .table-serm__table_mobile table:nth-child(2) td {
+  .table-price__table_mobile table:nth-child(2) th,
+  .table-price__table_mobile table:nth-child(2) td {
     background: #fcdfdd; }
-.table-serm__table_mobile th,
-.table-serm__table_mobile td {
+.table-price__table_mobile th,
+.table-price__table_mobile td {
   background: #f7f7f7; }
-.table-serm__table_mobile td:first-child {
-  text-align: center;
+.table-price__table_mobile td:first-child {
   font-weight: 400; }
-.table-serm__table_mobile tr:last-child td {
+.table-price__table_mobile tr:last-child td {
   font-size: 24px; }
-.table-serm__table_mobile .table-serm__btn {
+.table-price__table_mobile .table-price__btn {
   width: 230px; }
+
+.table-price_serm .table-price__table_mobile td:first-child {
+  text-align: center; }
+
+.table-price_tech .table-price__table_mobile tr:last-child td {
+  font-size: 16px; }
 
 .content__inner_archive .content__title {
   text-align: center; }

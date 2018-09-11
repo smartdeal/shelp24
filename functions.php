@@ -447,6 +447,7 @@ function shortcodes_dashboard_widget_function() {
     echo '[get_reviews] - Показать блок с отзывами. Блок редактируется на странице <a href="'.home_url().'/wp-admin/post.php?post=104&action=edit">Дипломы и отзывы</a><br>';
     echo '[get_banner_check] [get_banner_report] [get_banner_audit] - Показать баннеры Чеклист и Пример отчета. Файлы добавляются на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a><br>';
     echo '[get_banner title="Чек-лист" text="по SEO аудиту" file="путь к файлу"] - Универсальный баннер<br>';
+    echo '[get_table_tech], [get_table_serm] - Показать прайс лист на услугу, редактирование на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a><br>';
     echo '<br>Сменить логотип, номер телефона, email, добавить коды счетчиков и сервисов на сайт можно на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a>.<br>';
 }
 
@@ -1004,3 +1005,4 @@ function the_roll(){
 }
 
 require_once('func/func_table_serm.php');
+require_once('func/func_table_tech.php');

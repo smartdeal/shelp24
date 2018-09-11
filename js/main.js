@@ -439,11 +439,20 @@ $('#file-upload').change(function() {
     $(this).closest('form').find('label').text(file);
 });
 
-$('.js-table-serm-btn').click(function (e) { 
+$(document).ready(function() {
+    $('.tablepress.tableprice tr:last-child td:not(:first-child)').append('<a class="table-price__btn js-table-price-btn" href="#">Заказать</a>');
+});
+
+$('.tablepress.tableprice').on('click', '.js-table-price-btn', function (e) {
+    e.preventDefault();
+    $('.js-btn-get-offer').trigger('click');
+}); 
+
+$('.js-table-price-btn').click(function (e) { 
     e.preventDefault();
     $('.js-btn-get-offer').trigger('click');
 });
-$('.js-table-serm-btn-mobile').click(function (e) { 
+$('.js-table-price-btn-mobile').click(function (e) { 
     e.preventDefault();
     $('.b-get-offer').trigger('click');
 });

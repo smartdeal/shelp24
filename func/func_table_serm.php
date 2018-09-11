@@ -52,17 +52,17 @@ function get_table_serm_func( $atts ){
         ],
     ];
     
-    $out = '<div class="table-serm">';
-    $out .= '<div class="table-serm__title">Тарифы на услугу управления репутацией в интернете (SERM)</div>';
+    $out = '<div class="table-price table-price_serm">';
+    $out .= '<div class="table-price__title">Тарифы на услугу управления репутацией в интернете (SERM)</div>';
 
-    $out .= '<div class="table-serm__table table-serm__table_mobile">';
+    $out .= '<div class="table-price__table table-price__table_mobile">';
     foreach ($data_mob as $key => $table) {
         $count_data = count($table);
         $out .= '<table>';
         foreach ($table as $key => $value2) {
             $btn = '';
             if ($key == $count_data-1 ) {
-                $btn = '<a class="table-serm__btn js-table-serm-btn-mobile" href="#">Оставить заявку</a>';
+                $btn = '<a class="table-price__btn js-table-price-btn-mobile" href="#">Оставить заявку</a>';
             }
             if ($key == 0) {
                 $out .= '<tr><th>'.$value2.'</th></tr>';
@@ -74,14 +74,14 @@ function get_table_serm_func( $atts ){
     }
     $out .= '</div>';
 
-    $out .= '<div class="table-serm__table table-serm__table_desktop">';
+    $out .= '<div class="table-price__table table-price__table_desktop">';
     $out .= '<table>';
     $out .= '<tr><th></th><th>Лайт</th><th>Оптима</th><th>Турбо</th></tr>';
     $count_data = count($data);
     foreach ($data as $key => $value) {
         $btn = '';
         if ($key == $count_data-1 ) {
-            $btn = '<a class="table-serm__btn js-table-serm-btn" href="#">Заказать</a>';
+            $btn = '<a class="table-price__btn js-table-price-btn" href="#">Заказать</a>';
         }
         $out .= '<tr><td>'.$value[0].'</td><td>'.$value[1].$btn.'</td><td>'.$value[2].$btn.'</td><td>'.$value[3].$btn.'</td></tr>';
     }
@@ -91,13 +91,4 @@ function get_table_serm_func( $atts ){
 
     return $out;
 }
-
-
-
-
-
-
-
-
-
 
