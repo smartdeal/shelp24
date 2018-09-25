@@ -53,7 +53,7 @@ function get_table_serm_func( $atts ){
     ];
     
     $out = '<div class="table-price table-price_serm">';
-    $out .= '<div class="table-price__title">Тарифы на услугу управления репутацией в интернете (SERM)</div>';
+    $out .= '<div class="table-price__title">Цены на услугу управления репутацией в интернете (SERM)</div>';
 
     $out .= '<div class="table-price__table table-price__table_mobile">';
     foreach ($data_mob as $key => $table) {

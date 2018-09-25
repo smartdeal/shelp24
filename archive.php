@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <?php  
-    if (is_post_type_archive( array('uslugi') )) $is_post_with_meta = true;
+    if (is_post_type_archive( array('uslugi','vacancy') )) $is_post_with_meta = true;
         else $is_post_with_meta = false;
 ?>
     <div class="container-fluid">
@@ -25,7 +25,7 @@
                                     <?php if (has_post_thumbnail()): ?>
                                         <div class="b-arch-content__img-wrap">
                                             <a href="<?php echo $post_link; ?>" title="Перейти на страницу <?php echo $post_title; ?>">
-                                                <img data-aload="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(),'medium'); ?>" alt="">
+                                                <img data-aload="<?php echo kama_thumb_src( array('src' => wp_get_attachment_image_url(get_post_thumbnail_id(),'full'), 'w' => 300, 'h' => 200 ) ); ?>" alt="">
                                             </a>
                                         </div>
                                     <?php else: $is_have_img_class = ' b-arch-content__desc_without-img'; ?>
@@ -85,6 +85,14 @@
             <?php if (is_post_type_archive( array('uslugi') )): ?>
                 <div class="hidden">
                     <div class="form_addservice-archive"><?php echo do_shortcode('[get_content_form]' ); ?></div>
+                </div>       
+            <?php elseif (is_post_type_archive( array('vacancy') )): ?>
+                <div class="hidden">
+                    <div class="form_addservice-archive">
+                        <div class="form-content form-wrap js-form-wrap">
+                        <div class="form-content__body"><?php echo do_shortcode('[contact-form-7 id="6586" title="Форма Вакансии"]') ?></div>
+                        <div class="form-sent-ok js-form-sent-ok"><div class="form-sent-ok__inner"><div class="form-sent-ok__title">Спасибо!</div><div class="form-sent-ok__subtitle">Заявка принята. Наш специалист позвонит Вам.</div></div></div>
+                    </div>
                 </div>       
             <?php endif; ?>
         </div>

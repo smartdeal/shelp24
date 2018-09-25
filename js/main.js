@@ -201,6 +201,10 @@ $(document).ready(function() {
 
     $('.js-arch-content__btn_order').click(function(event) {
         event.preventDefault();
+        var title = $(this).closest('.b-arch-content__inner').find('.b-arch-content__caption').text();
+        if (title.length) {
+            $('.form_addservice-archive input[name="vacancy"]').val(title);
+        }
         $('.form_addservice-archive').removeClass('sh-visible');
         $('.js-arch-content__btn_order').removeClass('hidden');
         $(this).addClass('hidden');
@@ -345,12 +349,21 @@ $(document).ready(function() {
     // Рулетка
     if ( $('.js-form-get-roll').length ) {
 
-        if ($(window).width() >= 1200 && !$.cookie('roll_popup2')) {
-            setTimeout(function() { 
-                $.cookie('roll_popup2', 'value', { path: '/' });
-                $('body').addClass('open-form-roll'); 
-                yaCounter24815432.reachGoal('roll_show');
-            }, 20000);
+        if ( $(window).width() >= 1200 ) {
+            if ( $.cookie('roll_popup1') && !$.cookie('roll_popup2') ) {
+                setTimeout(function() { 
+                    $.cookie('roll_popup2', 'value', { path: '/' });
+                    $('body').addClass('open-form-roll'); 
+                    yaCounter24815432.reachGoal('roll_show');
+                }, 40000);
+            }
+            if ( !$.cookie('roll_popup1') ) {
+                setTimeout(function() { 
+                    $.cookie('roll_popup1', 'value', { path: '/' });
+                    $('body').addClass('open-form-roll'); 
+                    yaCounter24815432.reachGoal('roll_show');
+                }, 30000);
+            }
         }
 
         $('.js-form-get-roll-close').click(function(event) {
@@ -368,6 +381,7 @@ $(document).ready(function() {
 
         $(".wpcf7").on('wpcf7mailsent', function(event){
             if ( 'wpcf7-f3855-o2' == event.target.id) {
+                $.cookie('roll_popup2', 'value', { path: '/' });
                 $('.js-form-get-roll .wpcf7-submit').attr('disabled', true);
                 var roll_deg = $('.js-form-sent-ok-prize').attr('data-deg');
                 $('.js-roll-drum').css('transform', 'rotate(-' + roll_deg + 'deg)');

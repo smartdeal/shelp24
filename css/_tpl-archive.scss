@@ -79,6 +79,7 @@
     }
 }
 
+.post-type-archive-vacancy,
 .post-type-archive-uslugi {
     .b-arch-content__img-wrap {
         @include mn768 {
@@ -101,3 +102,4 @@
         }
     }
 }
+
