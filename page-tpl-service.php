@@ -85,6 +85,7 @@ Template Post Type: page
                                 </div>
                             </div>
                         </div>
+                        <?php the_seo_schema_article() ?>
                     <?php }} ?>
             </div>
         </div>

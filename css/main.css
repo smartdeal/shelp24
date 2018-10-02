@@ -4570,11 +4570,11 @@ hr.bold {
     .content__body h3 {
       font-size: 21px; }
     .content__body h4 {
-      font-size: 20px; }
+      font-size: 16px; }
     .content__body h5 {
-      font-size: 19px; }
+      font-size: 16px; }
     .content__body h6 {
-      font-size: 18px; }
+      font-size: 16px; }
     .content__body p {
       margin-bottom: 1em; }
     .content__body img.alignleft, .content__body img.alignright, .content__body img.aligncenter {
@@ -4655,7 +4655,7 @@ hr.bold {
   .article ul {
     overflow: hidden;
     margin: 1em 0;
-    padding-left: 1.5em; }
+    padding-left: 0; }
   .content__body li,
   .article li {
     padding-left: 1em;
@@ -4665,23 +4665,20 @@ hr.bold {
     content: '\2022';
     color: #f8615a;
     position: absolute;
-    left: 2px;
+    left: 0;
     top: 7px;
     font-size: 13px;
     line-height: 1; }
   .content__body ol,
   .article ol {
     counter-reset: list 0; }
-    .content__body ol li,
-    .article ol li {
-      padding-left: 2em; }
-      .content__body ol li:before,
-      .article ol li:before {
-        counter-increment: list;
-        content: counter(list) ".";
-        font-size: inherit;
-        top: 0;
-        line-height: 1.6; }
+    .content__body ol li:before,
+    .article ol li:before {
+      counter-increment: list;
+      content: counter(list) ".";
+      font-size: inherit;
+      top: 0;
+      line-height: 1.6; }
   .content__body blockquote,
   .article blockquote {
     margin: 20px 0;

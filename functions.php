@@ -6,6 +6,8 @@ require_once('func/func_shortcodes.php');
 require_once('func/func_custom_posts.php');
 require_once('func/func_table_serm.php');
 require_once('func/func_table_tech.php');
+require_once('func/func_seo.php');
+require_once('func/func_helper.php');
 
 remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
 remove_action( 'wp_head', 'wp_oembed_add_host_js' );
@@ -22,6 +24,7 @@ remove_action( 'wp_head', 'wp_resource_hints', 2 );
 add_filter( 'emoji_svg_url', '__return_false' );
 remove_action('wp_head', 'feed_links', 2);
 remove_action('wp_head', 'feed_links_extra', 3);
+add_filter( 'wpseo_canonical', '__return_false' );
 
 function my_deregister_scripts(){
     wp_deregister_script( 'wp-embed' );
@@ -70,6 +73,9 @@ function seohelp_scripts() {
         wp_enqueue_script( 'seohelp-js-custom',    get_template_directory_uri() . '/js/main.js', array('jquery'), '20170630', true );
         $map_contact = array('lat' => get_field('option_map_lat','option'), 'long' => get_field('option_map_long','option'));
         wp_localize_script( 'seohelp-js-custom', 'map_contact', $map_contact );
+        wp_localize_script( 'seohelp-js-custom', 'ajax_url', admin_url('admin-ajax.php') );
+        wp_localize_script( 'seohelp-js-custom', 'user_ip', get_the_user_ip() );
+        wp_localize_script( 'seohelp-js-custom', 'site_url', get_site_url_path() );
     }
 }
 add_action( 'wp_enqueue_scripts', 'seohelp_scripts' );
@@ -370,7 +376,7 @@ function get_portfolio($posts_per_page = -1) {
                 }
             }
             $out .= '<div class="portfolio__item'.$class_grid_item.$class_tax.'" data-aload style="background:'.$folio_logo_color.$folio_logo_bg.'">';
-            $out .= '<a href="'.get_the_permalink().'" class="portfolio__link">';
+            $out .= '<a href="'.get_the_permalink().'" class="portfolio__link" rel="nofollow">';
             $out .= '<div class="portfolio__caption">'.get_the_title().'</div>';
             $tax_name_main = get_field('folio_type_tile');
             if ($tax_name_main) $out .= '<div class="portfolio__tax-main">'.get_term($tax_name_main)->name.'</div>';
@@ -874,4 +880,39 @@ function the_roll(){
     $out .= '<div class="roll__center"></div><div class="roll__marker"></div>';
     $out .= '</div>';
     echo $out;
+}
+
+add_filter('tablepress_print_name_html_tag','tablepress_print_name_html_tag_call');
+function tablepress_print_name_html_tag_call(){
+    return 'h3';
+}
+
+add_action( 'wp_ajax_ajax_ruler_to_log',        'ajax_ruler_to_log_callback' ); // For logged in users
+add_action( 'wp_ajax_nopriv_ajax_ruler_to_log', 'ajax_ruler_to_log_callback' ); // For anonymous users
+
+function get_site_url_path() {
+    global $wp;
+    return home_url( $wp->request );
+}
+
+function get_the_user_ip() {
+    if ( ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
+    //check ip from share internet
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    } elseif ( ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
+    //to check ip is pass from proxy
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    } else {
+        $ip = $_SERVER['REMOTE_ADDR'];
+    }
+    return apply_filters( 'wpb_get_ip', $ip );
+}
+
+function ajax_ruler_to_log_callback() {
+    $time = time();
+    $user_ip = $_POST['user_ip'];
+    $site_url = $_POST['site_url'];
+    $agent = $_SERVER['HTTP_USER_AGENT'];
+    file_put_contents(get_home_path().'/ruler.log', date("d.m.Y H:i", $time+3*3600).' :: '.$user_ip.' :: '.$site_url.' :: '.$agent.PHP_EOL, FILE_APPEND);
+    wp_send_json( $user_ip.'-'.$site_url.'-'.get_home_path() );
 }

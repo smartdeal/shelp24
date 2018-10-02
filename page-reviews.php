@@ -7,6 +7,7 @@ Template Post Type: page
 <?php get_header(); ?>
 
     <div class="content__inner content__inner_reviews" itemscope itemtype="http://schema.org/Article">
+        <?php the_seo_schema_article() ?>
         <div class="container-fluid">
             <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
                 <?php if(function_exists('bcn_display')) {bcn_display(); }?>

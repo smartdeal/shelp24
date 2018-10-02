@@ -346,6 +346,18 @@ $(document).ready(function() {
         }    
     }    
 
+    function ruler_to_log() {
+        $.ajax({
+            type: "POST",
+            url: window.ajax_url,
+            data: {
+                action : 'ajax_ruler_to_log',
+                user_ip : window.user_ip,
+                site_url : window.site_url,
+            }
+        });         
+    }
+
     // Рулетка
     if ( $('.js-form-get-roll').length ) {
 
@@ -353,6 +365,7 @@ $(document).ready(function() {
             if ( $.cookie('roll_popup1') && !$.cookie('roll_popup2') ) {
                 setTimeout(function() { 
                     $.cookie('roll_popup2', 'value', { path: '/' });
+                    ruler_to_log();
                     $('body').addClass('open-form-roll'); 
                     yaCounter24815432.reachGoal('roll_show');
                 }, 40000);
@@ -360,6 +373,7 @@ $(document).ready(function() {
             if ( !$.cookie('roll_popup1') ) {
                 setTimeout(function() { 
                     $.cookie('roll_popup1', 'value', { path: '/' });
+                    ruler_to_log();
                     $('body').addClass('open-form-roll'); 
                     yaCounter24815432.reachGoal('roll_show');
                 }, 30000);

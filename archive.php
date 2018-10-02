@@ -73,6 +73,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <?php the_seo_schema_article() ?>
                             </div>
                         <?php } ?>
                     </div>

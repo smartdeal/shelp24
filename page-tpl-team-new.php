@@ -9,6 +9,7 @@ Template Post Type: page
 
     <div class="content-wrap content-wrap_team">
         <div class="content__inner" itemscope itemtype="http://schema.org/Article">
+            <?php the_seo_schema_article() ?>
             <div class="s-team-employees">
                 <div class="container-fluid">
                     <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
