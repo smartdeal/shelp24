@@ -362,15 +362,8 @@ $(document).ready(function() {
     if ( $('.js-form-get-roll').length ) {
 
         if ( $(window).width() >= 1200 ) {
-            if ( $.cookie('roll_popup1') && !$.cookie('roll_popup2') ) {
+            if ( !$.cookie('roll_popup_sent') ) {
                 setTimeout(function() { 
-                    $.cookie('roll_popup2', 'value', { path: '/' });
-                    open_form_roll();
-                }, 40000);
-            }
-            if ( !$.cookie('roll_popup1') ) {
-                setTimeout(function() { 
-                    $.cookie('roll_popup1', 'value', { path: '/' });
                     open_form_roll();
                 }, 25000);
             }
@@ -382,22 +375,19 @@ $(document).ready(function() {
             yaCounter24815432.reachGoal('roll_show');
             setTimeout(function(){
                 $('.js-roll-drum').css('transform', 'rotate(-360deg)');
-            }, 1000);            
-            // setTimeout(function(){
-            //     $('.roll__item').each(function (index, el) {
-            //         setTimeout(function(){
-            //             $(el).fadeOut(1000, function() {
-            //                 $(el).fadeIn(1000);
-            //             });
-            //         }, 2000*index);
-            //     });
-            // }, 8000);            
+            }, 1000);                     
         }
         // open_form_roll();
 
         $('.js-form-get-roll-close').click(function(event) {
             event.preventDefault();
             $('body').removeClass('open-form-roll');
+            if ( !$.cookie('roll_popup_sent') && !$.cookie('roll_popup1') ) {
+                setTimeout(function() { 
+                    $.cookie('roll_popup1', 'value');
+                    open_form_roll();
+                }, 40000);
+            }
         });
 
         var roll_prize = Math.floor(Math.random() * 10);
@@ -410,7 +400,7 @@ $(document).ready(function() {
 
         $(".wpcf7").on('wpcf7mailsent', function(event){
             if ( 'wpcf7-f3855-o2' == event.target.id) {
-                $.cookie('roll_popup2', 'value', { path: '/' });
+                $.cookie('roll_popup_sent', 'value', { path: '/' });
                 $('.js-form-get-roll .wpcf7-submit').attr('disabled', true);
                 var roll_deg = $('.js-form-sent-ok-prize').attr('data-deg');
                 $('.js-roll-drum').css('transform', 'rotate(-' + roll_deg + 'deg)');

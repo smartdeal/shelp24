@@ -3695,6 +3695,9 @@ input[type=email] {
     width: 100%; }
   .sidebar__adr {
     font-size: 12px; }
+  .sidebar__time {
+    font-size: 12px;
+    margin-top: 5px; }
   .sidebar__bottom-links {
     margin: 2vh 0; }
   .sidebar__entry, .sidebar__warranty {
@@ -3712,7 +3715,7 @@ input[type=email] {
     margin: 20px 0 0; }
   .sidebar__bottom {
     text-align: center;
-    margin-top: 7vh; }
+    margin-top: 4vh; }
 
 .navbar_sidebar {
   position: static;

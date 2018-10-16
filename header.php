@@ -74,6 +74,9 @@
                         <?php if ($main_email = get_field('option_email','option')): ?>
                             <a href="mailto:<?php echo $main_email; ?>" class="header-mobile__item b-email b-email_header"><?php echo $main_email; ?></a>
                         <?php endif; ?>
+                        <?php if ($main_time = get_field('option_time','option')): ?>
+                            <div class="header-mobile__item b-time b-time_header"><?php echo $main_time; ?></div>
+                        <?php endif; ?>                        
                     </div>
                 </div>
             </div>

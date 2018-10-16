@@ -24,6 +24,9 @@
 			        <a href="mailto:<?php echo $main_email; ?>" class="b-email b-email_sidebar"><?php echo $main_email; ?></a>
 		        </div>
 		    <?php endif; ?>
+		    <?php if ($main_time = get_field('option_time','option')): ?>
+		    	<div class="sidebar__time"><?php echo $main_time; ?></div>
+		    <?php endif; ?>
 		</div>
 	<nav class="navbar navbar_sidebar navbar_primary" role="navigation">
 	<!--noindex-->
