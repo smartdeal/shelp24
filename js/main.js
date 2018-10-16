@@ -365,20 +365,35 @@ $(document).ready(function() {
             if ( $.cookie('roll_popup1') && !$.cookie('roll_popup2') ) {
                 setTimeout(function() { 
                     $.cookie('roll_popup2', 'value', { path: '/' });
-                    ruler_to_log();
-                    $('body').addClass('open-form-roll'); 
-                    yaCounter24815432.reachGoal('roll_show');
+                    open_form_roll();
                 }, 40000);
             }
             if ( !$.cookie('roll_popup1') ) {
                 setTimeout(function() { 
                     $.cookie('roll_popup1', 'value', { path: '/' });
-                    ruler_to_log();
-                    $('body').addClass('open-form-roll'); 
-                    yaCounter24815432.reachGoal('roll_show');
-                }, 30000);
+                    open_form_roll();
+                }, 25000);
             }
         }
+
+        function open_form_roll() {
+            ruler_to_log();
+            $('body').addClass('open-form-roll'); 
+            yaCounter24815432.reachGoal('roll_show');
+            setTimeout(function(){
+                $('.js-roll-drum').css('transform', 'rotate(-360deg)');
+            }, 1000);            
+            // setTimeout(function(){
+            //     $('.roll__item').each(function (index, el) {
+            //         setTimeout(function(){
+            //             $(el).fadeOut(1000, function() {
+            //                 $(el).fadeIn(1000);
+            //             });
+            //         }, 2000*index);
+            //     });
+            // }, 8000);            
+        }
+        // open_form_roll();
 
         $('.js-form-get-roll-close').click(function(event) {
             event.preventDefault();
@@ -557,10 +572,10 @@ $('.js-content-btns-btn').click(function (e) {
     if (wpcf7Elm != null) wpcf7Elm.addEventListener( 'wpcf7mailsent', function( event ) {yaCounter24815432.reachGoal('feedback'); }, false ); 
     wpcf7Elm = document.getElementById( 'wpcf7-f193-p776-o2' );
     if (wpcf7Elm != null) wpcf7Elm.addEventListener( 'wpcf7mailsent', function( event ) {yaCounter24815432.reachGoal('100-garantiya'); }, false ); 
+    wpcf7Elm = document.getElementById( 'wpcf7-f6043-p2173-o3' );
+    if (wpcf7Elm != null) wpcf7Elm.addEventListener( 'wpcf7mailsent', function( event ) {yaCounter24815432.reachGoal('sozdanie-prodvijenie'); }, false ); 
     $('.b-tel_header').click(function(event) {
-        if ( $('body').hasClass('w_less992') ) {
             yaCounter24815432.reachGoal('zvonok-s-mobilnoi');
-        }
     });
 
     $('.wpcf7').each(function(index, el) {

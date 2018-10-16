@@ -1,3 +1,7 @@
 .navbar_secondary .navbar-nav #nav-menu-item-103 a {
 	text-decoration: underline;
 }
+
+.roll__item {
+	transition: opacity .5s;
+}

@@ -113,6 +113,7 @@ function get_service_result_func( $atts ){
     );
     
     if ( !empty($atts) && isset($atts['ids']) ) {
+        $atts['ids'] = str_replace(' ', '', $atts['ids']);
         $arr_ids = explode(',', $atts['ids']);
         $arg['post__in'] = $arr_ids;
     } else {
@@ -120,7 +121,7 @@ function get_service_result_func( $atts ){
         $arg['orderby'] = 'menu_order';
         $arg['order'] = 'ASC';
     }
-    
+   
     $query = new WP_Query($arg);
     if ($query->have_posts() ):
         $out .= '<div class="b-result">';
