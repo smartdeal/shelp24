@@ -3895,8 +3895,29 @@ input[type=email] {
 .wpcf7 .wpcf7-mail-sent-ok {
   display: none !important; }
 .wpcf7 label {
+  display: block;
   margin: 0;
   font-weight: inherit; }
+.wpcf7 select {
+  display: block;
+  width: 100%;
+  border-radius: 0;
+  color: inherit;
+  background: #f7f7f7;
+  border: 1px solid #e5e5e5;
+  width: 100%;
+  padding: 6px 20px;
+  text-overflow: ellipsis;
+  outline: none;
+  display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url() right 10px center no-repeat;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAMAAADNLv/0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAPFBMVEUzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzP///87+xCzAAAAEnRSTlMAXKYFma8GmgGWtAezmJK4ioSBHXkEAAAAAWJLR0QTDLtclgAAAAlwSFlzAAALEgAACxIB0t1+/AAAADlJREFUCNctyksSwBAUBdFG8ETic/e/WFQ5gx41zge24B2PYoIUlbGit9ZPv4E19a5mZ2NIg2vO0wUy/gGcjurr3wAAAABJRU5ErkJggg==");
+  cursor: pointer; }
+  .wpcf7 select:focus {
+    outline: none; }
 
 .wpcf7-textarea {
   resize: none; }
@@ -4066,6 +4087,48 @@ div.wpcf7 .ajax-loader {
   display: none !important; }
 .form-content_service .wpcf7 .wpcf7-response-output {
   margin: 0; }
+
+@media (min-width: 768px) {
+  .form-content_site .form__row {
+    margin: 0 -15px; } }
+.form-content_site .form__col {
+  text-align: left;
+  display: block;
+  margin: 0 auto 15px; }
+  @media (min-width: 768px) {
+    .form-content_site .form__col {
+      display: inline-block;
+      padding: 0 15px;
+      width: 50%;
+      margin-bottom: 20px; } }
+  @media (min-width: 1200px) {
+    .form-content_site .form__col {
+      width: 33.33%; } }
+  .form-content_site .form__col > label {
+    font-size: 14px;
+    margin-bottom: 5px; }
+  @media (min-width: 1200px) {
+    .form-content_site .form__col:last-of-type {
+      padding-right: 15px; } }
+
+.form-content_without-cms .form__col_cms,
+.form-content_without-type .form__col_type,
+.form-content_without-crm .form__col_crm,
+.form-content_without-1c .form__col_1c,
+.form-content_without-seo .form__col_seo,
+.form-content_without-logo .form__col_logo,
+.form-content_without-firma .form__col_firma,
+.form-content_without-content .form__col_content {
+  display: none; }
+
+.form__col_chk-label {
+  display: flex;
+  align-items: center; }
+
+.wpcf7-form-control-wrap.policy2 .wpcf7-list-item-label {
+  padding-left: 25px;
+  text-indent: -999em;
+  width: 0; }
 
 .form-content_review .wpcf7-textarea {
   margin-bottom: 30px;
@@ -7118,6 +7181,7 @@ hr.bold {
       justify-content: space-around; } }
   .b-reviews__item {
     display: inline-block;
+    vertical-align: top;
     padding: 20px; }
   .b-reviews__img {
     background: url("") top no-repeat;

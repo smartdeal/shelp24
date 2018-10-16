@@ -1,15 +1,19 @@
 .wpcf7-checkbox {
     display: inline-block;
+
     .wpcf7-list-item {
         display: block;
+
         input[type=checkbox],
         input[type=radio] {
             display: none;
+
             &:checked+.wpcf7-list-item-label:before {
                 opacity: 1;
             }
         }
     }
+
     .wpcf7-list-item-label {
         display: inline-block;
         font-family: "Arial", sans-serif;
@@ -19,6 +23,7 @@
         line-height: 1;
         position: relative;
         text-align: left;
+
         &:before {
             opacity: 0;
             content: '';
@@ -36,6 +41,7 @@
             z-index: 1;
             transition: opacity .5s 0s;
         }
+
         &:after {
             content: '';
             width: 28px;
@@ -47,6 +53,7 @@
             background: $lightgrey;
             border: 1px solid $grey;
         }
+
         &:hover {
             cursor: pointer;
         }
@@ -57,37 +64,72 @@
     form {
         position: relative;
     }
+
     span.wpcf7-list-item {
         margin: 0;
     }
+
     .ajax-loader {
         position: absolute;
     }
+
     .wpcf7-form-control-wrap {
         width: 100%;
     }
+
     .wpcf7-not-valid,
     .wpcf7-checkbox.wpcf7-not-valid .wpcf7-list-item-label:after {
         border-color: red !important;
     }
+
     .wpcf7-not-valid-tip {
         display: none !important;
     }
+
     .wpcf7-response-output {
         margin: 20px 0;
         text-align: center;
     }
+
     .wpcf7-validation-errors {
         border: 0;
         color: red;
         font-style: italic;
     }
+
     .wpcf7-mail-sent-ok {
         display: none !important;
     }
+
     label {
+        display: block;
         margin: 0;
         font-weight: inherit;
+    }
+
+    select {
+        display: block;
+        width: 100%;
+        border-radius: 0;
+        color: inherit;
+        background: #f7f7f7;
+        border: 1px solid #e5e5e5;
+        width: 100%;
+        padding: 6px 20px;
+        text-overflow: ellipsis;
+        outline: none;
+        display: inline-block;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: url() right 10px center no-repeat;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGCAMAAADNLv/0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAPFBMVEUzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzP///87+xCzAAAAEnRSTlMAXKYFma8GmgGWtAezmJK4ioSBHXkEAAAAAWJLR0QTDLtclgAAAAlwSFlzAAALEgAACxIB0t1+/AAAADlJREFUCNctyksSwBAUBdFG8ETic/e/WFQ5gx41zge24B2PYoIUlbGit9ZPv4E19a5mZ2NIg2vO0wUy/gGcjurr3wAAAABJRU5ErkJggg==');
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+        }
+
     }
 }
 
@@ -111,27 +153,33 @@ div.wpcf7 .ajax-loader {
     text-align: center;
     clear: both;
     position: relative;
+
     &__title {
         font-size: 20px;
         font-weight: 700;
         text-transform: uppercase;
         line-height: 1.2;
         text-align: center;
+
         @include mn1200 {
             text-align: left;
         }
     }
+
     &__body {
         font-size: 14px;
         padding: 20px 0 10px;
     }
+
     &_without-lead .form__col_lead {
         display: none !important;
     }
+
     .form {
         &__inner {
             font-size: 0;
         }
+
         &__col {
             font-size: 16px;
             display: inline-block;
@@ -139,35 +187,43 @@ div.wpcf7 .ajax-loader {
             width: 350px;
             max-width: 100%;
             margin-bottom: 15px;
+
             &:last-child {
                 margin-bottom: 0;
             }
+
             @include mn1200 {
                 width: 33.33%;
                 padding-right: 20px;
                 margin-bottom: 0;
+
                 &:last-of-type {
                     padding-right: 0;
                 }
             }
         }
+
         &__label {
             line-height: 1;
             font-size: 14px;
         }
     }
+
     .wpcf7-submit {
         @include mn1200 {
             width: 100%;
         }
     }
+
     form a {
         color: inherit;
         text-decoration: underline;
+
         &:hover {
             text-decoration: none;
         }
     }
+
     .btn {
         width: 100%;
     }
@@ -178,41 +234,51 @@ div.wpcf7 .ajax-loader {
     opacity: 0;
     position: relative;
     transition: max-width .5s 0s, max-height .5s 0s, opacity .5s .3s;
+
     @include mn1200 {
         max-height: 0;
         overflow: hidden;
     }
+
     @include mn1400 {
         margin-right: 20px;
     }
+
     &.sh-visible {
         max-width: 880px;
         opacity: 1;
+
         @include mn1200 {
             max-height: 45px;
             overflow: visible;
         }
     }
+
     .form-content {
         border: 0;
         margin: 0;
         padding: 0;
         text-align: left;
+
         .form__col {
             @include mn550 {
                 margin-right: 10px;
             }
+
             @include mn1200 {
                 margin-right: 0;
             }
         }
     }
+
     .form-content__title {
         display: none;
     }
+
     .form-content__body {
         padding: 0;
     }
+
     .form__inner {
         @include mn1400 {
             display: -webkit-flex;
@@ -223,21 +289,25 @@ div.wpcf7 .ajax-loader {
             align-items: center;
         }
     }
+
     .form__col {
         @include mn1400 {
             // width: auto;
         }
     }
+
     .wpcf7-response-output {
         margin: 0 0 10px;
         position: absolute;
         z-index: 1;
         background: white;
         top: 100%;
+
         @include mn1400 {
             top: 105%;
         }
     }
+
     .wpcf7-checkbox .wpcf7-list-item-label {
         font-size: 12px;
     }
@@ -254,9 +324,11 @@ div.wpcf7 .ajax-loader {
             flex-wrap: wrap;
         }
     }
+
     .form-content__body {
         padding: 10px 0 0;
     }
+
     .form__col {
         text-align: left;
         display: -webkit-flex;
@@ -267,33 +339,40 @@ div.wpcf7 .ajax-loader {
         align-items: center;
         margin: 0 auto 15px;
         width: 400px;
+
         @include mn1200 {
             width: 33.33%;
             margin: 15px 0;
         }
+
         &_submit {
             justify-content: center;
         }
+
         &:nth-child(2) {
             @include mn1200 {
                 order: 4;
             }
         }
+
         &:nth-child(3) {
             @include mn1200 {
                 order: 5;
             }
         }
+
         &:nth-child(4) {
             @include mn1200 {
                 order: 6;
             }
         }
+
         &:nth-child(5) {
             @include mn1200 {
                 order: 3;
             }
         }
+
         &.form__col_submit {
             @include mn1200 {
                 order: 1;
@@ -301,17 +380,76 @@ div.wpcf7 .ajax-loader {
             }
         }
     }
+
     .wpcf7-checkbox .wpcf7-list-item-label {
         padding-left: 25px;
         text-indent: -999em;
         width: 0;
     }
+
     .wpcf7-mail-sent-ok {
         display: none !important;
     }
+
     .wpcf7 .wpcf7-response-output {
         margin: 0;
     }
+}
+
+.form-content_site {
+    .form__row {
+        @include mn768 {
+            margin: 0 -15px;
+        }
+    }
+
+    .form__col {
+        text-align: left;
+        display: block;
+        margin: 0 auto 15px;
+
+        @include mn768 {
+            display: inline-block;
+            padding: 0 15px;
+            width: 50%;
+            margin-bottom: 20px;
+        }
+
+        @include mn1200 {
+            width: 33.33%;
+        }
+        > label {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        &:last-of-type{
+            @include mn1200 {
+                padding-right: 15px;
+        }
+        }
+    }
+}
+
+.form-content_without-cms .form__col_cms,
+.form-content_without-type .form__col_type,
+.form-content_without-crm .form__col_crm,
+.form-content_without-1c .form__col_1c,
+.form-content_without-seo .form__col_seo,
+.form-content_without-logo .form__col_logo,
+.form-content_without-firma .form__col_firma,
+.form-content_without-content .form__col_content {
+    display: none;
+}
+
+.form__col_chk-label {
+    display: flex;
+    align-items: center;
+}
+
+.wpcf7-form-control-wrap.policy2 .wpcf7-list-item-label {
+    padding-left: 25px;
+    text-indent: -999em;
+    width: 0;
 }
 
 .form-content_review .wpcf7-textarea {
@@ -323,18 +461,23 @@ div.wpcf7 .ajax-loader {
     border: 0;
     padding: 0;
     margin: 20px 0;
+
     @include mn1200 {
         max-width: 750px;
     }
+
     .form__row {
         font-size: 0;
     }
+
     .wpcf7-form-control-wrap {
         display: block;
         margin-bottom: 10px;
+
         @include mn550 {
             margin-bottom: 20px;
         }
+
         &.nm,
         &.tel {
             @include mn550 {
@@ -343,16 +486,19 @@ div.wpcf7 .ajax-loader {
                 vertical-align: top;
             }
         }
+
         &.nm {
             @include mn550 {
                 padding-right: 10px;
             }
         }
+
         &.tel {
             @include mn550 {
                 padding-left: 10px;
             }
         }
+
         &.submit,
         &.policy {
             @include mn768 {
@@ -362,24 +508,28 @@ div.wpcf7 .ajax-loader {
                 vertical-align: middle;
             }
         }
+
         &.policy {
             @include mn768 {
                 text-align: left;
                 padding-right: 10px;
             }
         }
+
         &.submit {
             @include mn768 {
                 text-align: right;
             }
         }
     }
+
     .wpcf7-submit {
         @include mn768 {
             width: 350px;
             max-width: 100%;
         }
     }
+
     .wpcf7 .wpcf7-response-output {
         @include mn1400 {
             position: absolute;
@@ -406,16 +556,19 @@ div.wpcf7 .ajax-loader {
     z-index: 1;
     display: none;
     font-size: 20px;
+
     &__inner {
         position: relative;
         top: 50%;
         transform: translateY(-50%);
     }
+
     &__title {
         color: $red;
         font-weight: 700;
         margin-bottom: 10px;
     }
+
     &__subtitle {
         font-size: .8em;
         color: $darkgrey;
@@ -426,6 +579,7 @@ div.wpcf7 .ajax-loader {
 .b-arch-content {
     .form-sent-ok {
         font-size: 12px;
+
         &__title {
             margin-bottom: 0;
         }
@@ -439,18 +593,22 @@ div.wpcf7 .ajax-loader {
     max-height: 0;
     overflow: hidden;
     transition: max-height .5s 0s;
+
     &.active {
         max-height: 500px;
     }
+
     &-inner {
         padding: 20px;
         background: $grey;
         font-size: 14px;
         margin: 0 10px 30px;
+
         @include mn768 {
             padding: 30px;
         }
     }
+
     &-title {
         color: $darkgrey;
         font-size: 18px;
@@ -458,21 +616,26 @@ div.wpcf7 .ajax-loader {
         line-height: 24px;
         text-transform: uppercase;
         margin-bottom: 20px;
+
         @include mn768 {
             margin-bottom: 30px;
             text-align: left;
         }
     }
+
     .wpcf7-textarea {
         height: 100px;
     }
+
     .form__row,
     .form__col {
         margin-bottom: 20px;
     }
+
     .wpcf7-response-output {
         margin: 10px 0 0;
     }
+
     .form__row {
         .form__col {
             @include mn768 {
@@ -481,6 +644,7 @@ div.wpcf7 .ajax-loader {
             }
         }
     }
+
     .form__row_name-tel {
         @include mn550 {
             display: flex;
@@ -489,45 +653,55 @@ div.wpcf7 .ajax-loader {
             flex-wrap: wrap;
         }
     }
+
     .form__row_btn {
         @include mn768 {
             text-align: right;
             margin-bottom: 0;
         }
+
         .form__col {
             @include mn768 {
                 margin-left: auto;
                 margin-bottom: 0;
             }
+
             @include mn1200 {
                 padding-left: 30px;
             }
+
             @include mn1400 {
                 padding-left: 0;
             }
         }
+
         .wpcf7-submit {
             @include mn768 {
                 width: 100%;
             }
         }
     }
+
     .form__col_name,
     .form__col_tel {
         @include mn550 {
             width: calc(50% - 10px);
         }
     }
+
     .form__col_policy {
         @include mn550 {
             width: 100%;
         }
+
         @include mn1200 {
             padding-left: 30px;
         }
+
         @include mn1400 {
             padding-left: 0;
         }
+
         .wpcf7-checkbox .wpcf7-list-item-label {
             font-size: 13px;
         }
@@ -543,11 +717,13 @@ div.wpcf7 .ajax-loader {
         position: static;
         border: 0;
     }
+
     .form-get-offer__inner {
         top: 0;
         transform: none;
         padding: 0;
     }
+
     .wpcf7 .wpcf7-validation-errors {
         position: absolute;
         bottom: 0;
@@ -564,6 +740,7 @@ div.wpcf7 .ajax-loader {
     .form__row {
         margin-bottom: 20px;
     }
+
     .wpcf7-response-output {
         margin: 20px 0;
         text-align: center;
@@ -572,6 +749,7 @@ div.wpcf7 .ajax-loader {
         right: 0;
         top: 100%;
     }
+
     .forms__close {
         text-decoration: none;
         position: absolute;
@@ -583,12 +761,14 @@ div.wpcf7 .ajax-loader {
         transition: transform .5s 0s;
         transform: rotate(45deg);
         line-height: 25px;
+
         &:hover {
             // color: $red;
             text-decoration: none;
             transform: rotate(315deg);
         }
     }
+
     .form__row+.form__row {
         margin-top: 10px;
     }
@@ -608,15 +788,18 @@ div.wpcf7 .ajax-loader {
     transition: left 1s 0s;
     z-index: 1;
     text-align: center;
+
     &.opened {
         left: 100%;
     }
+
     &__inner {
         position: relative;
         top: 50%;
         transform: translateY(-50%);
         padding: 1px 0;
     }
+
     .wpcf7-form-control:not(.wpcf7-submit) {
         border-color: $darkgrey;
     }
@@ -632,6 +815,7 @@ div.wpcf7 .ajax-loader {
     background: white;
     height: 580px;
     left: -100%;
+
     &__inner {
         border: 1px solid #e5e5e5;
         border-left: 0;
@@ -640,9 +824,11 @@ div.wpcf7 .ajax-loader {
         display: flex;
         align-items: center;
     }
+
     &__inside {
         max-width: 350px;
     }
+
     &__title {
         font-size: 24px;
         font-weight: 700;
@@ -650,6 +836,7 @@ div.wpcf7 .ajax-loader {
         line-height: 1.2;
         color: #666;
     }
+
     &__subtitle {
         font-size: 26px;
         color: grey;
@@ -657,20 +844,25 @@ div.wpcf7 .ajax-loader {
         padding-bottom: 20px;
         margin-bottom: 20px;
     }
+
     input:not(.wpcf7-submit) {
         border-color: transparent;
     }
+
     &__form {
         position: relative;
     }
+
     .wpcf7-submit {
         width: 100%;
     }
+
     .form__row_decl {
         color: #999;
         font-size: 12px;
         margin: 0;
     }
+
     .forms__close {
         text-decoration: none;
         position: absolute;
@@ -679,14 +871,17 @@ div.wpcf7 .ajax-loader {
         right: 10px;
         z-index: 2;
     }
+
     .wpcf7-response-output {
         top: auto;
         bottom: -60px;
         background: white;
     }
+
     .form-sent-ok {
         font-size: 16px;
     }
+
     .ajax-loader {
         display: none !important;
     }
@@ -694,9 +889,11 @@ div.wpcf7 .ajax-loader {
 
 .open-form-roll {
     background: rgba(0, 0, 0, 0.5);
+
     .form-get-roll {
         left: 40%;
     }
+
     .content::before {
         content: '';
         position: absolute;
@@ -711,9 +908,11 @@ div.wpcf7 .ajax-loader {
 
 .content-btns {
     margin: 30px 0;
+
     &__btns {
         text-align: center;
     }
+
     &__btn {
         font-size: 16px;
         font-weight: 600;
@@ -732,17 +931,21 @@ div.wpcf7 .ajax-loader {
         cursor: pointer;
         transition: all 1s 0s;
         max-width: 100%;
+
         @include mn550 {
             margin: 5px 10px;
         }
+
         @include mn768 {
             margin: 0 20px;
             font-size: 18px;
         }
+
         &:hover {
             background: transparent;
             color: $red;
         }
+
         &::after,
         &::before {
             content: '';
@@ -753,35 +956,43 @@ div.wpcf7 .ajax-loader {
             top: 50%;
             margin-top: -18px;
         }
+
         &::before {
             background: white;
             border-radius: 50%;
         }
+
         &::after {
             content: '';
             background-position: center;
             background-repeat: no-repeat;
             background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAolBMVEX4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr4YVr///9UKqzAAAAANHRSTlMANNC8B4X7yiDJ2nkY0/2MCUPs+qxHhNg5c/yyTK0Kpv6BAhl63NLHvcHxT9Upw8a/xMDCJkmAbgAAAAFiS0dENd622WsAAAAJcEhZcwAACxIAAAsSAdLdfvwAAACASURBVBjTY2BABYxMzKgCLKxsJuxgFgcnFzcPSAmvCR+/AEhEUMjExERYRFSMzURcAqxGUspEWkZWGCgMVSInb6KgqMTAoKyiqgZUoq7BwKBpoqWNZIGJCVBYR5eBQU8PWQjB0DfAEIITeoYYQqg8eggZGQMZxppAwlAD5F4NBgBZEhddNxYanwAAAABJRU5ErkJggg==');
         }
+
         &_create {
             background: #444444;
             border-color: #444444;
+
             &::after {
                 background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA2FBMVEVERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERET///+I34poAAAARnRSTlMAgv7AzMEyEiz72fknSvbQYmMI2t/iX90HfZs6jYvvie5n+ENNPfVhZFJRg4xTP+BQPmbwjwNAwnnb/dwZ7PPWS9Ln+ijLb3ZEvAAAAAFiS0dER2C9yXsAAAAJcEhZcwAACxIAAAsSAdLdfvwAAADgSURBVBjTVVBpV8JAEEtXBGxLhbaUs6jlKNgiiBeUU9D8/5/kbpfHw3zZmeybmSRADkOQwsA1blgo8PbSFkso35mAadkoFRVTEc69wypQoyxEBXA94bMeqM+gzobwmmixrdpON+yot80WeqzJ6oESXajpRzxZkY0+/cHA5xC2NYqBMQ2EnADPDJHkM1UmSDkFpjklT8cjKeeFs/l8xlfYUbTAm+LxrtY3PvT6s4jPNP3iUotwV9laS91ss90+81zgIJxvh7GydlydxOFs+8cydQTa9iWc3+BfXomMUOrL8QdJpBxi+p4iSgAAAABJRU5ErkJggg==');
             }
+
             &:hover {
                 color: #444;
             }
         }
     }
+
     &__form {
         display: none;
         margin-top: 10px;
         text-align: center;
+
         @include mn768 {
             max-width: 640px;
             margin: 10px auto;
         }
+
         .form__row {
             @include mn768 {
                 display: flex;
@@ -789,17 +1000,21 @@ div.wpcf7 .ajax-loader {
                 justify-content: center;
             }
         }
+
         .form__inner {
             padding: 30px 0;
         }
+
         .wpcf7-form-control-wrap.policy {
             max-width: 200px;
             display: inline-block;
             margin: 5px 0;
         }
+
         .wpcf7-form-control-wrap.tel {
             max-width: 200px;
             display: inline-block;
+
             @include mn768 {
                 margin-right: 20px;
             }
