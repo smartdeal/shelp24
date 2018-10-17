@@ -3,7 +3,7 @@
     top: 50px;
     left: -238px;
     &__center {
-        background: #f8615a url(../img/icon-roll-center.png) center no-repeat;
+        background: #eab9b7 url(../img/icon-roll-center.png) center no-repeat;
         width: 66px;
         height: 66px;
         border-radius: 50%;
@@ -28,8 +28,8 @@
         border-radius: 50%;
         position: relative;
         background: url(../img/roll.png) center no-repeat;
-        transform: rotate(0deg);
-        transition: transform 7s ease-out 0s;
+        transform: rotate(-180deg);
+        transition: transform 4s ease-out 0s;
     }
     &__item {
         position: absolute;

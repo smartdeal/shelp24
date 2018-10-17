@@ -3672,7 +3672,8 @@ input[type=email] {
   left: 0;
   top: 0;
   z-index: 3;
-  height: 100vh; }
+  height: 100vh;
+  background: white; }
   @media (min-width: 992px) {
     .sidebar {
       display: block;
@@ -3716,6 +3717,16 @@ input[type=email] {
   .sidebar__bottom {
     text-align: center;
     margin-top: 4vh; }
+
+.open-form-roll .sidebar::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 8; }
 
 .navbar_sidebar {
   position: static;
@@ -4371,7 +4382,6 @@ div.wpcf7 .ajax-loader {
 .form-get-roll {
   padding: 20px 20px 20px 0;
   position: fixed;
-  transition: left 1s 0s;
   z-index: 1;
   top: 50%;
   transform: translateY(-50%);
@@ -4403,8 +4413,16 @@ div.wpcf7 .ajax-loader {
     border-color: transparent; }
   .form-get-roll__form {
     position: relative; }
+  .form-get-roll .wpcf7-checkbox .wpcf7-list-item-label:before {
+    background-image: url(../img/icon-check-pink.png); }
   .form-get-roll .wpcf7-submit {
-    width: 100%; }
+    width: 100%;
+    box-shadow: 0 0 0 0 #eab9b7;
+    animation: pulse 1.5s 0s 1;
+    -webkit-animation: pulse 1.5s 0s 1; }
+  .form-get-roll .wpcf7-submit:hover {
+    animation: none;
+    -webkit-animation: none; }
   .form-get-roll .form__row_decl {
     color: #999;
     font-size: 12px;
@@ -4425,6 +4443,16 @@ div.wpcf7 .ajax-loader {
   .form-get-roll .ajax-loader {
     display: none !important; }
 
+@keyframes pulse {
+  70% {
+    box-shadow: 0 0 0 20px rgba(234, 185, 183, 0); }
+  100% {
+    box-shadow: 0 0 0 0 rgba(234, 185, 183, 0); } }
+@-webkit-keyframes pulse {
+  70% {
+    box-shadow: 0 0 0 20px rgba(234, 185, 183, 0); }
+  100% {
+    box-shadow: 0 0 0 0 rgba(234, 185, 183, 0); } }
 .open-form-roll {
   background: rgba(0, 0, 0, 0.5); }
   .open-form-roll .form-get-roll {
@@ -7105,7 +7133,7 @@ hr.bold {
   top: 50px;
   left: -238px; }
   .roll__center {
-    background: #f8615a url(../img/icon-roll-center.png) center no-repeat;
+    background: #eab9b7 url(../img/icon-roll-center.png) center no-repeat;
     width: 66px;
     height: 66px;
     border-radius: 50%;
@@ -7128,8 +7156,8 @@ hr.bold {
     border-radius: 50%;
     position: relative;
     background: url(../img/roll.png) center no-repeat;
-    transform: rotate(0deg);
-    transition: transform 7s ease-out 0s; }
+    transform: rotate(-180deg);
+    transition: transform 4s ease-out 0s; }
   .roll__item {
     position: absolute;
     font-size: 14px;

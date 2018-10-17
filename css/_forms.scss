@@ -808,7 +808,7 @@ div.wpcf7 .ajax-loader {
 .form-get-roll {
     padding: 20px 20px 20px 0;
     position: fixed;
-    transition: left 1s 0s;
+    // transition: left 1s 0s;
     z-index: 1;
     top: 50%;
     transform: translateY(-50%);
@@ -853,8 +853,19 @@ div.wpcf7 .ajax-loader {
         position: relative;
     }
 
+    .wpcf7-checkbox .wpcf7-list-item-label:before {
+        background-image: url(../img/icon-check-pink.png);
+    }
+
     .wpcf7-submit {
         width: 100%;
+        box-shadow: 0 0 0 0 #eab9b7;
+        animation: pulse 1.5s 0s 1;
+        -webkit-animation: pulse 1.5s 0s 1;
+    }
+    .wpcf7-submit:hover {
+        animation: none;
+        -webkit-animation: none;
     }
 
     .form__row_decl {
@@ -886,6 +897,24 @@ div.wpcf7 .ajax-loader {
         display: none !important;
     }
 }
+
+@keyframes pulse {
+    70% {
+      box-shadow: 0 0 0 20px rgba(#eab9b7, 0);
+    }
+      100% {
+      box-shadow: 0 0 0 0 rgba(#eab9b7, 0);
+    }
+  }
+
+@-webkit-keyframes pulse {
+    70% {
+      box-shadow: 0 0 0 20px rgba(#eab9b7, 0);
+    }
+      100% {
+      box-shadow: 0 0 0 0 rgba(#eab9b7, 0);
+    }
+  }
 
 .open-form-roll {
     background: rgba(0, 0, 0, 0.5);

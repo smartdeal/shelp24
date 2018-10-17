@@ -365,7 +365,7 @@ $(document).ready(function() {
             if ( !$.cookie('roll_popup_sent') ) {
                 setTimeout(function() { 
                     open_form_roll();
-                }, 25000);
+                }, 20000);
             }
         }
 
@@ -391,7 +391,7 @@ $(document).ready(function() {
         });
 
         var roll_prize = Math.floor(Math.random() * 10);
-        var roll_lap = 1*360;
+        var roll_lap = 1*180;
         var roll_deg = roll_prize*36+(roll_lap)-36;
         var prize = $('.roll__item').eq(roll_prize-1).text();
 
@@ -400,6 +400,7 @@ $(document).ready(function() {
 
         $(".wpcf7").on('wpcf7mailsent', function(event){
             if ( 'wpcf7-f3855-o2' == event.target.id) {
+                yaCounter24815432.reachGoal('roll_send');
                 $.cookie('roll_popup_sent', 'value', { path: '/' });
                 $('.js-form-get-roll .wpcf7-submit').attr('disabled', true);
                 var roll_deg = $('.js-form-sent-ok-prize').attr('data-deg');
@@ -567,15 +568,6 @@ $('.js-content-btns-btn').click(function (e) {
     $('.b-tel_header').click(function(event) {
             yaCounter24815432.reachGoal('zvonok-s-mobilnoi');
     });
-
-    $('.wpcf7').each(function(index, el) {
-        var id = $(el).attr('id');
-        if (id.indexOf('f3855') != -1) 
-            $(el).on('wpcf7mailsent', function(event) {
-                yaCounter24815432.reachGoal('roll_send');
-            });
-    });
-
 
 $(function() {
  $.fn.scrollToTop = function() {
