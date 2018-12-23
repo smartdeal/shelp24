@@ -61,7 +61,32 @@ Template Post Type: page
                                                 </div>
                                             </div>
                                         <?php endfor; ?>
-                                        <div class="b-employees__person">
+
+                                            <!--<div class="b-employees__person">
+                                            <div class="b-employees__photo">
+                                                <div class="b-employees__img">
+                                                    <div class="f-resume">
+                                                        <img src="<?php echo kama_thumb_src("w=320 &h=470", $arrTeam[$i]['photo']['url']) ?>" alt="">
+                                                        <div class="f-resume__body">
+                                                            <div class="f-resume__title"></div>
+                                                            <div class="f-resume__logo"><img src="<?php echo get_template_directory_uri() ?>/img/logo-footer.png" alt=""></div>
+                                                            <div class="f-resume__form">
+                                                                <?= do_shortcode('[contact-form-7 id="5683" title="Форма Стать сотрудником"]') ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>-->
+
+
+
+
+
+                                        <!--Новый блок Geek Brains -->
+                                        <div style="width:100%">
+
+                                        <div class="b-employees__person team-new-geek1" style="float: left;">
                                             <div class="b-employees__photo">
                                                 <div class="b-employees__img">
                                                     <div class="f-resume">
@@ -77,6 +102,23 @@ Template Post Type: page
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="team-new-geek2" style="width: 43.6%;float: left;margin: 0% 2%;">
+                                            <div class="b-employees__text">
+                                            <div class="b-employees__name">Начни новую жизнь с Seohelp</div>
+                                            <br>
+                                            <div class="b-employees__positon">
+                                               <p> Мы являемся официальными партнерами образовательного портала GeekBrains и у нас можно пройти стажировки c вознаграждением по одному из направлений:</p><br>
+- SMM-менеджер<br><br>
+- Веб-разработчик<br><br>
+- Веб-дизайнер<br><br>
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="team-new-geek3"style="float: left;width: 18%;margin-top: 30px;"><a href="https://geekbrains.ru/courses?utm_source=seohelp24.ru&utm_medium=partner&utm_campaign=team&utm_content=courses" target="_blank" rel="nofollow"><img src="/geek-logo.png"></a></div>
+                                        </div>
+                                        <!-- Конец нового блока-->
+
+
                                     </div>
                                 </div>
                             <?php endif; ?>

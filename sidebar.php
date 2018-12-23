@@ -29,7 +29,7 @@
 		    <?php endif; ?>
 		</div>
 	<nav class="navbar navbar_sidebar navbar_primary" role="navigation">
-	<!--noindex-->
+
 	    <?php
 	        wp_nav_menu( array(
 	            'theme_location'    => 'primary',
@@ -42,10 +42,10 @@
 	            )
 	        );
 	    ?>
-	<!--/noindex-->
+	
 	</nav>
 	<nav class="navbar navbar_sidebar navbar_secondary" role="navigation">
-	<!--noindex-->
+	
 	    <?php
 	        wp_nav_menu( array(
 	            'theme_location'    => 'secondary',
@@ -58,7 +58,7 @@
 	            )
 	        );
 	    ?>
-	<!--/noindex-->
+
 	</nav>
 	<div class="sidebar__bottom js-sidebar__bottom">
 			<form role="search" method="get" class="search-form" action="<?php echo home_url() ?>">
@@ -78,7 +78,7 @@
 					<?php $i = 1; ?>
 					<?php foreach ($option_social as $value) { ?>
 						<div class="social__item social__item_<?php echo $i; ?>">
-							<a href="<?php echo $value['option_social_link']; ?>" class="social__icon" target="_blank" style="background-image:url(<?php echo $value['option_social_icon']['sizes']['thumbnail']; ?>)"></a>
+							<a href="<?php echo $value['option_social_link']; ?>" class="social__icon" target="_blank" style="background-image:url(<?php echo $value['option_social_icon']['sizes']['thumbnail']; ?>)" rel="nofollow"></a>
 						</div>
 					<?php $i++; } ?>
 				</div>
@@ -92,5 +92,6 @@
     	<div class="form-sent-ok js-form-sent-ok"><div class="form-sent-ok__inner"><div class="form-sent-ok__title">Спасибо!</div><div class="form-sent-ok__subtitle">Заявка принята. Наш специалист позвонит Вам.</div></div></div>
     </div>
 </div>
-<?php get_template_part( 'inc/tpl-roll' ); ?>
 </div>
+
+<?php get_template_part( 'inc/tpl-roll' ); ?>

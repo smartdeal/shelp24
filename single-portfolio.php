@@ -4,6 +4,9 @@
                 <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
                     <?php if(function_exists('bcn_display')) {bcn_display(); }?>
                 </div>
+                	<div class="portfolio-menu1">
+<?php wp_nav_menu( array('theme_location' => 'portfolio', 'depth' => 1, 'container' => 'div', 'container_class' => 'nav_footer_container', 'menu_class' => 'nav nav_footer', ) ); ?>
+</div>
                 <?php if (have_posts()) { 
                     while (have_posts()) { the_post(); ?>
                         <div class="content__body">

@@ -93,5 +93,13 @@
     	var home_url="<?php echo home_url(); ?>";
     	var theme_url="<?php echo get_template_directory_uri(); ?>";
 	</script>
+
+
+
+
+
+
+
 </body>
+
 </html>

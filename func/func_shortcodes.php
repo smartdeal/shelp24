@@ -431,3 +431,21 @@ function get_reviews_func( $atts ){
     return $out;
 }
 add_shortcode('get_reviews', 'get_reviews_func');
+
+
+function service_icons_func() {
+return '<div class="service-icons">
+    <h2>Включено в разработку</h2>
+    <div class="service-icon"><img src=/img/service-icon1.png><p>Функция обратного звонка</p></div>
+    <div class="service-icon"><img src=/img/service-icon2.png><p>Интерактивная карта</p></div>
+    <div class="service-icon"><img src=/img/service-icon3.png><p>Корпоративная почта</p></div>
+    <div class="service-icon"><img src=/img/service-icon4.png><p>Удобная система управления</p></div>
+    <div class="service-icon"><img src=/img/service-icon5.png><p>SSL сертификат безопасности</p></p></div>
+    <div class="service-icon"><img src=/img/service-icon6.png><p>Уникальный дизайн</p></div>
+    <div class="service-icon"><img src=/img/service-icon7.png><p>Адаптивная верстка</p></div>
+    <div class="service-icon"><img src=/img/service-icon8.png><p>Базовая SEO оптимизация</p></div>
+
+
+</div>';
+}
+add_shortcode('service_icons', 'service_icons_func');

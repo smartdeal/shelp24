@@ -259,7 +259,15 @@ $(document).ready(function() {
     });
 
     $('.equalHeights').equalHeights();
-/*
+    
+    
+    
+    
+    
+    
+    
+    /*
+
     $('.header-mobile .navbar-nav > li > a').click(function(event) {
         console.log("event", event);
         if (event.target.className == 'caret' && $(this).closest('.menu-item').hasClass('open')) {
@@ -267,7 +275,16 @@ $(document).ready(function() {
             $(this).closest('.menu-item').find('.dropdown-toggle').dropdown("toggle");
         }
     });
+
+
 */
+
+
+
+
+
+
+
     $(".wpcf7").on('wpcf7mailsent', function(event){
         if ($(this).closest('.js-form-wrap').find('.js-form-sent-ok').length){
             $(this).closest('.js-form-wrap').find('.js-form-sent-ok').fadeIn('slow');
@@ -359,25 +376,32 @@ $(document).ready(function() {
     }
 
     // Рулетка
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------------------
+
+
     if ( $('.js-form-get-roll').length ) {
 
-        if ( $(window).width() >= 1200 ) {
-            if ( !$.cookie('roll_popup_sent') ) {
-                setTimeout(function() { 
-                    open_form_roll();
-                }, 20000);
-            }
+        if ( !$.cookie('roll_popup_sent') ) {
+            setTimeout(function() {
+                open_form_roll();
+            }, 13000);
         }
 
         function open_form_roll() {
             ruler_to_log();
-            $('body').addClass('open-form-roll'); 
+            $('body').addClass('open-form-roll');
             yaCounter24815432.reachGoal('roll_show');
-            setTimeout(function(){
-                $('.js-roll-drum').css('transform', 'rotate(-360deg)');
-            }, 1000);                     
+             $('.js-roll-drum').css('transform', 'rotate(-216deg)');
         }
-        // open_form_roll();
 
         $('.js-form-get-roll-close').click(function(event) {
             event.preventDefault();
@@ -392,7 +416,7 @@ $(document).ready(function() {
 
         var roll_prize = Math.floor(Math.random() * 10);
         var roll_lap = 1*180;
-        var roll_deg = roll_prize*36+(roll_lap)-36;
+        var roll_deg = roll_prize*36+(roll_lap)-216;
         var prize = $('.roll__item').eq(roll_prize-1).text();
 
         $('.js-form-sent-ok-prize').attr('data-deg', roll_deg).text(prize);
@@ -412,7 +436,7 @@ $(document).ready(function() {
         });        
     }
 
-    var portfolio_hover = function () {
+ /*   var portfolio_hover = function () {
         var $portfolio = $('.home .portfolio__link');
         var ms = 350;
         if (!$portfolio.length) return;
@@ -430,7 +454,7 @@ $(document).ready(function() {
             
                                 
     }
-    portfolio_hover();
+    portfolio_hover();*/
 
 }); // $(document).ready
 
@@ -500,9 +524,9 @@ $('.js-content-btns-btn').click(function (e) {
 });
 
 
-/* Yandex Map
- ========================================================*/
-    var map_container = document.getElementById("map");
+//Yandex Map
+// ========================================================
+     var map_container = document.getElementById("map");
     if (map_container) {
         $(document).ready(function () {
             get_map(map_container, map_contact);
@@ -591,3 +615,12 @@ $(function() {
 
 });
 
+
+
+
+
+
+
+$('.mega-current-menu-item').each(function(){
+$(this).html( $(this).find('a').text() );
+});

@@ -1,0 +1,22 @@
+/*
+Theme Name: Seohelp
+Description: Special for Seohelp24.ru
+Version: .9
+Author: 4mobile@mail.ru
+*/
+span.quote-text{
+  width: 600px;
+  max-width: 80%;
+  margin: 0 auto;
+  display: block;
+  color: #f8615a;
+  text-align: center;
+}
+span.quote-author{
+  width: 600px;
+  max-width: 80%;
+  margin: 0 auto;
+  display: block;
+  color: #f8615a;
+  text-align: right;
+}

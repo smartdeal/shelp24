@@ -44,6 +44,7 @@ add_action('after_setup_theme','footer_enqueue_scripts');
 function seohelp_styles() {
     if ( ! is_admin() && ! is_login_page() ) {
         wp_enqueue_style( 'seohelp-style-main',    get_template_directory_uri() . '/css/main.css');
+ 
         wp_enqueue_style( 'seohelp-style-cust',    get_template_directory_uri() . '/css/custom.css');
     }
 }
@@ -71,6 +72,8 @@ function seohelp_scripts() {
         if (is_page_template('page-reviews.php')) wp_enqueue_script( 'seohelp-js-zoom',  get_template_directory_uri() . '/js/jquery.zoom.min.js', array('jquery'), '20170630', true );
         // if (is_page_template('page-contacts.php')) wp_enqueue_script( 'seohelp-js-map',  '', array(), '', true );
         wp_enqueue_script( 'seohelp-js-custom',    get_template_directory_uri() . '/js/main.js', array('jquery'), '20170630', true );
+
+
         $map_contact = array('lat' => get_field('option_map_lat','option'), 'long' => get_field('option_map_long','option'));
         wp_localize_script( 'seohelp-js-custom', 'map_contact', $map_contact );
         wp_localize_script( 'seohelp-js-custom', 'ajax_url', admin_url('admin-ajax.php') );
@@ -92,6 +95,7 @@ function new_setup() {
             'footer3' => __( 'Футер меню 3', 'seohelp' ),
             'footer_mob1' => __( 'Футер меню мобильное 1', 'seohelp' ),
             'footer_mob2' => __( 'Футер меню мобильное 2', 'seohelp' ),
+             'portfolio' => __( 'Портфолио', 'seohelp' ),
         ) 
     );
     if ( function_exists( 'add_image_size' ) ) { 
@@ -352,6 +356,8 @@ function get_portfolio($posts_per_page = -1) {
         'posts_per_page' => $posts_per_page,
         'post_type' => 'portfolio',
         'post_status' => 'publish',
+
+       
     );
     $query = new WP_Query($arg);
     if ($query->have_posts() ):
@@ -381,6 +387,7 @@ function get_portfolio($posts_per_page = -1) {
             $out .= '<div class="portfolio__caption">'.get_the_title().'</div>';
             $tax_name_main = get_field('folio_type_tile');
             if ($tax_name_main) $out .= '<div class="portfolio__tax-main">'.get_term($tax_name_main)->name.'</div>';
+            $out .= '<div class="smotret">Смотреть кейс</div>';
             if (has_post_thumbnail())
                 $out .= '<img src="'.wp_get_attachment_image_url(get_post_thumbnail_id(),'medium').'" alt="'.get_the_title().'" class="portfolio__img">';
             $out .= '</a>';
@@ -393,7 +400,7 @@ function get_portfolio($posts_per_page = -1) {
         array_multisort( $arrTmp, SORT_NUMERIC, $arrPortfolio_tax); // сортирует Таксиномию по ИД
         $out .= '</div>';
         if ($portfolio_full) {
-            $out_menu .= '<div class="portfolio-filter js-portfolio-filter">';
+            $out_menu .= '<div class="portfolio-filter js-portfolio-filter" style="display:none;">';
             $out_menu .= '<div class="portfolio-filter__btn js-portfolio-filter-btn"><span></span><span></span><span></span></div>';
             $out_menu .= '<div class="portfolio-menu">';
             $out_menu .= '<a href="#" class="portfolio-menu__link js-portfolio-btn" data-filter=".portfolio__item">Все работы</a>';
@@ -608,3 +615,117 @@ function ajax_ruler_to_log_callback() {
     file_put_contents(get_home_path().'/ruler.log', date("d.m.Y H:i", $time+3*3600).' :: '.$user_ip.' :: '.$site_url.' :: '.$agent.PHP_EOL, FILE_APPEND);
     wp_send_json( $user_ip.'-'.$site_url.'-'.get_home_path() );
 }
+
+
+
+//Загрузка изображений в формате webp
+
+function webp_upload_mimes( $existing_mimes ) {
+    // add webp to the list of mime types
+    $existing_mimes['webp'] = 'image/webp';
+
+    // return the array back to the function with our added mime type
+    return $existing_mimes;
+}
+add_filter( 'mime_types', 'webp_upload_mimes' );
+
+
+
+/*** Функция вывода rel="canonical" ***/
+/*remove_action('wp_head', 'rel_canonical');
+function mayak_wp_canonical(){
+if ( !is_singular() )
+        return;
+    global $wp_the_query;
+    if ( !$id = $wp_the_query->get_queried_object_id() )
+        return;
+    $link = get_permalink( $id );
+    if ( $page = get_query_var('cpage') )
+        $link = get_comments_pagenum_link( $page );
+    echo "<link rel='canonical' href='$link' />\n";
+}
+add_action('wp_head', 'mayak_wp_canonical',3);
+function mayak_canonical(){
+        if (is_home() ) {
+            $mayak_chief_link = get_option('home');
+            $mayak_home_link = mayak_link_paged($mayak_chief_link);
+            {
+        echo "".'<link rel="canonical" href="'.$mayak_home_link.'" />'."\n";
+    }
+} else if (is_category()) {
+            $mayak_cat_link = get_category_link(get_query_var('cat'));
+            $mayak_category_link = mayak_link_paged($mayak_cat_link);
+            {
+        echo "".'<link rel="canonical" href="'.$mayak_category_link.'" />'."\n";
+    }
+} else if (function_exists('is_tag') && is_tag()){
+            $tag = get_term_by('slug',get_query_var('tag'),'post_tag');
+        if (!empty($tag->term_id)) {
+            $tag_link = get_tag_link($tag->term_id);
+            }
+            $mayak_tag_link = mayak_link_paged($tag_link);
+            $mayak_tag_link = trailingslashit($mayak_tag_link);
+           {
+        echo "".'<link rel="canonical" href="'.$mayak_tag_link.'" />'."\n";
+    }
+} else if (is_author()){
+            global $cache_userdata;
+            $userid = get_query_var('author');
+            $mayak_auth_link = get_author_posts_url ( 'ID' );
+        $mayak_author_link = mayak_link_paged($mayak_auth_link);
+        {
+        echo "".'<link rel="canonical" href="'.$mayak_author_link.'" />'."\n";
+    }
+}
+else if (is_date()){
+if (get_query_var('m')) {
+                $m = preg_replace('/[^0-9]/', '', get_query_var('m'));
+                switch (strlen($m)) {
+                    case 0:
+                        $mayak_date_link = get_year_link($m);
+                        $mayak_date_link = mayak_link_paged( $mayak_date_link );
+                        break;
+                    case 1:
+                        $mayak_date_link = get_month_link(substr($m, 0, 4), substr($m, 4, 2));
+                        $mayak_date_link = mayak_link_paged( $mayak_date_link );
+                        break;
+                    case 2:
+                        $mayak_date_link = get_day_link( substr($m, 0, 4), substr($m, 4, 2), substr($m, 6, 2));
+                        $mayak_date_link = mayak_link_paged( $mayak_date_link );                    
+                        break;
+                    default:
+                        $mayak_date_link = '';
+                }
+                }
+                if (is_day()) {
+                $mayak_date_link = get_day_link(get_query_var('year'),  get_query_var('monthnum'), get_query_var('day'));
+                $mayak_date_link = mayak_link_paged($mayak_date_link);                  
+            } else if (is_month()) {
+                $mayak_date_link = get_month_link(get_query_var('year'), get_query_var('monthnum'));
+                $mayak_date_link = mayak_link_paged($mayak_date_link);                    
+            } else if (is_year()) {
+                $mayak_date_link = get_year_link(get_query_var('year'));
+                $mayak_date_link = mayak_link_paged($mayak_date_link);
+            }
+        {
+        echo "".'<link rel="canonical" href="'.$mayak_date_link.'" />'."\n";
+        }
+    }
+}
+function mayak_link_paged($link) {
+            $mayak_page = get_query_var('paged');
+            $mayak_check = function_exists('user_trailingslashit');
+        if ($mayak_page && $mayak_page > 1) {
+            $link = trailingslashit($link);
+            if ($mayak_check) {
+                $link = user_trailingslashit($link, 'paged');
+            } else {
+                $link .= '/';
+            }
+        }
+            return $link;
+    }
+add_action('wp_head', 'mayak_canonical');
+ */
+/*** Конец функции вывода rel="canonical" ***/
+
