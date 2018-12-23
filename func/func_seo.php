@@ -9,11 +9,6 @@ function seo_header_func(){
     {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "'.$rating['rating'].'",
-        "reviewCount": "'.$rating['reviewCount'].'"
-    },
     "url": "http://seohelp24.ru/",
     "name": "Seohelp24",
     "email": "order@seohelp24.ru",
